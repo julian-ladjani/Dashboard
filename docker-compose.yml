@@ -1,0 +1,14 @@
+version: '2'
+services:
+  server:
+    build:
+      context: ./server/
+    command: npm run dev
+    volumes:
+      - ./server/:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true

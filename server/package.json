@@ -1,0 +1,14 @@
+{
+  "name": "Dashboard",
+  "version": "1.0.0",
+  "description": "Node.js Dashboard server docker",
+  "author": "Julian Ladjani <julian.ladjani@example.com>",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}
