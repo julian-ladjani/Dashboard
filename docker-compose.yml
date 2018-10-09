@@ -3,8 +3,7 @@ services:
   server:
     build:
       context: ./server/
-    command: /usr/app/node_modules/.bin/nodemon src/index.js
-    command: npm start
+    command: /usr/app/node_modules/.bin/nodemon server.js
     volumes:
       - ./server/:/usr/app
       - /usr/app/node_modules
@@ -13,3 +12,9 @@ services:
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
+    links:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27018:27018"
