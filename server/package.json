@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Node.js Dashboard server docker",
   "author": "Julian Ladjani <julian.ladjani@example.com>",
+  "license": "MIT",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,6 +11,7 @@
   },
   "dependencies": {
     "express": "^4.16.1",
+    "morgan": "~1.9.0",
     "mongoose": "^5.3.2",
     "body-parser": "^1.18.3",
     "pokedex-promise-v2": "^3.1.1"
