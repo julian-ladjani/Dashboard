@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="103.57926mm"
+   height="40.52969mm"
+   viewBox="0 0 103.57926 40.52969"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (unknown)"
+   sodipodi:docname="trashboard-logo.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="22.4"
+     inkscape:cx="173.06765"
+     inkscape:cy="138.58982"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="false"
+     inkscape:lockguides="true"
+     inkscape:window-width="1853"
+     inkscape:window-height="1025"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-73.329207,-56.285862)">
+    <rect
+       style="opacity:1;fill:#404040;fill-opacity:1;stroke:#3b3b3d;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect845"
+       width="23.103794"
+       height="2.5513394"
+       x="113.3456"
+       y="61.284599" />
+    <path
+       style="opacity:1;fill:#d71c5b;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 478.39258,249.39453 v 69.29688 h 9.64258 v -69.29688 z"
+       transform="scale(0.26458333)"
+       id="path1003"
+       inkscape:connector-curvature="0" />
+    <path
+       style="opacity:1;fill:#de1d25;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 456.69727,265.01953 v 53.67188 h 9.64257 v -53.67188 z"
+       transform="scale(0.26458333)"
+       id="path1001"
+       inkscape:connector-curvature="0" />
+    <path
+       style="opacity:1;fill:#f0572a;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 434.28516,284.39453 v 34.29688 h 9.64257 v -34.29688 z"
+       transform="scale(0.26458333)"
+       id="path999"
+       inkscape:connector-curvature="0" />
+    <path
+       style="opacity:1;fill:#912987;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 499.82227,298.05469 v 20.63672 h 9.64257 v -20.63672 z"
+       transform="scale(0.26458333)"
+       id="rect845-3"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#404040;fill-opacity:1;stroke:#3b3b3d;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 118.35379,61.70982 1.84264,-5.291666 h 9.30766 l 2.12612,5.953125 -3.2128,-0.661459 -0.89769,-2.598586 h -5.33892 l -1.08668,3.307291 z"
+       id="path924"
+       inkscape:connector-curvature="0" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot972"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'Samyak Tamil';-inkscape-font-specification:'Samyak Tamil';letter-spacing:0.10686106px;word-spacing:0px;fill:#3f3f41;fill-opacity:1;stroke:none"
+       transform="matrix(0.37139347,0,0,0.37139347,-100.63338,-50.47759)"><flowRegion
+         id="flowRegion974"
+         style="letter-spacing:0.10686106px;fill:#3f3f41;fill-opacity:1"><rect
+           id="rect976"
+           width="330.31989"
+           height="83.842674"
+           x="468.20572"
+           y="358.84436"
+           style="letter-spacing:0.10686106px;fill:#3f3f41;fill-opacity:1" /></flowRegion><flowPara
+         id="flowPara978"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Avenir Next LT Pro';-inkscape-font-specification:'Avenir Next LT Pro Bold';letter-spacing:0.10686106px;fill:#3f3f41;fill-opacity:1">TRAS<flowSpan
+   style="letter-spacing:0.14248142px;fill:#3f3f41;fill-opacity:1"
+   id="flowSpan984">HBOARD</flowSpan></flowPara></flowRoot>  </g>
+</svg>
