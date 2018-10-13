@@ -1,6 +1,8 @@
 version: '2'
 services:
   server:
+    depends_on:
+      - mongo
     build:
       context: ./server/
     command: /usr/app/node_modules/.bin/nodemon server.js
@@ -19,3 +21,7 @@ services:
     command: mongod --port 27018 --logpath=/dev/null --quiet
     ports:
       - "27018:27018"
+    volumes:
+      - mongo_data:/data/db
+volumes:
+  mongo_data:

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(router) {
-    const pokemonApi = require('../controllers/pokemonApiController');
+    const pokemonApi = require('../controllers/pokemon');
 
     // todoList Routes
     router
