@@ -1,27 +1,14 @@
 version: '2'
 services:
-  server:
-    depends_on:
-      - mongo
+  client:
     build:
-      context: ./server/
-    command: /usr/app/node_modules/.bin/nodemon server.js
+      context: ./client/
+    command: npm start
     volumes:
       - ./server/:/usr/app
-      - /usr/app/node_modules
     ports:
-      - "8080:8080"
-    environment:
-      - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true
-    links:
-      - mongo
-  mongo:
-    image: mongo
-    command: mongod --port 27018 --logpath=/dev/null --quiet
-    ports:
-      - "27018:27018"
-    volumes:
-      - mongo_data:/data/db
-volumes:
-  mongo_data:
+      - "4200:4200" 
+      - "49153:49153"
+    expose:
+      - "4200"
+      - "49153"
