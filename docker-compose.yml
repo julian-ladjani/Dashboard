@@ -5,7 +5,8 @@ services:
       context: ./client/
     command: npm start
     volumes:
-      - ./server/:/usr/app
+      - ./client/:/usr/app
+      - /usr/app/node_modules
     ports:
       - "4200:4200" 
       - "49153:49153"
