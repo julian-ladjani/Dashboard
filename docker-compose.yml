@@ -13,3 +13,8 @@ services:
     expose:
       - "4200"
       - "49153"
+  server:
+    build:
+      context: ./server/
+    ports:
+      - 8080:8080
