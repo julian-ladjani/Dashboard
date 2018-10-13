@@ -16,17 +16,4 @@ passport.use(new GoogleStrategy({
     }
 ));
 
-exports.authenticate = function() {
-    passport.authenticate('google', {
-        scope:
-            ['https://www.googleapis.com/auth/plus.login',
-                'https://www.googleapis.com/auth/plus.profile.emails.read']
-    })
-};
-
-exports.loginCallback = function() {
-    passport.authenticate('google', {
-        successRedirect: '/auth/google/success',
-        failureRedirect: '/auth/google/failure'
-    })
-};
+module.exports = passport;

@@ -9,6 +9,6 @@ router.get('/', (req, res) => {
     res.status(200).send("Hello World");
 });
 
-router.use('/api', apiRouter);
-errorRoutes(router);
+router.use('/', apiRouter);
+//errorRoutes(router);
 module.exports = router;
