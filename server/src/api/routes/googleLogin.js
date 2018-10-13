@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (router) {
-    const passport = require('../controllers/googleLoginApiController');
+    const passport = require('../controllers/googleLogin');
 
     router.get('/auth/google',
         passport.authenticate('google', {
@@ -10,8 +10,8 @@ module.exports = function (router) {
                     'https://www.googleapis.com/auth/plus.profile.emails.read']
         }));
     router.get('/auth/google/callback',
-        passport.authenticate('google', {
-            successRedirect: '/profile',
-            failureRedirect: '/fail'
-        }));
+        passport.authenticate('google', {failureRedirect: '/'}),
+        function (req, res) {
+            res.redirect('/');
+        });
 };

@@ -1,9 +1,9 @@
 'use strict';
 
 const router = require('express').Router();
-const pokemonRoutes = require('./pokemonApiRoutes');
-const googleApiRoutes = require('./googleLoginApiRoutes');
-const logoutRoutes = require('./logoutRoutes');
+const pokemonRoutes = require('./pokemon');
+const googleApiRoutes = require('./googleLogin');
+const logoutRoutes = require('./logout');
 
 pokemonRoutes(router);
 googleApiRoutes(router);
