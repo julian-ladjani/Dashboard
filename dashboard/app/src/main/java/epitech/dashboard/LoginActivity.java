@@ -30,6 +30,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
+
+import org.json.JSONException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -43,6 +50,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
+
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
     /**
@@ -68,33 +76,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
 
-        public static void testGet() throws IOException {
-            Log.i("logPage", "Test de msg");
-            System.out.println("SALUT C4EST UN TEST");
-            URL urlForGetRequest = new URL("https://jsonplaceholder.typicode.com/posts/1");
-            String readLine = null;
-            HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
-            conection.setRequestMethod("GET");
-            conection.setRequestProperty("userId", "123"); // set userId its a sample here
-            int responseCode = conection.getResponseCode();
-            if (responseCode == HttpURLConnection.HTTP_OK) {
-                BufferedReader in = new BufferedReader(
-                        new InputStreamReader(conection.getInputStream()));
-                StringBuffer response = new StringBuffer();
-                while ((readLine = in .readLine()) != null) {
-                    response.append(readLine);
-                } in .close();
-                Log.i("logPage", "JSON String Result " + response.toString());
-            } else {
-                Log.i("logPage", "rIEN ");
-                System.out.println("GET NOT WORKED");
-            }
+        public static void testGet() throws IOException, UnirestException, JSONException {
+
         }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
 
@@ -126,6 +114,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 try {
                     testGet();
                 } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (UnirestException e) {
+                    Log.w("logPage", e.toString());
+                    e.printStackTrace();
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
