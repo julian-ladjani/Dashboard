@@ -1,10 +1,9 @@
 'use strict';
 
-module.exports = function(app) {
+module.exports = function(router) {
     const pokemonApi = require('../controllers/pokemonApiController');
 
     // todoList Routes
-    app.route('/pokemon')
-        .get(pokemonApi.get_random_pokemon);
-
+    router
+        .get('/pokemon', pokemonApi.get_random_pokemon);
 };
