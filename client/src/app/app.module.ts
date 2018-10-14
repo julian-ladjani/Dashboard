@@ -13,6 +13,7 @@ import { ResizableModule } from 'angular-resizable-element';
 import { HomeComponent } from './components/home/home.component';
 import { WidgetComponent } from './components/widget/widget.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 
 const appRoutes: Routes = [
     { path: '',
@@ -49,7 +50,9 @@ const appRoutes: Routes = [
       AngularSvgIconModule,
       NgbModule,
       ResizableModule,
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      MatButtonModule,
+      MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

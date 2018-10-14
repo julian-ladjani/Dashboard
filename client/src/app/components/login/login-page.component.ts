@@ -5,9 +5,15 @@ import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 
 @Component({
+<<<<<<< Updated upstream
     selector: 'app-login-page',
     templateUrl: './login-page.component.html',
     styleUrls: ['./login-page.component.scss']
+=======
+  selector: 'app-login-page',
+  templateUrl: './login-page.component.html',
+  styleUrls: ['./login-page.component.scss']
+>>>>>>> Stashed changes
 })
 
 export class LoginPageComponent implements OnInit {

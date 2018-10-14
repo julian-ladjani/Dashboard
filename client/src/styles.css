@@ -1,3 +1,5 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 :root {
     --orange-color: #f0572aff;
     --red-color: #de1d25ff;
