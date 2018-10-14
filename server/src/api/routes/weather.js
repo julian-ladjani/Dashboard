@@ -1,9 +1,13 @@
 'use strict';
 
-module.exports = function(router) {
-    const weather = require('../controllers/weather');
-
+const router = require('express').Router();
+const weather = require('../controllers/weather');
     // Weather Routes
     router
-        .get('/weather/current', weather.get_current);
-};
+        .get('/current/:land/:city', weather.get_current);
+    router
+        .get('/forecast/:land/:city', weather.get_forecast);
+    router
+        .get('/test', weather.get_test);
+module.exports = router;
+

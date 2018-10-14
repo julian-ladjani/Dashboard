@@ -1,9 +1,14 @@
 'use strict';
 
-module.exports = function(router) {
-    const pokemonApi = require('../controllers/pokemon');
+const pokemonApi = require('../controllers/pokemon');
+const router = require('express').Router();
 
     // todoList Routes
     router
-        .get('/pokemon', pokemonApi.get_random_pokemon);
-};
+        .get('/blind/:gen', pokemonApi.get_random_pokemon);
+    router
+        .get('/team/:nbr', pokemonApi.get_team);
+    router
+        .get('/type/:type', pokemonApi.get_type);
+
+module.exports = router;
