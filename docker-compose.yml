@@ -14,7 +14,33 @@ services:
       - "4200"
       - "49153"
   server:
+    depends_on:
+      - mongo
     build:
       context: ./server/
+    command: /usr/app/node_modules/.bin/nodemon server.js
+    volumes:
+      - ./server/:/usr/app
+      - /usr/app/node_modules
     ports:
-      - 8080:8080
+      - "8080:8080"
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    networks:
+      - nodeapp-network
+  mongo:
+    image: mongo
+    command: mongod --port 27018  --bind_ip_all
+    ports:
+      - "27018:27018"
+    networks:
+      - nodeapp-network
+    volumes:
+      - mongo_data:/data/db
+volumes:
+  mongo_data:
+
+networks:
+  nodeapp-network:
+    driver: bridge
