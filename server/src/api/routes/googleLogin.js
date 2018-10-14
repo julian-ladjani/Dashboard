@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (router) {
-    const passport = require('../controllers/googleLogin');
+    const passport = require('../controllers/googleAuth');
 
     router.get('/auth/google',
         passport.authenticate('google', {
