@@ -1,29 +1,28 @@
-<form class="db-form db-container">
-  <svg-icon src="assets/trashboard-logo.svg" ngClass="centered-icon"></svg-icon>
-</form>
-
-<div>
-  <form novalidate class="db-form db-container">
+<form novalidate class="db-form db-container">
     <div class="form-group text-center">
-      <svg-icon src="assets/trashboard-logo.svg" ngClass="centered-icon"></svg-icon>
+        <svg-icon src="assets/trashboard-logo.svg" ngClass="centered-icon"></svg-icon>
     </div>
     <div class="form-group">
-      <input ng-model="user.login" class="form-control form-control-lg text-center" type="text" placeholder="Login" required>
+        <input ng-model="user.login" class="form-control form-control-lg text-center" type="text" placeholder="Login"
+               required>
     </div>
     <div class="form-group" [hidden]="!signUp">
-      <input ng-model="user.password" class="form-control form-control-lg text-center" type="email" placeholder="Email" required>
+        <input ng-model="user.password" class="form-control form-control-lg text-center" type="email"
+               placeholder="Email" required>
     </div>
     <div class="form-group">
-      <input ng-model="user.password" class="form-control form-control-lg text-center" type="password" placeholder="Password" required>
+        <input ng-model="user.password" class="form-control form-control-lg text-center" type="password"
+               placeholder="Password" required>
     </div>
     <div class="form-group" [hidden]="!signUp">
-      <input ng-model="user.passwordConfirm" class="form-control form-control-lg text-center" type="password" placeholder="Confirm Password" required>
+        <input ng-model="user.passwordConfirm" class="form-control form-control-lg text-center" type="password"
+               placeholder="Confirm Password" required>
     </div>
     <div class="db-row">
-      <input type="button" (click)="signUp = !signUp" value="Sign up" class="btn btn-primary btn-lg col-5 float-left"/>
-      <input type="submit"  value="Sign in" class="btn btn-primary btn-lg col-5 float-right"/>
+        <input type="button" (click)="signUp = !signUp" value="Sign up"
+               class="btn btn-primary btn-lg col-5 float-left"/>
+        <input type="submit" value="Sign in" class="btn btn-primary btn-lg col-5 float-right"/>
     </div>
-  </form>
-</div>
+</form>
 
 <app-widget-bar></app-widget-bar>
