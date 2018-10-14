@@ -1,1 +1,9 @@
-<app-widget-bar></app-widget-bar>
+<div class="db-widgets-table">
+    <app-widget-bar></app-widget-bar>
+    <section id="widgets">
+        <button (click)="addWidget()">Add person</button>
+        <div class="db-widgets-container">
+            <app-widget *ngFor="let widget of widgets"></app-widget>
+        </div>
+    </section>
+</div>

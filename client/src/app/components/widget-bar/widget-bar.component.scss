@@ -4,7 +4,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   overflow: hidden;
   background-color: var(--darker-color);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16), 0 1px 4px rgba(0, 0, 0, 0.16);

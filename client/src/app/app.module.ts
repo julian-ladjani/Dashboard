@@ -10,6 +10,7 @@ import { LoginPageComponent } from './components/login/login-page.component';
 import { WidgetBarComponent } from './components/widget-bar/widget-bar.component';
 import { ResizableModule } from 'angular-resizable-element';
 import { HomeComponent } from './components/home/home.component';
+import { WidgetComponent } from './components/widget/widget.component';
 
 const appRoutes: Routes = [
     { path: '',
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
     LoginPageComponent,
     WidgetBarComponent,
     HomeComponent,
+    WidgetComponent,
   ],
   imports: [
     RouterModule.forRoot(

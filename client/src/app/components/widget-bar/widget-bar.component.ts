@@ -25,7 +25,7 @@ export class WidgetBarComponent implements OnInit {
 
     newTab(name, svg, link) {
         return {name: name, svglink: svg, link: link};
-    }²
+    }
 
     onResizeEnd(event: ResizeEvent): void {
         console.log('Element was resized', event);
