@@ -8,6 +8,8 @@ import {AngularSvgIconModule} from 'angular-svg-icon';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginPageComponent } from './components/login/login-page.component';
 import { WidgetBarComponent } from './components/widget-bar/widget-bar.component';
+import { ResizableModule } from 'angular-resizable-element';
+import { HomeComponent } from './components/home/home.component';
 
 const appRoutes: Routes = [
     { path: '',
@@ -17,6 +19,10 @@ const appRoutes: Routes = [
     {
         path: 'login',
         component: LoginPageComponent
+    },
+    {
+        path: 'home',
+        component: HomeComponent
     }
 ];
 
@@ -24,7 +30,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LoginPageComponent,
-    WidgetBarComponent
+    WidgetBarComponent,
+    HomeComponent,
   ],
   imports: [
     RouterModule.forRoot(
@@ -34,7 +41,8 @@ const appRoutes: Routes = [
       HttpClientModule,
       BrowserModule,
       AngularSvgIconModule,
-      NgbModule
+      NgbModule,
+      ResizableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,7 +12,6 @@ export class LoginPageComponent implements OnInit {
   constructor() {
       this.signUp = false;
   }
-
   ngOnInit() {
   }
 

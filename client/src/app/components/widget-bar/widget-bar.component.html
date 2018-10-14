@@ -1,12 +1,16 @@
-<div class="db-nav-container" [style.width]="navBarWidth">
-  <svg-icon src="assets/trashboard-stacked-logo.svg"></svg-icon>
-  <ul class="db-nav">
-    <li *ngFor="let tab of nav" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
-      <a [routerLink]="tab.link">
-          <svg-icon src="{{tab.svglink}}"></svg-icon>
-        <span>{{tab.name}}</span>
-      </a>
-    </li>
-  </ul>
-  <svg-icon [ngClass]="navBarWidth === navBarSizes.open ? 'open' : 'close'" class='width-change'><button (click)="changeWidth()" src="assets/trashboard-icon.svg"></button></svg-icon>
+<div id="widgets-list" class="db-nav-container" [style.width]="navBarWidth" [style.left]="navBarWidth"
+     mwlResizable
+     [enableGhostResize]="true"
+     [resizeCursorPrecision]=20
+     [resizeEdges]="{right: true}"
+     (resizeEnd)="onResizeEnd($event)">
+    <svg-icon src="assets/trashboard-stacked-logo.svg"></svg-icon>
+    <ul class="db-nav">
+        <li *ngFor="let tab of nav" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
+            <a [routerLink]="tab.link">
+                <svg-icon src="{{tab.svglink}}"></svg-icon>
+                <span>{{tab.name}}</span>
+            </a>
+        </li>
+    </ul>
 </div>
