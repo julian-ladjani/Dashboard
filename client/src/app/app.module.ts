@@ -7,6 +7,13 @@ import { RouterModule, Routes } from '@angular/router';
 import {AngularSvgIconModule} from 'angular-svg-icon';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginPageComponent } from './components/login/login-page.component';
+import { WidgetBarComponent } from './components/widget-bar/widget-bar.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ResizableModule } from 'angular-resizable-element';
+import { HomeComponent } from './components/home/home.component';
+import { WidgetComponent } from './components/widget/widget.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 
 const appRoutes: Routes = [
     { path: '',
@@ -16,13 +23,20 @@ const appRoutes: Routes = [
     {
         path: 'login',
         component: LoginPageComponent
+    },
+    {
+        path: 'home',
+        component: HomeComponent
     }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    WidgetBarComponent,
+    HomeComponent,
+    WidgetComponent,
   ],
   imports: [
     RouterModule.forRoot(
@@ -31,8 +45,14 @@ const appRoutes: Routes = [
       ),
       HttpClientModule,
       BrowserModule,
+      ReactiveFormsModule,
+      FormsModule,
       AngularSvgIconModule,
-      NgbModule
+      NgbModule,
+      ResizableModule,
+      BrowserAnimationsModule,
+      MatButtonModule,
+      MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

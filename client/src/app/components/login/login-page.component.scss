@@ -16,3 +16,15 @@
     justify-content: center;
     height: 100vh;
 }
+
+.db-row {
+    display: flex;
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid var(--purple-color);
+}
+
+.ng-invalid:not(form)  {
+    border-left: 5px solid var(--orange-color);
+}

@@ -1,14 +1,16 @@
 'use strict';
 
 const router = require('express').Router();
-const pokemonRoutes = require('./pokemon');
+const pokemonRouter = require('./pokemon');
+const weatherRouter = require('./weather');
 const googleApiRoutes = require('./googleLogin');
 const logoutRoutes = require('./logout');
 const localAuth = require('./localAuth');
 
-pokemonRoutes(router);
+router.use('/pokemon', pokemonRouter);
 googleApiRoutes(router);
 logoutRoutes(router);
 router.use('/', localAuth);
+router.use('/weather', weatherRouter);
 
 module.exports = router;

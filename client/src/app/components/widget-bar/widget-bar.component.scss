@@ -1,0 +1,121 @@
+.db-nav-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--darker-color);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16), 0 1px 4px rgba(0, 0, 0, 0.16);
+
+  > svg-icon {
+    padding: 30px;
+    display: block;
+    margin: 0 auto;
+    svg {
+      max-height: 60px;
+      height: 100%;
+      width:  100%;
+    }
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style-type: none;
+    margin: 0;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 50px;
+      width:  100%;
+
+      &:hover {
+        border-right: 5px solid var(--pink-color);
+        text-decoration: none;
+      }
+      svg {
+        margin-left: 30px;
+        margin-right: 20px;
+        vertical-align: middle;
+        width: 40px;
+        height: 40px;
+        fill: var(--light-color);
+      }
+      span {
+        color: var(--light-color);
+      }
+      &:focus {
+        outline: 0;
+      }
+    }
+
+    a:hover {
+      text-decoration: none;
+      border-right: 6px solid var(--pink-color);
+      opacity: 1;
+    }
+  }
+
+  .width-change {
+    text-align: right;
+    margin-right: 4px;
+    margin-left: 0;
+    width: 100%;
+    transition: all .5s;
+
+    button {
+      border: 0;
+      background: 0;
+      padding: 0;
+      opacity: 0.3;
+      margin-right: 4px;
+      transition: opacity 0.2s;
+      cursor: pointer;
+
+      svg {
+        width: 25px;
+        height: 25px;
+        fill: var(--secondary-color);
+        transition: all 0.5s;
+      }
+    }
+    button:hover {
+      opacity: 0.5;
+      transition: opacity 0.2s;
+    }
+  }
+
+  .close {
+    width: 0;
+    padding-bottom: 5px;
+    margin-left: 20px;
+    transition: all .5s;
+
+    svg {
+      transform: rotate(-180deg);
+      transition: transform 0.7s;
+    }
+  }
+
+  button:focus {
+    outline: 0;
+  }
+}
+
+::ng-deep svg .path {
+  stroke: aqua;
+  stroke-width: 4px;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 5s linear forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
