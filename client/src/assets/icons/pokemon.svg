@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) by Toomai Glittershine for SmashWiki -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   version="1.1"
+   viewBox="0 0 256 256"
+   sodipodi:docname="pokemon.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata7825">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs7823" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1853"
+     inkscape:window-height="1025"
+     id="namedview7821"
+     showgrid="false"
+     inkscape:zoom="0.921875"
+     inkscape:cx="128"
+     inkscape:cy="128"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <path
+     id="mainsymbolpath"
+     d="m 165.09623,127.99448 c 0,20.48795 -16.60876,37.09672 -37.09671,37.09672 -20.48796,0 -37.096717,-16.60877 -37.096717,-37.09672 0,-20.48795 16.608757,-37.096723 37.096717,-37.096723 20.48795,0 37.09671,16.608773 37.09671,37.096723 z M 127.98391,2.2033898 C 63.731848,2.2033898 10.73259,50.363238 3.1203213,112.55694 H 70.71589 c 6.791576,-25.265142 29.85666,-43.851857 57.26802,-43.851857 27.41136,0 50.50127,18.586715 57.30019,43.851857 h 67.59558 C 245.26327,50.363238 192.23597,2.2033898 127.98391,2.2033898 Z M 3.1203213,143.44306 c 7.6122687,62.1937 60.6115267,110.35355 124.8635887,110.35355 64.25206,0 117.27936,-48.15985 124.89577,-110.35355 H 185.2841 c -6.79892,25.26514 -29.88883,43.85187 -57.30019,43.85187 -27.41136,0 -50.476444,-18.58673 -57.26802,-43.85187 z"
+     inkscape:connector-curvature="0"
+     style="stroke-width:1.39774013" />
+</svg>

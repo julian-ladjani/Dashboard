@@ -13,10 +13,10 @@ export class WidgetBarComponent implements OnInit {
     navBarWidth = this.navBarSizes.open;
 
     constructor() {
-        this.nav = [this.newTab(`Pokemons`, 'assets/trashboard-icon.svg', '/pokemons'),
-            this.newTab(`Meteo`, 'assets/trashboard-icon.svg', '/meteo'),
-            this.newTab(`Youtube`, 'assets/trashboard-icon.svg', '/youtube'),
-            this.newTab(`Twitter`, 'assets/trashboard-icon.svg', '/twitter')];
+        this.nav = [this.newTab(`Pokemons`, 'assets/icons/pokemon.svg', '/pokemons'),
+            this.newTab(`Meteo`, 'assets/icons/basic.svg', '/meteo'),
+            this.newTab(`Youtube`, 'assets/icons/basic.svg', '/youtube'),
+            this.newTab(`Twitter`, 'assets/icons/basic.svg', '/twitter')];
     }
 
     ngOnInit() {

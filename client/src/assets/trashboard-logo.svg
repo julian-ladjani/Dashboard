@@ -23,9 +23,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="234.3908"
-     inkscape:cy="135.20669"
+     inkscape:zoom="5.6"
+     inkscape:cx="53.541564"
+     inkscape:cy="36.186491"
      inkscape:document-units="mm"
      inkscape:current-layer="flowRoot972"
      showgrid="false"
@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -53,13 +53,6 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-73.329207,-56.285862)">
-    <rect
-       style="opacity:1;fill:#404040;fill-opacity:1;stroke:#3b3b3d;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect845"
-       width="23.103794"
-       height="2.5513394"
-       x="113.3456"
-       y="61.284599" />
     <path
        style="opacity:1;fill:#d71c5b;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 478.39258,249.39453 v 69.29688 h 9.64258 v -69.29688 z"
@@ -84,56 +77,69 @@
        transform="scale(0.26458333)"
        id="rect845-3"
        inkscape:connector-curvature="0" />
-    <path
-       style="fill:#404040;fill-opacity:1;stroke:#3b3b3d;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-       d="m 118.35379,61.70982 1.84264,-5.291666 h 9.30766 l 2.12612,5.953125 -3.2128,-0.661459 -0.89769,-2.598586 h -5.33892 l -1.08668,3.307291 z"
-       id="path924"
-       inkscape:connector-curvature="0" />
     <g
        aria-label="TRASHBOARD"
        transform="matrix(0.37139347,0,0,0.37139347,-100.63338,-50.47759)"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'Samyak Tamil';-inkscape-font-specification:'Samyak Tamil';letter-spacing:0.10686106px;word-spacing:0px;fill:#3f3f41;fill-opacity:1;stroke:none"
        id="flowRoot972">
-      <path
-         d="m 491.24508,373.35594 v -5.84 h -22.84 v 5.84 h 8 v 22.48 h 6.84 v -22.48 z"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Avenir Next LT Pro';-inkscape-font-specification:'Avenir Next LT Pro Bold';letter-spacing:0.10686106px;fill:#3f3f41;fill-opacity:1"
-         id="path4599" />
-      <path
-         d="m 517.59506,395.83594 -7.4,-12.12 c 3.64,-1.12 5.88,-3.84 5.88,-7.64 0,-6.48 -5.4,-8.56 -10.84,-8.56 h -10.8 v 28.32 h 6.72 v -11.24 h 2.32 l 6.12,11.24 z m -8.28,-19.64 c 0,2.88 -2.76,3.44 -4.96,3.44 h -3.24 v -6.6 h 3.64 c 2.04,0 4.56,0.52 4.56,3.16 z"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Avenir Next LT Pro';-inkscape-font-specification:'Avenir Next LT Pro Bold';letter-spacing:0.10686106px;fill:#3f3f41;fill-opacity:1"
-         id="path4601" />
-      <path
-         d="m 547.8263,395.83594 -11.76,-28.32 h -6.64 l -11.88,28.32 h 7.44 l 2.08,-5.56 h 10.96 l 2.2,5.56 z m -11.68,-11.04 h -7.12 l 3.6,-9.72 z"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Avenir Next LT Pro';-inkscape-font-specification:'Avenir Next LT Pro Bold';letter-spacing:0.10686106px;fill:#3f3f41;fill-opacity:1"
-         id="path4603" />
-      <path
-         d="m 569.59378,370.27594 c -2.48,-2.28 -6.08,-3.48 -9.28,-3.48 -5.28,0 -10.96,2.6 -10.96,8.88 0,5.12 3.64,6.96 7.24,8.12 3.72,1.2 5.88,1.88 5.88,4.04 0,2.28 -1.84,3.08 -3.92,3.08 -2.24,0 -4.76,-1.28 -6.12,-3 l -4.48,4.56 c 2.48,2.6 6.56,4.08 10.6,4.08 5.6,0 10.84,-2.92 10.84,-9.44 0,-5.64 -4.96,-7.28 -8.8,-8.52 -2.68,-0.84 -4.36,-1.44 -4.36,-3.32 0,-2.24 2.2,-2.84 3.96,-2.84 1.76,0 3.88,0.96 5.04,2.44 z"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Avenir Next LT Pro';-inkscape-font-specification:'Avenir Next LT Pro Bold';letter-spacing:0.10686106px;fill:#3f3f41;fill-opacity:1"
-         id="path4605" />
-      <path
-         d="m 598.77252,395.83594 v -28.32 h -6.84 v 10.72 h -11.04 v -10.72 h -6.84 v 28.32 h 6.84 v -11.84 h 11.04 v 11.84 z"
-         style="letter-spacing:0.14248142px;fill:#3f3f41;fill-opacity:1"
-         id="path4607" />
-      <path
-         d="m 626.82188,387.59594 c 0,-3.72 -2.56,-6.04 -5.8,-6.6 v -0.08 c 2.76,-0.92 4.64,-3 4.64,-6.12 0,-5.72 -5.24,-7.28 -9.64,-7.28 h -11.28 v 28.32 h 11.28 c 5.4,0 10.8,-2.08 10.8,-8.24 z m -7.76,-11.88 c 0,2 -1.48,3.08 -4.04,3.08 h -3.68 v -5.84 h 3.36 c 2.88,0 4.36,0.84 4.36,2.76 z m 0.92,11.24 c 0,2.76 -2.64,3.36 -4.8,3.36 h -3.84 v -6.48 h 3.8 c 2.92,0 4.84,0.76 4.84,3.12 z"
-         style="letter-spacing:0.14248142px;fill:#3f3f41;fill-opacity:1"
-         id="path4609" />
-      <path
-         d="m 660.96686,381.55594 c 0,-9.08 -6.56,-14.8 -15.44,-14.8 -8.84,0 -15.4,5.72 -15.4,14.8 0,8.96 6.56,15.04 15.4,15.04 8.88,0 15.44,-6.08 15.44,-15.04 z m -7.32,0 c 0,5.12 -3.36,8.8 -8.12,8.8 -4.76,0 -8.08,-3.68 -8.08,-8.8 0,-4.96 3.28,-8.64 8.08,-8.64 4.8,0 8.12,3.68 8.12,8.64 z"
-         style="letter-spacing:0.14248142px;fill:#3f3f41;fill-opacity:1"
-         id="path4611" />
-      <path
-         d="m 691.74872,395.83594 -11.76,-28.32 h -6.64 l -11.88,28.32 h 7.44 l 2.08,-5.56 h 10.96 l 2.2,5.56 z m -11.68,-11.04 h -7.12 l 3.6,-9.72 z"
-         style="letter-spacing:0.14248142px;fill:#3f3f41;fill-opacity:1"
-         id="path4613" />
-      <path
-         d="m 717.39183,395.83594 -7.4,-12.12 c 3.64,-1.12 5.88,-3.84 5.88,-7.64 0,-6.48 -5.4,-8.56 -10.84,-8.56 h -10.8 v 28.32 h 6.72 v -11.24 h 2.32 l 6.12,11.24 z m -8.28,-19.64 c 0,2.88 -2.76,3.44 -4.96,3.44 h -3.24 v -6.6 h 3.64 c 2.04,0 4.56,0.52 4.56,3.16 z"
-         style="letter-spacing:0.14248142px;fill:#3f3f41;fill-opacity:1"
-         id="path4615" />
-      <path
-         d="m 747.29867,381.59594 c 0,-10.72 -8.16,-14.08 -16.2,-14.08 h -10.24 v 28.32 h 10.56 c 7.8,0 15.88,-4.28 15.88,-14.24 z m -7.12,0 c 0,6.32 -4.52,8.32 -9.4,8.32 h -3.24 v -16.56 h 3.4 c 4.72,0 9.24,1.88 9.24,8.24 z"
-         style="letter-spacing:0.14248142px;fill:#3f3f41;fill-opacity:1"
-         id="path4617" />
+      <g
+         id="g5521"
+         style="fill:#f2f2f2">
+        <rect
+           y="61.284599"
+           x="113.3456"
+           height="2.5513394"
+           width="23.103794"
+           id="rect845"
+           style="opacity:1;fill:#f2f2f2;fill-opacity:1;stroke:#3b3b3d;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(2.6925621,0,0,2.6925621,270.96163,135.91405)" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path924"
+           d="m 118.35379,61.70982 1.84264,-5.291666 h 9.30766 l 2.12612,5.953125 -3.2128,-0.661459 -0.89769,-2.598586 h -5.33892 l -1.08668,3.307291 z"
+           style="fill:#f2f2f2;fill-opacity:1;stroke:#3b3b3d;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+           transform="matrix(2.6925621,0,0,2.6925621,270.96163,135.91405)" />
+        <path
+           id="path4599"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Avenir Next LT Pro';-inkscape-font-specification:'Avenir Next LT Pro Bold';letter-spacing:0.10686106px;fill:#f2f2f2;fill-opacity:1"
+           d="m 491.24508,373.35594 v -5.84 h -22.84 v 5.84 h 8 v 22.48 h 6.84 v -22.48 z" />
+        <path
+           id="path4601"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Avenir Next LT Pro';-inkscape-font-specification:'Avenir Next LT Pro Bold';letter-spacing:0.10686106px;fill:#f2f2f2;fill-opacity:1"
+           d="m 517.59506,395.83594 -7.4,-12.12 c 3.64,-1.12 5.88,-3.84 5.88,-7.64 0,-6.48 -5.4,-8.56 -10.84,-8.56 h -10.8 v 28.32 h 6.72 v -11.24 h 2.32 l 6.12,11.24 z m -8.28,-19.64 c 0,2.88 -2.76,3.44 -4.96,3.44 h -3.24 v -6.6 h 3.64 c 2.04,0 4.56,0.52 4.56,3.16 z" />
+        <path
+           id="path4603"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Avenir Next LT Pro';-inkscape-font-specification:'Avenir Next LT Pro Bold';letter-spacing:0.10686106px;fill:#f2f2f2;fill-opacity:1"
+           d="m 547.8263,395.83594 -11.76,-28.32 h -6.64 l -11.88,28.32 h 7.44 l 2.08,-5.56 h 10.96 l 2.2,5.56 z m -11.68,-11.04 h -7.12 l 3.6,-9.72 z" />
+        <path
+           id="path4605"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Avenir Next LT Pro';-inkscape-font-specification:'Avenir Next LT Pro Bold';letter-spacing:0.10686106px;fill:#f2f2f2;fill-opacity:1"
+           d="m 569.59378,370.27594 c -2.48,-2.28 -6.08,-3.48 -9.28,-3.48 -5.28,0 -10.96,2.6 -10.96,8.88 0,5.12 3.64,6.96 7.24,8.12 3.72,1.2 5.88,1.88 5.88,4.04 0,2.28 -1.84,3.08 -3.92,3.08 -2.24,0 -4.76,-1.28 -6.12,-3 l -4.48,4.56 c 2.48,2.6 6.56,4.08 10.6,4.08 5.6,0 10.84,-2.92 10.84,-9.44 0,-5.64 -4.96,-7.28 -8.8,-8.52 -2.68,-0.84 -4.36,-1.44 -4.36,-3.32 0,-2.24 2.2,-2.84 3.96,-2.84 1.76,0 3.88,0.96 5.04,2.44 z" />
+        <path
+           id="path4607"
+           style="letter-spacing:0.14248142px;fill:#f2f2f2;fill-opacity:1"
+           d="m 598.77252,395.83594 v -28.32 h -6.84 v 10.72 h -11.04 v -10.72 h -6.84 v 28.32 h 6.84 v -11.84 h 11.04 v 11.84 z" />
+        <path
+           id="path4609"
+           style="letter-spacing:0.14248142px;fill:#f2f2f2;fill-opacity:1"
+           d="m 626.82188,387.59594 c 0,-3.72 -2.56,-6.04 -5.8,-6.6 v -0.08 c 2.76,-0.92 4.64,-3 4.64,-6.12 0,-5.72 -5.24,-7.28 -9.64,-7.28 h -11.28 v 28.32 h 11.28 c 5.4,0 10.8,-2.08 10.8,-8.24 z m -7.76,-11.88 c 0,2 -1.48,3.08 -4.04,3.08 h -3.68 v -5.84 h 3.36 c 2.88,0 4.36,0.84 4.36,2.76 z m 0.92,11.24 c 0,2.76 -2.64,3.36 -4.8,3.36 h -3.84 v -6.48 h 3.8 c 2.92,0 4.84,0.76 4.84,3.12 z" />
+        <path
+           id="path4611"
+           style="letter-spacing:0.14248142px;fill:#f2f2f2;fill-opacity:1"
+           d="m 660.96686,381.55594 c 0,-9.08 -6.56,-14.8 -15.44,-14.8 -8.84,0 -15.4,5.72 -15.4,14.8 0,8.96 6.56,15.04 15.4,15.04 8.88,0 15.44,-6.08 15.44,-15.04 z m -7.32,0 c 0,5.12 -3.36,8.8 -8.12,8.8 -4.76,0 -8.08,-3.68 -8.08,-8.8 0,-4.96 3.28,-8.64 8.08,-8.64 4.8,0 8.12,3.68 8.12,8.64 z" />
+        <path
+           id="path4613"
+           style="letter-spacing:0.14248142px;fill:#f2f2f2;fill-opacity:1"
+           d="m 691.74872,395.83594 -11.76,-28.32 h -6.64 l -11.88,28.32 h 7.44 l 2.08,-5.56 h 10.96 l 2.2,5.56 z m -11.68,-11.04 h -7.12 l 3.6,-9.72 z" />
+        <path
+           id="path4615"
+           style="letter-spacing:0.14248142px;fill:#f2f2f2;fill-opacity:1"
+           d="m 717.39183,395.83594 -7.4,-12.12 c 3.64,-1.12 5.88,-3.84 5.88,-7.64 0,-6.48 -5.4,-8.56 -10.84,-8.56 h -10.8 v 28.32 h 6.72 v -11.24 h 2.32 l 6.12,11.24 z m -8.28,-19.64 c 0,2.88 -2.76,3.44 -4.96,3.44 h -3.24 v -6.6 h 3.64 c 2.04,0 4.56,0.52 4.56,3.16 z" />
+        <path
+           id="path4617"
+           style="letter-spacing:0.14248142px;fill:#f2f2f2;fill-opacity:1"
+           d="m 747.29867,381.59594 c 0,-10.72 -8.16,-14.08 -16.2,-14.08 h -10.24 v 28.32 h 10.56 c 7.8,0 15.88,-4.28 15.88,-14.24 z m -7.12,0 c 0,6.32 -4.52,8.32 -9.4,8.32 h -3.24 v -16.56 h 3.4 c 4.72,0 9.24,1.88 9.24,8.24 z" />
+      </g>
     </g>
   </g>
 </svg>

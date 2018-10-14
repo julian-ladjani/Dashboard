@@ -11,7 +11,7 @@
   bottom: 0;
   width: 250px;
   overflow: hidden;
-  background-color: #eeeeee;
+  background-color: var(--darker-color);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16), 0 1px 4px rgba(0, 0, 0, 0.16);
   transition: width 0.5s;
 
@@ -32,33 +32,34 @@
       justify-content: flex-start;
       height: 50px;
       width: 250px;
-      color: #000;
 
       &:hover {
-        background-color: #e0e0e0;
+        border-right: 5px solid var(--pink-color);
         text-decoration: none;
       }
       svg {
-        margin-left: 20px;
+        margin-left: 30px;
         margin-right: 20px;
         vertical-align: middle;
-        width: 25px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
+        fill: var(--light-color);
+      }
+      span {
+        color: var(--light-color);
+      }
+      &:focus {
+        outline: 0;
       }
     }
 
-    &.active a {
-      background-color: var(--primary-color);
+    a:hover {
       text-decoration: none;
-      color: var(--tertiary-color);
-      svg {
-        fill: var(--tertiary-color);
-      }
-      &:hover {
-        background-color: var(--primary-color);
-      }
+      border-right: 6px solid var(--pink-color);
+      opacity: 1;
     }
   }
+
   .width-change {
     text-align: right;
     margin-right: 4px;
