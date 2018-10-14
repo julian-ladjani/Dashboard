@@ -11,9 +11,10 @@
                placeholder="Password" required>
     </div>
     <div class="db-row">
-        <input type="button" (click)="signUp = !signUp" value="Sign up"
-               class="btn btn-primary btn-lg col-5 float-left"/>
-        <input [disabled]="!loginForm.valid"  type="submit" value="Login" class="btn btn-primary btn-lg col-5 float-right"/>
+        <button (click)="signUp = !signUp" mat-raised-button=""
+                class="col-5 float-left">Sign up</button>
+        <button [disabled]="!loginForm.valid"  type="submit"
+                class="col-5 float-right mat-button">Login</button>
     </div>
 </form>
 
@@ -43,5 +44,3 @@
         <input [disabled]="!userForm.valid" type="submit" value="Sign Up" class="btn btn-primary btn-lg col-5 float-right"/>
     </div>
 </form>
-
-<app-widget-bar></app-widget-bar>

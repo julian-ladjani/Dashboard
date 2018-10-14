@@ -1,22 +1,22 @@
-@import "../../variables.scss";
-
 .db-nav-container {
-  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 250px;
+  min-height: 100vh;
+  height: 100%;
   overflow: hidden;
   background-color: var(--darker-color);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16), 0 1px 4px rgba(0, 0, 0, 0.16);
-  transition: width 0.5s;
 
   > svg-icon {
     padding: 30px;
+    display: block;
+    margin: 0 auto;
+    svg {
+      max-height: 60px;
+      height: 100%;
+      width:  100%;
+    }
   }
 
   ul {
@@ -31,7 +31,7 @@
       align-items: center;
       justify-content: flex-start;
       height: 50px;
-      width: 250px;
+      width:  100%;
 
       &:hover {
         border-right: 5px solid var(--pink-color);
@@ -103,5 +103,19 @@
 
   button:focus {
     outline: 0;
+  }
+}
+
+::ng-deep svg .path {
+  stroke: aqua;
+  stroke-width: 4px;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 5s linear forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
   }
 }

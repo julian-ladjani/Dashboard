@@ -1,0 +1,23 @@
+app-widget-bar {
+  display: table-cell;
+}
+
+#widgets {
+  display: table-cell;
+  width: 100%;
+}
+
+.db-widgets-table {
+  display: table;
+  width: 100%;
+}
+
+.db-widgets-container {
+  display: flex;
+  justify-content: space-around;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  > * {
+    margin: 20px;
+  }
+}

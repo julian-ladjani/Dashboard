@@ -4,8 +4,27 @@ const PokeApi = require('pokedex-promise-v2');
 const Pokedex = new PokeApi();
 
 exports.get_random_pokemon = function(req, res) {
-    Pokedex.getPokemonByName(parseInt(Math.random()*801+1)) // with Promise
+    var gen = req.params.gen;
+    Pokedex.getPokemonByName(parseInt(Math.random()*gen+1)) // with Promise
         .then(function(response) {
-            res.send("<img src='"+response.sprites.front_shiny+"'>"+"<h1>"+response.forms[0].name+"</h1>");
+            var tmp = {form:[response.forms[0]],sprites:[response.sprites]};
+            res.send(JSON.stringify(tmp));
+        });
+};
+
+exports.get_team = function(req, res) {
+    var tmp = {0:[{"name": "bulbasaur"}],
+        1:[{"name": "bulbasaur"}],
+        2:[{"name": "bulbasaur"}],
+        3:[{"name": "bulbasaur"}],
+        4:[{"name": "bulbasaur"}],
+        5:[{"name": "bulbasaur"}]};
+    res.send(JSON.stringify(tmp));
+};
+
+exports.get_type = function(req, res) {
+    Pokedex.getTypeByName(req.params.type) // with Promise
+        .then(function(response) {
+            res.send(response.damage_relations);
         })
 };

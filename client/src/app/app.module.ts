@@ -9,6 +9,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginPageComponent } from './components/login/login-page.component';
 import { WidgetBarComponent } from './components/widget-bar/widget-bar.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ResizableModule } from 'angular-resizable-element';
+import { HomeComponent } from './components/home/home.component';
+import { WidgetComponent } from './components/widget/widget.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
     { path: '',
@@ -18,6 +22,10 @@ const appRoutes: Routes = [
     {
         path: 'login',
         component: LoginPageComponent
+    },
+    {
+        path: 'home',
+        component: HomeComponent
     }
 ];
 
@@ -25,7 +33,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LoginPageComponent,
-    WidgetBarComponent
+    WidgetBarComponent,
+    HomeComponent,
+    WidgetComponent,
   ],
   imports: [
     RouterModule.forRoot(
@@ -37,7 +47,9 @@ const appRoutes: Routes = [
       ReactiveFormsModule,
       FormsModule,
       AngularSvgIconModule,
-      NgbModule
+      NgbModule,
+      ResizableModule,
+      BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

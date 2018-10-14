@@ -1,4 +1,6 @@
 import {Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {ResizeEvent} from 'angular-resizable-element';
+import {$} from 'jquery';
 
 @Component({
     encapsulation: ViewEncapsulation.None,
@@ -9,8 +11,7 @@ import {Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angul
 
 export class WidgetBarComponent implements OnInit {
     nav = [];
-    navBarSizes = {open : '250px', close : '65px'};
-    navBarWidth = this.navBarSizes.open;
+    navBarWidth = '250px';
 
     constructor() {
         this.nav = [this.newTab(`Pokemons`, 'assets/icons/pokemon.svg', '/pokemons'),
@@ -26,8 +27,9 @@ export class WidgetBarComponent implements OnInit {
         return {name: name, svglink: svg, link: link};
     }
 
-    changeWidth = function() {
-        this.navBarWidth = this.navBarWidth === this.navBarSizes.close ? this.navBarSizes.open : this.navBarSizes.close;
-        this.onSizeChange.emit(this.navBarWidth);
+    onResizeEnd(event: ResizeEvent): void {
+        console.log('Element was resized', event);
+        this.navBarWidth = event.rectangle.right + 'px';
+        console.log('resize');
     }
 }
