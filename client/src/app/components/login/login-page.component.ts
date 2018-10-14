@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { WidgetBarComponent } from '../widget-bar/widget-bar.component';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-login-page',
@@ -7,8 +6,12 @@ import { WidgetBarComponent } from '../widget-bar/widget-bar.component';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
+  signUp: boolean;
+  passwordConfirm: string;
 
-  constructor() { }
+  constructor() {
+      this.signUp = false;
+  }
 
   ngOnInit() {
   }
