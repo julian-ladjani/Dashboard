@@ -8,6 +8,7 @@ import {AngularSvgIconModule} from 'angular-svg-icon';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginPageComponent } from './components/login/login-page.component';
 import { WidgetBarComponent } from './components/widget-bar/widget-bar.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
     { path: '',
@@ -33,6 +34,8 @@ const appRoutes: Routes = [
       ),
       HttpClientModule,
       BrowserModule,
+      ReactiveFormsModule,
+      FormsModule,
       AngularSvgIconModule,
       NgbModule
   ],

@@ -28,7 +28,7 @@ export class ApiService {
     apiPost(path, data) {
         const headers = ApiService.getHeaders('POST', path, '');
 
-        return this.http.post(`${this.apiUrl}${path}`, {headers: headers, withCredentials: true}, data).toPromise();
+        return this.http.post(`${this.apiUrl}${path}`, data, {headers: headers, withCredentials: true}).toPromise();
     }
 
     apiDelete(path, body) {

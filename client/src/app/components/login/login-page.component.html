@@ -1,27 +1,46 @@
-<form novalidate class="db-form db-container">
+<form [hidden]="signUp" class="db-form db-container" [formGroup]="loginForm" (submit)="Login()" >
     <div class="form-group text-center">
         <svg-icon src="assets/trashboard-logo.svg" ngClass="centered-icon"></svg-icon>
     </div>
     <div class="form-group">
-        <input ng-model="user.login" class="form-control form-control-lg text-center" type="text" placeholder="Login"
-               required>
-    </div>
-    <div class="form-group" [hidden]="!signUp">
-        <input ng-model="user.password" class="form-control form-control-lg text-center" type="email"
+        <input class="form-control form-control-lg text-center" type="email" formControlName="mail"
                placeholder="Email" required>
     </div>
     <div class="form-group">
-        <input ng-model="user.password" class="form-control form-control-lg text-center" type="password"
+        <input class="form-control form-control-lg text-center" type="password" formControlName="password"
                placeholder="Password" required>
-    </div>
-    <div class="form-group" [hidden]="!signUp">
-        <input ng-model="user.passwordConfirm" class="form-control form-control-lg text-center" type="password"
-               placeholder="Confirm Password" required>
     </div>
     <div class="db-row">
         <input type="button" (click)="signUp = !signUp" value="Sign up"
                class="btn btn-primary btn-lg col-5 float-left"/>
-        <input type="submit" value="Sign in" class="btn btn-primary btn-lg col-5 float-right"/>
+        <input [disabled]="!loginForm.valid"  type="submit" value="Login" class="btn btn-primary btn-lg col-5 float-right"/>
+    </div>
+</form>
+
+<form [hidden]="!signUp" class="db-form db-container" [formGroup]="userForm" (submit)="SignUp()" >
+    <div class="form-group text-center">
+        <svg-icon src="assets/trashboard-logo.svg" ngClass="centered-icon"></svg-icon>
+    </div>
+    <div class="form-group">
+        <input class="form-control form-control-lg text-center" type="text" placeholder="Login" formControlName="login"
+               required>
+    </div>
+    <div class="form-group">
+        <input class="form-control form-control-lg text-center" type="email" formControlName="mail"
+               placeholder="Email" required>
+    </div>
+    <div class="form-group">
+        <input class="form-control form-control-lg text-center" type="password" formControlName="password"
+               placeholder="Password" required>
+    </div>
+    <div class="form-group">
+        <input class="form-control form-control-lg text-center" type="password" formControlName="passwordConfirm"
+               placeholder="Confirm Password" required>
+    </div>
+    <div class="db-row">
+        <input type="button" (click)="signUp = !signUp" value="Login"
+               class="btn btn-primary btn-lg col-5 float-left"/>
+        <input [disabled]="!userForm.valid" type="submit" value="Sign Up" class="btn btn-primary btn-lg col-5 float-right"/>
     </div>
 </form>
 
