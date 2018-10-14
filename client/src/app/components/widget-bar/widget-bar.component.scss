@@ -1,0 +1,106 @@
+@import "../../variables.scss";
+
+.db-nav-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 250px;
+  overflow: hidden;
+  background-color: #eeeeee;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16), 0 1px 4px rgba(0, 0, 0, 0.16);
+  transition: width 0.5s;
+
+  > svg-icon {
+    padding: 30px;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style-type: none;
+    margin: 0;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 50px;
+      width: 250px;
+      color: #000;
+
+      &:hover {
+        background-color: #e0e0e0;
+        text-decoration: none;
+      }
+      svg {
+        margin-left: 20px;
+        margin-right: 20px;
+        vertical-align: middle;
+        width: 25px;
+        height: 50px;
+      }
+    }
+
+    &.active a {
+      background-color: var(--primary-color);
+      text-decoration: none;
+      color: var(--tertiary-color);
+      svg {
+        fill: var(--tertiary-color);
+      }
+      &:hover {
+        background-color: var(--primary-color);
+      }
+    }
+  }
+  .width-change {
+    text-align: right;
+    margin-right: 4px;
+    margin-left: 0;
+    width: 100%;
+    transition: all .5s;
+
+    button {
+      border: 0;
+      background: 0;
+      padding: 0;
+      opacity: 0.3;
+      margin-right: 4px;
+      transition: opacity 0.2s;
+      cursor: pointer;
+
+      svg {
+        width: 25px;
+        height: 25px;
+        fill: var(--secondary-color);
+        transition: all 0.5s;
+      }
+    }
+    button:hover {
+      opacity: 0.5;
+      transition: opacity 0.2s;
+    }
+  }
+
+  .close {
+    width: 0;
+    padding-bottom: 5px;
+    margin-left: 20px;
+    transition: all .5s;
+
+    svg {
+      transform: rotate(-180deg);
+      transition: transform 0.7s;
+    }
+  }
+
+  button:focus {
+    outline: 0;
+  }
+}

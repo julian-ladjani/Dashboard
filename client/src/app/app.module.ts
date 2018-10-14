@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {AngularSvgIconModule} from 'angular-svg-icon';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginPageComponent } from './components/login/login-page.component';
+import { WidgetBarComponent } from './components/widget-bar/widget-bar.component';
 
 const appRoutes: Routes = [
     { path: '',
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    WidgetBarComponent
   ],
   imports: [
     RouterModule.forRoot(

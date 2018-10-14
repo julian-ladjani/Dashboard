@@ -1,0 +1,12 @@
+<div class="db-nav-container" [style.width]="navBarWidth">
+  <svg-icon src="assets/trashboard-stacked-logo.svg"></svg-icon>
+  <ul class="db-nav">
+    <li *ngFor="let tab of nav" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
+      <a [routerLink]="tab.link">
+          <svg-icon src="{{tab.svglink}}"></svg-icon>
+        <span>{{tab.name}}</span>
+      </a>
+    </li>
+  </ul>
+  <!--div [ngClass]="navBarWidth === navBarSizes.open ? 'open' : 'close'" class='width-change'><button (click)="changeWidth()" [inlineSVG]='"icons/nav-retract.svg"'></button></div-->
+</div>

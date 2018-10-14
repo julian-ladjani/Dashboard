@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WidgetBarComponent } from '../widget-bar/widget-bar.component';
 
 @Component({
   selector: 'app-login-page',
