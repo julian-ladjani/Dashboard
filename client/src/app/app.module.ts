@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import {AngularSvgIconModule} from 'angular-svg-icon';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { LoginPageComponent } from './pages/login/login-page.component';
+import { LoginPageComponent } from './components/login/login-page.component';
 
 const appRoutes: Routes = [
     { path: '',
