@@ -13,7 +13,8 @@ import { ResizableModule } from 'angular-resizable-element';
 import { HomeComponent } from './components/home/home.component';
 import { WidgetComponent } from './components/widget/widget.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
+import { WigdetSettingsComponent } from './components/widget/widget-settings/wigdet-settings.component';
 
 const appRoutes: Routes = [
     { path: '',
@@ -37,6 +38,10 @@ const appRoutes: Routes = [
     WidgetBarComponent,
     HomeComponent,
     WidgetComponent,
+    WigdetSettingsComponent
+  ],
+  entryComponents: [
+      WigdetSettingsComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -52,7 +57,8 @@ const appRoutes: Routes = [
       ResizableModule,
       BrowserAnimationsModule,
       MatButtonModule,
-      MatCheckboxModule
+      MatCheckboxModule,
+      MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
