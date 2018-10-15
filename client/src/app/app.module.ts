@@ -15,6 +15,7 @@ import { WidgetComponent } from './components/widget/widget.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
 import { WigdetSettingsComponent } from './components/widget/widget-settings/wigdet-settings.component';
+import { WidgetFavoritePokemonComponent } from './components/widget/pokemon/widget-favorite-pokemon/widget-favorite-pokemon.component';
 
 const appRoutes: Routes = [
     { path: '',
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     WidgetBarComponent,
     HomeComponent,
     WidgetComponent,
-    WigdetSettingsComponent
+    WigdetSettingsComponent,
+    WidgetFavoritePokemonComponent
   ],
   entryComponents: [
       WigdetSettingsComponent
