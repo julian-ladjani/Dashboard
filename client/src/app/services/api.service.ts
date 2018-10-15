@@ -16,24 +16,28 @@ export class ApiService {
     }
 
     static getHeaders() {
-        const token = JSON.parse(window.localStorage.getItem('session')).signatureToken;
-        return new HttpHeaders().set('Authorization', token);
+       const header = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+       if (window.localStorage.getItem('session')) {
+           const token = JSON.parse(window.localStorage.getItem('session')).signatureToken;
+           header.set('Authorization', token);
+       }
+       return header;
     }
 
     apiGet(path) {
-        const headers = ApiService.getHeaders('GET', path, '');
+        const headers = ApiService.getHeaders();
 
         return this.http.get(`${this.apiUrl}${path}`, {headers: headers, withCredentials: true}).toPromise();
     }
 
     apiPost(path, data) {
-        const headers = ApiService.getHeaders('POST', path, '');
+        const headers = ApiService.getHeaders();
 
         return this.http.post(`${this.apiUrl}${path}`, data, {headers: headers, withCredentials: true}).toPromise();
     }
 
     apiDelete(path, body) {
-        const headers = ApiService.getHeaders('DELETE', path, body);
+        const headers = ApiService.getHeaders();
 
         return this.http.delete(`${this.apiUrl}${path}`, {headers: headers, withCredentials: true}).toPromise();
     }

@@ -1,4 +1,4 @@
-version: '2'
+version: '3.6'
 services:
   client:
     build:
@@ -9,10 +9,6 @@ services:
       - /usr/app/node_modules
     ports:
       - "4200:4200" 
-      - "49153:49153"
-    expose:
-      - "4200"
-      - "49153"
   server:
     depends_on:
       - mongo
@@ -37,9 +33,7 @@ services:
     networks:
       - nodeapp-network
     volumes:
-      - mongo_data:/data/db
-volumes:
-  mongo_data:
+      - ./server/db:/data/db
 
 networks:
   nodeapp-network:
