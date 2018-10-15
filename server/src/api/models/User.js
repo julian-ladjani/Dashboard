@@ -29,6 +29,11 @@ let User = mongoose.Schema({
         token        : String,
         email        : String,
         name         : String
+    },
+    spotify          : {
+        id           : String,
+        token        : String,
+        email        : String,
     }
 
 });
