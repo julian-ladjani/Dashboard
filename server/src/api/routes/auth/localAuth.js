@@ -1,8 +1,8 @@
 'use strict';
 
 const router = require('express').Router();
-const passport = require('../controllers/localAuth');
-const jwt = require('../controllers/jwtAuth');
+const passport = require('../../controllers/auth/localAuth');
+const jwt = require('../../controllers/auth/jwtAuth');
 
 router.post('/in', function(req, res, next) {
     passport.authenticate('local-login', function(err, user, info) {

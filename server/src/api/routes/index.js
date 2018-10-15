@@ -3,7 +3,7 @@
 const router = require('express').Router();
 const pokemonRouter = require('./pokemon');
 const weatherRouter = require('./weather');
-const auth = require('./auth');
+const auth = require('./auth/auth');
 
 router.use('/pokemon', pokemonRouter);
 router.use('/auth', auth);
