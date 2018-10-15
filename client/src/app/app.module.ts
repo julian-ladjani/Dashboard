@@ -13,7 +13,6 @@ import { ResizableModule } from 'angular-resizable-element';
 import { HomeComponent } from './components/home/home.component';
 import { WidgetComponent } from './components/widget/widget.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
@@ -63,12 +62,9 @@ const appRoutes: Routes = [
       BrowserAnimationsModule,
       MatButtonModule,
       MatCheckboxModule,
-<<<<<<< HEAD
       MatFormFieldModule,
-      MatInputModule
-=======
+      MatInputModule,
       MatDialogModule
->>>>>>> e5b6fd5b91bce18ac2aff317c885ba5a2e9ef409
   ],
   providers: [],
   bootstrap: [AppComponent]
