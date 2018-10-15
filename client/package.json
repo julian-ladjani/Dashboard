@@ -12,14 +12,14 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^6.1.10",
-    "@angular/cdk": "^6.4.7",
-    "@angular/common": "^6.1.0",
+    "@angular/animations": "github:angular/animations-builds",
+    "@angular/cdk": "github:angular/cdk-builds",
+    "@angular/common": "^6.1.10",
     "@angular/compiler": "^6.1.0",
-    "@angular/core": "^6.1.0",
+    "@angular/core": "^6.1.10",
     "@angular/forms": "^6.1.0",
     "@angular/http": "^6.1.0",
-    "@angular/material": "^6.4.7",
+    "@angular/material": "github:angular/material2-builds",
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
@@ -44,6 +44,7 @@
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "apply-loader": "^2.0.0",
     "codelyzer": "~4.3.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
@@ -53,11 +54,11 @@
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
+    "pug": "^2.0.3",
+    "pug-loader": "^2.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~2.9.2",
-    "apply-loader": "^2.0.0",
-    "pug-loader": "^2.4.0",
-    "pug": "^2.0.3"
+    "webpack": "^4.20.2"
   }
 }

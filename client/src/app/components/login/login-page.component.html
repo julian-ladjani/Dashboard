@@ -1,24 +1,24 @@
-<form [hidden]="signUp" class="db-form db-container" [formGroup]="loginForm" (submit)="Login()" >
-    <div class="form-group text-center">
-        <svg-icon src="assets/trashboard-logo.svg" ngClass="centered-icon"></svg-icon>
+<form [hidden]="signUp" class="db-form db-container" [formGroup]="loginForm" (submit)="Login()">
+    <div class="text-center db-top-form-logo">
+        <svg-icon src="assets/trashboard-stacked-logo.svg" ngClass="centered-icon"></svg-icon>
     </div>
-    <div class="form-group">
-        <input class="form-control form-control-lg text-center" type="email" formControlName="mail"
-               placeholder="Email" required>
-    </div>
-    <div class="form-group">
-        <input class="form-control form-control-lg text-center" type="password" formControlName="password"
-               placeholder="Password" required>
-    </div>
+    <mat-form-field>
+        <input matInput="" type="email" formControlName="mail" placeholder="Email" required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput="" type="password" formControlName="password" placeholder="Password" required>
+    </mat-form-field>
     <div class="db-row">
-        <button (click)="signUp = !signUp" mat-raised-button=""
-                class="col-5 float-left">Sign up</button>
-        <button [disabled]="!loginForm.valid"  type="submit"
-                class="col-5 float-right mat-button">Login</button>
+        <button (click)="signUp = !signUp" mat-raised-button color="primary"
+                class="col-5 float-left">Sign up
+        </button>
+        <button [disabled]="!loginForm.valid" mat-raised-button color="accent"
+                type="submit" class="col-5 float-right">Login
+        </button>
     </div>
 </form>
 
-<form [hidden]="!signUp" class="db-form db-container" [formGroup]="userForm" (submit)="SignUp()" >
+<form [hidden]="!signUp" class="db-form db-container" [formGroup]="userForm" (submit)="SignUp()">
     <div class="form-group text-center">
         <svg-icon src="assets/trashboard-logo.svg" ngClass="centered-icon"></svg-icon>
     </div>
@@ -41,6 +41,7 @@
     <div class="db-row">
         <input type="button" (click)="signUp = !signUp" value="Login"
                class="btn btn-primary btn-lg col-5 float-left"/>
-        <input [disabled]="!userForm.valid" type="submit" value="Sign Up" class="btn btn-primary btn-lg col-5 float-right"/>
+        <input [disabled]="!userForm.valid" type="submit" value="Sign Up"
+               class="btn btn-primary btn-lg col-5 float-right"/>
     </div>
 </form>

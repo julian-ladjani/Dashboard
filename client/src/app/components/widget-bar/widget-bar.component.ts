@@ -14,7 +14,7 @@ export class WidgetBarComponent implements OnInit {
     navBarWidth = '250px';
 
     constructor() {
-        this.nav = [this.newTab(`Pokemons`, 'assets/icons/pokemon.svg', '/pokemons'),
+            this.nav = [this.newTab(`Pokemons`, 'assets/icons/pokemon.svg', '/pokemons'),
             this.newTab(`Meteo`, 'assets/icons/basic.svg', '/meteo'),
             this.newTab(`Youtube`, 'assets/icons/basic.svg', '/youtube'),
             this.newTab(`Twitter`, 'assets/icons/basic.svg', '/twitter')];

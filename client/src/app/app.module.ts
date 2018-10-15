@@ -14,6 +14,8 @@ import { HomeComponent } from './components/home/home.component';
 import { WidgetComponent } from './components/widget/widget.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 const appRoutes: Routes = [
     { path: '',
@@ -52,7 +54,9 @@ const appRoutes: Routes = [
       ResizableModule,
       BrowserAnimationsModule,
       MatButtonModule,
-      MatCheckboxModule
+      MatCheckboxModule,
+      MatFormFieldModule,
+      MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
