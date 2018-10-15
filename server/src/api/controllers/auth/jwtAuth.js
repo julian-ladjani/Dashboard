@@ -23,12 +23,7 @@ exports.blacklistToken = function(req) {
 exports.requireAuth = function (req, res, next) {
     passport.authenticate('jwt', {session: false}, function (error, decryptToken, jwtError) {
         if (typeof (jwtError) === 'object') {
-            return res.json({
-                field: 'Authorization',
-                messages: [
-                    jwtError.message
-                ]
-            });
+
         } else if (!error) {
             let token = req.header('Authorization').slice(4);
             jwtBlacklist.findOne({token: token}).lean().exec((err, result) => {
