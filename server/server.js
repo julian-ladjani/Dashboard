@@ -23,7 +23,7 @@ mongoose.connect(databaseConfig.databaseConfig.address, {
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(passport.initialize());
-require('./src/api/controllers/authTokenStrategy')(passport);
+require('./src/api/controllers/auth/authTokenStrategy')(passport);
 app.use(passport.session());
 app.use('/', serverRouter);
 

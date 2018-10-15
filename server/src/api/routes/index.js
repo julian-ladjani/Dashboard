@@ -4,14 +4,10 @@ const router = require('express').Router();
 const pokemonRouter = require('./pokemon');
 const weatherRouter = require('./weather');
 const spotifyRouter = require('./spotifyApi');
-const googleApiRoutes = require('./googleLogin');
-const logoutRoutes = require('./logout');
-const localAuth = require('./localAuth');
+const auth = require('./auth/auth');
 
 router.use('/pokemon', pokemonRouter);
-googleApiRoutes(router);
-logoutRoutes(router);
-router.use('/', localAuth);
+router.use('/auth', auth);
 router.use('/weather', weatherRouter);
 router.use('/spotify', spotifyRouter);
 
