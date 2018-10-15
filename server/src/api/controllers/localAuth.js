@@ -4,7 +4,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/User.js');
 const configAuth = require('../config/auth');
-const tokenGenerator = require('./tokenGenerator');
+const tokenGenerator = require('./jwtAuth');
 
 passport.use('local-login', new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
@@ -84,7 +84,7 @@ passport.use('local-signup', new LocalStrategy({
 
                     newUser.local.email = email;
                     newUser.local.password = newUser.generateHash(password);
-
+                    newUser.local.username = req.body.username;
                     newUser.save(function (err) {
                         if (err)
                             throw err;
