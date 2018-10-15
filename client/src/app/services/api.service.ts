@@ -16,8 +16,12 @@ export class ApiService {
     }
 
     static getHeaders() {
-        const token = JSON.parse(window.localStorage.getItem('session')).signatureToken;
-        return new HttpHeaders().set('Authorization', token);
+       const header = new HttpHeaders();
+       if (window.localStorage.getItem('session')) {
+           const token = JSON.parse(window.localStorage.getItem('session')).signatureToken;
+           header.set('Authorization', token);
+       }
+       return header;
     }
 
     apiGet(path) {
