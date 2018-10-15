@@ -15,8 +15,9 @@ export class ApiService {
         this.apiUrl = environment.apiUrl;
     }
 
-    static getHeaders(method, path, data) {
-        return new HttpHeaders();
+    static getHeaders() {
+        const token = JSON.parse(window.localStorage.getItem('session')).signatureToken;
+        return new HttpHeaders().set('Authorization', token);
     }
 
     apiGet(path) {
