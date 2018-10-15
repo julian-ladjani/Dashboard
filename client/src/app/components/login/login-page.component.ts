@@ -25,7 +25,7 @@ export class LoginPageComponent implements OnInit {
       });
       this.userForm = this.formBuilder.group({
           login: ['', [Validators.required]],
-          mail: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+          mail: ['', [Validators.required, Validators.email]],
           password: ['', [Validators.required]],
           passwordConfirm: ['', [Validators.required]]
       }, {

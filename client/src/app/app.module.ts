@@ -16,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
+import { WigdetSettingsComponent } from './components/widget/widget-settings/wigdet-settings.component';
 
 const appRoutes: Routes = [
     { path: '',
@@ -39,6 +41,10 @@ const appRoutes: Routes = [
     WidgetBarComponent,
     HomeComponent,
     WidgetComponent,
+    WigdetSettingsComponent
+  ],
+  entryComponents: [
+      WigdetSettingsComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -55,8 +61,12 @@ const appRoutes: Routes = [
       BrowserAnimationsModule,
       MatButtonModule,
       MatCheckboxModule,
+<<<<<<< HEAD
       MatFormFieldModule,
       MatInputModule
+=======
+      MatDialogModule
+>>>>>>> e5b6fd5b91bce18ac2aff317c885ba5a2e9ef409
   ],
   providers: [],
   bootstrap: [AppComponent]

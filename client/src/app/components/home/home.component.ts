@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {WidgetComponent} from '../widget/widget.component';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +9,13 @@ import {WidgetComponent} from '../widget/widget.component';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public matDialog: MatDialog) { }
   widgets: Array<WidgetComponent> = [];
 
   ngOnInit() {
   }
 
   addWidget() {
-    this.widgets.push(new WidgetComponent());
+    this.widgets.push(new WidgetComponent(this.matDialog));
   }
 }
