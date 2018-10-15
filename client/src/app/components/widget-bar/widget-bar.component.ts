@@ -15,9 +15,10 @@ export class WidgetBarComponent implements OnInit {
 
     constructor() {
             this.nav = [this.newTab(`Pokemons`, 'assets/icons/pokemon.svg', '/pokemons'),
-            this.newTab(`Meteo`, 'assets/icons/basic.svg', '/meteo'),
-            this.newTab(`Youtube`, 'assets/icons/basic.svg', '/youtube'),
-            this.newTab(`Twitter`, 'assets/icons/basic.svg', '/twitter')];
+            this.newTab(`Steam`, 'assets/icons/basic.svg', '/steam'),
+            this.newTab(`Twitter`, 'assets/icons/twitter.svg', '/twitter'),
+            this.newTab(`Weather`, 'assets/icons/weather.svg', '/weather'),
+            this.newTab(`Youtube`, 'assets/icons/youtube.svg', '/youtube')];
     }
 
     ngOnInit() {

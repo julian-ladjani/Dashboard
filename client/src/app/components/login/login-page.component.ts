@@ -20,12 +20,12 @@ export class LoginPageComponent implements OnInit {
       this.loginService = new LoginService(http, router);
       this.signUp = false;
       this.loginForm = this.formBuilder.group({
-          mail: ['', [Validators.required, Validators.email]],
+          email: ['', [Validators.required, Validators.email]],
           password: ['', [Validators.required]],
       });
       this.userForm = this.formBuilder.group({
-          login: ['', [Validators.required]],
-          mail: ['', [Validators.required, Validators.email]],
+          username: ['', [Validators.required]],
+          email: ['', [Validators.required, Validators.email]],
           password: ['', [Validators.required]],
           passwordConfirm: ['', [Validators.required]]
       }, {
@@ -35,12 +35,16 @@ export class LoginPageComponent implements OnInit {
 
     ngOnInit() {}
 
-    Login() {
-        this.loginService.login(JSON.stringify(this.loginForm.getRawValue()));
+    async Login() {
+        this.loginService.login(JSON.stringify(this.loginForm.getRawValue())).then(val => {
+            console.log('Login Result:', val);
+        });
     }
 
-    SignUp() {
-        this.loginService.signUp(JSON.stringify(this.userForm.getRawValue()));
+    async SignUp() {
+        this.loginService.signUp(JSON.stringify(this.userForm.getRawValue())).then(val => {
+            console.log('Signup Result:', val);
+        });
     }
 
     MatchPassword(c: AbstractControl): { invalid: boolean } {
