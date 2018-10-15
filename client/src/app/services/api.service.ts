@@ -16,7 +16,7 @@ export class ApiService {
     }
 
     static getHeaders() {
-       const header = new HttpHeaders();
+       const header = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
        if (window.localStorage.getItem('session')) {
            const token = JSON.parse(window.localStorage.getItem('session')).signatureToken;
            header.set('Authorization', token);
@@ -32,7 +32,6 @@ export class ApiService {
 
     apiPost(path, data) {
         const headers = ApiService.getHeaders();
-        headers.set('Content-Type', 'application/x-www-form-urlencoded');
 
         return this.http.post(`${this.apiUrl}${path}`, data, {headers: headers, withCredentials: true}).toPromise();
     }
