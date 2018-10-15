@@ -7,11 +7,11 @@ import {WidgetInt} from '../../objects/widget-int';
 import {WidgetBool} from '../../objects/widget-bool';
 
 @Component({
-  selector: 'app-widget',
-  templateUrl: './widget.component.html',
-  styleUrls: ['./widget.component.scss']
+  selector: 'app-widget-container',
+  templateUrl: './widget-container.component.html',
+  styleUrls: ['./widget-container.component.scss']
 })
-export class WidgetComponent implements OnInit {
+export class WidgetContainerComponent implements OnInit {
   public variables: WidgetVariable[];
 
   constructor(public matDialog: MatDialog) {

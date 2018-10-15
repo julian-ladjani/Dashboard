@@ -11,7 +11,7 @@ import { WidgetBarComponent } from './components/widget-bar/widget-bar.component
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ResizableModule } from 'angular-resizable-element';
 import { HomeComponent } from './components/home/home.component';
-import { WidgetComponent } from './components/widget/widget.component';
+import { WidgetContainerComponent } from './components/widget/widget-container.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -20,7 +20,8 @@ import { WigdetSettingsComponent } from './components/widget/widget-settings/wig
 import { WidgetFavoritePokemonComponent } from './components/widget/pokemon/widget-favorite-pokemon/widget-favorite-pokemon.component';
 
 const appRoutes: Routes = [
-    { path: '',
+    {
+        path: '',
         redirectTo: '/login',
         pathMatch: 'full',
     },
@@ -40,7 +41,7 @@ const appRoutes: Routes = [
     LoginPageComponent,
     WidgetBarComponent,
     HomeComponent,
-    WidgetComponent,
+    WidgetContainerComponent,
     WigdetSettingsComponent,
     WidgetFavoritePokemonComponent
   ],

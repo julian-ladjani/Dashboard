@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {WidgetComponent} from '../widget/widget.component';
+import {WidgetContainerComponent} from '../widget/widget-container.component';
 import {MatDialog} from '@angular/material';
 
 @Component({
@@ -10,12 +10,12 @@ import {MatDialog} from '@angular/material';
 export class HomeComponent implements OnInit {
 
   constructor(public matDialog: MatDialog) { }
-  widgets: Array<WidgetComponent> = [];
+  widgets: Array<WidgetContainerComponent> = [];
 
   ngOnInit() {
   }
 
   addWidget() {
-    this.widgets.push(new WidgetComponent(this.matDialog));
+    this.widgets.push(new WidgetContainerComponent(this.matDialog));
   }
 }
