@@ -32,6 +32,7 @@ export class ApiService {
 
     apiPost(path, data) {
         const headers = ApiService.getHeaders();
+        headers.set('Content-Type', 'application/x-www-form-urlencoded');
 
         return this.http.post(`${this.apiUrl}${path}`, data, {headers: headers, withCredentials: true}).toPromise();
     }
