@@ -9,6 +9,17 @@ exports.generateJWT = function (user) {
     });
 };
 
+exports.blacklistToken = function(req) {
+    let token = req.header('Authorization').slice(4);
+    jwtBlacklist.findOne({token: token}).lean().exec((err, result) => {
+        if (!err && !result) {
+            let blacklistedToken = new jwtBlacklist;
+            blacklistedToken.token = token;
+            blacklistedToken.save();
+        }
+    })
+};
+
 exports.requireAuth = function (req, res, next) {
     passport.authenticate('jwt', {session: false}, function (error, decryptToken, jwtError) {
         if (typeof (jwtError) === 'object') {
