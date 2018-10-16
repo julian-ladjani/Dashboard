@@ -30,20 +30,18 @@
     svg {
       max-height: 60px;
       height: 100%;
-      width:  100%;
+      width: 100%;
     }
   }
 
   ul {
     padding: 0;
     overflow-y: scroll;
-  }
-  ul {
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
-  }
-  ul::-webkit-scrollbar {
-    display: none;  // Safari and Chrome
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   li {
@@ -54,7 +52,7 @@
       align-items: center;
       justify-content: flex-start;
       height: 50px;
-      width:  100%;
+      width: 100%;
 
       &:hover {
         border-right: 5px solid var(--pink-color);

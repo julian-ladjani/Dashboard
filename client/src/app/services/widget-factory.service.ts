@@ -7,10 +7,11 @@ import {WidgetFavoritePokemonComponent} from '../components/widgets/pokemon/widg
   providedIn: 'root'
 })
 
-export class WidgetService {
+export class WidgetFactoryService {
     getWidget(widgetName) {
-        if (widgetName === 'favoritePokemonWidget')
-            return new WidgetWrapper(WidgetFavoritePokemonComponent, WidgetFavoritePokemonComponent.getSettings());
-        return new WidgetWrapper(WidgetComponent, WidgetComponent.getSettings());
+        if (widgetName === 'favoritePokemonWidget') {
+            return new WidgetWrapper(WidgetFavoritePokemonComponent, WidgetFavoritePokemonComponent.getSettingContainer());
+        }
+        return new WidgetWrapper(WidgetComponent, WidgetComponent.getSettingContainer());
     }
 }

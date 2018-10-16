@@ -1,7 +1,6 @@
 import {Component, ComponentFactoryResolver, OnInit} from '@angular/core';
-import {WidgetContainerComponent} from '../widgets/widget-container.component';
 import {MatDialog} from '@angular/material';
-import {WidgetService} from '../../services/widget.service';
+import {WidgetFactoryService} from '../../services/widget-factory.service';
 import {Router} from '@angular/router';
 import {LoginService} from '../../services/login.service';
 import {HttpClient} from '@angular/common/http';
@@ -17,7 +16,7 @@ export class HomeComponent implements OnInit {
   widgets: Array<{String}> = [];
   resolver: ComponentFactoryResolver;
 
-  constructor(public matDialog: MatDialog, public factory: WidgetService, private http: HttpClient, private router: Router) {
+  constructor(public matDialog: MatDialog, public factory: WidgetFactoryService, private http: HttpClient, private router: Router) {
       this.loginService = new LoginService(http, router);
   }
 
