@@ -23,11 +23,11 @@ passport.use('local-login', new LocalStrategy({
 
                 // if no user is found, return the message
                 if (!user)
-                    return done(null, false, { success: false, message: 'Authentication failed. User not found.' });
+                    return done(null, false, { message: 'Authentication failed. User not found.' });
                 if (!user.local.password)
-                    return done(null, false, {success: false, message: 'Please make a password in your account.'});
+                    return done(null, false, { message: 'Please make a password in your account.'});
                 if (!user.validPassword(password))
-                    return done(null, false, { success: false, message: 'Authentication failed. Passwords did not match.' });
+                    return done(null, false, { message: 'Authentication failed. Passwords did not match.' });
 
                 // all is well, return user
                 else
@@ -58,13 +58,13 @@ passport.use('local-signup', new LocalStrategy({
 
                 // if there are any errors, return the error
                 if (err)
-                    return done(err);
+                    return done({message: err});
 
                 // check to see if there's already a user with that email
                 if (!req.body.username)
-                    return done(null, false, { success: false, message: 'Missing Credidential.' });
+                    return done(null, false, {message: 'Missing credentials' });
                 if (existingUser)
-                    return done(null, false, { success: false, message: 'That email is already taken.'});
+                    return done(null, false, {message: 'That email is already taken.'});
 
                 //  If we're logged in, we're connecting a new local account.
                 if (req.user) {
