@@ -5,20 +5,13 @@ const passport = require('passport');
 const listenerCallback = require('./src/server/callback/startingListener');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const databaseConfig = require('./src/api/config/database')
+const databaseConfig = require('./src/api/config/database');
 const PORT = process.env.PORT || 8080;
 const HOST = '0.0.0.0';
 const app = express();
 const cors = require('cors');
 
 const serverRouter = require('./src/server/routes/index');
-
-//mongoose
-
-/*mongoose.connect(databaseConfig.databaseConfig.address, {
-    promiseLibrary: global.Promise,
-    useNewUrlParser: true
-});*/
 
 mongoose.connect(databaseConfig.databaseConfig.address);
 mongoose.connection.once('open', function() {
