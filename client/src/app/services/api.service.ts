@@ -16,7 +16,7 @@ export class ApiService {
     }
 
     static getHeaders() {
-       const header = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+       const header = new HttpHeaders();
        if (window.localStorage.getItem('session')) {
            const token = JSON.parse(window.localStorage.getItem('session')).signatureToken;
            header.set('Authorization', token);

@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/form
 import {LoginService} from '../../services/login.service';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {formatDate} from '@angular/common';
 
 @Component({
     selector: 'app-login-page',
@@ -35,14 +36,23 @@ export class LoginPageComponent implements OnInit {
 
     ngOnInit() {}
 
-    async Login() {
-        this.loginService.login(JSON.stringify(this.loginForm.getRawValue())).then(val => {
+    Login() {
+        const jsonLoginForm = {
+            email: this.loginForm.get('email').value,
+            password: this.loginForm.get('password').value,
+        }
+        this.loginService.login(jsonLoginForm).then(val => {
             console.log('Login Result:', val);
         });
     }
 
-    async SignUp() {
-        this.loginService.signUp(JSON.stringify(this.userForm.getRawValue())).then(val => {
+    SignUp() {
+        const jsonUserForm = {
+            username: this.userForm.get('username').value,
+            email: this.userForm.get('email').value,
+            password: this.userForm.get('password').value,
+        }
+        this.loginService.signUp(jsonUserForm).then(val => {
             console.log('Signup Result:', val);
         });
     }
