@@ -26,11 +26,9 @@ exports.requireAuth = function (req, res, next) {
             if (jwtError.name === "TokenExpiredError")
                 jwtBlacklist.deleteOne({token: req.header('Authorization').slice(4)}).lean().exec();
             return res.json({
-                obj: jwtError,
+                success: false,
                 field: 'Authorization',
-                messages: [
-                    jwtError.message
-                ]
+                message: jwtError.message
             });
         } else if (!error) {
             let token = req.header('Authorization').slice(4);
@@ -39,10 +37,9 @@ exports.requireAuth = function (req, res, next) {
                     req.user = decryptToken;
                     return next();
                 } else if (!err && result) res.json({
+                    success: false,
                     field: 'Authorization',
-                    messages: [
-                        'token is in black list'
-                    ]
+                    message: 'token is in black list'
                 });
                 else general.response(res, err);
             });
