@@ -1,6 +1,7 @@
 import {Component, ComponentFactoryResolver, OnInit} from '@angular/core';
 import {WidgetContainerComponent} from '../widgets/widget-container.component';
 import {MatDialog} from '@angular/material';
+import {WidgetService} from '../widgets/widget.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import {MatDialog} from '@angular/material';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public matDialog: MatDialog) { }
+  constructor(public matDialog: MatDialog, private factory: WidgetService) { }
   widgets: Array<WidgetContainerComponent> = [];
   resolver: ComponentFactoryResolver;
 
