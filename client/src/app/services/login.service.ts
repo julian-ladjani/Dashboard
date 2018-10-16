@@ -19,4 +19,8 @@ export class LoginService extends ApiService {
     signUp(data) {
         return this.apiPost('/auth/local/up', data);
     }
+
+    logout() {
+        return this.apiGet('/auth/logout');
+    }
 }
