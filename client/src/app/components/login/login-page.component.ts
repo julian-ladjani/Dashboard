@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/form
 import {LoginService} from '../../services/login.service';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {formatDate} from '@angular/common';
 
 @Component({
     selector: 'app-login-page',
@@ -13,13 +12,17 @@ import {formatDate} from '@angular/common';
 
 export class LoginPageComponent implements OnInit {
     loginService: LoginService;
-    signUp: boolean;
+    signingUp: boolean;
     loginForm: FormGroup;
     userForm: FormGroup;
+    loginError: string;
+    userError: string;
 
     constructor(private http: HttpClient, private router: Router, private formBuilder: FormBuilder) {
       this.loginService = new LoginService(http, router);
-      this.signUp = false;
+      this.signingUp = false;
+      this.loginError = '';
+      this.userError = '';
       this.loginForm = this.formBuilder.group({
           email: ['', [Validators.required, Validators.email]],
           password: ['', [Validators.required]],
@@ -30,34 +33,43 @@ export class LoginPageComponent implements OnInit {
           password: ['', [Validators.required]],
           passwordConfirm: ['', [Validators.required]]
       }, {
-          validator: this.MatchPassword
+          validator: this.matchPassword
       });
     }
 
     ngOnInit() {}
 
-    Login() {
+    login(email, password) {
         const jsonLoginForm = {
-            email: this.loginForm.get('email').value,
-            password: this.loginForm.get('password').value,
-        }
-        this.loginService.login(jsonLoginForm).then(val => {
-            console.log('Login Result:', val);
+            email: email,
+            password: password
+        };
+        this.loginService.login(jsonLoginForm).then(responce => {
+            if (responce['success']) {
+                window.localStorage.setItem('token', responce['token']);
+                this.router.navigateByUrl('/home');
+            } else if (responce['message']) {
+                this.loginError = responce['message'];
+            }
         });
     }
 
-    SignUp() {
+    signUp(username, email, password) {
         const jsonUserForm = {
-            username: this.userForm.get('username').value,
-            email: this.userForm.get('email').value,
-            password: this.userForm.get('password').value,
-        }
-        this.loginService.signUp(jsonUserForm).then(val => {
-            console.log('Signup Result:', val);
+            username: username,
+            email: email,
+            password: password
+        };
+        this.loginService.signUp(jsonUserForm).then(responce => {
+            if (responce['success']) {
+                this.login(email, password);
+            } else if (responce['message']) {
+                this.userError = responce['message'];
+            }
         });
     }
 
-    MatchPassword(c: AbstractControl): { invalid: boolean } {
+    matchPassword(c: AbstractControl): { invalid: boolean } {
         if (c.get('password').value !== c.get('passwordConfirm').value) {
             return {invalid: true};
         }

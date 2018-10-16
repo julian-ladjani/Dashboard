@@ -16,9 +16,10 @@ export class ApiService {
     }
 
     static getHeaders() {
-       const header = new HttpHeaders();
-       if (window.localStorage.getItem('session')) {
-           const token = JSON.parse(window.localStorage.getItem('session')).signatureToken;
+       const header = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
+       if (window.localStorage.getItem('token')) {
+          const token = window.localStorage.getItem('token');
+//          const token = JSON.parse(window.localStorage.getItem('session')).signatureToken;
            header.set('Authorization', token);
        }
        return header;
@@ -33,7 +34,7 @@ export class ApiService {
     apiPost(path, data) {
         const headers = ApiService.getHeaders();
 
-        return this.http.post(`${this.apiUrl}${path}`, data, {headers: headers, withCredentials: true}).toPromise();
+        return this.http.post(`${this.apiUrl}${path}`, data, {headers: headers}).toPromise();
     }
 
     apiDelete(path, body) {

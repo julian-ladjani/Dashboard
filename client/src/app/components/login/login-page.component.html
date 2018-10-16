@@ -1,4 +1,5 @@
-<form [hidden]="signUp" class="db-form db-container" [formGroup]="loginForm" (submit)="Login()" id="loginForm" name="loginForm">
+<form [hidden]="signingUp" class="db-form db-container" [formGroup]="loginForm"
+      (submit)="login(this.loginForm.get('email').value, this.loginForm.get('password').value)">
     <div class="text-center db-top-form-logo">
         <svg-icon src="assets/trashboard-stacked-logo.svg" ngClass="centered-icon"></svg-icon>
     </div>
@@ -8,9 +9,14 @@
     <mat-form-field>
         <input matInput="" type="password" formControlName="password" placeholder="Password" required>
     </mat-form-field>
+    <div [hidden]="loginError == ''" class="alert alert-danger" role="alert">
+        <button type="button" class="close-alert" (click)="loginError = ''">×</button>
+        <i class="material-icons">error</i>
+        {{loginError}}
+    </div>
     <div class="db-row">
-        <button (click)="signUp = !signUp" mat-raised-button color="primary"
-                class="col-5 float-left">Sign up
+        <button (click)="signingUp = !signingUp" mat-raised-button color="primary"
+                type="button" class="col-5 float-left">Sign up
         </button>
         <button [disabled]="!loginForm.valid" mat-raised-button color="accent"
                 type="submit" class="col-5 float-right">Login
@@ -18,25 +24,31 @@
     </div>
 </form>
 
-<form [hidden]="!signUp" class="db-form db-container" [formGroup]="userForm" (submit)="SignUp()" id="userForm" name="userForm">
+<form [hidden]="!signingUp" class="db-form db-container" [formGroup]="userForm"
+      (submit)="signUp(this.userForm.get('username').value, this.userForm.get('email').value, this.userForm.get('password').value)">
     <div class="text-center db-top-form-logo">
         <svg-icon src="assets/trashboard-stacked-logo.svg" ngClass="centered-icon"></svg-icon>
     </div>
     <mat-form-field>
-        <input matInput="" type="text" placeholder="Username" formControlName="username" id="username" name="username" required>
+        <input matInput="" type="text" placeholder="Username" formControlName="username" required>
     </mat-form-field>
     <mat-form-field>
-        <input matInput="" type="email" formControlName="email" placeholder="Email" id="email" name="email" required>
+        <input matInput="" type="email" formControlName="email" placeholder="Email" required>
     </mat-form-field>
     <mat-form-field>
-        <input matInput="" type="password" formControlName="password" placeholder="Password" id="password" name="password" required>
+        <input matInput="" type="password" formControlName="password" placeholder="Password" required>
     </mat-form-field>
     <mat-form-field>
         <input matInput="" type="password" formControlName="passwordConfirm" placeholder="Confirm Password" required>
     </mat-form-field>
+    <div [hidden]="userError == ''" class="alert alert-danger" role="alert">
+        <button type="button" class="close-alert" (click)="userError = ''">×</button>
+        <i class="material-icons">error</i>
+        {{userError}}
+    </div>
     <div class="db-row">
-        <button (click)="signUp = !signUp" mat-raised-button color="primary"
-                class="col-5 float-left">Login
+        <button (click)="signingUp = !signingUp" mat-raised-button color="primary"
+                type="button" class="col-5 float-left">Login
         </button>
         <button [disabled]="!userForm.valid" mat-raised-button color="accent"
                 type="submit" class="col-5 float-right">Sign Up

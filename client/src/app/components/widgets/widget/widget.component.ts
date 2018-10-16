@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {SettingVariable} from '../../../objects/setting-variable';
+import {SettingsContainer} from '../../../objects/settings-container';
 
 @Component({
   selector: 'app-widget',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./widget.component.scss']
 })
 export class WidgetComponent implements OnInit {
+    constructor() { }
 
-  constructor() { }
+    @Input() settings: SettingVariable[];
 
-  ngOnInit() {
-  }
+    static getSettings() {
+        return [new SettingVariable('Message', 'String', 'Hello world !')];
+    }
 
+    ngOnInit() {
+    }
 }
