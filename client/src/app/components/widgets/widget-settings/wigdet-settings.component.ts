@@ -19,4 +19,8 @@ export class WigdetSettingsComponent implements OnInit {
   onNoClick(): void {
       this.dialogRef.close({data: null});
   }
+  couille() {
+    console.log(this.data);
+      this.dialogRef.close({data: this.data});
+  }
 }

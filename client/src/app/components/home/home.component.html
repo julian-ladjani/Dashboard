@@ -4,6 +4,7 @@
         <button mat-raised-button="" (click)="addWidget()">Add person</button>
         <div class="db-widgets-container">
             <app-widget-container *ngFor="let widget of widgets" [widget]="factory.getWidget('basicWidget')"></app-widget-container>
+            <!--app-widget-container *ngFor="let widget of widgets" [widget]="factory.getWidget('favoritePokemonWidget')"></app-widget-container-->
         </div>
     </section>
 </div>

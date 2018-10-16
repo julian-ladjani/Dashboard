@@ -6,7 +6,7 @@ import {WidgetString} from '../../objects/widget-string';
 import {WidgetInt} from '../../objects/widget-int';
 import {WidgetBool} from '../../objects/widget-bool';
 import {WidgetComponent} from './widget/widget.component';
-import {WidgetItem} from './widget-item';
+import {WidgetItem} from '../../objects/widget-item';
 import {WidgetDirective} from './widget.directive';
 
 @Component({
@@ -15,15 +15,13 @@ import {WidgetDirective} from './widget.directive';
     styleUrls: ['./widget-container.component.scss']
 })
 export class WidgetContainerComponent implements OnInit {
-    public variables: WidgetVariable[];
+
     @Input() widget: WidgetItem;
     @ViewChild(WidgetDirective) widgetHost: WidgetDirective;
 
+    private component: any;
+    private data: any;
     constructor(public matDialog: MatDialog, private resolver: ComponentFactoryResolver) {
-        this.variables = [];
-        this.variables.push(new WidgetString('testString', 'I m a string'));
-        this.variables.push(new WidgetInt('testInt', 42));
-        this.variables.push(new WidgetBool('testBool', true));
     }
 
     ngOnInit() {
@@ -35,34 +33,42 @@ export class WidgetContainerComponent implements OnInit {
 
         const viewContainerRef = this.widgetHost.viewContainerRef;
         viewContainerRef.clear();
-
         const componentRef = viewContainerRef.createComponent(componentFactory);
-        //   (<WidgetComponent>componentRef.instance).data = this.widget.data;
-    }
-
-    addVariable(widgetVariable: WidgetVariable) {
-        this.variables.push(widgetVariable);
-    }
-
-    getValue(name: string) {
-        this.variables.forEach(function (value) {
-            if (value.name === name) {
-                return value;
-            }
-        });
-        return null;
+        this.component = (<WidgetComponent>componentRef.instance);
+        this.component.settings = this.widget.data;
+        this.data = this.widget.data;
     }
 
     openSettings(): void {
         const dialogRef = this.matDialog.open(WigdetSettingsComponent, {
             width: '250px',
-            data: this.variables
+            data: <[WidgetItem]> JSON.parse(JSON.stringify(this.data))
         });
 
         dialogRef.afterClosed().subscribe(result => {
+            console.log(result);
             if (result) {
-                this.variables = result;
+//                this.widget.data = result.data;
+                this.component.settings = result.data;
+                this.widget.data = result.data;
+                this.data = <[WidgetItem]> JSON.parse(JSON.stringify(result.data));
+                console.log('Data From : ', this.data[0]);
             }
         });
     }
 }
+
+
+
+/*addVariable(widgetVariable: WidgetVariable) {
+    this.widget.data.push(widgetVariable);
+}
+
+getValue(name: string) {
+    this.widget.data.forEach(function (value) {
+        if (value.name === name) {
+            return value;
+        }
+    });
+    return null;
+}*/

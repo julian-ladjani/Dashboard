@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {WidgetVariable} from '../../../objects/widget-variable';
 
 @Component({
   selector: 'app-widget',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WidgetComponent implements OnInit {
 
-  constructor() { }
+    @Input() settings: WidgetVariable[];
+    constructor() { }
 
   ngOnInit() {
   }

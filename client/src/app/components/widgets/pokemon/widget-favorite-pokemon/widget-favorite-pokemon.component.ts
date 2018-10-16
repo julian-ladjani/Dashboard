@@ -10,11 +10,11 @@ import {WidgetComponent} from '../../widget/widget.component';
   styleUrls: ['./widget-favorite-pokemon.component.scss']
 })
 export class WidgetFavoritePokemonComponent extends WidgetComponent implements OnInit {
-public imgUrl: string;
+//public imgUrl: string;
 
   constructor() {
       super();
-      console.log('hello wolrd');
+//      console.log('hello wolrd');
 //      super.addVariable(new WidgetString('Pokemon Name', 'Rayquaza'));
 //      this.variables.push(new WidgetBool('Shiny', true));
 //      this.imgUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/384.png';
