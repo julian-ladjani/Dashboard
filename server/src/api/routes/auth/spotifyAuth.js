@@ -1,23 +1,22 @@
 'use strict';
 
-const passport = require('../controllers/spotifyAuth');
 const router = require('express').Router();
-const spotify = require('../controllers/spotifyApi');
+const passport = require('../../controllers/Spotify/spotifyAuth');
 
-    // todoList Routes
-    router.get('/auth', passport.authenticate('spotify'), function(req, res) {
+
+router.get('/', passport.authenticate('spotify'), function(req, res) {
     // The request will be redirected to spotify for authentication, so this
     // function will not be called.
-    });
+});
 
-    router.get(
+router.get(
     '/callback',
     passport.authenticate('spotify', { failureRedirect: '/login' }),
     function(req, res) {
         // Successful authentication, redirect home.
+        console.log(req);
         res.redirect('/');
     }
 );
-
 
 module.exports = router;
