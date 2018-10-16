@@ -1,7 +1,7 @@
 'use strict';
 
 const router = require('express').Router();
-const weather = require('../controllers/weather');
+const weather = require('../../controllers/Weather/weather');
     // Weather Routes
     router
         .get('/current/:land/:city', weather.get_current);

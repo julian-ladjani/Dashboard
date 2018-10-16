@@ -6,7 +6,7 @@ const jwt = require('../../controllers/auth/jwtAuth');
 router.get('/', jwt.requireAuth,function (req, res) {
     req.logout();
     jwt.blacklistToken(req);
-    res.redirect('/');
+    res.json({success: true})
 });
 
 module.exports = router;

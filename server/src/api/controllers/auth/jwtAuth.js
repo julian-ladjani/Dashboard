@@ -23,7 +23,13 @@ exports.blacklistToken = function(req) {
 exports.requireAuth = function (req, res, next) {
     passport.authenticate('jwt', {session: false}, function (error, decryptToken, jwtError) {
         if (typeof (jwtError) === 'object') {
-
+            if (jwtError.name === "TokenExpiredError")
+                jwtBlacklist.deleteOne({token: req.header('Authorization').slice(4)}).lean().exec();
+            return res.json({
+                success: false,
+                field: 'Authorization',
+                message: jwtError.message
+            });
         } else if (!error) {
             let token = req.header('Authorization').slice(4);
             jwtBlacklist.findOne({token: token}).lean().exec((err, result) => {
@@ -31,10 +37,9 @@ exports.requireAuth = function (req, res, next) {
                     req.user = decryptToken;
                     return next();
                 } else if (!err && result) res.json({
+                    success: false,
                     field: 'Authorization',
-                    messages: [
-                        'token is in black list'
-                    ]
+                    message: 'token is in black list'
                 });
                 else general.response(res, err);
             });

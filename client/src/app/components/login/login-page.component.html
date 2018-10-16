@@ -1,4 +1,4 @@
-<form [hidden]="signUp" class="db-form db-container" [formGroup]="loginForm" (submit)="Login()">
+<form [hidden]="signUp" class="db-form db-container" [formGroup]="loginForm" (submit)="Login()" id="loginForm" name="loginForm">
     <div class="text-center db-top-form-logo">
         <svg-icon src="assets/trashboard-stacked-logo.svg" ngClass="centered-icon"></svg-icon>
     </div>
@@ -18,18 +18,18 @@
     </div>
 </form>
 
-<form [hidden]="!signUp" class="db-form db-container" [formGroup]="userForm" (submit)="SignUp()">
+<form [hidden]="!signUp" class="db-form db-container" [formGroup]="userForm" (submit)="SignUp()" id="userForm" name="userForm">
     <div class="text-center db-top-form-logo">
         <svg-icon src="assets/trashboard-stacked-logo.svg" ngClass="centered-icon"></svg-icon>
     </div>
     <mat-form-field>
-        <input matInput="" type="text" placeholder="Username" formControlName="username" required>
+        <input matInput="" type="text" placeholder="Username" formControlName="username" id="username" name="username" required>
     </mat-form-field>
     <mat-form-field>
-        <input matInput="" type="email" formControlName="email" placeholder="Email" required>
+        <input matInput="" type="email" formControlName="email" placeholder="Email" id="email" name="email" required>
     </mat-form-field>
     <mat-form-field>
-        <input matInput="" type="password" formControlName="password" placeholder="Password" required>
+        <input matInput="" type="password" formControlName="password" placeholder="Password" id="password" name="password" required>
     </mat-form-field>
     <mat-form-field>
         <input matInput="" type="password" formControlName="passwordConfirm" placeholder="Confirm Password" required>

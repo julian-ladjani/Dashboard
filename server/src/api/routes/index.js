@@ -1,9 +1,9 @@
 'use strict';
 
 const router = require('express').Router();
-const pokemonRouter = require('./pokemon');
-const weatherRouter = require('./weather');
-const spotifyRouter = require('./spotifyApi');
+const pokemonRouter = require('./Pokemon/pokemon');
+const weatherRouter = require('./Weather/weather');
+const spotifyRouter = require('./Spotify/spotifyApi');
 const auth = require('./auth/auth');
 
 router.use('/pokemon', pokemonRouter);
