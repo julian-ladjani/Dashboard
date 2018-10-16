@@ -8,6 +8,8 @@ const router = require('express').Router();
     router
         .get('/blind/:lang/:gen', pokemonApi.getBlind);
     router
+        .get('/name/:poke/:lang', pokemonApi.getPokemon);
+    router
         .get('/team/:nbr', pokemonApi.getTeam);
     router
         .get('/type/:type', pokemonApi.getType);
