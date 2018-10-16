@@ -20,3 +20,34 @@
 .db-top-form-logo {
     margin-bottom: 20px;
 }
+
+.alert {
+    &-danger {
+        background-color: lighten(#d43f3a, 15%);
+        border-color: lighten(#d43f3a, 10%);
+        color: darken(#d43f3a, 15%);
+    }
+    i {
+        vertical-align: middle;
+    }
+    .close-alert {
+        -webkit-appearance: none;
+        position: relative;
+        float: right;
+        padding: 0;
+        border: 0;
+        cursor: pointer;
+        color: inherit;
+        background: 0 0;
+        font-size: 21px;
+        line-height: 1;
+        font-weight: bold;
+        text-shadow: 0 1px 0 rgba(255,255,255,.7);
+        filter: alpha(opacity=40);
+        opacity: .4;
+        &:hover{
+            filter: alpha(opacity=70);
+            opacity: .7;
+        }
+    }
+}
