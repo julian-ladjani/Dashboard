@@ -11,7 +11,6 @@ let Pokemon = mongoose.Schema({
         blind        : {
             time        : String,
             generation  : String,
-            shiney      : Boolean,
             show        : Boolean
         },
         team         : {

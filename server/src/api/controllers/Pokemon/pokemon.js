@@ -11,7 +11,7 @@ exports.getPokemon = function(req, res) {
     Pokedex.getPokemonByName(req.params.poke) // with Promise
         .then(function(response) {
             var tmp = {'pokemon':{name:pokemon.getName(response.game_indices[0].game_index,req.params.lang),
-                    sprites:response.sprites.front_default}};
+                    sprites:[response.sprites]}};
             res.send(tmp);
         });
 };
@@ -20,7 +20,7 @@ exports.getBlind = function(req, res) {
     Pokedex.getPokemonByName(parseInt(Math.random()*req.params.gen+1)) // with Promise
         .then(function(response) {
             var tmp = {'pokemon':{name:pokemon.getName(response.game_indices[0].game_index,req.params.lang),
-                    sprites:response.sprites.front_default}, 'time':10};
+                    sprites:[response.sprites]}, 'time':10};
             res.send(tmp);
         });
 };
