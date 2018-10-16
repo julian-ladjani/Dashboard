@@ -11,13 +11,14 @@ import { WidgetBarComponent } from './components/widget-bar/widget-bar.component
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ResizableModule } from 'angular-resizable-element';
 import { HomeComponent } from './components/home/home.component';
-import { WidgetContainerComponent } from './components/widget/widget-container.component';
+import { WidgetContainerComponent } from './components/widgets/widget-container.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
-import { WigdetSettingsComponent } from './components/widget/widget-settings/wigdet-settings.component';
-import { WidgetFavoritePokemonComponent } from './components/widget/pokemon/widget-favorite-pokemon/widget-favorite-pokemon.component';
+import { WigdetSettingsComponent } from './components/widgets/widget-settings/wigdet-settings.component';
+import { WidgetFavoritePokemonComponent } from './components/widgets/pokemon/widget-favorite-pokemon/widget-favorite-pokemon.component';
+import { WidgetComponent } from './components/widgets/widget/widget.component';
 
 const appRoutes: Routes = [
     {
@@ -43,10 +44,12 @@ const appRoutes: Routes = [
     HomeComponent,
     WidgetContainerComponent,
     WigdetSettingsComponent,
-    WidgetFavoritePokemonComponent
+    WidgetFavoritePokemonComponent,
+    WidgetComponent
   ],
   entryComponents: [
-      WigdetSettingsComponent
+      WigdetSettingsComponent,
+      WidgetComponent
   ],
   imports: [
     RouterModule.forRoot(
