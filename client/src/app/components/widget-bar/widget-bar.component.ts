@@ -31,8 +31,6 @@ export class WidgetBarComponent implements OnInit {
     }
 
     onResizeEnd(event: ResizeEvent): void {
-        console.log('Element was resized', event);
         this.navBarWidth = event.rectangle.right + 'px';
-        console.log('resize');
     }
 }
