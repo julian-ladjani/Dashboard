@@ -1,12 +1,9 @@
 import {Component, ComponentFactoryResolver, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
-import {WidgetVariable} from '../../objects/widget-variable';
+import {SettingVariable} from '../../objects/setting-variable';
 import {MatDialog} from '@angular/material';
 import {WigdetSettingsComponent} from './widget-settings/wigdet-settings.component';
-import {WidgetString} from '../../objects/widget-string';
-import {WidgetInt} from '../../objects/widget-int';
-import {WidgetBool} from '../../objects/widget-bool';
 import {WidgetComponent} from './widget/widget.component';
-import {WidgetItem} from '../../objects/widget-item';
+import {WidgetWrapper} from '../../objects/widget-wrapper';
 import {WidgetDirective} from './widget.directive';
 
 @Component({
@@ -16,7 +13,7 @@ import {WidgetDirective} from './widget.directive';
 })
 export class WidgetContainerComponent implements OnInit {
 
-    @Input() widget: WidgetItem;
+    @Input() widget: WidgetWrapper;
     @ViewChild(WidgetDirective) widgetHost: WidgetDirective;
 
     private component: any;
@@ -42,7 +39,7 @@ export class WidgetContainerComponent implements OnInit {
     openSettings(): void {
         const dialogRef = this.matDialog.open(WigdetSettingsComponent, {
             width: '250px',
-            data: <[WidgetItem]> JSON.parse(JSON.stringify(this.data))
+            data: <[WidgetWrapper]> JSON.parse(JSON.stringify(this.data))
         });
 
         dialogRef.afterClosed().subscribe(result => {
@@ -51,14 +48,12 @@ export class WidgetContainerComponent implements OnInit {
 //                this.widget.data = result.data;
                 this.component.settings = result.data;
                 this.widget.data = result.data;
-                this.data = <[WidgetItem]> JSON.parse(JSON.stringify(result.data));
+                this.data = <[WidgetWrapper]> JSON.parse(JSON.stringify(result.data));
                 console.log('Data From : ', this.data[0]);
             }
         });
     }
 }
-
-
 
 /*addVariable(widgetVariable: WidgetVariable) {
     this.widget.data.push(widgetVariable);
