@@ -5,6 +5,7 @@ import {WigdetSettingsComponent} from './widget-settings/wigdet-settings.compone
 import {WidgetComponent} from './widget/widget.component';
 import {WidgetWrapper} from '../../objects/widget-wrapper';
 import {WidgetDirective} from './widget.directive';
+import {SettingsContainer} from '../../objects/settings-container';
 
 @Component({
     selector: 'app-widget-container',
@@ -17,7 +18,7 @@ export class WidgetContainerComponent implements OnInit {
     @ViewChild(WidgetDirective) widgetHost: WidgetDirective;
 
     private component: any;
-    private data: any;
+    private data: SettingsContainer;
     constructor(public matDialog: MatDialog, private resolver: ComponentFactoryResolver) {
     }
 
@@ -38,18 +39,14 @@ export class WidgetContainerComponent implements OnInit {
 
     openSettings(): void {
         const dialogRef = this.matDialog.open(WigdetSettingsComponent, {
-            width: '250px',
-            data: <WidgetWrapper[]> JSON.parse(JSON.stringify(this.data))
+            data: <SettingVariable[]> JSON.parse(JSON.stringify(this.data.getSettings()))
         });
 
         dialogRef.afterClosed().subscribe(result => {
-            console.log(result);
             if (result) {
-//                this.widget.data = result.data;
-                this.component.settings = result.data;
-                this.widget.data = result.data;
-                this.data = <[WidgetWrapper]> JSON.parse(JSON.stringify(result.data));
-                console.log('Data From : ', this.data);
+                this.component.settings.settings = result.data;
+                this.widget.data.settings = result.data;
+                this.data.settings = result.data;
             }
         });
     }

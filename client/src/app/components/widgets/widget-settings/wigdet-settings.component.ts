@@ -1,6 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {SettingVariable} from '../../../objects/setting-variable';
+import {SettingsContainer} from '../../../objects/settings-container';
+import {WidgetComponent} from '../widget/widget.component';
 
 @Component({
   selector: 'app-wigdet-settings',

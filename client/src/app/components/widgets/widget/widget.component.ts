@@ -10,7 +10,11 @@ import {SettingsContainer} from '../../../objects/settings-container';
 export class WidgetComponent implements OnInit {
     constructor() { }
 
-    @Input() settings: SettingVariable[];
+    @Input() settings: SettingsContainer;
+
+    static getSettingContainer() {
+        return new SettingsContainer(this.getSettings());
+    }
 
     static getSettings() {
         return [new SettingVariable('Message', 'String', 'Hello world !')];
