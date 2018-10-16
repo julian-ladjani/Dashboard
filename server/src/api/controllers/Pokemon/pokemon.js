@@ -2,13 +2,18 @@
 
 const PokeApi = require('pokedex-promise-v2');
 const Pokedex = new PokeApi();
+const pokemon = require('pokemon');
 
-exports.getRandomPokemon = function(req, res) {
+exports.auth = function(req,res) {
+};
+
+exports.getBlind = function(req, res) {
     var gen = req.params.gen;
     Pokedex.getPokemonByName(parseInt(Math.random()*gen+1)) // with Promise
         .then(function(response) {
-            var tmp = {form:[response.forms[0]],sprites:[response.sprites]};
-            res.send(JSON.stringify(tmp));
+            var tmp = {'pokemon':{name:pokemon.getName(response.game_indices[0].game_index,req.params.lang),
+                    sprites:response.sprites.front_default}, 'time':10};
+            res.send(tmp);
         });
 };
 
