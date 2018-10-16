@@ -13,7 +13,8 @@ export class WidgetFavoritePokemonComponent extends WidgetComponent implements O
     }
 
     static getSettings() {
-        return [new SettingVariable('Name', 'String', 'Pikachu')];
+        return [new SettingVariable('Name', 'String', 'Pikachu'),
+                new SettingVariable('Shiny', 'Boolean', true)];
     }
 
     ngOnInit() {

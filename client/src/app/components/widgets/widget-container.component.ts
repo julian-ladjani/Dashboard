@@ -39,7 +39,7 @@ export class WidgetContainerComponent implements OnInit {
     openSettings(): void {
         const dialogRef = this.matDialog.open(WigdetSettingsComponent, {
             width: '250px',
-            data: <[WidgetWrapper]> JSON.parse(JSON.stringify(this.data))
+            data: <WidgetWrapper[]> JSON.parse(JSON.stringify(this.data))
         });
 
         dialogRef.afterClosed().subscribe(result => {
@@ -49,7 +49,7 @@ export class WidgetContainerComponent implements OnInit {
                 this.component.settings = result.data;
                 this.widget.data = result.data;
                 this.data = <[WidgetWrapper]> JSON.parse(JSON.stringify(result.data));
-                console.log('Data From : ', this.data[0]);
+                console.log('Data From : ', this.data);
             }
         });
     }
