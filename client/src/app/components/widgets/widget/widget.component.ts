@@ -11,6 +11,14 @@ import {WidgetWrapper} from '../../../objects/widget-wrapper';
 export class WidgetComponent implements OnInit {
     constructor() { }
 
+    static getServiceLabel() {
+        return 'widget';
+    }
+
+    static getWidgetLabel() {
+        return 'widget';
+    }
+
     @Input() settings: SettingsContainer;
 
     static getSettingContainer() {

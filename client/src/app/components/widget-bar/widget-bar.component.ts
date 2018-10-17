@@ -1,6 +1,8 @@
 import {Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {ResizeEvent} from 'angular-resizable-element';
 import {$} from 'jquery';
+import {WidgetFavoritePokemonComponent} from '../widgets/pokemon/widget-favorite-pokemon/widget-favorite-pokemon.component';
+import {PokemonComponent} from '../widgets/pokemon/pokemon/pokemon.component';
 
 @Component({
     encapsulation: ViewEncapsulation.None,
@@ -21,8 +23,9 @@ export class WidgetBarComponent implements OnInit {
     constructor() {
         this.nav = [
             this.newTab(`NASA`, 'assets/icons/nasa.svg', 'nasa'),
-            this.newTab(`Pokemon`, 'assets/icons/pokemon.svg', 'pokemon'),
-            this.newSubTab(`Favorite Pokemon`, 'favorite', 'pokemon'),
+            this.newTab(`Pokemon`, 'assets/icons/pokemon.svg', PokemonComponent.getServiceLabel()),
+            this.newSubTab(`Favorite Pokemon`,
+                WidgetFavoritePokemonComponent.getWidgetLabel(), WidgetFavoritePokemonComponent.getServiceLabel()),
             this.newTab(`Steam`, 'assets/icons/steam.svg', 'steam'),
             this.newTab(`Twitch`, 'assets/icons/twitch.svg', 'twitch'),
             this.newTab(`Twitter`, 'assets/icons/twitter.svg', 'twitter'),
