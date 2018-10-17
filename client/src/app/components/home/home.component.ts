@@ -2,6 +2,8 @@ import {Component, ComponentFactoryResolver, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {WidgetFactoryService} from '../../services/widget-factory.service';
 import {Router} from '@angular/router';
+import {LoginService} from '../../services/login.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +12,13 @@ import {Router} from '@angular/router';
 })
 
 export class HomeComponent implements OnInit {
-
-  constructor(public matDialog: MatDialog, public factory: WidgetFactoryService, private router: Router) { }
   widgets: Array<{service: String, widget: String, title: String, icon: String}> = [];
+  loginService: LoginService;
   resolver: ComponentFactoryResolver;
+
+  constructor(public matDialog: MatDialog, public factory: WidgetFactoryService, private http: HttpClient, private router: Router) {
+      this.loginService = new LoginService(http, router);
+  }
 
   ngOnInit() {
   }
@@ -23,7 +28,11 @@ export class HomeComponent implements OnInit {
   }
 
   logout() {
-      window.localStorage.setItem('token', '');
-      this.router.navigateByUrl('/login');
+      this.loginService.logout().then(responce => {
+          if (responce['success']) {
+              window.localStorage.setItem('token', '');
+              this.router.navigateByUrl('/login');
+          }
+      });
   }
 }
