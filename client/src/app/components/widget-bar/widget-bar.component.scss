@@ -22,9 +22,10 @@
   background-color: var(--darker-color);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16), 0 1px 4px rgba(0, 0, 0, 0.16);
   width: 250px;
+  z-index: 1000;
 
   > svg-icon {
-    padding: 30px;
+    padding: 20px 5px 5px 5px;
     display: block;
     margin: 0 auto;
     svg {
@@ -32,6 +33,11 @@
       height: 100%;
       width: 100%;
     }
+  }
+
+  .db-tools {
+    display: flex;
+    justify-content: space-evenly;
   }
 
   ul {

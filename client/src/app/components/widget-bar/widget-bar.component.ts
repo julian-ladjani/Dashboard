@@ -15,6 +15,8 @@ export class WidgetBarComponent implements OnInit {
     yolo = false;
 
     @Output() addNewWidgetEvent = new EventEmitter<any>();
+    @Output() logoutEvent = new EventEmitter();
+    @Output() expandEvent = new EventEmitter<boolean>();
 
     constructor() {
         this.nav = [

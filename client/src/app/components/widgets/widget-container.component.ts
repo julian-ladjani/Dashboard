@@ -55,16 +55,3 @@ export class WidgetContainerComponent implements OnInit {
         });
     }
 }
-
-/*addVariable(widgetVariable: WidgetVariable) {
-    this.widget.data.push(widgetVariable);
-}
-
-getValue(name: string) {
-    this.widget.data.forEach(function (value) {
-        if (value.name === name) {
-            return value;
-        }
-    });
-    return null;
-}*/

@@ -15,7 +15,7 @@ import { WidgetContainerComponent } from './components/widgets/widget-container.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatDialogModule, MatIconModule} from '@angular/material';
 import { WigdetSettingsComponent } from './components/widgets/widget-settings/wigdet-settings.component';
 import { WidgetFavoritePokemonComponent } from './components/widgets/pokemon/widget-favorite-pokemon/widget-favorite-pokemon.component';
 import { WidgetComponent } from './components/widgets/widget/widget.component';
@@ -76,6 +76,7 @@ const appRoutes: Routes = [
       MatInputModule,
       MatDialogModule,
       MatCardModule,
+      MatIconModule,
       GridsterModule
   ],
   providers: [],

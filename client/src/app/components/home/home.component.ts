@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     loginService: LoginService;
     resolver: ComponentFactoryResolver;
     options: GridsterConfig;
+    size = 100;
 
     constructor(public matDialog: MatDialog, public factory: WidgetFactoryService, private http: HttpClient, private router: Router) {
         this.loginService = new LoginService(http, router);
@@ -103,5 +104,13 @@ export class HomeComponent implements OnInit {
 
     changedOptions() {
         this.options.api.optionsChanged();
+    }
+
+    resize(expand) {
+        if (expand === true) {
+            this.size += 20;
+        } else if (this.size > 100) {
+            this.size -= 20;
+        }
     }
 }
