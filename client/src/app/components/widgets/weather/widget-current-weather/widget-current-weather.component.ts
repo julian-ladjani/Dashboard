@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SettingEnum, SettingVariable} from '../../../../objects/setting-variable';
 import {WidgetComponent} from '../../widget/widget.component';
+import {WidgetWrapper} from '../../../../objects/widget-wrapper';
 
 @Component({
   selector: 'app-widget-current-weather',
@@ -22,6 +23,10 @@ export class WidgetCurrentWeatherComponent extends WidgetComponent implements On
           new SettingVariable('skytext', 'String', '', SettingEnum.GET),
           new SettingVariable('imageUrl', 'String', '', SettingEnum.GET)];
   }
+
+    static getWrapper() {
+        return new WidgetWrapper(WidgetCurrentWeatherComponent, WidgetCurrentWeatherComponent.getSettingContainer());
+    }
 
   ngOnInit() {
   }

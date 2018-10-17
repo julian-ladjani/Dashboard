@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {WidgetComponent} from '../../widget/widget.component';
 import {SettingEnum, SettingVariable} from '../../../../objects/setting-variable';
+import {WidgetWrapper} from '../../../../objects/widget-wrapper';
 
 @Component({
     selector: 'app-widget-favorite-pokemon',
@@ -16,6 +17,10 @@ export class WidgetFavoritePokemonComponent extends WidgetComponent implements O
         return [new SettingVariable('Name', 'String', 'Pikachu', SettingEnum.POST),
             new SettingVariable('Shiny', 'Boolean', false, SettingEnum.POST),
             new SettingVariable('sprite', 'String', '', SettingEnum.GET)];
+    }
+
+    static getWrapper() {
+        return new WidgetWrapper(WidgetFavoritePokemonComponent, WidgetFavoritePokemonComponent.getSettingContainer());
     }
 
     ngOnInit() {
