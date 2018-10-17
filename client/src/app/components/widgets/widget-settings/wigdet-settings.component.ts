@@ -9,6 +9,7 @@ import {SettingEnum, SettingVariable} from '../../../objects/setting-variable';
 })
 export class WigdetSettingsComponent implements OnInit {
   public settings: any;
+  objectKeys = Object.keys;
 
   constructor(
     public dialogRef: MatDialogRef<WigdetSettingsComponent>,
@@ -16,6 +17,9 @@ export class WigdetSettingsComponent implements OnInit {
       this.settings = SettingEnum;
   }
 
+  checkType(elem, type) {
+      return typeof elem === type;
+  }
   ngOnInit() {
   }
 

@@ -11,14 +11,14 @@ export class WidgetFactoryService {
     getWidget(service, widget) {
         if (service === 'pokemon') {
             if (widget === 'favorite') {
-                return WidgetFavoritePokemonComponent.getWrapper();
+                return WidgetFavoritePokemonComponent;
             }
         }
         if (service === 'weather') {
             if (widget === 'current') {
-                return WidgetCurrentWeatherComponent.getWrapper();
+                return WidgetCurrentWeatherComponent;
             }
         }
-        return WidgetComponent.getWrapper();
+        return WidgetComponent;
     }
 }
