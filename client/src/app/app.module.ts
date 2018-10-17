@@ -21,6 +21,7 @@ import { WidgetFavoritePokemonComponent } from './components/widgets/pokemon/wid
 import { WidgetComponent } from './components/widgets/widget/widget.component';
 import { WidgetDirective } from './components/widgets/widget.directive';
 import {MatCardModule} from '@angular/material/card';
+import {GridsterModule} from 'angular-gridster2';
 
 
 const appRoutes: Routes = [
@@ -74,7 +75,8 @@ const appRoutes: Routes = [
       MatFormFieldModule,
       MatInputModule,
       MatDialogModule,
-      MatCardModule
+      MatCardModule,
+      GridsterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
