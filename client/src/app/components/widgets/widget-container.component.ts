@@ -1,4 +1,4 @@
-import {Component, ComponentFactoryResolver, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {SettingVariable} from '../../objects/setting-variable';
 import {MatDialog} from '@angular/material';
 import {WigdetSettingsComponent} from './widget-settings/wigdet-settings.component';

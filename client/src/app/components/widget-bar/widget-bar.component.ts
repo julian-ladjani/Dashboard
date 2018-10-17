@@ -3,6 +3,7 @@ import {ResizeEvent} from 'angular-resizable-element';
 import {$} from 'jquery';
 import {WidgetFavoritePokemonComponent} from '../widgets/pokemon/widget-favorite-pokemon/widget-favorite-pokemon.component';
 import {PokemonComponent} from '../widgets/pokemon/pokemon/pokemon.component';
+import {WidgetCurrentWeatherComponent} from '../widgets/weather/widget-current-weather/widget-current-weather.component';
 
 @Component({
     encapsulation: ViewEncapsulation.None,
@@ -29,7 +30,8 @@ export class WidgetBarComponent implements OnInit {
             this.newTab(`Twitch`, 'assets/icons/twitch.svg', 'twitch'),
             this.newTab(`Twitter`, 'assets/icons/twitter.svg', 'twitter'),
             this.newTab(`Weather`, 'assets/icons/weather.svg', 'weather'),
-            this.newSubTab(`Current Weather`, 'current', 'weather'),
+            this.newSubTab(`Current Weather`,
+                WidgetCurrentWeatherComponent.getWidgetLabel(), WidgetCurrentWeatherComponent.getServiceLabel()),
             this.newTab(`Youtube`, 'assets/icons/youtube.svg', 'youtube')
         ];
     }

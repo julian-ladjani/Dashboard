@@ -9,6 +9,7 @@ import {WidgetWrapper} from '../../../../objects/widget-wrapper';
     styleUrls: ['./widget-favorite-pokemon.component.scss']
 })
 export class WidgetFavoritePokemonComponent extends WidgetComponent implements OnInit {
+
     constructor() {
         super();
     }

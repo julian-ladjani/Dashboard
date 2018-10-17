@@ -58,7 +58,8 @@ const appRoutes: Routes = [
   entryComponents: [
       WigdetSettingsComponent,
       WidgetComponent,
-      WidgetFavoritePokemonComponent
+      WidgetFavoritePokemonComponent,
+      WidgetCurrentWeatherComponent
   ],
   imports: [
     RouterModule.forRoot(
