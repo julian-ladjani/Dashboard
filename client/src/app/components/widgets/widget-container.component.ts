@@ -15,6 +15,8 @@ import {SettingsContainer} from '../../objects/settings-container';
 export class WidgetContainerComponent implements OnInit {
 
     @Input() widget: WidgetWrapper;
+    @Input() icon: String;
+    @Input() title: String;
     @ViewChild(WidgetDirective) widgetHost: WidgetDirective;
 
     private component: any;
