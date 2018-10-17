@@ -20,7 +20,7 @@ export class SettingsContainer {
     }
 
     getValue(name: string) {
-        this.settings.forEach(function (value) {
+        this._settings.forEach(function (value) {
             if (value.name === name) {
                 return value.value;
             }

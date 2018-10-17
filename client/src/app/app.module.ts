@@ -22,7 +22,7 @@ import { WidgetComponent } from './components/widgets/widget/widget.component';
 import { WidgetDirective } from './components/widgets/widget.directive';
 import {MatCardModule} from '@angular/material/card';
 import {GridsterModule} from 'angular-gridster2';
-
+import { WidgetCurrentWeatherComponent } from './components/widgets/weather/widget-current-weather/widget-current-weather.component';
 
 const appRoutes: Routes = [
     {
@@ -50,7 +50,8 @@ const appRoutes: Routes = [
     WigdetSettingsComponent,
     WidgetFavoritePokemonComponent,
     WidgetComponent,
-    WidgetDirective
+    WidgetDirective,
+    WidgetCurrentWeatherComponent
   ],
   entryComponents: [
       WigdetSettingsComponent,
