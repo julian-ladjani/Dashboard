@@ -15,11 +15,15 @@ import { WidgetContainerComponent } from './components/widgets/widget-container.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatDialogModule, MatIconModule} from '@angular/material';
 import { WigdetSettingsComponent } from './components/widgets/widget-settings/wigdet-settings.component';
 import { WidgetFavoritePokemonComponent } from './components/widgets/pokemon/widget-favorite-pokemon/widget-favorite-pokemon.component';
 import { WidgetComponent } from './components/widgets/widget/widget.component';
 import { WidgetDirective } from './components/widgets/widget.directive';
+import {MatCardModule} from '@angular/material/card';
+import {GridsterModule} from 'angular-gridster2';
+import { PokemonComponent } from './components/widgets/pokemon/pokemon/pokemon.component';
+import {WidgetCurrentWeatherComponent} from './components/widgets/weather/widget-current-weather/widget-current-weather.component';
 
 const appRoutes: Routes = [
     {
@@ -47,12 +51,15 @@ const appRoutes: Routes = [
     WigdetSettingsComponent,
     WidgetFavoritePokemonComponent,
     WidgetComponent,
-    WidgetDirective
+    WidgetDirective,
+    PokemonComponent,
+    WidgetCurrentWeatherComponent
   ],
   entryComponents: [
       WigdetSettingsComponent,
       WidgetComponent,
-      WidgetFavoritePokemonComponent
+      WidgetFavoritePokemonComponent,
+      WidgetCurrentWeatherComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -71,7 +78,10 @@ const appRoutes: Routes = [
       MatCheckboxModule,
       MatFormFieldModule,
       MatInputModule,
-      MatDialogModule
+      MatDialogModule,
+      MatCardModule,
+      MatIconModule,
+      GridsterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

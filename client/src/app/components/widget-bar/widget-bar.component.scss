@@ -22,9 +22,10 @@
   background-color: var(--darker-color);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16), 0 1px 4px rgba(0, 0, 0, 0.16);
   width: 250px;
+  z-index: 1000;
 
   > svg-icon {
-    padding: 30px;
+    padding: 20px 5px 5px 5px;
     display: block;
     margin: 0 auto;
     svg {
@@ -32,6 +33,11 @@
       height: 100%;
       width: 100%;
     }
+  }
+
+  .db-tools {
+    display: flex;
+    justify-content: space-evenly;
   }
 
   ul {
@@ -47,7 +53,7 @@
   li {
     list-style-type: none;
     margin: 0;
-    a {
+    div {
       display: flex;
       align-items: center;
       justify-content: flex-start;
@@ -74,10 +80,18 @@
       }
     }
 
-    a:hover {
+    div.widget {
+      padding-left: 90px;
+      opacity: 0.6;
+    }
+    div:hover {
+      cursor: pointer;
       text-decoration: none;
       border-right: 6px solid var(--pink-color);
       opacity: 1;
+    }
+    div:hover.widget {
+      border-color: var(--purple-color);
     }
   }
 
@@ -124,19 +138,5 @@
 
   button:focus {
     outline: 0;
-  }
-}
-
-::ng-deep svg .path {
-  stroke: aqua;
-  stroke-width: 4px;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: dash 5s linear forwards;
-}
-
-@keyframes dash {
-  to {
-    stroke-dashoffset: 0;
   }
 }

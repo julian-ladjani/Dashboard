@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
     "@ng-bootstrap/ng-bootstrap": "^3.3.0",
+    "angular-gridster2": "^6.0.10",
     "angular-resizable-element": "^3.2.2",
     "angular-svg-icon": "^6.0.0",
     "bootstrap": "^4.1.3",

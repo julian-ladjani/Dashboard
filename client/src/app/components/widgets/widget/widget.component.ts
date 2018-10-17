@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {SettingVariable} from '../../../objects/setting-variable';
+import {SettingEnum, SettingVariable} from '../../../objects/setting-variable';
 import {SettingsContainer} from '../../../objects/settings-container';
+import {WidgetWrapper} from '../../../objects/widget-wrapper';
 
 @Component({
   selector: 'app-widget',
@@ -10,15 +11,17 @@ import {SettingsContainer} from '../../../objects/settings-container';
 export class WidgetComponent implements OnInit {
     constructor() { }
 
-    @Input() settings: SettingsContainer;
-
-    static getSettingContainer() {
-        return new SettingsContainer(this.getSettings());
+    static getServiceLabel() {
+        return 'widget';
     }
 
-    static getSettings() {
-        return [new SettingVariable('Message', 'String', 'Hello world !')];
+    static getWidgetLabel() {
+        return 'widget';
     }
+
+    @Input() settings: SettingsContainer = new SettingsContainer(
+        {message: 'Hello world !'}, null
+    );
 
     ngOnInit() {
     }

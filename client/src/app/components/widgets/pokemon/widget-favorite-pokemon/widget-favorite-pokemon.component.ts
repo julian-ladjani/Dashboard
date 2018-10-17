@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {WidgetComponent} from '../../widget/widget.component';
-import {SettingVariable} from '../../../../objects/setting-variable';
+import {SettingEnum, SettingVariable} from '../../../../objects/setting-variable';
+import {WidgetWrapper} from '../../../../objects/widget-wrapper';
+import {SettingsContainer} from '../../../../objects/settings-container';
 
 @Component({
     selector: 'app-widget-favorite-pokemon',
@@ -8,14 +10,22 @@ import {SettingVariable} from '../../../../objects/setting-variable';
     styleUrls: ['./widget-favorite-pokemon.component.scss']
 })
 export class WidgetFavoritePokemonComponent extends WidgetComponent implements OnInit {
+
     constructor() {
         super();
     }
 
-    static getSettings() {
-        return [new SettingVariable('Name', 'String', 'Pikachu'),
-                new SettingVariable('Shiny', 'Boolean', true)];
+    static getServiceLabel() {
+        return 'pokemon';
     }
+
+    static getWidgetLabel() {
+        return 'favorite';
+    }
+
+    @Input() settings: SettingsContainer = new SettingsContainer(
+        {name: 'Pikachu', shiny: false}, {sprite: ''}
+    );
 
     ngOnInit() {
     }

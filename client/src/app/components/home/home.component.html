@@ -1,12 +1,15 @@
 <div class="db-widgets-table">
-    <app-widget-bar></app-widget-bar>
-    <section id="widgets">
-        <button mat-raised-button="" (click)="addWidget('favoritePokemonWidget')">Add person</button>
-        <button mat-raised-button="" (click)="addWidget('basicWidget')">Add person</button>
-        <button mat-raised-button="" class="float-right" (click)="logout()">Logout</button>
-        <div class="db-widgets-container">
-            <app-widget-container *ngFor="let widget of widgets" [widget]="factory.getWidget(widget)"></app-widget-container>
-            <!--app-widget-container *ngFor="let widget of widgets" [widget]="factory.getWidget('favoritePokemonWidget')"></app-widget-container-->
+    <app-widget-bar (addNewWidgetEvent)="addWidget($event)" (expandEvent)="resize($event)" (logoutEvent)="logout()"></app-widget-bar>
+    <section id="widgets" [style.width]="size + '%'">
+        <div class="db-widgets-container" [style.width]="size+'%'">
+            <gridster [options]="options">
+                <gridster-item [item]="widget.props" *ngFor="let widget of widgets">
+                    <app-widget-container
+                            [widget]="factory.getWidget(widget.service, widget.widget)"
+                            [icon]="widget.icon" [title]="widget.title" [subtitle]="widget.subtitle">
+                    </app-widget-container>
+                </gridster-item>
+            </gridster>
         </div>
     </section>
 </div>
