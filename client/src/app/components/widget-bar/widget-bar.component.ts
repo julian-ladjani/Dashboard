@@ -14,7 +14,7 @@ export class WidgetBarComponent implements OnInit {
     navBarWidth = '250px';
     yolo = false;
 
-    @Output() addNewWidgetEvent = new EventEmitter<{service: String, widget: String, title: String, icon: String}>();
+    @Output() addNewWidgetEvent = new EventEmitter<any>();
 
     constructor() {
         this.nav = [
@@ -56,7 +56,8 @@ export class WidgetBarComponent implements OnInit {
                 const test = {
                     service: elem.parent,
                     widget: elem.label,
-                    title: value.name + ' : ' + elem.name,
+                    title: value.name,
+                    subtitle: elem.name,
                     icon: value.svg};
                 this.addNewWidgetEvent.emit(test);
                 return value.extended;

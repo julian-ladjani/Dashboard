@@ -1,5 +1,12 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<div class="db-widget">
-    <button (click)="openSettings()" class="btn-setting float-right" mat-icon-button=""><i class="material-icons">build</i></button>
-    <ng-template appWidgetHost="" ></ng-template>
-</div>
+<mat-card class="db-widget-card">
+    <div class="db-heading">
+        <mat-card-header class="db-title">
+            <svg-icon src="{{icon}}" mat-card-avatar class="example-header-image"></svg-icon>
+            <mat-card-title>{{title}}</mat-card-title>
+            <mat-card-subtitle>{{subtitle}}</mat-card-subtitle>
+        </mat-card-header>
+        <button color="warn" (click)="openSettings()" class="btn-setting float-right" mat-icon-button=""><i class="material-icons">build</i></button>
+    </div>
+    <ng-template appWidgetHost=""></ng-template>
+</mat-card>

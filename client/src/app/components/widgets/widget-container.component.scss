@@ -1,5 +1,43 @@
-.db-widget {
-  width: 200px;
-  height: 200px;
-  background-color: var(--orange-color);
+.db-widget-card {
+  width: auto;
+  height: auto;
+  min-width: 500px;
+  border: 1px solid rgba(0, 0, 0, .03);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .24), 0 0 2px rgba(0, 0, 0, .12);
+  border-radius: 0px;
+  margin: 4px;
+  padding: 0;
+
+  ::ng-deep svg {
+    fill: var(--light-color);
+  }
+
+  .db-heading {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 15px 15px 0 15px;
+    background: rgba(0,0,0,.03);
+
+    .db-title {
+      flex: 1 1 auto;
+    }
+
+    .mat-icon-button {
+      margin-top: -15px;
+    }
+
+    .mat-card-avatar {
+      margin-top: 3px;
+    }
+
+    .mat-card-content, .mat-card-header .mat-card-title, .mat-card-subtitle {
+      font-size: 14px;
+    }
+  }
+  ::ng-deep & > *:nth-child(2) {
+    margin: 15px;
+    display: block;
+  }
 }

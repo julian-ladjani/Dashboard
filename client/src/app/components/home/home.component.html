@@ -3,7 +3,7 @@
     <section id="widgets">
         <button mat-raised-button="" class="float-right" (click)="logout()">Logout</button>
         <div class="db-widgets-container">
-            <app-widget-container *ngFor="let widget of widgets" [widget]="factory.getWidget(widget.service, widget.widget)" [icon]="widget.icon" [title]="widget.title"></app-widget-container>
+            <app-widget-container *ngFor="let widget of widgets" [widget]="factory.getWidget(widget.service, widget.widget)" [icon]="widget.icon" [title]="widget.title" [subtitle]="widget.subtitle"></app-widget-container>
         </div>
     </section>
 </div>

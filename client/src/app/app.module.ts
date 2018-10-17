@@ -20,6 +20,8 @@ import { WigdetSettingsComponent } from './components/widgets/widget-settings/wi
 import { WidgetFavoritePokemonComponent } from './components/widgets/pokemon/widget-favorite-pokemon/widget-favorite-pokemon.component';
 import { WidgetComponent } from './components/widgets/widget/widget.component';
 import { WidgetDirective } from './components/widgets/widget.directive';
+import {MatCardModule} from '@angular/material/card';
+
 
 const appRoutes: Routes = [
     {
@@ -71,7 +73,8 @@ const appRoutes: Routes = [
       MatCheckboxModule,
       MatFormFieldModule,
       MatInputModule,
-      MatDialogModule
+      MatDialogModule,
+      MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

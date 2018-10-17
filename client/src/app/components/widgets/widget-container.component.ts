@@ -17,6 +17,8 @@ export class WidgetContainerComponent implements OnInit {
     @Input() widget: WidgetWrapper;
     @Input() icon: String;
     @Input() title: String;
+    @Input() subtitle: String;
+    @Input() color: String;
     @ViewChild(WidgetDirective) widgetHost: WidgetDirective;
 
     private component: any;
