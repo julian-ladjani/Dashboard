@@ -19,6 +19,7 @@ module.exports = {
         'callbackURL' 		: 'http://localhost:8080/auth/twitter/callback'
     },
     'jwt': {
-        secretToken: 'bjsdjodjerzbofabmsn'
+        secretToken: 'bjsdjodjerzbofabmsn',
+        expiresIn: 10080
     },
 };

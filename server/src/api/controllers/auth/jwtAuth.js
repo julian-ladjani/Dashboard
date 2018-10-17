@@ -5,7 +5,7 @@ const config = require('../../config/auth');
 
 exports.generateJWT = function (user) {
     return jwt.sign(user.toJSON(), config.jwt.secretToken, {
-        expiresIn: 10080 // in seconds
+        expiresIn: config.jwt.expiresIn // in seconds
     });
 };
 

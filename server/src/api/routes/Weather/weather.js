@@ -2,12 +2,19 @@
 
 const router = require('express').Router();
 const weather = require('../../controllers/Weather/weather');
-    // Weather Routes
-    router
-        .get('/current/:land/:city', weather.get_current);
-    router
-        .get('/forecast/:land/:city', weather.get_forecast);
-    router
-        .get('/test', weather.get_test);
+const currentRouter = require('./current');
+const forecastRouter = require('./forecast');
+const jwt = require('../../controllers/auth/jwtAuth');
+
+// Weather Routes
+/*router
+    .get('/', jwt.requireAuth, function (req, res) {
+        res.json(weather.getWidgets(req, res));
+    });*/
+
+
+router.use('/current', currentRouter);
+//router.use('/forecast', forecastRouter);
+
 module.exports = router;
 
