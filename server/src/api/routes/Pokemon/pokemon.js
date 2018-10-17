@@ -6,9 +6,9 @@ const router = require('express').Router();
 
     // todoList Routes
     router
-        .get('/blind/:lang/:gen', pokemonApi.getBlind);
+        .get('/blind/:lang/((:gen)?/(:shiney)?)?', pokemonApi.getBlind);
     router
-        .get('/name/:poke/:lang', pokemonApi.getPokemon);
+        .get('/name/:poke/((:lang)?/(:shiney)?)?', pokemonApi.getPokemon);
     router
         .get('/team/:nbr', pokemonApi.getTeam);
     router

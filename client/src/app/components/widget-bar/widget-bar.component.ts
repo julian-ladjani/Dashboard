@@ -14,7 +14,6 @@ import {PokemonComponent} from '../widgets/pokemon/pokemon/pokemon.component';
 export class WidgetBarComponent implements OnInit {
     nav = [];
     navBarWidth = '250px';
-    yolo = false;
 
     @Output() addNewWidgetEvent = new EventEmitter<any>();
     @Output() logoutEvent = new EventEmitter();
@@ -30,6 +29,7 @@ export class WidgetBarComponent implements OnInit {
             this.newTab(`Twitch`, 'assets/icons/twitch.svg', 'twitch'),
             this.newTab(`Twitter`, 'assets/icons/twitter.svg', 'twitter'),
             this.newTab(`Weather`, 'assets/icons/weather.svg', 'weather'),
+            this.newSubTab(`Current Weather`, 'current', 'weather'),
             this.newTab(`Youtube`, 'assets/icons/youtube.svg', 'youtube')
         ];
     }

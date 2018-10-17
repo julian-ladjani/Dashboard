@@ -23,7 +23,7 @@ import { WidgetDirective } from './components/widgets/widget.directive';
 import {MatCardModule} from '@angular/material/card';
 import {GridsterModule} from 'angular-gridster2';
 import { PokemonComponent } from './components/widgets/pokemon/pokemon/pokemon.component';
-
+import {WidgetCurrentWeatherComponent} from './components/widgets/weather/widget-current-weather/widget-current-weather.component';
 
 const appRoutes: Routes = [
     {
@@ -53,6 +53,7 @@ const appRoutes: Routes = [
     WidgetComponent,
     WidgetDirective,
     PokemonComponent
+    WidgetCurrentWeatherComponent
   ],
   entryComponents: [
       WigdetSettingsComponent,
