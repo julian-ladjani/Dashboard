@@ -52,7 +52,7 @@ const appRoutes: Routes = [
     WidgetFavoritePokemonComponent,
     WidgetComponent,
     WidgetDirective,
-    PokemonComponent
+    PokemonComponent,
     WidgetCurrentWeatherComponent
   ],
   entryComponents: [
