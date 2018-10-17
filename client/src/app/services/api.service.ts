@@ -16,19 +16,18 @@ export class ApiService {
     }
 
     static getHeaders() {
-       const header = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
        if (window.localStorage.getItem('token')) {
           const token = window.localStorage.getItem('token');
 //          const token = JSON.parse(window.localStorage.getItem('session')).signatureToken;
-           header.set('Authorization', token);
+           return new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8', 'Authorization': token });
        }
-       return header;
+       return new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
     }
 
     apiGet(path) {
         const headers = ApiService.getHeaders();
 
-        return this.http.get(`${this.apiUrl}${path}`, {headers: headers, withCredentials: true}).toPromise();
+        return this.http.get(`${this.apiUrl}${path}`, {headers: headers}).toPromise();
     }
 
     apiPost(path, data) {

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {WidgetComponent} from '../../widget/widget.component';
 import {SettingVariable} from '../../../../objects/setting-variable';
+import {WidgetWrapper} from '../../../../objects/widget-wrapper';
 
 @Component({
     selector: 'app-widget-favorite-pokemon',
@@ -13,7 +14,12 @@ export class WidgetFavoritePokemonComponent extends WidgetComponent implements O
     }
 
     static getSettings() {
-        return [new SettingVariable('Name', 'String', 'Pikachu')];
+        return [new SettingVariable('Name', 'String', 'Pikachu'),
+                new SettingVariable('Shiny', 'Boolean', true)];
+    }
+
+    static getWrapper() {
+        return new WidgetWrapper(WidgetFavoritePokemonComponent, WidgetFavoritePokemonComponent.getSettingContainer());
     }
 
     ngOnInit() {

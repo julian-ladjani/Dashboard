@@ -1,6 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {SettingVariable} from '../../../objects/setting-variable';
+import {SettingsContainer} from '../../../objects/settings-container';
+import {WidgetComponent} from '../widget/widget.component';
 
 @Component({
   selector: 'app-wigdet-settings',
@@ -19,8 +21,7 @@ export class WigdetSettingsComponent implements OnInit {
   onNoClick(): void {
       this.dialogRef.close({data: null});
   }
-  couille() {
-    console.log(this.data);
+  closeWindow() {
       this.dialogRef.close({data: this.data});
   }
 }

@@ -9,3 +9,7 @@
     --darker-color: #333333ff;
     --light-color: #f2f2f2ff;
 }
+
+body.mat-app-background {
+    overflow-y: hidden;
+}

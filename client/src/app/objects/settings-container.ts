@@ -1,28 +1,28 @@
 import {SettingVariable} from './setting-variable';
 
 export class SettingsContainer {
-    private _settings: [SettingVariable];
+    private _settings: SettingVariable[];
 
-    constructor(settings: [SettingVariable]) {
+    constructor(settings: SettingVariable[] = null) {
         this._settings = settings;
     }
 
-    get settings(): [SettingVariable] {
+    getSettings() {
         return this._settings;
     }
 
-    set settings(value: [SettingVariable]) {
+    set settings(value: SettingVariable[]) {
         this._settings = value;
     }
 
-    addVariable(widgetVariable: SettingVariable) {
-        this._settings.push(widgetVariable);
+    addVariable(variable: SettingVariable) {
+        this._settings.push(variable);
     }
 
     getValue(name: string) {
         this.settings.forEach(function (value) {
             if (value.name === name) {
-                return value;
+                return value.value;
             }
         });
         return null;

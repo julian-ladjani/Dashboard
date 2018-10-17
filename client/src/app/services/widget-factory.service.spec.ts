@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { WidgetService } from './widget.service';
+import { WidgetFactoryService } from './widget-factory.service';
 
-describe('WidgetService', () => {
+describe('WidgetFactoryService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: WidgetService = TestBed.get(WidgetService);
+    const service: WidgetFactoryService = TestBed.get(WidgetFactoryService);
     expect(service).toBeTruthy();
   });
 });
