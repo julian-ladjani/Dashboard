@@ -7,6 +7,7 @@
             <mat-card-subtitle>{{subtitle}}</mat-card-subtitle>
         </mat-card-header>
         <button color="warn" (click)="openSettings()" class="btn-setting float-right" mat-icon-button=""><i class="material-icons">build</i></button>
+        <button (click)="deleteWidget()" class="btn-setting float-right" mat-icon-button=""><i class="material-icons">delete</i></button>
     </div>
     <ng-template appWidgetHost=""></ng-template>
 </mat-card>

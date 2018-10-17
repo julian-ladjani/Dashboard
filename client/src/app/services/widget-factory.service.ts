@@ -11,9 +11,9 @@ export class WidgetFactoryService {
     getWidget(service, widget) {
         if (service === 'pokemon') {
             if (widget === 'favorite') {
-                return new WidgetWrapper(WidgetFavoritePokemonComponent, WidgetFavoritePokemonComponent.getSettingContainer());
+                return WidgetFavoritePokemonComponent.getWrapper();
             }
         }
-        return new WidgetWrapper(WidgetComponent, WidgetComponent.getSettingContainer());
+        return WidgetComponent.getWrapper();
     }
 }
