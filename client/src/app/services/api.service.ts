@@ -45,15 +45,16 @@ export class ApiService {
     }
 
     postWidget(settings: SettingsContainer, serviceLabel: string = null, widgetLabel: string = null, id: number = -1) {
-/*        if (serviceLabel == null || widgetLabel == null)
+        if (serviceLabel == null || widgetLabel == null) {
             return;
-        const path = serviceLabel + '/' + widgetLabel + (id < 0) ? '' : ('/' + id + '/params');
-//        JSON d: data;
-        for (var i = 0; i < params.getSettings().length; i++) {
-            const setting = params.getSettings()[i];
-            data[setting.name] = setting.value;
         }
-        console.log(JSON.parse(data));
-        this.apiPost(path, JSON.parse(data));*/
+        const path = serviceLabel + '/' + widgetLabel + ((id < 0) ? '' : ('/' + id + '/params'));
+        console.log(settings.params);
+        console.log(path);
+        this.apiPost(path, settings.params).then(response => {
+            console.log(response);
+            settings.params = response['params'];
+            settings.infos = response['infos'];
+        });
     }
 }

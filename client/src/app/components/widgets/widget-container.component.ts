@@ -25,7 +25,7 @@ export class WidgetContainerComponent implements OnInit {
     @ViewChild(WidgetDirective) widgetHost: WidgetDirective;
 
     private component: any;
-    private data: SettingsContainer;
+
     private api: ApiService;
     constructor(public matDialog: MatDialog, private resolver: ComponentFactoryResolver, private http: HttpClient, private router: Router) {
         this.api = new ApiService(http, router);
@@ -42,21 +42,17 @@ export class WidgetContainerComponent implements OnInit {
         viewContainerRef.clear();
         const componentRef = viewContainerRef.createComponent(componentFactory);
         this.component = (<WidgetComponent>componentRef.instance);
-//        this.component.params = this.widget.settings.params;
-        this.data = this.component.settings.params;
     }
 
     openSettings(): void {
         const dialogRef = this.matDialog.open(WigdetSettingsComponent, {
-            data: <any> JSON.parse(JSON.stringify(this.data))
+            data: {...this.component.settings.params}
         });
 
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
                 this.component.settings.params = result.data;
-                this.data = result.data;
-                this.api.postWidget(this.data, Object.getPrototypeOf(this.widget).getServiceLabel(),
-                    Object.getPrototypeOf(this.widget).getWidgetLabel());
+                this.api.postWidget(this.component.settings, this.widget.getServiceLabel(), this.widget.getWidgetLabel());
             }
         });
     }
