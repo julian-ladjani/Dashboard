@@ -3,7 +3,6 @@
 const router = require('express').Router();
 const jwt = require('../../controllers/auth/jwtAuth');
 const widgetSender = require('../../controllers/widget/sender');
-const widgetSetter = require('../../controllers/widget/setter');
 const forecastWeatherModel = require('../../models/weather/forecast');
 const forecast = require('../../controllers/Weather/forecast');
 
@@ -14,10 +13,7 @@ router
         widgetSender.sendWidgetsByModel(req, res, forecastWeatherModel, forecast.getWidgetInfo);
     })
     .post('/', jwt.requireAuth, function (req, res) {
-        if (widgetSetter.addWidget(req, forecastWeatherModel, forecast.setWidgetParams))
-            res.send({success: true});
-        else
-            res.send({success: false});
+        widgetSender.sendWidgetSetterResult(req, res, forecastWeatherModel, forecast.setWidgetParams);
     });
 
 router
@@ -27,11 +23,8 @@ router
 
 
 router
-    .post('/:uniqueId/params', jwt.requireAuth, async function (req, res) {
-        if (await widgetSetter.updateWidgetParams(req, forecastWeatherModel, forecast.setWidgetParams))
-            res.send({success: true});
-        else
-            res.send({success: false});
+    .post('/:uniqueId/params', jwt.requireAuth, function (req, res) {
+        widgetSender.sendWidgetSetterResult(req, res, forecastWeatherModel, forecast.setWidgetParams);
     });
 
 module.exports = router;

@@ -16,10 +16,12 @@ exports.addWidget = function (req, model, setterFunc) {
 };
 
 exports.updateWidgetParams = async function (req, model, setterFunc) {
-    let params = setterFunc;
+    let params = setterFunc(req);
     if (params === false)
         return false;
-    let widget = await widgetGetter.getWidgetParamsByUniqueId(req, req.uniqueId, model);
+    let widget = await widgetGetter.getWidgetParamsByUniqueId(req, req.params.uniqueId, model);
+    if (widget === false)
+        return false;
     widget.params = params;
     widget.user.id = req.user._id;
     widget.params.timer = req.body.timer;

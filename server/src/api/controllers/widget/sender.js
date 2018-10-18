@@ -1,6 +1,7 @@
 'use strict';
 
 const widgetGetter = require('./getter');
+const widgetSetter = require('./setter');
 const getAll = require('./getAll');
 const _ = require('lodash');
 
@@ -58,6 +59,25 @@ exports.sendWidgetsByService = async function (req, res, getterFunc) {
             res.json({success: false});
         else
             res.json(widgetsObj);
+    }
+    catch (e) {
+        res.json({success: false});
+    }
+    return true;
+};
+
+exports.sendWidgetSetterResult = async function (req, res, model, setterFunc) {
+    let widgetSetterFunc;
+    if (_.hasIn(req, 'params.uniqueId'))
+        widgetSetterFunc = widgetSetter.updateWidgetParams;
+    else
+        widgetSetterFunc = widgetSetter.addWidget;
+    try {
+        const result = await widgetSetterFunc(req, model, setterFunc);
+        if (result === false)
+            res.json({success: false});
+        else
+            res.json({success: true});
     }
     catch (e) {
         res.json({success: false});
