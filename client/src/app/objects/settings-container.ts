@@ -2,6 +2,9 @@ export class SettingsContainer {
     get params(): any {
         return this._params;
     }
+    get infos(): any {
+        return this._infos;
+    }
 
     private _params: any;
     private _infos: any;
@@ -13,6 +16,10 @@ export class SettingsContainer {
 
     set params(value: any) {
         this._params = value;
+    }
+
+    set infos(value: any) {
+        this._infos = value;
     }
 
     addVariable(variable: any) {

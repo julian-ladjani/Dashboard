@@ -24,7 +24,7 @@ export class WidgetFavoritePokemonComponent extends WidgetComponent implements O
     }
 
     @Input() settings: SettingsContainer = new SettingsContainer(
-        {name: 'Pikachu', shiny: false}, {sprite: ''}
+        {name: 'Pikachu', shiny: false}, {sprite: 'https://www.pokepedia.fr/images/thumb/3/36/Rayquaza-ROSA.png/250px-Rayquaza-ROSA.png'}
     );
 
     ngOnInit() {
