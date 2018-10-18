@@ -9,6 +9,12 @@ let weatherCurrent = mongoose.Schema({
     },
     params: {
         timer: Number,
+        grid: {
+            cols: Number,
+            rows: Number,
+            y: Number,
+            x: Number,
+        },
         city: String,
         country: String,
     }

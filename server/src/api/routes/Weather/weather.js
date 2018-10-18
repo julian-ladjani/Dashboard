@@ -14,7 +14,7 @@ router
     });
 
 router.use('/current', currentRouter);
-//router.use('/forecast', forecastRouter);
+router.use('/forecast', forecastRouter);
 
 module.exports = router;
 

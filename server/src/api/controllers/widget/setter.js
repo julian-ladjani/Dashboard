@@ -3,7 +3,7 @@
 const widgetGetter = require('./getter');
 
 exports.addWidget = function (req, model, setterFunc) {
-    let params = setterFunc;
+    let params = setterFunc(req);
     if (params === false)
         return false;
     let newWidget = new model();
