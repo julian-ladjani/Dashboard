@@ -19,19 +19,9 @@ export class WidgetComponent implements OnInit {
         return 'widget';
     }
 
-    @Input() settings: SettingsContainer;
-
-    static getSettingContainer() {
-        return new SettingsContainer(this.getSettings());
-    }
-
-    static getSettings() {
-        return [new SettingVariable('Message', 'String', 'Hello world !', SettingEnum.POST)];
-    }
-
-    static getWrapper() {
-        return new WidgetWrapper(WidgetComponent, WidgetComponent.getSettingContainer());
-    }
+    @Input() settings: SettingsContainer = new SettingsContainer(
+        {message: 'Hello world !'}, null
+    );
 
     ngOnInit() {
     }

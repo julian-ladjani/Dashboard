@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {WidgetComponent} from '../../widget/widget.component';
 import {SettingEnum, SettingVariable} from '../../../../objects/setting-variable';
 import {WidgetWrapper} from '../../../../objects/widget-wrapper';
+import {SettingsContainer} from '../../../../objects/settings-container';
 
 @Component({
     selector: 'app-widget-favorite-pokemon',
@@ -14,23 +15,17 @@ export class WidgetFavoritePokemonComponent extends WidgetComponent implements O
         super();
     }
 
-    static getSettings() {
-        return [new SettingVariable('Name', 'String', 'Pikachu', SettingEnum.POST),
-            new SettingVariable('Shiny', 'Boolean', false, SettingEnum.POST),
-            new SettingVariable('sprite', 'String', '', SettingEnum.GET)];
-    }
-
-    static getWrapper() {
-        return new WidgetWrapper(WidgetFavoritePokemonComponent, WidgetFavoritePokemonComponent.getSettingContainer());
+    static getServiceLabel() {
+        return 'pokemon';
     }
 
     static getWidgetLabel() {
         return 'favorite';
     }
 
-    static getServiceLabel() {
-        return 'pokemon';
-    }
+    @Input() settings: SettingsContainer = new SettingsContainer(
+        {name: 'Pikachu', shiny: false}, {sprite: 'https://www.pokepedia.fr/images/thumb/3/36/Rayquaza-ROSA.png/250px-Rayquaza-ROSA.png'}
+    );
 
     ngOnInit() {
     }

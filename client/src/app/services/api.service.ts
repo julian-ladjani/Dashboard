@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
+import {SettingsContainer} from '../objects/settings-container';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +42,19 @@ export class ApiService {
         const headers = ApiService.getHeaders();
 
         return this.http.delete(`${this.apiUrl}${path}`, {headers: headers, withCredentials: true}).toPromise();
+    }
+
+    postWidget(settings: SettingsContainer, serviceLabel: string = null, widgetLabel: string = null, id: number = -1) {
+        if (serviceLabel == null || widgetLabel == null) {
+            return;
+        }
+        const path = serviceLabel + '/' + widgetLabel + ((id < 0) ? '' : ('/' + id + '/params'));
+        console.log(settings.params);
+        console.log(path);
+        this.apiPost(path, settings.params).then(response => {
+            console.log(response);
+            settings.params = response['params'];
+            settings.infos = response['infos'];
+        });
     }
 }

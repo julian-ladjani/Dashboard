@@ -1,30 +1,28 @@
-import {SettingVariable} from './setting-variable';
-
 export class SettingsContainer {
-    private _settings: SettingVariable[];
-
-    constructor(settings: SettingVariable[] = null) {
-        this._settings = settings;
+    get params(): any {
+        return this._params;
+    }
+    get infos(): any {
+        return this._infos;
     }
 
-    getSettings() {
-        return this._settings;
+    private _params: any;
+    private _infos: any;
+
+    constructor(params: any = null, infos: any = null) {
+        this._params = params;
+        this._infos = infos;
     }
 
-    set settings(value: SettingVariable[]) {
-        this._settings = value;
+    set params(value: any) {
+        this._params = value;
     }
 
-    addVariable(variable: SettingVariable) {
-        this._settings.push(variable);
+    set infos(value: any) {
+        this._infos = value;
     }
 
-    getValue(name: string) {
-        this._settings.forEach(function (value) {
-            if (value.name === name) {
-                return value.value;
-            }
-        });
-        return null;
+    addVariable(variable: any) {
+        this._params.push(variable);
     }
 }

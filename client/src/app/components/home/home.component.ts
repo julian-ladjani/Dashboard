@@ -90,6 +90,7 @@ export class HomeComponent implements OnInit {
     addWidget($event) {
         const test = $event;
         test.props = {cols: 2, rows: 2, y: 0, x: 0};
+        console.log($event);
         this.widgets.push(test);
     }
 

@@ -2,24 +2,21 @@
 
 const Weather = require('weather-js');
 
-exports.get_current = function(req, res) {
-    Weather.find({search: req.params.city+","+req.params.land, degreeType: 'C'}, function(err, response) {
-        if(err) console.log(err);
-        res.send(JSON.stringify(response[0].current, 4));
-    });
-};
+const widgetGetter = require('../../controllers/widget/getter');
+const currentWeatherModel = require('../../models/weather/current');
+const forecastWeatherModel = require('../../models/weather/forecast');
+const currentWidgetController = require('./current');
+const forecastWidgetController = require('./forecast');
 
-exports.get_forecast = function(req, res) {
-    Weather.find({search: req.params.city+","+req.params.land, degreeType: 'C'}, function(err, response) {
-        if(err) console.log(err);
-        res.send(JSON.stringify(response[0].forecast, 4));
-    });
-};
-
-exports.get_test = function(req, res) {
-    Weather.find({search: 'Nancy, FR', degreeType: 'C'}, function(err, response) {
-        if(err) console.log(err);
-
-        res.send(JSON.stringify(response, 4));
-    });
+exports.widgetGetter = async function (req) {
+    let currentWidget = await widgetGetter.getWidgetsByModel(req, currentWeatherModel,
+        currentWidgetController.getWidgetInfo);
+    let forecastWidget = await widgetGetter.getWidgetsByModel(req, forecastWeatherModel,
+        forecastWidgetController.getWidgetInfo);
+    if (currentWidget === false)
+        return false;
+    return {
+        'current': currentWidget,
+        'forecast': forecastWidget,
+    }
 };

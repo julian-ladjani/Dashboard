@@ -5,6 +5,8 @@ import {WidgetFavoritePokemonComponent} from '../widgets/pokemon/widget-favorite
 import {PokemonComponent} from '../widgets/pokemon/pokemon/pokemon.component';
 import {WidgetCurrentWeatherComponent} from '../widgets/weather/widget-current-weather/widget-current-weather.component';
 
+
+
 @Component({
     encapsulation: ViewEncapsulation.None,
     selector: 'app-widget-bar',

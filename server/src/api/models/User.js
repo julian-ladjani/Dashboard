@@ -7,10 +7,10 @@ const Schema = mongoose.Schema;
 
 let User = mongoose.Schema({
 
-    local            : {
-        email        : String,
-        username     : String,
-        password     : String,
+    local: {
+        email: String,
+        username: String,
+        password: String,
     },
     facebook         : {
         id           : String,

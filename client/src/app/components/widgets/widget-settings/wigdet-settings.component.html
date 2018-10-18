@@ -1,12 +1,10 @@
-<div class="form-group" *ngFor="let item of data">
-  <div *ngIf="item.config == settings.POST">
-    <mat-form-field *ngIf="item.type == 'String'">
-      <input type="text" placeholder="{{item.name}}" matInput="" [(ngModel)]="item.value">
+<div class="form-group" *ngFor="let key of objectKeys(data)">
+    <mat-form-field *ngIf="checkType(data[key], 'string')">
+        <input type="text" placeholder="{{key}}" matInput="" [(ngModel)]="data[key]">
     </mat-form-field>
-    <mat-form-field *ngIf="item.type == 'Integer'">
-      <input type="number" placeholder="{{item.name}}" matInput="" [(ngModel)]="item.value">
+    <mat-form-field *ngIf="checkType(data[key], 'integer')">
+        <input type="number" placeholder="{{key}}" matInput="" [(ngModel)]="data[key]">
     </mat-form-field>
-    <mat-checkbox [(ngModel)]="item.value" *ngIf="item.type == 'Boolean'">{{item.name}}</mat-checkbox>
-  </div>
+    <mat-checkbox [(ngModel)]="data[key]" *ngIf="checkType(data[key], 'boolean')">{{key}}</mat-checkbox>
 </div>
 <button (click)="closeWindow()" mat-icon-button="" class="float-right"><i class="material-icons">done</i></button>
