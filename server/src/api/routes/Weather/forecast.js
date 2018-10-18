@@ -1,7 +1,7 @@
 'use strict';
 
 const forecastWeather = require('../../models/weather/forecast');
-const getAll = require('../../controllers/general/getAll');
+const getAll = require('../../controllers/widget/getter');
 const _ = require('lodash');
 
 const Weather = require('weather-js');
@@ -27,7 +27,6 @@ const getWidgetParams = (req) => {
 exports.getWidget = async function (req) {
     const forecastWeather = await getWidgetParams(req);
     const infos = await getForecastWeather(forecastWeather.params);
-    console.log(infos);
     if (forecastWeather === false)
         return false;
     return {
