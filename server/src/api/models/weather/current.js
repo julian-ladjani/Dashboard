@@ -14,12 +14,4 @@ let weatherCurrent = mongoose.Schema({
     }
 });
 
-module.exports.getServiceName = function getName() {
-    return 'weather'
-};
-
-module.exports.getName = function getName() {
-    return 'current'
-};
-
 module.exports = mongoose.model('weatherCurrent', weatherCurrent);

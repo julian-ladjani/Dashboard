@@ -1,61 +1,37 @@
 'use strict';
 
-const forecastWeather = require('../../models/weather/forecast');
-const getAll = require('../../controllers/widget/getter');
-const _ = require('lodash');
+const router = require('express').Router();
+const jwt = require('../../controllers/auth/jwtAuth');
+const widgetSender = require('../../controllers/widget/sender');
+const widgetSetter = require('../../controllers/widget/setter');
+const forecastWeatherModel = require('../../models/weather/forecast');
+const forecast = require('../../controllers/Weather/forecast');
 
-const Weather = require('weather-js');
+// Weather Routes
 
-const getForecastWeather = (params) => {
-    if (!_.hasIn(params, 'city') || !_.hasIn(params, 'country'))
-        return false;
-    return new Promise(function (resolve, reject) {
-        Weather.find({search: params.city + "," + params.country, degreeType: 'C'}, function (err, response) {
-            if (err)
-                reject(false);
-            resolve(response[0].forecast);
-        })
+router
+    .get('/', jwt.requireAuth, function (req, res) {
+        widgetSender.sendWidgetsByModel(req, res, forecastWeatherModel, forecast.getWidgetInfo);
     })
-};
-
-const getWidgetParams = (req) => {
-    if (!_.hasIn(req, 'user.id') || !_.hasIn(req, 'params.uniqueId'))
-        return false;
-    return forecastWeather.findOne({'user.id': req.user._id, _id: req.params.uniqueId}).exec();
-};
-
-exports.getWidget = async function (req) {
-    const forecastWeather = await getWidgetParams(req);
-    const infos = await getForecastWeather(forecastWeather.params);
-    if (forecastWeather === false)
-        return false;
-    return {
-        'id': forecastWeather._id,
-        'params': forecastWeather.params,
-        'infos': infos,
-    };
-};
-
-exports.sendWidget = async function (req, res) {
-    try {
-        const widget = await exports.getWidget(req);
-        if (widget === false)
-            res.json({success: false});
+    .post('/', jwt.requireAuth, function (req, res) {
+        if (widgetSetter.addWidget(req, forecastWeatherModel, forecast.setWidgetParams))
+            res.send({success: true});
         else
-            res.json(widget);
-    }
-    catch (e) {
-        res.json({success: false});
-    }
-    return true;
-};
+            res.send({success: false});
+    });
 
-exports.addWidget = function (req, res) {
-    let newForecastWeather = new forecastWeather();
-    newForecastWeather.params.city = req.body.city;
-    newForecastWeather.params.country = req.body.country;
-    newForecastWeather.params.timer = req.body.timer;
-    newForecastWeather.user.id = req.user._id;
-    newForecastWeather.save();
-    res.json({success: true});
-};
+router
+    .get('/:uniqueId', jwt.requireAuth, function (req, res) {
+        widgetSender.sendWidgetByUniqueId(req, res, forecastWeatherModel, forecast.getWidgetInfo);
+    });
+
+
+router
+    .post('/:uniqueId/params', jwt.requireAuth, async function (req, res) {
+        if (await widgetSetter.updateWidgetParams(req, forecastWeatherModel, forecast.setWidgetParams))
+            res.send({success: true});
+        else
+            res.send({success: false});
+    });
+
+module.exports = router;

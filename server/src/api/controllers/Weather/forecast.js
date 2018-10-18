@@ -11,7 +11,7 @@ exports.getWidgetInfo = async function (params) {
         Weather.find({search: params.city + "," + params.country, degreeType: 'C'}, function (err, response) {
             if (err)
                 reject(false);
-            resolve(response[0].current);
+            resolve(response[0].forecast);
         })
     })
 };

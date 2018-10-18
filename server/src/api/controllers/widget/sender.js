@@ -1,6 +1,7 @@
 'use strict';
 
 const widgetGetter = require('./getter');
+const getAll = require('./getAll');
 const _ = require('lodash');
 
 exports.sendWidgetByUniqueId = async function (req, res, model, infoFunc) {
@@ -29,6 +30,34 @@ exports.sendWidgetsByModel = async function (req, res, model, infoFunc) {
             res.json({success: false});
         else
             res.json(widgets);
+    }
+    catch (e) {
+        res.json({success: false});
+    }
+    return true;
+};
+
+exports.sendWidgets = async function (req, res) {
+    try {
+        const widgetsObj = await getAll.getWidgets(req);
+        if (widgetsObj === false)
+            res.json({success: false});
+        else
+            res.json(widgetsObj);
+    }
+    catch (e) {
+        res.json({success: false});
+    }
+    return true;
+};
+
+exports.sendWidgetsByService = async function (req, res, getterFunc) {
+    try {
+        const widgetsObj = await getterFunc(req);
+        if (widgetsObj === false)
+            res.json({success: false});
+        else
+            res.json(widgetsObj);
     }
     catch (e) {
         res.json({success: false});

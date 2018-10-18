@@ -5,13 +5,13 @@ const weather = require('../../controllers/Weather/weather');
 const currentRouter = require('./current');
 const forecastRouter = require('./forecast');
 const jwt = require('../../controllers/auth/jwtAuth');
+const widgetSender = require('../../controllers/widget/sender');
 
 // Weather Routes
-/*router
+router
     .get('/', jwt.requireAuth, function (req, res) {
-        res.json(weather.getWidgets(req, res));
-    });*/
-
+        widgetSender.sendWidgetsByService(req, res, weather.widgetGetter);
+    });
 
 router.use('/current', currentRouter);
 //router.use('/forecast', forecastRouter);
