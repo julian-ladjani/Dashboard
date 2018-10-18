@@ -12,19 +12,15 @@ router
     .get('/', jwt.requireAuth, function (req, res) {
         widgetSender.sendWidgetsByModel(req, res, currentWeatherModel, current.getWidgetInfo);
     })
-    .post('/', jwt.requireAuth, function (req, res) {
-        widgetSender.sendWidgetSetterResult(req, res, currentWeatherModel, current.setWidgetParams);
-    });
-
-router
     .get('/:uniqueId', jwt.requireAuth, function (req, res) {
         widgetSender.sendWidgetByUniqueId(req, res, currentWeatherModel, current.getWidgetInfo);
-    });
-
-
-router
+    })
+    .post('/', jwt.requireAuth, function (req, res) {
+        widgetSender.sendWidgetSetterResult(req, res, currentWeatherModel, current.setWidgetParams);
+    })
     .post('/:uniqueId/params', jwt.requireAuth, function (req, res) {
         widgetSender.sendWidgetSetterResult(req, res, currentWeatherModel, current.setWidgetParams);
     });
+
 
 module.exports = router;
