@@ -52,7 +52,8 @@ export class WidgetContainerComponent implements OnInit {
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
                 this.component.settings.params = result.data;
-                this.api.postWidget(this.component.settings, this.widget.getServiceLabel(), this.widget.getWidgetLabel());
+                this.api.postWidget(this.component.settings, this.widget.getServiceLabel(),
+                    this.widget.getWidgetLabel());
             }
         });
     }
