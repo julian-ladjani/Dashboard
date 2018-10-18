@@ -66,6 +66,11 @@ exports.sendWidgetsByService = async function (req, res, getterFunc) {
     return true;
 };
 
+
+exports.sendWidgetsAbout = async function (req, res) {
+    res.json(await getAll.getAbouts(req));
+};
+
 exports.sendWidgetSetterResult = async function (req, res, model, setterFunc) {
     let widgetSetterFunc;
     if (_.hasIn(req, 'params.uniqueId'))

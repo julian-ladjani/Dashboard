@@ -2,7 +2,7 @@
 
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
-const User = require('../../models/User');
+const User = require('../../models/auth/User');
 const config = require('../../config/auth');
 
 // Setup work and export for the JWT passport strategy

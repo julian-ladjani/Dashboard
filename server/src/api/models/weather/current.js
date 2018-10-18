@@ -1,23 +1,12 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const schemaSetter = require('../widget/schemaSetter');
 
-let weatherCurrent = mongoose.Schema({
-    user: {
-        id: String,
-    },
-    params: {
-        timer: Number,
-        grid: {
-            cols: Number,
-            rows: Number,
-            y: Number,
-            x: Number,
-        },
-        city: String,
-        country: String,
-    }
-});
-
+let params = {
+    city: String,
+    country: String,
+};
+let schema = schemaSetter.setModelSchema(params);
+let weatherCurrent = mongoose.Schema(schema);
 module.exports = mongoose.model('weatherCurrent', weatherCurrent);

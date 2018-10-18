@@ -1,8 +1,7 @@
 'use strict';
 
-const Weather = require('weather-js');
-
 const widgetGetter = require('../../controllers/widget/getter');
+const widgetAbout = require('../../controllers/widget/about');
 const currentWeatherModel = require('../../models/weather/current');
 const forecastWeatherModel = require('../../models/weather/forecast');
 const currentWidgetController = require('./current');
@@ -19,4 +18,11 @@ exports.widgetGetter = async function (req) {
         'current': currentWidget,
         'forecast': forecastWidget,
     }
+};
+
+exports.about = function () {
+    let widgets = [];
+    widgets.push(widgetAbout.getWidgetAbout('current', 'daily weather', currentWeatherModel));
+    widgets.push(widgetAbout.getWidgetAbout('forecast', 'weekly weather', forecastWeatherModel));
+    return widgets;
 };

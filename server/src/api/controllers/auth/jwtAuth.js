@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
-const jwtBlacklist = require('../../models/jwtBlacklist');
+const jwtBlacklist = require('../../models/auth/jwtBlacklist');
 const config = require('../../config/auth');
 
 exports.generateJWT = function (user) {

@@ -13,7 +13,7 @@ const cors = require('cors');
 
 const serverRouter = require('./src/server/routes/index');
 
-mongoose.connect(databaseConfig.databaseConfig.address);
+mongoose.connect(databaseConfig.databaseConfig.address, {useNewUrlParser: true});
 mongoose.connection.once('open', function() {
     app.emit('ready');
 });
@@ -22,6 +22,7 @@ mongoose.connection.once('open', function() {
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(passport.initialize());
+app.set('trust proxy', true);
 app.use(cors({credentials: true}));
 require('./src/api/controllers/auth/authTokenStrategy')(passport);
 app.use(passport.session());

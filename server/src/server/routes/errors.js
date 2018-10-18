@@ -4,7 +4,7 @@ module.exports = function (router) {
     router.use((req, res, next) => {
         next({
             status: 404,
-            message: 'Page Not Found',
+            message: 'Route not found',
         });
     });
     router.use((err, req, res, next) => {

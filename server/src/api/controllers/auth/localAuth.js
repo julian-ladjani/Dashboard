@@ -2,7 +2,7 @@
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const User = require('../../models/User.js');
+const User = require('../../models/auth/User.js');
 const configAuth = require('../../config/auth');
 const tokenGenerator = require('./jwtAuth');
 
