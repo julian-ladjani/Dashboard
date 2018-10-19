@@ -1,4 +1,20 @@
-{{settings.infos}}
-<p *ngIf="settings.infos != null">
-  widget-current-weather works!
-</p>
+<p class="text-center mat-h1">{{settings.infos.observationpoint}}</p>
+<div class="row">
+    <div class="col-xs-6">
+        <img src="{{settings.infos.imageUrl}}" />
+        <span class="text-center">{{settings.infos.skytext}}</span>
+    </div>
+    <mat-list class="col-xs-6">
+        <mat-list-item>
+            <p>{{settings.infos.date}}°C</p>
+            <p class="db-big-info">{{settings.infos.observationtime}}</p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <p class="db-big-info">{{settings.infos.temperature}}°C</p>
+            <p>Feels like : {{settings.infos.feelslike}} °C</p>
+            <p>Humidity : {{settings.infos.humidity}} %</p>
+            <p>Wind : {{settings.infos.winddisplay}}</p>
+        </mat-list-item>
+    </mat-list>
+</div>
