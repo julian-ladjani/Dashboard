@@ -7,12 +7,12 @@ const widgetGlobalParams = {
         id: String,
     },
     params: {
-        timer: Number,
+        timer: {type: Number, default: 0},
         grid: {
-            cols: { type: String},
-            rows: Number,
-            y: Number,
-            x: Number,
+            cols: {type: Number, default: 1},
+            rows: {type: Number, default: 1},
+            y: {type: Number, default: 0},
+            x: {type: Number, default: 0},
         },
     }
 };
