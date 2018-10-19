@@ -60,11 +60,8 @@ export class ApiService {
         });
     }
     getWidget(settings: SettingsContainer, path: string) {
-        console.log('try get : ', path);
         this.apiGet(path).then( response => {
-            console.log('GET :', response);
             if (response) {
-                settings.params = response['params'];
                 settings.infos = response['infos'];
             }
         });
