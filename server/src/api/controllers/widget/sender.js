@@ -2,6 +2,7 @@
 
 const widgetGetter = require('./getter');
 const widgetSetter = require('./setter');
+const widgetDeletter = require('./deleter');
 const _ = require('lodash');
 
 exports.sendWidgetByUniqueId = async function (req, res, model, infoFunc) {
@@ -67,7 +68,6 @@ exports.sendWidgetsByService = async function (req, res, serviceObj) {
 
 exports.sendWidgetSetterResult = async function (req, res, model) {
     let widgetSetterFunc;
-    let uniqueId;
     if (_.hasIn(req, 'params.uniqueId'))
         widgetSetterFunc = widgetSetter.updateWidgetParams;
     else
@@ -78,6 +78,22 @@ exports.sendWidgetSetterResult = async function (req, res, model) {
     }
     catch (e) {
         res.json({id: false, success: false});
+    }
+    return true;
+};
+
+exports.sendWidgetDeleterResult = async function (req, res, model) {
+    if (!_.hasIn(req, 'params.uniqueId')) {
+        res.json({success: false});
+        return false;
+    }
+    try {
+        const result = await widgetDeletter.deleteWidget(req, model);
+        res.json(result);
+    }
+    catch (e) {
+        res.json({success: false});
+        return false;
     }
     return true;
 };

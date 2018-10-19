@@ -24,13 +24,13 @@ async function fillSendObj(widgetParams, infoFunc) {
 }
 
 exports.getWidgetParamsByUniqueId = async function (req, uniqueId, model) {
-    if (!_.hasIn(req, 'user.id') || uniqueId === undefined || model === undefined)
+    if (!_.hasIn(req, 'user._id') || uniqueId === undefined || model === undefined)
         return false;
     return model.findOne({'user.id': req.user._id, _id: uniqueId}).exec();
 };
 
 exports.getWidgetParamsByModel = async function (req, model) {
-    if (!_.hasIn(req, 'user.id') || model === undefined)
+    if (!_.hasIn(req, 'user._id') || model === undefined)
         return false;
     return model.find({'user.id': req.user._id}).exec();
 };

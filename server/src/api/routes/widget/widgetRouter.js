@@ -16,10 +16,16 @@ function widgetRouter(router, serviceName, widget) {
         .get(rootPath + '/:uniqueId', jwt.requireAuth, function (req, res) {
             widgetSender.sendWidgetByUniqueId(req, res, model, controller.getWidgetInfo);
         })
+        .delete(rootPath + '/:uniqueId', jwt.requireAuth, function (req, res) {
+            widgetSender.sendWidgetDeleterResult(req, res, model);
+        })
         .post(rootPath, jwt.requireAuth, function (req, res) {
             widgetSender.sendWidgetSetterResult(req, res, model);
         })
         .post(rootPath + '/:uniqueId/params', jwt.requireAuth, function (req, res) {
+            widgetSender.sendWidgetSetterResult(req, res, model);
+        })
+        .post(rootPath + '/:uniqueId', jwt.requireAuth, function (req, res) {
             widgetSender.sendWidgetSetterResult(req, res, model);
         });
 }

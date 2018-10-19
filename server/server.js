@@ -13,8 +13,18 @@ const cors = require('cors');
 
 const serverRouter = require('./src/server/routes/index');
 
-mongoose.connect(databaseConfig.databaseConfig.address, {useNewUrlParser: true});
-mongoose.connection.once('open', function() {
+function connectWithRetry() {
+    mongoose.connect(databaseConfig.databaseConfig.address, {useNewUrlParser: true}, function (err) {
+            if (err) {
+                console.error('Failed to connect to mongo on startup - retrying in 5 sec', err);
+                setTimeout(connectWithRetry, 5000);
+            }
+        }
+    );
+}
+
+connectWithRetry();
+mongoose.connection.once('open', function () {
     app.emit('ready');
 });
 
@@ -28,6 +38,6 @@ require('./src/api/controllers/auth/authTokenStrategy')(passport);
 app.use(passport.session());
 app.use('/', serverRouter);
 
-app.on('ready', function() {
+app.on('ready', function () {
     app.listen(PORT, HOST, listenerCallback.listenCallback(PORT));
 });
