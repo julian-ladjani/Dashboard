@@ -33,4 +33,3 @@ exports.setWidgetParams = function(req) {
     widgetSetter.setParamIfExist(params, 'shiney', req, 'body.shiney');
     return params;
 };
-};

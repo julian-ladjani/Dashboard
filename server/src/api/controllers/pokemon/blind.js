@@ -28,13 +28,10 @@ exports.getWidgetInfo = async function(params) {
 };
 
 exports.setWidgetParams = function(req) {
-    if (!_.hasIn(req, 'body.generation') || !_.hasIn(req, 'body.language') || !_.hasIn(req, 'body.shiney')
-        || !_.hasIn(req, 'body.timer'))
-        return false;
-    return {
-        generation: req.body.generation,
-        language: req.body.language,
-        shiney: req.body.shiney,
-        time: req.body.time,
-    }
+    let params = {};
+    widgetSetter.setParamIfExist(params, 'generation', req, 'body.generation');
+    widgetSetter.setParamIfExist(params, 'language', req, 'body.language');
+    widgetSetter.setParamIfExist(params, 'shiney', req, 'body.shiney');
+    widgetSetter.setParamIfExist(params, 'time', req, 'body.time');
+    return params;
 };

@@ -18,11 +18,23 @@ let widgets = {
     },
     pokemon: {
         name: 'pokemon',
+        favorite: {
+            name:'favorite',
+            description: 'My favorite pokemon',
+            controller:require('../controllers/pokemon/favorite'),
+            model:require('../models/pokemon/favorite'),
+        },
         blind: {
             name: 'blind',
             description: 'Blindtest pokemon',
             controller:require('../controllers/pokemon/blind'),
             model:require('../models/pokemon/blind'),
+        },
+        type: {
+            name: 'type',
+            description: 'Type of pokemon',
+            controller:require('../controllers/pokemon/type'),
+            model:require('../models/pokemon/type'),
         }
     }
 };
