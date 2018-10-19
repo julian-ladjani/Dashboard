@@ -20,10 +20,3 @@ exports.getWidgetInfo = async function (params) {
         })
     })
 };
-
-exports.setWidgetParams = function(req) {
-    return {
-        city: req.body.city,
-        country: req.body.country,
-    }
-};

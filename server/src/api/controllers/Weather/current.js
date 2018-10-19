@@ -3,7 +3,6 @@
 const _ = require('lodash');
 
 const Weather = require('weather-js');
-const widgetSetter = require('../../controllers/widget/setter');
 
 exports.getWidgetInfo = async function (params) {
     if (!_.hasIn(params, 'city') || !_.hasIn(params, 'country'))
@@ -20,11 +19,4 @@ exports.getWidgetInfo = async function (params) {
             }
         })
     })
-};
-
-exports.setWidgetParams = function(req) {
-    let params = {};
-    widgetSetter.setParamIfExist(params, 'city', req, 'body.city');
-    widgetSetter.setParamIfExist(params, 'country', req, 'body.country');
-    return params;
 };

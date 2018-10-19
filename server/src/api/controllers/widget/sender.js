@@ -65,7 +65,7 @@ exports.sendWidgetsByService = async function (req, res, serviceObj) {
     return true;
 };
 
-exports.sendWidgetSetterResult = async function (req, res, model, setterFunc) {
+exports.sendWidgetSetterResult = async function (req, res, model) {
     let widgetSetterFunc;
     let uniqueId;
     if (_.hasIn(req, 'params.uniqueId'))
@@ -73,7 +73,7 @@ exports.sendWidgetSetterResult = async function (req, res, model, setterFunc) {
     else
         widgetSetterFunc = widgetSetter.addWidget;
     try {
-        const result = await widgetSetterFunc(req, model, setterFunc);
+        const result = await widgetSetterFunc(req, model);
         res.json(result);
     }
     catch (e) {

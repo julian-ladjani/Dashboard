@@ -1,17 +1,16 @@
 'use strict';
 
 const widgetGetter = require('./getter');
+const schemaGetter = require('../../models/widget/schemaGetter');
 const _ = require('lodash');
 
-exports.addWidget = function (req, model, setterFunc) {
-    let params = setterFunc(req);
+exports.addWidget = function (req, model) {
+    let params = exports.setWidgetParams(req, model);
     if (params === false)
         return {id: false, success: false};
     let newWidget = new model();
     newWidget.params = params;
     newWidget.user.id = req.user._id;
-    newWidget.params.timer = req.body.timer;
-    newWidget.params.grid = req.body.grid;
     newWidget.save();
     return {id: newWidget._id, success: true};
 };
@@ -42,8 +41,18 @@ exports.setParamIfExist = function (paramsObj, paramKey, valueObj, valueKey) {
     return (paramsObj);
 };
 
-exports.updateWidgetParams = async function (req, model, setterFunc) {
-    let params = setterFunc(req);
+exports.setWidgetParams = function (req, model) {
+    let paramsObj = {};
+    let modelParams = schemaGetter.getModelSchemaParams(model);
+    modelParams.forEach(function (modelParam) {
+        exports.setParamIfExist(paramsObj, modelParam, req, 'body.' + modelParam);
+    });
+    return paramsObj;
+};
+
+
+exports.updateWidgetParams = async function (req, model) {
+    let params = exports.setWidgetParams(req, model);
     if (params === false)
         return {id: req.params.uniqueId, success: false};
     let widget = await widgetGetter.getWidgetParamsByUniqueId(req, req.params.uniqueId, model);
@@ -51,8 +60,6 @@ exports.updateWidgetParams = async function (req, model, setterFunc) {
         return {id: req.params.uniqueId, success: false};
     widget.params = params;
     widget.user.id = req.user._id;
-    widget.params.timer = req.body.timer;
-    widget.params.grid = req.body.grid;
     widget.save();
     return {id: req.params.uniqueId, success: true};
 };
