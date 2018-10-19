@@ -26,6 +26,8 @@ import { PokemonComponent } from './components/widgets/pokemon/pokemon.component
 import {WidgetCurrentWeatherComponent} from './components/widgets/weather/widget-current-weather/widget-current-weather.component';
 import { WidgetWeatherForecastComponent } from './components/widgets/weather/widget-weather-forecast/widget-weather-forecast.component';
 import { WidgetNasaImageOfTheDayComponent } from './components/widgets/nasa/widget-nasa-image-of-the-day/widget-nasa-image-of-the-day.component';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatListModule} from '@angular/material/list';
 
 const appRoutes: Routes = [
     {
@@ -87,6 +89,8 @@ const appRoutes: Routes = [
       MatDialogModule,
       MatCardModule,
       MatIconModule,
+      MatTreeModule,
+      MatListModule,
       GridsterModule
   ],
   providers: [],
