@@ -1,11 +1,8 @@
-import {Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
-import {SettingVariable} from '../../objects/setting-variable';
+import {Component, ComponentFactoryResolver, Input, OnInit, ViewChild} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {WigdetSettingsComponent} from './widget-settings/wigdet-settings.component';
 import {WidgetComponent} from './widget/widget.component';
-import {WidgetWrapper} from '../../objects/widget-wrapper';
 import {WidgetDirective} from './widget.directive';
-import {SettingsContainer} from '../../objects/settings-container';
 import {ApiService} from '../../services/api.service';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';

@@ -4,5 +4,5 @@
 
 export const environment = {
     production: false,
-    apiUrl: 'http://n3vg1.mocklab.io/'
+    apiUrl: 'http://localhost:8080'
 };

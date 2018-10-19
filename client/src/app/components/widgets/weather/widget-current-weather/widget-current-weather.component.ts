@@ -23,7 +23,7 @@ export class WidgetCurrentWeatherComponent extends WidgetComponent implements On
     }
 
     @Input() settings: SettingsContainer = new SettingsContainer(
-        {country: 'France', city: 'Nancy'}, {}
+        {country: 'France', city: 'Nancy'}, null
     );
 
     /*return [new SettingVariable('Country', 'String', 'France', SettingEnum.POST),

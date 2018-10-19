@@ -24,14 +24,6 @@ export class HomeComponent implements OnInit {
         this.loginService = new LoginService(http, router);
     }
 
-    static itemChange(item, itemComponent) {
-        console.info('itemChanged', item, itemComponent);
-    }
-
-    static itemResize(item, itemComponent) {
-        console.info('itemResized', item, itemComponent);
-    }
-
     ngOnInit() {
         this.options = {
             gridType: GridType.Fit,
@@ -90,7 +82,6 @@ export class HomeComponent implements OnInit {
     addWidget($event) {
         const test = $event;
         test.props = {cols: 2, rows: 2, y: 0, x: 0};
-        console.log($event);
         this.widgets.push(test);
     }
 
@@ -102,7 +93,7 @@ export class HomeComponent implements OnInit {
             }
         });
     }
-
+ç
     changedOptions() {
         this.options.api.optionsChanged();
     }
