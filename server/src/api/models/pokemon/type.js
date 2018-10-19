@@ -7,7 +7,7 @@ let params = {
     current : String
 };
 let schema = schemaSetter.setModelSchema(params);
-let pokemonBlind = mongoose.Schema(schema);
+let pokemonType = mongoose.Schema(schema);
 
 
-module.exports = mongoose.model('pokemonBlind', pokemonBlind);
+module.exports = mongoose.model('pokemonType', pokemonType);

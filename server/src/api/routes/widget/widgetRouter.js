@@ -14,13 +14,13 @@ function widgetRouter(router, serviceName, widget) {
             widgetSender.sendWidgetsByModel(req, res, model, widget.controller.getWidgetInfo);
         })
         .get(rootPath + '/:uniqueId', jwt.requireAuth, function (req, res) {
-            widgetSender.sendWidgetByUniqueId(req, res, model);
+            widgetSender.sendWidgetByUniqueId(req, res, model, controller.getWidgetInfo);
         })
         .post(rootPath, jwt.requireAuth, function (req, res) {
             widgetSender.sendWidgetSetterResult(req, res, model);
         })
         .post(rootPath + '/:uniqueId/params', jwt.requireAuth, function (req, res) {
-            widgetSender.sendWidgetSetterResult(req, res, model, controller.setWidgetParams);
+            widgetSender.sendWidgetSetterResult(req, res, model);
         });
 }
 
