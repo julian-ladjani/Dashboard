@@ -8,8 +8,7 @@ let params = {
     language: {type:String, default:'en'},
     shiney: {type:Number, default: 0}
 };
+
 let schema = schemaSetter.setModelSchema(params);
 let pokemonFavorite = mongoose.Schema(schema);
-
-
 module.exports = mongoose.model('pokemonFavorite', pokemonFavorite);

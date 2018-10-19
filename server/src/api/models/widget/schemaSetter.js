@@ -18,7 +18,7 @@ const widgetGlobalParams = {
 };
 
 exports.setModelSchema = function (params) {
-    let schema = widgetGlobalParams;
+    let schema = _.cloneDeep(widgetGlobalParams);
     _.merge(schema, {params: params});
     return schema;
 };
