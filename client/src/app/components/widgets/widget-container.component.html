@@ -1,5 +1,5 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<mat-card class="db-widget-card">
+<mat-card class="db-widget-card scrollable" id="style-1">
     <div class="db-heading">
         <mat-card-header class="db-title">
             <svg-icon src="{{icon}}" mat-card-avatar class="example-header-image"></svg-icon>
@@ -9,5 +9,7 @@
         <button color="warn" (click)="openSettings()" class="btn-setting float-right" mat-icon-button=""><i class="material-icons">build</i></button>
         <button (click)="deleteWidget()" class="btn-setting float-right" mat-icon-button=""><i class="material-icons">delete</i></button>
     </div>
-    <ng-template appWidgetHost=""></ng-template>
+    <mat-card-content>
+        <ng-template appWidgetHost=""></ng-template>
+    </mat-card-content>
 </mat-card>
