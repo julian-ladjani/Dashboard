@@ -22,8 +22,10 @@ import { WidgetComponent } from './components/widgets/widget/widget.component';
 import { WidgetDirective } from './components/widgets/widget.directive';
 import {MatCardModule} from '@angular/material/card';
 import {GridsterModule} from 'angular-gridster2';
-import { PokemonComponent } from './components/widgets/pokemon/pokemon/pokemon.component';
+import { PokemonComponent } from './components/widgets/pokemon/pokemon.component';
 import {WidgetCurrentWeatherComponent} from './components/widgets/weather/widget-current-weather/widget-current-weather.component';
+import { WidgetWeatherForecastComponent } from './components/widgets/weather/widget-weather-forecast/widget-weather-forecast.component';
+import { WidgetNasaImageOfTheDayComponent } from './components/widgets/nasa/widget-nasa-image-of-the-day/widget-nasa-image-of-the-day.component';
 
 const appRoutes: Routes = [
     {
@@ -53,13 +55,17 @@ const appRoutes: Routes = [
     WidgetComponent,
     WidgetDirective,
     PokemonComponent,
-    WidgetCurrentWeatherComponent
+    WidgetCurrentWeatherComponent,
+    WidgetWeatherForecastComponent,
+    WidgetNasaImageOfTheDayComponent
   ],
   entryComponents: [
       WigdetSettingsComponent,
       WidgetComponent,
       WidgetFavoritePokemonComponent,
-      WidgetCurrentWeatherComponent
+      WidgetCurrentWeatherComponent,
+      WidgetWeatherForecastComponent,
+      WidgetNasaImageOfTheDayComponent
   ],
   imports: [
     RouterModule.forRoot(

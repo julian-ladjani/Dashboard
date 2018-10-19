@@ -86,8 +86,8 @@ export class HomeComponent implements OnInit {
     }
 
     logout() {
-        this.loginService.logout().then(responce => {
-            if (responce['success']) {
+        this.loginService.logout().then(response => {
+            if (response['success']) {
                 window.localStorage.setItem('token', '');
                 this.router.navigateByUrl('/login');
             }
