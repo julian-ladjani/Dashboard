@@ -6,28 +6,22 @@ const schemaSetter = require('../widget/schemaSetter');
 let params = {
     team    : {
         0   : {
-            name: String,
-            script: String,
+            name: {type:String, default:'pikachu'}
         },
         1   : {
-            name: String,
-            script: String,
+            name: {type:String, default:'pikachu'}
         },
         2   : {
-            name: String,
-            script: String,
+            name: {type:String, default:'pikachu'}
         },
         3   : {
-            name: String,
-            script: String,
+            name: {type:String, default:'pikachu'}
         },
         4   : {
-            name: String,
-            script: String,
+            name: {type:String, default:'pikachu'}
         },
         5   : {
-            name: String,
-            script: String,
+            name: {type:String, default:'pikachu'}
         }
     }
 };
