@@ -21,7 +21,7 @@ exports.getWidgetInfo = async function(params) {
                         sprites: sprites[params.shiney]
                     }
                 };
-                reject(tmp);
+                resolve(tmp);
             })
     })
 };
