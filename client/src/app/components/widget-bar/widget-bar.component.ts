@@ -24,10 +24,14 @@ export class WidgetBarComponent implements OnInit {
 
     constructor() {
         this.nav = [
+            this.newTab(`Converter`, 'assets/icons/basic.svg', 'converter'),
+            this.newTab(`EPITECH`, 'assets/icons/epitech.svg', 'epitech'),
             this.newTab(`NASA`, 'assets/icons/nasa.svg', 'nasa'),
             this.newTab(`Pokemon`, 'assets/icons/pokemon.svg', PokemonComponent.getServiceLabel()),
             this.newSubTab(`Favorite Pokemon`,
                 WidgetFavoritePokemonComponent.getWidgetLabel(), WidgetFavoritePokemonComponent.getServiceLabel()),
+            this.newTab(`Soundcloud`, 'assets/icons/soundcloud.svg', 'soundcloud'),
+            this.newTab(`Spotify`, 'assets/icons/spotify.svg', 'spotify'),
             this.newTab(`Steam`, 'assets/icons/steam.svg', 'steam'),
             this.newTab(`Twitch`, 'assets/icons/twitch.svg', 'twitch'),
             this.newTab(`Twitter`, 'assets/icons/twitter.svg', 'twitter'),
