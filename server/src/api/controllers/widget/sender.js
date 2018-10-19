@@ -2,7 +2,6 @@
 
 const widgetGetter = require('./getter');
 const widgetSetter = require('./setter');
-const getAll = require('./getAll');
 const _ = require('lodash');
 
 exports.sendWidgetByUniqueId = async function (req, res, model, infoFunc) {
@@ -40,7 +39,7 @@ exports.sendWidgetsByModel = async function (req, res, model, infoFunc) {
 
 exports.sendWidgets = async function (req, res) {
     try {
-        const widgetsObj = await getAll.getWidgets(req);
+        const widgetsObj = await widgetGetter.getWidgets(req);
         if (widgetsObj === false)
             res.json({success: false});
         else
@@ -52,9 +51,9 @@ exports.sendWidgets = async function (req, res) {
     return true;
 };
 
-exports.sendWidgetsByService = async function (req, res, getterFunc) {
+exports.sendWidgetsByService = async function (req, res, serviceObj) {
     try {
-        const widgetsObj = await getterFunc(req);
+        const widgetsObj = await widgetGetter.getServiceWidget(req, serviceObj);
         if (widgetsObj === false)
             res.json({success: false});
         else
@@ -64,11 +63,6 @@ exports.sendWidgetsByService = async function (req, res, getterFunc) {
         res.json({success: false});
     }
     return true;
-};
-
-
-exports.sendWidgetsAbout = async function (req, res) {
-    res.json(await getAll.getAbouts(req));
 };
 
 exports.sendWidgetSetterResult = async function (req, res, model, setterFunc) {

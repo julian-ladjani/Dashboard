@@ -9,4 +9,6 @@ let params = {
 };
 let schema = schemaSetter.setModelSchema(params);
 let weatherCurrent = mongoose.Schema(schema);
+
+
 module.exports = mongoose.model('weatherCurrent', weatherCurrent);

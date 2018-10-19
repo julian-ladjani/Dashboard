@@ -11,5 +11,6 @@ router.get('/', (req, res) => {
     res.status(200).send("Hello World");
 });
 
-//errorRoutes(router);
+errorRoutes(router);
+
 module.exports = router;

@@ -3,22 +3,24 @@
 const router = require('express').Router();
 
 const pokemonRouter = require('./pokemon/pokemon');
-const weatherRouter = require('./weather/weather');
 const spotifyRouter = require('./spotify/spotifyApi');
 const epitechRouter = require('./Epitech/epitech');
-const widgetSender = require('../controllers/widget/sender');
 const jwt = require('../controllers/auth/jwtAuth');
 const auth = require('./auth/auth');
+
+const widgetSender = require('../controllers/widget/sender');
+const widgetRouter = require('../routes/widget/widgetRouter');
+const widgetAbout = require('../controllers/widget/about');
 
 router
     .get('/', jwt.requireAuth, widgetSender.sendWidgets);
 
 router
-    .get('/about.json', widgetSender.sendWidgetsAbout);
+    .get('/about.json', widgetAbout);
 
 router.use('/pokemon', pokemonRouter);
 router.use('/auth', auth);
-router.use('/weather', weatherRouter);
+widgetRouter(router);
 router.use('/spotify', spotifyRouter);
 router.use('/epitech', epitechRouter);
 module.exports = router;

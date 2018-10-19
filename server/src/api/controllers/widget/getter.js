@@ -1,6 +1,8 @@
 'use strict';
 
 const _ = require('lodash');
+const widgetConfig = require('../../config/widgets');
+
 
 async function fillSendObj(widgetParams, infoFunc) {
     if (widgetParams === false || !_.hasIn(widgetParams, 'params') ||
@@ -50,4 +52,30 @@ exports.getWidgetsByModel = async function (req, model, infoFunc) {
         widgetObjArray.length === null || widgetObjArray.length <= 0)
         return false;
     return widgetObjArray
+};
+
+exports.getServiceWidget = async function (req, serviceObj) {
+    let services = Object.keys(serviceObj);
+    let widgets = {};
+
+    for (let service of services) {
+        if (service === 'name' || service === 'controller')
+            continue;
+        let widgetObj = serviceObj[service];
+        let serviceWidgets = await exports.getWidgetsByModel(req, widgetObj.model,
+            widgetObj.controller.getWidgetInfo);
+        _.merge(widgets, {[widgetObj.name]: serviceWidgets});
+    }
+    return widgets;
+};
+
+exports.getWidgets = async function (req) {
+    let services = Object.keys(widgetConfig);
+    let widgets = {};
+    for (let service of services) {
+        let serviceObj = widgetConfig[service];
+        let serviceWidgets = await exports.getServiceWidget(req, serviceObj);
+        _.merge(widgets, {[serviceObj.name]: serviceWidgets});
+    }
+    return widgets;
 };
