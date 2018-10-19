@@ -19,7 +19,8 @@ export class WidgetNasaImageOfTheDayComponent extends NasaComponent implements O
 
     @Input() settings: SettingsContainer = new SettingsContainer(
         {year: 2000, month: 1, day: 1, hd: false},
-        {title: 'Image from the NASA', url: 'https://apod.nasa.gov/apod/image/1810/JupiterUV_HubbleSchmidt_1280.jpg'}
+        {title: 'Image from the NASA', explanation: 'Description.',
+            url: 'https://apod.nasa.gov/apod/image/1810/JupiterUV_HubbleSchmidt_1280.jpg'}
     );
 
     ngOnInit() {

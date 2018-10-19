@@ -18,14 +18,18 @@ export class WigdetSettingsComponent implements OnInit {
   }
 
   checkType(elem, type) {
+      if (elem == null && type === 'number')
+          return true;
       return typeof elem === type;
   }
+
   ngOnInit() {
   }
 
   onNoClick(): void {
       this.dialogRef.close({data: null});
   }
+
   closeWindow() {
       this.dialogRef.close({data: this.data});
   }

@@ -145,9 +145,10 @@ $light-color: "#f2f2f2ff";
 $primary: mat-palette($md-dbpurplepalette);
 $accent:  mat-palette($md-dborangepalette);
 $warn:    mat-palette($md-dbpinkpalette);
-$theme: mat-dark-theme($primary, $accent, $warn);
-@include angular-material-theme($theme);
+$theme-light: mat-light-theme($primary, $accent, $warn);
+$theme-dark: mat-dark-theme($primary, $accent, $warn);
 
+@include angular-material-theme($theme-dark);
 
 .db-primary {
         color: mat-color($primary);
