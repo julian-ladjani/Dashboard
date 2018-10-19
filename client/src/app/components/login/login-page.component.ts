@@ -44,12 +44,12 @@ export class LoginPageComponent implements OnInit {
             email: email,
             password: password
         };
-        this.loginService.login(jsonLoginForm).then(responce => {
-            if (responce['success']) {
-                window.localStorage.setItem('token', responce['token']);
+        this.loginService.login(jsonLoginForm).then(response => {
+            if (response['success']) {
+                window.localStorage.setItem('token', response['token']);
                 this.router.navigateByUrl('/home');
-            } else if (responce['message']) {
-                this.loginError = responce['message'];
+            } else if (response['message']) {
+                this.loginError = response['message'];
             }
         });
     }
@@ -60,11 +60,11 @@ export class LoginPageComponent implements OnInit {
             email: email,
             password: password
         };
-        this.loginService.signUp(jsonUserForm).then(responce => {
-            if (responce['success']) {
+        this.loginService.signUp(jsonUserForm).then(response => {
+            if (response['success']) {
                 this.login(email, password);
-            } else if (responce['message']) {
-                this.userError = responce['message'];
+            } else if (response['message']) {
+                this.userError = response['message'];
             }
         });
     }

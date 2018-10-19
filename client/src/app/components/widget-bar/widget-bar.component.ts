@@ -2,9 +2,12 @@ import {Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angul
 import {ResizeEvent} from 'angular-resizable-element';
 import {$} from 'jquery';
 import {WidgetFavoritePokemonComponent} from '../widgets/pokemon/widget-favorite-pokemon/widget-favorite-pokemon.component';
-import {PokemonComponent} from '../widgets/pokemon/pokemon/pokemon.component';
+import {PokemonComponent} from '../widgets/pokemon/pokemon.component';
 import {WidgetCurrentWeatherComponent} from '../widgets/weather/widget-current-weather/widget-current-weather.component';
-
+import {WidgetWeatherForecastComponent} from '../widgets/weather/widget-weather-forecast/widget-weather-forecast.component';
+import {NasaComponent} from '../widgets/nasa/nasa-component';
+import {WeatherComponent} from '../widgets/weather/weather-component';
+import {WidgetNasaImageOfTheDayComponent} from '../widgets/nasa/widget-nasa-image-of-the-day/widget-nasa-image-of-the-day.component';
 
 
 @Component({
@@ -24,9 +27,11 @@ export class WidgetBarComponent implements OnInit {
 
     constructor() {
         this.nav = [
-            this.newTab(`Converter`, 'assets/icons/basic.svg', 'converter'),
+            this.newTab(`Converter`, 'assets/icons/converter.svg', 'converter'),
             this.newTab(`EPITECH`, 'assets/icons/epitech.svg', 'epitech'),
-            this.newTab(`NASA`, 'assets/icons/nasa.svg', 'nasa'),
+            this.newTab(`NASA`, 'assets/icons/nasa.svg', NasaComponent.getServiceLabel()),
+            this.newSubTab(`Image of the Day`,
+                WidgetNasaImageOfTheDayComponent.getWidgetLabel(), WidgetNasaImageOfTheDayComponent.getServiceLabel()),
             this.newTab(`Pokemon`, 'assets/icons/pokemon.svg', PokemonComponent.getServiceLabel()),
             this.newSubTab(`Favorite Pokemon`,
                 WidgetFavoritePokemonComponent.getWidgetLabel(), WidgetFavoritePokemonComponent.getServiceLabel()),
@@ -35,9 +40,11 @@ export class WidgetBarComponent implements OnInit {
             this.newTab(`Steam`, 'assets/icons/steam.svg', 'steam'),
             this.newTab(`Twitch`, 'assets/icons/twitch.svg', 'twitch'),
             this.newTab(`Twitter`, 'assets/icons/twitter.svg', 'twitter'),
-            this.newTab(`Weather`, 'assets/icons/weather.svg', 'weather'),
+            this.newTab(`Weather`, 'assets/icons/weather.svg', WeatherComponent.getServiceLabel()),
             this.newSubTab(`Current Weather`,
                 WidgetCurrentWeatherComponent.getWidgetLabel(), WidgetCurrentWeatherComponent.getServiceLabel()),
+            this.newSubTab(`Weather Forecast`,
+                WidgetWeatherForecastComponent.getWidgetLabel(), WidgetWeatherForecastComponent.getServiceLabel()),
             this.newTab(`Youtube`, 'assets/icons/youtube.svg', 'youtube')
         ];
     }
