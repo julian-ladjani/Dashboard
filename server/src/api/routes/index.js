@@ -1,10 +1,6 @@
 'use strict';
 
 const router = require('express').Router();
-
-const pokemonRouter = require('./pokemon/pokemon');
-const spotifyRouter = require('./spotify/spotifyApi');
-const epitechRouter = require('./epitech/epitech');
 const jwt = require('../controllers/auth/jwtAuth');
 const auth = require('./auth/auth');
 
@@ -18,10 +14,7 @@ router
 router
     .get('/about.json', widgetAbout);
 
-router.use('/pokemon', pokemonRouter);
 router.use('/auth', auth);
 widgetRouter(router);
-router.use('/spotify', spotifyRouter);
-router.use('/epitech', epitechRouter);
 module.exports = router;
 

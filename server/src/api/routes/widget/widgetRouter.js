@@ -17,10 +17,10 @@ function widgetRouter(router, serviceName, widget) {
             widgetSender.sendWidgetByUniqueId(req, res, model, controller.getWidgetInfo);
         })
         .post(rootPath, jwt.requireAuth, function (req, res) {
-            widgetSender.sendWidgetSetterResult(req, res, model, controller.setWidgetParams);
+            widgetSender.sendWidgetSetterResult(req, res, model);
         })
         .post(rootPath + '/:uniqueId/params', jwt.requireAuth, function (req, res) {
-            widgetSender.sendWidgetSetterResult(req, res, model, controller.setWidgetParams);
+            widgetSender.sendWidgetSetterResult(req, res, model);
         });
 }
 
