@@ -1,7 +1,7 @@
 'use strict';
 
 const router = require('express').Router();
-const passport = require('../../controllers/Spotify/spotifyAuth');
+const passport = require('../../controllers/spotify/spotifyAuth');
 
 
 router.get('/', passport.authenticate('spotify'), function(req, res) {

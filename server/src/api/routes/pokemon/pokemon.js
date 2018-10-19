@@ -1,6 +1,6 @@
 'use strict';
 
-const pokemonApi = require('../../controllers/Pokemon/pokemon');
+const pokemonApi = require('../../controllers/pokemon/pokemon');
 const jwt = require('../../controllers/auth/jwtAuth');
 const router = require('express').Router();
 
