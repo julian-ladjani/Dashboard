@@ -35,13 +35,13 @@ export class HomeComponent implements OnInit {
             outerMarginBottom: null,
             outerMarginLeft: null,
             mobileBreakpoint: 640,
-            minCols: 1,
+            minCols: 3,
             maxCols: 100,
-            minRows: 1,
+            minRows: 2,
             maxRows: 100,
-            maxItemCols: 100,
+            maxItemCols: 20,
             minItemCols: 1,
-            maxItemRows: 100,
+            maxItemRows: 6,
             minItemRows: 1,
             maxItemArea: 2500,
             minItemArea: 1,
@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit {
 
     addWidget($event) {
         const test = $event;
-        test.props = {cols: 2, rows: 2, y: 0, x: 0};
+        test.props = {cols: 1, rows: 1, y: 0, x: 0};
         this.widgets.push(test);
     }
 

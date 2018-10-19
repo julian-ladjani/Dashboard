@@ -1,20 +1,19 @@
 <p class="text-center mat-h1">{{settings.infos.observationpoint}}</p>
-<div class="row">
-    <div class="col-xs-6">
-        <img src="{{settings.infos.imageUrl}}" />
-        <span class="text-center">{{settings.infos.skytext}}</span>
+<div class="db-row-weather">
+    <div>
+        <img src="{{settings.infos.imageUrl}}"/>
+        <p class="text-center db-accent">{{settings.infos.skytext}}</p>
     </div>
-    <mat-list class="col-xs-6">
-        <mat-list-item>
-            <p>{{settings.infos.date}}°C</p>
-            <p class="db-big-info">{{settings.infos.observationtime}}</p>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-        <mat-list-item>
-            <p class="db-big-info">{{settings.infos.temperature}}°C</p>
+    <div>
+        <p>{{settings.infos.date}}</p>
+        <p class="db-big-info">{{settings.infos.observationtime.slice(0, -3)}}</p>
+    </div>
+    <div class="db-row-weather">
+        <div class="db-big-info db-warn">{{settings.infos.temperature}}°C</div>
+        <div class="db-weather-margin">
             <p>Feels like : {{settings.infos.feelslike}} °C</p>
             <p>Humidity : {{settings.infos.humidity}} %</p>
-            <p>Wind : {{settings.infos.winddisplay}}</p>
-        </mat-list-item>
-    </mat-list>
+            <p>Wind : {{settings.infos.wind}}</p>
+        </div>
+    </div>
 </div>
