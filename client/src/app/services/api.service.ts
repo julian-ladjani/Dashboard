@@ -44,17 +44,29 @@ export class ApiService {
         return this.http.delete(`${this.apiUrl}${path}`, {headers: headers, withCredentials: true}).toPromise();
     }
 
-    postWidget(settings: SettingsContainer, serviceLabel: string = null, widgetLabel: string = null, id: number = -1) {
+    postWidget(settings: SettingsContainer, serviceLabel: string = null, widgetLabel: string = null) {
         if (serviceLabel == null || widgetLabel == null) {
             return;
         }
-        const path = serviceLabel + '/' + widgetLabel + ((id < 0) ? '' : ('/' + id + '/params'));
-        console.log(settings.params);
-        console.log(path);
-        this.apiPost(path, settings.params).then(response => {
-            console.log(response);
-            settings.params = response['params'];
-            settings.infos = response['infos'];
+        const prefix = '/' + serviceLabel + '/' + widgetLabel + '/';
+        const path = prefix + ((settings.id.length === 0) ? '' : (settings.id + '/params'));
+        console.log('LOL MDR : ', settings.params);
+        this.apiPost(path, settings.params).then(responsePost => {
+            if (responsePost['success'] === true) {
+                settings.connected = true;
+                settings.id = responsePost['id'];
+                this.getWidget(settings, prefix + settings.id);
+            }
+        });
+    }
+    getWidget(settings: SettingsContainer, path: string) {
+        console.log('try get : ', path);
+        this.apiGet(path).then( response => {
+            console.log('GET :', response);
+            if (response) {
+                settings.params = response['params'];
+                settings.infos = response['infos'];
+            }
         });
     }
 }
