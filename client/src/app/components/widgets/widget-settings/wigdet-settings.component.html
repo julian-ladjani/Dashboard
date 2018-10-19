@@ -2,7 +2,7 @@
     <mat-form-field *ngIf="checkType(data[key], 'string')">
         <input type="text" placeholder="{{key}}" matInput="" [(ngModel)]="data[key]">
     </mat-form-field>
-    <mat-form-field *ngIf="checkType(data[key], 'integer')">
+    <mat-form-field *ngIf="checkType(data[key], 'number')">
         <input type="number" placeholder="{{key}}" matInput="" [(ngModel)]="data[key]">
     </mat-form-field>
     <mat-checkbox [(ngModel)]="data[key]" *ngIf="checkType(data[key], 'boolean')">{{key}}</mat-checkbox>
