@@ -6,6 +6,7 @@ import {WidgetDirective} from './widget.directive';
 import {ApiService} from '../../services/api.service';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {timer, Subscription} from 'rxjs';
 
 @Component({
     selector: 'app-widget-container',
@@ -30,6 +31,23 @@ export class WidgetContainerComponent implements OnInit {
 
     ngOnInit() {
         this.loadComponent();
+        this.updateTimer();
+    }
+
+    getWidgetUrl() {
+        return '/' + this.component.getServiceLabel() + '/' + this.component.getWidgetLabel() + '/' + this.component.settings.id;
+    }
+
+    updateTimer() {
+        const time = this.component.settings.params['timer'] * 1000;
+        if (time > 0) {
+            timer(time).subscribe(val => this.updateTimer());
+        }
+        this.updateComponent();
+    }
+
+    updateComponent() {
+        this.api.getWidget(this.component.settings, this.getWidgetUrl());
     }
 
     loadComponent() {
@@ -51,6 +69,7 @@ export class WidgetContainerComponent implements OnInit {
                 this.component.settings.params = result.data;
                 this.api.postWidget(this.component.settings, this.widget.getServiceLabel(),
                     this.widget.getWidgetLabel());
+                this.updateTimer();
             }
         });
     }
