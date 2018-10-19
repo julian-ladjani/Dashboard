@@ -1,14 +1,13 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {WidgetComponent} from '../../widget/widget.component';
 import {SettingsContainer} from '../../../../objects/settings-container';
+import {WeatherComponent} from '../weather-component';
 
 @Component({
     selector: 'app-widget-current-weather',
     templateUrl: './widget-current-weather.component.html',
     styleUrls: ['./widget-current-weather.component.scss']
 })
-
-export class WidgetCurrentWeatherComponent extends WidgetComponent implements OnInit {
+export class WidgetCurrentWeatherComponent extends WeatherComponent implements OnInit {
 
     constructor() {
         super();
