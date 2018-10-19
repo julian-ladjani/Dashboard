@@ -31,11 +31,10 @@ export class WidgetContainerComponent implements OnInit {
 
     ngOnInit() {
         this.loadComponent();
-        this.updateTimer();
     }
 
     getWidgetUrl() {
-        return '/' + this.component.getServiceLabel() + '/' + this.component.getWidgetLabel() + '/' + this.component.settings.id;
+        return '/' + this.widget.getServiceLabel() + '/' + this.widget.getWidgetLabel() + '/' + this.component.settings.id;
     }
 
     updateTimer() {
@@ -47,7 +46,9 @@ export class WidgetContainerComponent implements OnInit {
     }
 
     updateComponent() {
-        this.api.getWidget(this.component.settings, this.getWidgetUrl());
+        if (this.component.settings.id.length !== 0) {
+            this.api.getWidget(this.component.settings, this.getWidgetUrl());
+        }
     }
 
     loadComponent() {
