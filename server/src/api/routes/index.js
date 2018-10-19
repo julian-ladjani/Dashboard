@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 const pokemonRouter = require('./pokemon/pokemon');
 const spotifyRouter = require('./spotify/spotifyApi');
-const epitechRouter = require('./Epitech/epitech');
+const epitechRouter = require('./epitech/epitech');
 const jwt = require('../controllers/auth/jwtAuth');
 const auth = require('./auth/auth');
 
