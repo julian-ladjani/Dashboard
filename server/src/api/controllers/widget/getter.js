@@ -8,7 +8,12 @@ async function fillSendObj(widgetParams, infoFunc) {
     if (widgetParams === false || !_.hasIn(widgetParams, 'params') ||
         !_.hasIn(widgetParams, '_id') || infoFunc === undefined)
         return false;
-    const infos = await infoFunc(widgetParams.params);
+    let infos;
+    try {
+        infos = await infoFunc(widgetParams.params);
+    } catch (e) {
+        infos = undefined;
+    }
     if (infos === undefined)
         return false;
     return {
