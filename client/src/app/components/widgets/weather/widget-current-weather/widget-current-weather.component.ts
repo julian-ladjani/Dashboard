@@ -22,16 +22,9 @@ export class WidgetCurrentWeatherComponent extends WeatherComponent implements O
     }
 
     @Input() settings: SettingsContainer = new SettingsContainer(
-        {country: 'France', city: 'Nancy'}, {}
+        {country: 'France', city: 'Nancy'},
+        {observationpoint: 'Town, Country', date: '00/00/0000',
+            observationtime: '00:00', day: 'Day', temparature: '0', skytext: 'weather', imageUrl: 'image'}
     );
 
-    /*return [new SettingVariable('Country', 'String', 'France', SettingEnum.POST),
-      new SettingVariable('City', 'String', 'Nancy', SettingEnum.POST),
-      new SettingVariable('observationpoint', 'String', '', SettingEnum.GET),
-      new SettingVariable('date', 'String', '', SettingEnum.GET),
-      new SettingVariable('observationtime', 'String', '', SettingEnum.GET),
-      new SettingVariable('day', 'String', '', SettingEnum.GET),
-      new SettingVariable('temperature', 'Integer', '', SettingEnum.GET),
-      new SettingVariable('skytext', 'String', '', SettingEnum.GET),
-      new SettingVariable('imageUrl', 'String', '', SettingEnum.GET)];*/
 }
