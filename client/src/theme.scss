@@ -147,3 +147,16 @@ $accent:  mat-palette($md-dborangepalette);
 $warn:    mat-palette($md-dbpinkpalette);
 $theme: mat-dark-theme($primary, $accent, $warn);
 @include angular-material-theme($theme);
+
+
+.db-primary {
+        color: mat-color($primary);
+}
+
+.db-accent {
+        color: mat-color($accent);
+}
+
+.db-warn {
+        color: mat-color($warn);
+}
