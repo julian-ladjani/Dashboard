@@ -16,11 +16,13 @@ import {environment} from '../../../environments/environment';
 
 
 export class HomeComponent implements OnInit {
-    widgets: Array<{ service: String, widget: String, title: String, icon: String, props: GridsterItem, settings: SettingsContainer, delete: boolean }> = [];
+    widgets: Array<{ service: String, widget: String, title: String, icon: String,
+        props: GridsterItem, settings: SettingsContainer, delete: boolean }> = [];
     loginService: LoginService;
     resolver: ComponentFactoryResolver;
     options: GridsterConfig;
     size = 100;
+    paramsInfos: {};
 
     constructor(public matDialog: MatDialog, public factory: WidgetFactoryService, private http: HttpClient, private router: Router) {
         this.loginService = new LoginService(http, router);
@@ -32,18 +34,21 @@ export class HomeComponent implements OnInit {
             for (const serviceKey in services) {
                 const service = services[serviceKey];
                 for (const widgetKey in service) {
-                    const widgets = service[widgetKey];
-                    for (const widgetIdx in widgets) {
-                        console.log(widgets[widgetIdx]);
-                        this.loginService.getNewWidget(serviceKey, widgetKey, widgets[widgetIdx]).then(widget => {
-                                const setting = new SettingsContainer(widget['params'], widget['infos']);
-                                setting.id = widget['id'];
-                                setting.connected = true;
-                                const infos = {service: serviceKey, widget: widgetKey, title: widgetKey, icon: '', settings: setting};
-                                this.addWidget(infos, setting);
-                            }
-                        );
-                    }
+                    const tmp = {};
+                    tmp[serviceKey + widgetKey] = service[widgetKey]['paramsInfo'];
+                    this.paramsInfos = {...this.paramsInfos, ...tmp};
+                    const ids = service[widgetKey]['ids'];
+                    if (ids)
+                        for (const id of ids) {
+                            this.loginService.getNewWidget(serviceKey, widgetKey, id).then(widget => {
+                                    const setting = new SettingsContainer(widget['params'], widget['infos']);
+                                    setting.id = widget['id'];
+                                    setting.connected = true;
+                                    const infos = {service: serviceKey, widget: widgetKey, title: widgetKey, icon: '', settings: setting};
+                                    this.addWidget(infos, setting);
+                                }
+                            );
+                        }
                 }
             }
         });
@@ -53,6 +58,7 @@ export class HomeComponent implements OnInit {
         const test = $event;
         test.settings = settings;
         test.delete = false;
+        test.settings.paramsInfo = this.paramsInfos[test.service + test.widget];
         this.widgets.push(test);
     }
 

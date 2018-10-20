@@ -59,12 +59,14 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
 
     ngOnInit() {
         this.loadComponent();
-        console.log(this.settings);
+        if (this.widget.getWidgetLabel() === 'favorite')
+            console.log('SETTINGS : ', this.settings);
         this.component.settings.id = this.settings.id;
         if (this.settings.infos)
             this.component.settings.infos = this.settings.infos;
         if (Object.keys(this.settings.params).length > 2)
             this.component.settings.params = this.settings.params;
+        this.component.settings.paramsInfo = this.settings.paramsInfo;
         this.component.settings.params.grid = this.settings.params.grid;
         this.component.settings.params.timer = this.settings.params.timer;
         this.updateTimer();
@@ -109,7 +111,6 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
 
     loadComponent() {
         const componentFactory = this.resolver.resolveComponentFactory(this.widget);
-
         const viewContainerRef = this.widgetHost.viewContainerRef;
         viewContainerRef.clear();
         const componentRef = viewContainerRef.createComponent(componentFactory);
@@ -132,7 +133,6 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
     }
 
     saveWidgetPos() {
-        console.log(this.component.settings.params.grid);
         this.api.postWidgetGrid(this.component.settings.params.grid, this.getWidgetUrl());
     }
 
