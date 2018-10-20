@@ -31,9 +31,9 @@ function checkParams(params) {
     return true;
 }
 
-exports.getWidgetInfo = async function(params) {
-        if (!checkParams(params))
-            return false;
+exports.getWidgetInfo = async function (params) {
+    if (!checkParams(params))
+        return false;
     return new Promise(function (resolve, reject) {
         Pokedex.getPokemonByName(rand) // with Promise
             .then(function (response, err) {
@@ -51,6 +51,9 @@ exports.getWidgetInfo = async function(params) {
                 catch (e) {
                     resolve(false);
                 }
+            })
+            .catch(function () {
+                reject(false);
             })
     })
 };

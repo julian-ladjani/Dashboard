@@ -4,7 +4,7 @@ const _ = require('lodash');
 const PokeApi = require('pokedex-promise-v2');
 const Pokedex = new PokeApi();
 
-exports.getWidgetInfo = function(params) {
+exports.getWidgetInfo = function (params) {
     if (!_.hasIn(params, 'type'))
         return false;
     return new Promise(function (resolve, reject) {
@@ -15,6 +15,9 @@ exports.getWidgetInfo = function(params) {
                     reject(false);
                 }
                 resolve(response.damage_relations);
+            })
+            .catch(function () {
+                reject(false);
             })
     })
 };
