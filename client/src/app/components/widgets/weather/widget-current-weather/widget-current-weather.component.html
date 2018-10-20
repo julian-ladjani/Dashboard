@@ -1,19 +1,19 @@
-<p class="text-center mat-h1">{{settings.infos.observationpoint}}</p>
+<p class="text-center mat-h1">{{settings.infos?.observationpoint}}</p>
 <div class="db-row-weather">
     <div>
-        <img src="{{settings.infos.imageUrl}}"/>
-        <p class="text-center db-accent">{{settings.infos.skytext}}</p>
+        <img src="{{settings.infos?.imageUrl}}"/>
+        <p class="text-center db-accent">{{settings.infos?.skytext}}</p>
     </div>
     <div>
-        <p>{{settings.infos.shortday}} {{settings.infos.date}}</p>
-        <p class="db-big-info">{{settings.infos.observationtime.slice(0, -3)}}</p>
+        <p>{{settings.infos?.shortday}} {{settings.infos?.date}}</p>
+        <p class="db-big-info">{{settings.infos?.observationtime?.slice(0, -3)}}</p>
     </div>
     <div class="db-row-weather">
-        <div class="db-big-info db-warn">{{settings.infos.temperature}}°C</div>
+        <div class="db-big-info db-warn">{{settings.infos?.temperature}}°C</div>
         <div class="db-weather-margin">
-            <p>Feels like : {{settings.infos.feelslike}} °C</p>
-            <p>Humidity : {{settings.infos.humidity}} %</p>
-            <p>Wind : {{settings.infos.windspeed}}</p>
+            <p>Feels like : {{settings.infos?.feelslike}} °C</p>
+            <p>Humidity : {{settings.infos?.humidity}} %</p>
+            <p>Wind : {{settings.infos?.windspeed}}</p>
         </div>
     </div>
 </div>
