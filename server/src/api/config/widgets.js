@@ -133,14 +133,14 @@ let widgets = function () {
                     message: {type: String, default: 'message'}
                 },
             },
-            binome: {
-                name: 'binome',
-                description: 'My best binome',
-                controller: require('../controllers/epitech/binome'),
-                modelName: 'epitechBinome',
+            partner: {
+                name: 'partner',
+                description: 'My best partner',
+                controller: require('../controllers/epitech/partner'),
+                modelName: 'epitechpartner',
                 params: {
                     autologin: {type: String, default: null},
-                    binome: {type: Number, default: 3}
+                    partner: {type: Number, default: 3}
                 },
             },
         }
