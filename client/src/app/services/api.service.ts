@@ -42,7 +42,7 @@ export class ApiService {
         return this.http.delete(`${this.apiUrl}${path}`, {headers: headers}).toPromise();
     }
 
-    postWidget(settings: SettingsContainer, serviceLabel: string = null, widgetLabel: string = null) {
+    postAndGetWidget(settings: SettingsContainer, serviceLabel: string = null, widgetLabel: string = null) {
         if (serviceLabel == null || widgetLabel == null) {
             return;
         }
@@ -57,6 +57,10 @@ export class ApiService {
                 settings.state = 'ko';
             }
         });
+    }
+
+    postWidgetGrid(settings: SettingsContainer, widgetPath) {
+        this.apiPost(widgetPath + '/params/grid', settings.params);
     }
 
     getWidget(settings: SettingsContainer, path: string) {

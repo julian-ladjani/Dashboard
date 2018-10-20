@@ -24,10 +24,10 @@ export class HomeComponent implements OnInit {
 
     constructor(public matDialog: MatDialog, public factory: WidgetFactoryService, private http: HttpClient, private router: Router) {
         this.loginService = new LoginService(http, router);
+        this.options = environment.gridOptions;
     }
 
     ngOnInit() {
-        this.options = environment.gridOptions;
         this.loginService.apiGet().then(services => {
             for (const serviceKey in services) {
                 const service = services[serviceKey];

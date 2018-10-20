@@ -123,11 +123,16 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
                 this.component.settings.params = result.data;
-                this.api.postWidget(this.component.settings, this.widget.getServiceLabel(),
+                this.api.postAndGetWidget(this.component.settings, this.widget.getServiceLabel(),
                     this.widget.getWidgetLabel());
                 this.updateTimer();
             }
         });
+    }
+
+    saveWidgetPos() {
+        console.log(this.component.settings.params.grid);
+        this.api.postWidgetGrid(this.component.settings.params.grid, this.getWidgetUrl());
     }
 
     deleteWidget() {
