@@ -40,10 +40,18 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
     private title: string;
     private subtitle: string;
     private timerSubscription: Subscription = null;
+    private connectInfos: {
+        ok: any,
+        connection: any,
+        ko: any
+    } = {ok: null, connection: null, ko: null};
 
     private api: ApiService;
 
     constructor(public matDialog: MatDialog, private resolver: ComponentFactoryResolver, private http: HttpClient, private router: Router) {
+        this.connectInfos['ok'] = {color: 'primary', icon: 'check_circle'};
+        this.connectInfos['connection'] = {color: 'accent', icon: 'lens'};
+        this.connectInfos['ko'] = {color: 'warn', icon: 'error'};
         this.api = new ApiService(http, router);
     }
 

@@ -5,14 +5,8 @@
          [resizeCursorPrecision]=20
          [resizeEdges]="{right: true}"
          (resizeEnd)="onResizeEnd($event)">
-        <svg-icon src="assets/trashboard-stacked-logo-fr.svg"></svg-icon>
+        <svg-icon src="assets/trashboard-stacked-logo.svg"></svg-icon>
         <div class="db-tools">
-            <button mat-icon-button (click)="expandEvent.emit(false)">
-                <mat-icon aria-label="Example icon-button with a heart icon">first_page</mat-icon>
-            </button>
-            <button mat-icon-button (click)="expandEvent.emit(true)">
-                <mat-icon aria-label="Example icon-button with a heart icon">last_page</mat-icon>
-            </button>
             <button mat-icon-button color="accent" (click)="deleteWidgetsEvent.emit()">
                 <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
             </button>

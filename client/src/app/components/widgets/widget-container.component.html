@@ -6,11 +6,11 @@
             <mat-card-title>{{title}}</mat-card-title>
             <mat-card-subtitle>{{subtitle}}</mat-card-subtitle>
         </mat-card-header>
-        <mat-icon *ngIf="component.settings.state === 'ok'" color="primary">check_circle</mat-icon>
-        <mat-icon *ngIf="component.settings.state === 'connection'" color="accent">lens</mat-icon>
-        <mat-icon *ngIf="component.settings.state === 'ko'" color="warn">error</mat-icon>
         <button color="warn" (click)="openSettings()" class="btn-setting float-right" mat-icon-button=""><i class="material-icons">build</i></button>
         <button (click)="deleteWidget()" class="btn-setting float-right" mat-icon-button=""><i class="material-icons">delete</i></button>
+        <button class="btn-setting float-right" mat-icon-button="" color="{{connectInfos[component.settings.state].color}}">
+            <i class="material-icons">{{connectInfos[component.settings.state].icon}}</i>
+        </button>
     </div>
     <mat-card-content>
         <ng-template appWidgetHost=""></ng-template>
