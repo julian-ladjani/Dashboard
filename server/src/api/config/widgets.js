@@ -56,7 +56,7 @@ let widgets = function () {
                 },
                 paramsInfo: {
                     pokemon: {
-                        type: 'Array',
+                        type: 'List',
                         content: ["Pikachu", "Eevee"],
                     },
                     shiny: {
