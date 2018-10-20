@@ -110,9 +110,9 @@ exports.getServiceWidgetId = async function (req, serviceObj) {
         if (widgetObj.paramsInfo !== undefined)
             _.merge(widgets, {[widgetObj.name]: {paramsInfo: widgetObj.paramsInfo}});
         if (serviceWidgets === false)
-            _.merge(widgets, {[widgetObj.name]: {id: []}});
+            _.merge(widgets, {[widgetObj.name]: {ids: []}});
         else
-            _.merge(widgets, {[widgetObj.name]: {id: serviceWidgets}});
+            _.merge(widgets, {[widgetObj.name]: {ids: serviceWidgets}});
     }
     return widgets;
 };
