@@ -50,9 +50,11 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
     ngOnInit() {
         this.loadComponent();
         console.log(this.settings);
+        this.component.settings.id = this.settings.id;
         if (this.settings.infos)
             this.component.settings.infos = this.settings.infos;
-        this.component.settings.id = this.settings.id;
+        if (Object.keys(this.settings.params).length > 2)
+            this.component.settings.params = this.settings.params;
         this.component.settings.params.grid = this.settings.params.grid;
         this.component.settings.params.timer = this.settings.params.timer;
         this.updateTimer();
