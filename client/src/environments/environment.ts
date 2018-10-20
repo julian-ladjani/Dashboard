@@ -9,7 +9,7 @@ export const environment = {
     apiUrl: 'http://localhost:8080',
     iconPath: 'assets/icons/',
     gridOptions: {
-        gridType: GridType.Fit,
+        gridType: GridType.ScrollHorizontal,
         compactType: CompactType.None,
         margin: 10,
         outerMargin: true,
