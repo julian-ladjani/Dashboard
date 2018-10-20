@@ -23,7 +23,6 @@ function checkParams(params) {
         return false;
     const max_gen = params.max_generation <= 0 || params.max_generation > 7 ? 7 : params.max_generation;
     const min_gen = params.min_generation <= 0 || params.min_generation > 7 ? 1 : params.min_generation;
-    console.log("#",max_gen,"#",min_gen);
     rand = max_gen > min_gen ? getRandomInt(min_generation[min_gen], max_generation[max_gen])
         : getRandomInt(min_generation[max_gen] + max_generation[min_gen]);
     lang = pokemon.languages.has(params.language) ? params.language : 'en';
@@ -35,22 +34,19 @@ function checkParams(params) {
 exports.getWidgetInfo = async function(params) {
         if (!checkParams(params))
             return false;
-        console.log(rand);
     return new Promise(function (resolve, reject) {
         Pokedex.getPokemonByName(rand) // with Promise
             .then(function (response, err) {
                 if (err)
                     reject(false);
-                const sprites = [response.sprites.front_default, response.sprites.front_shiny];
-                const tmp = {
+                var sprites = [response.sprites.front_default, response.sprites.front_shiny];
+                var tmp = {
                     'pokemon': {
-                        name: pokemon.getName(response.game_indices.game_index, lang),
+                        name: pokemon.getName(response.game_indices[0].game_index, lang),
                         sprites: sprites[shiney]
                     }, 'time': timer
                 };
-                console.log(tmp);
                 resolve(tmp);
-            }).catch(err)
-                reject(false);
+            })
     })
 };
