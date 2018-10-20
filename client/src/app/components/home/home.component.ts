@@ -55,9 +55,10 @@ export class HomeComponent implements OnInit {
     }
 
     deleteWidgets() {
-        for (const widget in this.widgets) {
-            widget['delete'] = true;
-        }
+        console.log(this.widgets);
+        this.widgets.forEach(function (value) {
+            value.delete = true;
+        });
     }
 
     logout() {

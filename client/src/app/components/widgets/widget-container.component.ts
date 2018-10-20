@@ -1,4 +1,4 @@
-import {Component, ComponentFactoryResolver, EventEmitter, Input, OnInit, Output, SimpleChange, ViewChild} from '@angular/core';
+import {Component, ComponentFactoryResolver, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, ViewChild} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {WigdetSettingsComponent} from './widget-settings/wigdet-settings.component';
 import {WidgetComponent} from './widget/widget.component';
@@ -14,7 +14,7 @@ import {timer, Subscription} from 'rxjs';
     templateUrl: './widget-container.component.html',
     styleUrls: ['./widget-container.component.scss']
 })
-export class WidgetContainerComponent implements OnInit {
+export class WidgetContainerComponent implements OnInit, OnChanges{
 
     @Input() widget: any;
     @Input() icon: String;
@@ -42,7 +42,7 @@ export class WidgetContainerComponent implements OnInit {
         }
     }
 
-    ngOnChange(change: SimpleChange) {
+    ngOnChanges(change: SimpleChange) {
         if (this.delete === true) {
             this.deleteWidget();
         }
