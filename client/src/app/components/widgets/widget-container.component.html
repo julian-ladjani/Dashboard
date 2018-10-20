@@ -6,11 +6,13 @@
             <mat-card-title class="db-info-big-card">{{title}}</mat-card-title>
             <mat-card-subtitle class="db-info-big-card">{{subtitle}}</mat-card-subtitle>
         </mat-card-header>
+        <button (click)="saveWidgetPos()" class="btn-setting float-right" mat-icon-button=""><i class="material-icons">save</i></button>
+        <button (click)="updateComponent()" class="btn-setting float-right" mat-icon-button=""><i class="material-icons">refresh</i></button>
+        <button (click)="deleteWidget()" class="btn-setting float-right" mat-icon-button=""><i class="material-icons">delete</i></button>
+        <button color="warn" (click)="openSettings()" class="btn-setting float-right" mat-icon-button=""><i class="material-icons">build</i></button>
         <button class="btn-setting float-right" mat-icon-button="" color="{{connectInfos[component.settings.state].color}}">
             <i class="material-icons">{{connectInfos[component.settings.state].icon}}</i>
         </button>
-        <button color="warn" (click)="openSettings()" class="btn-setting float-right" mat-icon-button=""><i class="material-icons">build</i></button>
-        <button (click)="deleteWidget()" class="btn-setting float-right" mat-icon-button=""><i class="material-icons">delete</i></button>
     </div>
     <mat-card-content>
         <ng-template appWidgetHost=""></ng-template>

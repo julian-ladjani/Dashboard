@@ -1,6 +1,13 @@
 import {environment} from '../../environments/environment';
 
 export class SettingsContainer {
+    get paramsInfo(): any {
+        return this._paramsInfo;
+    }
+
+    set paramsInfo(value: any) {
+        this._paramsInfo = value;
+    }
     get deletable(): boolean {
         return this._deletable;
     }
@@ -48,13 +55,15 @@ export class SettingsContainer {
     private _state = 'connection';
     private _params: any;
     private _infos: any;
+    private _paramsInfo: any;
 
-    constructor(params: any = null, infos: any = null) {
+    constructor(params: any = null, infos: any = null, paramsInfo: any = null) {
         const commonParams = {timer: 0, grid: {
             cols: environment.gridOptions.defaultItemCols, rows: environment.gridOptions.defaultItemRows,
             y: 0, x: 0}};
         this._params = {...commonParams, ...params};
         this._infos = infos;
+        this._paramsInfo = paramsInfo;
     }
 
     set params(value: any) {

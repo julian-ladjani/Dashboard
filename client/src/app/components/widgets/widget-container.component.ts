@@ -49,7 +49,8 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
 
     private api: ApiService;
 
-    constructor(public matDialog: MatDialog, private resolver: ComponentFactoryResolver, private http: HttpClient, private router: Router, private el: ElementRef) {
+    constructor(public matDialog: MatDialog, private resolver: ComponentFactoryResolver,
+            private http: HttpClient, private router: Router, private el: ElementRef) {
         this.connectInfos['ok'] = {color: 'primary', icon: 'check_circle'};
         this.connectInfos['connection'] = {color: 'accent', icon: 'lens'};
         this.connectInfos['ko'] = {color: 'warn', icon: 'error'};
@@ -58,12 +59,14 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
 
     ngOnInit() {
         this.loadComponent();
-        console.log(this.settings);
+        if (this.widget.getWidgetLabel() === 'favorite')
+            console.log('SETTINGS : ', this.settings);
         this.component.settings.id = this.settings.id;
         if (this.settings.infos)
             this.component.settings.infos = this.settings.infos;
         if (Object.keys(this.settings.params).length > 2)
             this.component.settings.params = this.settings.params;
+        this.component.settings.paramsInfo = this.settings.paramsInfo;
         this.component.settings.params.grid = this.settings.params.grid;
         this.component.settings.params.timer = this.settings.params.timer;
         this.updateTimer();
@@ -108,7 +111,6 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
 
     loadComponent() {
         const componentFactory = this.resolver.resolveComponentFactory(this.widget);
-
         const viewContainerRef = this.widgetHost.viewContainerRef;
         viewContainerRef.clear();
         const componentRef = viewContainerRef.createComponent(componentFactory);
@@ -123,11 +125,15 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
                 this.component.settings.params = result.data;
-                this.api.postWidget(this.component.settings, this.widget.getServiceLabel(),
+                this.api.postAndGetWidget(this.component.settings, this.widget.getServiceLabel(),
                     this.widget.getWidgetLabel());
                 this.updateTimer();
             }
         });
+    }
+
+    saveWidgetPos() {
+        this.api.postWidgetGrid(this.component.settings.params.grid, this.getWidgetUrl());
     }
 
     deleteWidget() {
