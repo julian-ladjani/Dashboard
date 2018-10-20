@@ -39,14 +39,18 @@ exports.getWidgetInfo = async function(params) {
             .then(function (response, err) {
                 if (err)
                     reject(false);
-                var sprites = [response.sprites.front_default, response.sprites.front_shiny];
-                var tmp = {
-                    'pokemon': {
-                        name: pokemon.getName(response.game_indices[0].game_index, lang),
-                        sprites: sprites[shiney]
-                    }, 'time': timer
-                };
-                resolve(tmp);
+                let sprites = [response.sprites.front_default, response.sprites.front_shiny];
+                try {
+                    const tmp = {
+                        'name': pokemon.getName(rand, lang),
+                        'sprite': sprites[shiney],
+                        'time': timer
+                    };
+                    resolve(tmp);
+                }
+                catch (e) {
+                    resolve(false);
+                }
             })
     })
 };
