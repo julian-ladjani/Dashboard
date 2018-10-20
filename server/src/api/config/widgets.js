@@ -98,6 +98,28 @@ let widgets = function () {
                     hd: {type: Number, default: 0}
                 },
             },
+            marsPhotos: {
+                name: 'marsPhotos',
+                description: 'Photos of Mars Rovers',
+                controller: require('../controllers/nasa/marsPhotos'),
+                modelName: 'nasaMarsPhoto',
+                params: {
+                    martianDay: {type: Number, default: 1000},
+                    camera: {type: String, default: 'NAVCAM'},
+                    page: {type: Number, default: 1},
+                    rover: {type: String, default: 'Curiosity'}
+                },
+                paramsInfo: {
+                    camera: {
+                        type: 'List',
+                        content: require('../controllers/nasa/marsPhotos').getCameraList,
+                    },
+                    rover: {
+                        type: 'List',
+                        content: require('../controllers/nasa/marsPhotos').getRoverList,
+                    },
+                },
+            },
         },
         epitech: {
             name: 'epitech',
