@@ -1,6 +1,6 @@
 <div class="db-row-weather text-center">
   <div *ngFor="let day of settings.infos">
-    <p class=" mat-h1">{{settings.params['city']}}, {{settings.params['country']}}</p>
+    <p class=" mat-h1 text-capitalize">{{settings.params['city']}}, {{settings.params['country']}}</p>
       <div>
         <img src="{{'http://blob.weather.microsoft.com/static/weather4/en-us/law/' + day.skycodeday + '.gif'}}"/>
         <p class="db-accent">{{day.skytextday}}</p>

@@ -8,6 +8,14 @@ export class SettingsContainer {
         return this._id;
     }
 
+    set state(value: string) {
+        this._state = value;
+    }
+
+    get state(): string {
+        return this._state;
+    }
+
     get connected(): boolean {
         return this._connected;
     }
@@ -26,6 +34,7 @@ export class SettingsContainer {
 
     private _connected = false;
     private _id = '';
+    private _state = 'connection';
     private _params: any;
     private _infos: any;
 
