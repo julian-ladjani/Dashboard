@@ -30,5 +30,8 @@ exports.getWidgetInfo = async function(params) {
                 }
 
             })
+            .catch(function () {
+                reject(false);
+            })
     })
 };
