@@ -1,0 +1,27 @@
+.db-widget {
+  width: 200px;
+  height: 200px;
+  background-color: var(--dark-color);
+}
+
+.db-row-type {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.db-big-info {
+  margin: 15px 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.db-normal-info {
+  margin: 10px 0;
+  font-size: 25px;
+  font-weight: 100;
+}
+
+.db-little-info {
+  margin: 5px 5px;
+}

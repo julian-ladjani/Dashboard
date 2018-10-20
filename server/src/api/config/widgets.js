@@ -57,7 +57,7 @@ let widgets = function () {
                 paramsInfo: {
                     pokemon: {
                         type: 'List',
-                        content: ["Pikachu", "Eevee"],
+                        content: require('../controllers/pokemon/pokemon').getWidgetInfo,
                     },
                     shiny: {
                         type: 'Boolean',
@@ -74,7 +74,6 @@ let widgets = function () {
                     min_generation: {type: Number, default: 1},
                     language: {type: String, default: 'en'},
                     shiny: {type: Number, default: 0},
-                    time: {type: Number, default: 5},
                 },
             },
             type: {
@@ -110,6 +109,16 @@ let widgets = function () {
                 params: {
                     autologin: {type: String, default: null},
                     message: {type: String, default: 'message'}
+                },
+            },
+            binome: {
+                name: 'binome',
+                description: 'My best binome',
+                controller: require('../controllers/epitech/message'),
+                modelName: 'epitechBinome',
+                params: {
+                    autologin: {type: String, default: null},
+                    message: {type: Number, default: 3}
                 },
             },
         }

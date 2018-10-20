@@ -1,3 +1,47 @@
-<p>
-  widget-pokemon-type works!
+<p class="text-center text-capitalize db-big-info">
+  {{settings.params['type']}}
 </p>
+<div class="db-row-type text-center text-capitalize">
+  <div>
+    <p class="db-normal-info">Weak from</p>
+    <div class="db-row-type">
+      <p class="db-little-info" *ngFor="let type of settings.infos.double_damage_from">{{type.name}}</p>
+    </div>
+    <p *ngIf="settings.infos.no_damage_from.length === 0">None</p>
+  </div>
+  <div>
+    <p class="db-normal-info">Double damage to</p>
+    <div class="db-row-type">
+      <p class="db-little-info" *ngFor="let type of settings.infos.double_damage_to">{{type.name}}</p>
+    </div>
+    <p *ngIf="settings.infos.double_damage_to.length === 0">None</p>
+  </div>
+  <div>
+    <p class="db-normal-info">Resistant from</p>
+    <div class="db-row-type">
+      <p class="db-little-info" *ngFor="let type of settings.infos.half_damage_from">{{type.name}}</p>
+    </div>
+    <p *ngIf="settings.infos.half_damage_from.length === 0">None</p>
+  </div>
+  <div>
+    <p class="db-normal-info">Half damage to</p>
+    <div class="db-row-type">
+      <p class="db-little-info" *ngFor="let type of settings.infos.half_damage_to">{{type.name}}</p>
+    </div>
+    <p *ngIf="settings.infos.half_damage_to.length === 0">None</p>
+  </div>
+  <div>
+    <p class="db-normal-info">Immune from</p>
+    <div class="db-row-type">
+      <p class="db-little-info" *ngFor="let type of settings.infos.no_damage_from">{{type.name}}</p>
+    </div>
+    <p *ngIf="settings.infos.no_damage_from.length === 0">None</p>
+  </div>
+  <div>
+    <p class="db-normal-info">No Damage to</p>
+    <div class="db-row-type">
+      <p class="db-little-info" *ngFor="let type of settings.infos.no_damage_to">{{type.name}}</p>
+    </div>
+    <p *ngIf="settings.infos.no_damage_to.length === 0">None</p>
+  </div>
+</div>

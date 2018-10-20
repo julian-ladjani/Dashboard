@@ -11,7 +11,6 @@ const min_generation = [0, 1, 152, 252, 387, 494, 650, 722];
 let rand = 0;
 let lang = 'en';
 let shiney = 0;
-let timer = 5;
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -27,13 +26,12 @@ function checkParams(params) {
         : getRandomInt(min_generation[max_gen] + max_generation[min_gen]);
     lang = pokemon.languages.has(params.language) ? params.language : 'en';
     shiney = params.shiny <= 0 || params.shiny > 1 ? 0 : params.shiny;
-    timer = params.time < 0 ? 5 : params.time;
     return true;
 }
 
-exports.getWidgetInfo = async function(params) {
-        if (!checkParams(params))
-            return false;
+exports.getWidgetInfo = async function (params) {
+    if (!checkParams(params))
+        return false;
     return new Promise(function (resolve, reject) {
         Pokedex.getPokemonByName(rand) // with Promise
             .then(function (response, err) {
@@ -44,13 +42,15 @@ exports.getWidgetInfo = async function(params) {
                     const tmp = {
                         'name': pokemon.getName(rand, lang),
                         'sprite': sprites[shiney],
-                        'time': timer
                     };
                     resolve(tmp);
                 }
                 catch (e) {
                     resolve(false);
                 }
+            })
+            .catch(function () {
+                reject(false);
             })
     })
 };
