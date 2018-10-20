@@ -25,7 +25,6 @@ exports.getWidgetInfo = async function(params) {
                     resolve(tmp);
                 }
                 catch (e) {
-                    console.log(e);
                     resolve(false);
                 }
 

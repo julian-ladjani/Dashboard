@@ -13,11 +13,9 @@ exports.getWidgetInfo = async function() {
                     let tmp = [];
                     for(let i = 1; i < 802; i++)
                         tmp.push(response.results[i].name);
-                    console.log(tmp);
                     resolve(tmp);
                 }
                 catch (e) {
-                    console.log(e);
                     resolve(false);
                 }
 

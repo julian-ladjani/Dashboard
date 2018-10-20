@@ -23,7 +23,6 @@ exports.getWidgetInfo = async function(params) {
             , function (err, responce, body) {
             if (err)
                 reject(err);
-            console.log(body);
             resolve(responce);
         })
     })

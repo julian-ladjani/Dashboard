@@ -11,7 +11,6 @@ exports.getWidgetInfo = function (params) {
         Pokedex.getTypeByName(params.type.toLowerCase()) // with Promise
             .then(function (response, err) {
                 if (err) {
-                    console.log(err);
                     reject(false);
                 }
                 resolve(response.damage_relations);
