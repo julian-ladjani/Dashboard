@@ -54,6 +54,15 @@ let widgets = function () {
                     pokemon: {type: String, default: 'pikachu'},
                     shiny: {type: Number, default: 0}
                 },
+                paramsInfo: {
+                    pokemon: {
+                        type: 'Array',
+                        content: ["Pikachu", "Eevee"],
+                    },
+                    shiny: {
+                        type: 'Boolean',
+                    }
+                },
             },
             blind: {
                 name: 'blind',
