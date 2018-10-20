@@ -1,5 +1,6 @@
 'use strict';
 
+const moment = require('moment');
 const modelGenerator = require('../models/widget/generator');
 
 function generateWidgetsModel(widgetsConfig) {
@@ -77,7 +78,20 @@ let widgets = function () {
                     current: {type: String, default: '1'}
                 },
             }
-        }
+        },
+        nasa: {
+            name: 'nasa',
+            apod: {
+                name: 'apod',
+                description: 'Get picture of the day',
+                controller: require('../controllers/nasa/apod'),
+                modelName: 'nasaApod',
+                params: {
+                    date: {type: String, default: moment().format('YYYY-MM-DD')},
+                    hd: {type: Number, default: 0}
+                },
+            },
+        },
     };
     generateWidgetsModel(widgetsConfig);
     return widgetsConfig;
