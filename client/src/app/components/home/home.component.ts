@@ -46,16 +46,14 @@ export class HomeComponent implements OnInit {
         });
     }
 
-    addWidget($event, settings: SettingsContainer = new SettingsContainer()) {
+    addWidget($event, settings: SettingsContainer = null) {
         const test = $event;
         test.settings = settings;
         test.delete = false;
-        test.settings.params.grid = {cols: 1, rows: 1, y: 0, x: 0};
         this.widgets.push(test);
     }
 
     deleteWidgets() {
-        console.log(this.widgets);
         this.widgets.forEach(function (value) {
             value.delete = true;
         });

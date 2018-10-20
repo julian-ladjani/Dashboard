@@ -1,4 +1,15 @@
-import {Component, ComponentFactoryResolver, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, ViewChild} from '@angular/core';
+import {
+    Component,
+    ComponentFactoryResolver,
+    EventEmitter,
+    Input,
+    OnChanges,
+    OnInit,
+    Output,
+    SimpleChange,
+    SimpleChanges,
+    ViewChild
+} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {WigdetSettingsComponent} from './widget-settings/wigdet-settings.component';
 import {WidgetComponent} from './widget/widget.component';
@@ -38,11 +49,16 @@ export class WidgetContainerComponent implements OnInit, OnChanges{
     ngOnInit() {
         this.loadComponent();
         if (this.settings != null) {
-            this.component.settings = this.settings;
+            console.log(this.settings);
+            this.component.settings.infos = this.settings.infos;
+            this.component.settings.id = this.settings.id;
+            this.component.settings.params.grid = this.settings.params.grid;
+            this.component.settings.params.timer = this.settings.params.timer;
+            this.updateTimer();
         }
     }
 
-    ngOnChanges(change: SimpleChange) {
+    ngOnChanges(change: SimpleChanges) {
         if (this.delete === true) {
             this.deleteWidget();
         }

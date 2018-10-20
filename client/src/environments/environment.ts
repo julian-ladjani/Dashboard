@@ -7,6 +7,7 @@ import {CompactType, DisplayGrid, GridType} from 'angular-gridster2';
 export const environment = {
     production: false,
     apiUrl: 'http://localhost:8080',
+    iconPath: 'assets/icons/',
     gridOptions: {
         gridType: GridType.Fit,
         compactType: CompactType.None,

@@ -41,8 +41,8 @@ export class WidgetBarComponent implements OnInit {
             this.newTab(`Steam`, 'assets/icons/steam.svg', 'steam'),
             this.newTab(`Twitch`, 'assets/icons/twitch.svg', 'twitch'),
             this.newTab(`Twitter`, 'assets/icons/twitter.svg', 'twitter'),
-            this.newTab(`Weather`, 'assets/icons/weather.svg', WeatherComponent.getServiceLabel()),
-            this.newSubTab(`Current Weather`,
+            this.newTab(`Weather`, WidgetCurrentWeatherComponent.getIcon(), WeatherComponent.getServiceLabel()),
+            this.newSubTab(WidgetCurrentWeatherComponent.getTitle(),
                 WidgetCurrentWeatherComponent.getWidgetLabel(), WidgetCurrentWeatherComponent.getServiceLabel()),
             this.newSubTab(`Weather Forecast`,
                 WidgetWeatherForecastComponent.getWidgetLabel(), WidgetWeatherForecastComponent.getServiceLabel()),
@@ -51,6 +51,13 @@ export class WidgetBarComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    addService(serviceType, widgetTypes: any[] = null) {
+        this.newTab(serviceType.getTitle(), serviceType.getIcon(), serviceType.getServiceLabel());
+        widgetTypes.forEach(function (widgetType) {
+            this.newSubTab(widgetType.getTitle(), widgetType.getWidgetLabel(), widgetType.getServiceLabel());
+        }.bind(this));
     }
 
     newTab(name, svg, label) {
@@ -71,7 +78,6 @@ export class WidgetBarComponent implements OnInit {
     }
 
     addNewWidget(elem) {
-
         this.nav.forEach(function (value, ) {
             if (value.label === elem.parent) {
                 const test = {
