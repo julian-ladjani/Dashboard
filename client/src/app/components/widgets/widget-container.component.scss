@@ -21,6 +21,7 @@
 
     .db-title {
       flex: 1 1 auto;
+      text-transform: capitalize;
     }
 
     ::ng-deep &.hide-infos .db-info-big-card {
