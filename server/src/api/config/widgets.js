@@ -91,6 +91,19 @@ let widgets = function () {
                 },
             },
         },
+        epitech: {
+            name: 'epitech',
+            messages: {
+                name: 'messages',
+                description: 'My notification epitech',
+                controller: require('../controllers/epitech/message'),
+                modelName: 'epitechMessage',
+                params: {
+                    autologin: {type: String, default: null},
+                    message: {type: String, default: 'message'}
+                },
+            },
+        }
     };
     generateWidgetsModel(widgetsConfig);
     return widgetsConfig;
