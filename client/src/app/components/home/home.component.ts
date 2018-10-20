@@ -5,6 +5,8 @@ import {Router} from '@angular/router';
 import {LoginService} from '../../services/login.service';
 import {HttpClient} from '@angular/common/http';
 import {CompactType, DisplayGrid, GridsterConfig, GridsterItem, GridType} from 'angular-gridster2';
+import {SettingsContainer} from '../../objects/settings-container';
+import {environment} from '../../../environments/environment';
 
 @Component({
     selector: 'app-home',
@@ -14,7 +16,7 @@ import {CompactType, DisplayGrid, GridsterConfig, GridsterItem, GridType} from '
 
 
 export class HomeComponent implements OnInit {
-    widgets: Array<{ service: String, widget: String, title: String, icon: String, props: GridsterItem }> = [];
+    widgets: Array<{ service: String, widget: String, title: String, icon: String, props: GridsterItem, settings: SettingsContainer, delete: boolean}> = [];
     loginService: LoginService;
     resolver: ComponentFactoryResolver;
     options: GridsterConfig;
@@ -25,64 +27,36 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.options = {
-            gridType: GridType.Fit,
-            compactType: CompactType.None,
-            margin: 10,
-            outerMargin: true,
-            outerMarginTop: null,
-            outerMarginRight: null,
-            outerMarginBottom: null,
-            outerMarginLeft: null,
-            mobileBreakpoint: 640,
-            minCols: 3,
-            maxCols: 100,
-            minRows: 2,
-            maxRows: 100,
-            maxItemCols: 20,
-            minItemCols: 1,
-            maxItemRows: 6,
-            minItemRows: 1,
-            maxItemArea: 2500,
-            minItemArea: 1,
-            defaultItemCols: 1,
-            defaultItemRows: 1,
-            fixedColWidth: 105,
-            fixedRowHeight: 105,
-            keepFixedHeightInMobile: false,
-            keepFixedWidthInMobile: false,
-            scrollSensitivity: 10,
-            scrollSpeed: 20,
-            enableEmptyCellClick: false,
-            enableEmptyCellContextMenu: false,
-            enableEmptyCellDrop: false,
-            enableEmptyCellDrag: false,
-            emptyCellDragMaxCols: 50,
-            emptyCellDragMaxRows: 50,
-            ignoreMarginInRow: false,
-            draggable: {
-                enabled: true,
-            },
-            resizable: {
-                enabled: true,
-            },
-            swap: false,
-            pushItems: true,
-            disablePushOnDrag: false,
-            disablePushOnResize: false,
-            pushDirections: {north: true, east: true, south: true, west: true},
-            pushResizeItems: false,
-            displayGrid: DisplayGrid.None,
-            disableWindowResize: false,
-            disableWarnings: false,
-            scrollToNewItems: false
-        };
+        this.options = environment.gridOptions;
+        this.loginService.apiGet().then(services => {
+            for (const serviceKey in services) {
+                const service = services[serviceKey];
+                for (const widgetKey in service) {
+                    const widgets = service[widgetKey];
+                    for (const widgetIdx in widgets) {
+                        const widget = widgets[widgetIdx];
+                        const setting = new SettingsContainer(widget.params, widget.infos);
+                        setting.id = widget.id;
+                        setting.connected = true;
+                        const infos = {service: serviceKey, widget: widgetKey, title: widgetKey, icon: '', settings: setting};
+                        this.addWidget(infos, setting);
+                    }
+                }
+            }
+        });
     }
 
-    addWidget($event) {
+    addWidget($event, settings: SettingsContainer = new SettingsContainer()) {
         const test = $event;
-        test.props = {cols: 1, rows: 1, y: 0, x: 0};
+        test.settings = settings;
+        test.delete = false;
         this.widgets.push(test);
+    }
+
+    deleteWidgets() {
+        this.widgets.forEach(function (value) {
+            value.delete = true;
+        });
     }
 
     logout() {
@@ -91,7 +65,15 @@ export class HomeComponent implements OnInit {
                 this.router.navigateByUrl('/login');
         });
     }
-ç
+
+    deleteWidget($event) {
+        const index = this.widgets.findIndex(x => x.settings.id === $event);
+        console.log(this.widgets);
+        if (index > -1) {
+            this.widgets.splice(index, 1);
+        }
+    }
+
     changedOptions() {
         this.options.api.optionsChanged();
     }

@@ -24,7 +24,7 @@ export class ApiService {
        return new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
     }
 
-    apiGet(path) {
+    apiGet(path = '') {
         const headers = ApiService.getHeaders();
 
         return this.http.get(`${this.apiUrl}${path}`, {headers: headers}).toPromise();
@@ -36,10 +36,10 @@ export class ApiService {
         return this.http.post(`${this.apiUrl}${path}`, data, {headers: headers}).toPromise();
     }
 
-    apiDelete(path, body) {
+    apiDelete(path) {
         const headers = ApiService.getHeaders();
 
-        return this.http.delete(`${this.apiUrl}${path}`, {headers: headers, withCredentials: true}).toPromise();
+        return this.http.delete(`${this.apiUrl}${path}`, {headers: headers}).toPromise();
     }
 
     postWidget(settings: SettingsContainer, serviceLabel: string = null, widgetLabel: string = null) {
@@ -70,5 +70,13 @@ export class ApiService {
         }).catch( reason => {
             settings.state = 'ko';
         });
+    }
+
+    getAllWidgets() {
+        return this.apiGet('localhost:8080/');
+    }
+
+    deleteWidget(path, settings: SettingsContainer) {
+        return this.apiDelete(path);
     }
 }

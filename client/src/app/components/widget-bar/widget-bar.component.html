@@ -13,7 +13,10 @@
             <button mat-icon-button (click)="expandEvent.emit(true)">
                 <mat-icon aria-label="Example icon-button with a heart icon">last_page</mat-icon>
             </button>
-            <button mat-icon-button color="accent" (click)="logoutEvent.emit()">
+            <button mat-icon-button color="accent" (click)="deleteWidgetsEvent.emit()">
+                <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="logoutEvent.emit()">
                 <mat-icon aria-label="Example icon-button with a heart icon">logout</mat-icon>
             </button>
         </div>
