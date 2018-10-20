@@ -48,7 +48,7 @@ export class SettingsContainer {
     private _infos: any;
 
     constructor(params: any = null, infos: any = null) {
-        const commonParams = {timer: 0, grid: {cols: 0, rows: 0, y: 1, x: 1}};
+        const commonParams = {timer: 0, grid: {cols: 1, rows: 1, y: 0, x: 0}};
         this._params = {...commonParams, ...params};
         this._infos = infos;
     }

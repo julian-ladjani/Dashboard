@@ -8,6 +8,7 @@ import {WidgetWeatherForecastComponent} from '../widgets/weather/widget-weather-
 import {NasaComponent} from '../widgets/nasa/nasa-component';
 import {WeatherComponent} from '../widgets/weather/weather-component';
 import {WidgetNasaImageOfTheDayComponent} from '../widgets/nasa/widget-nasa-image-of-the-day/widget-nasa-image-of-the-day.component';
+import {WidgetComponent} from '../widgets/widget/widget.component';
 
 
 @Component({
@@ -41,11 +42,14 @@ export class WidgetBarComponent implements OnInit {
             this.newTab(`Steam`, 'assets/icons/steam.svg', 'steam'),
             this.newTab(`Twitch`, 'assets/icons/twitch.svg', 'twitch'),
             this.newTab(`Twitter`, 'assets/icons/twitter.svg', 'twitter'),
-            this.newTab(`Weather`, WidgetCurrentWeatherComponent.getIcon(), WeatherComponent.getServiceLabel()),
+            this.addService(WeatherComponent),
+ //           this.addWidget(WidgetCurrentWeatherComponent),
+//            this.addWidget(WidgetWeatherForecastComponent),
+//            this.newTab(`Weather`, WidgetCurrentWeatherComponent.getIcon(), WeatherComponent.getServiceLabel()),
             this.newSubTab(WidgetCurrentWeatherComponent.getTitle(),
                 WidgetCurrentWeatherComponent.getWidgetLabel(), WidgetCurrentWeatherComponent.getServiceLabel()),
-            this.newSubTab(`Weather Forecast`,
-                WidgetWeatherForecastComponent.getWidgetLabel(), WidgetWeatherForecastComponent.getServiceLabel()),
+/*            this.newSubTab(`Weather Forecast`,
+                WidgetWeatherForecastComponent.getWidgetLabel(), WidgetWeatherForecastComponent.getServiceLabel()),*/
             this.newTab(`Youtube`, 'assets/icons/youtube.svg', 'youtube')
         ];
     }
@@ -53,11 +57,12 @@ export class WidgetBarComponent implements OnInit {
     ngOnInit() {
     }
 
-    addService(serviceType, widgetTypes: any[] = null) {
-        this.newTab(serviceType.getTitle(), serviceType.getIcon(), serviceType.getServiceLabel());
-        widgetTypes.forEach(function (widgetType) {
-            this.newSubTab(widgetType.getTitle(), widgetType.getWidgetLabel(), widgetType.getServiceLabel());
-        }.bind(this));
+    addService(serviceType) {
+        return this.newTab(serviceType.getTitle(), serviceType.getIcon(), serviceType.getServiceLabel());
+    }
+
+    addWidget(widgetType) {
+        return this.newSubTab(widgetType.getTitle(), widgetType.getWidgetLabel(), widgetType.getServiceLabel());
     }
 
     newTab(name, svg, label) {
