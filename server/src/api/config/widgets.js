@@ -74,7 +74,6 @@ let widgets = function () {
                     min_generation: {type: Number, default: 1},
                     language: {type: String, default: 'en'},
                     shiny: {type: Number, default: 0},
-                    time: {type: Number, default: 5},
                 },
             },
             type: {

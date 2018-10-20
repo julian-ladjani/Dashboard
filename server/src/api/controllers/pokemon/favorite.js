@@ -12,7 +12,7 @@ exports.getWidgetInfo = async function(params) {
         return false;
     shiney = params.shiny <= 0 || params.shiny > 1 ? 0 : params.shiny;
     return new Promise(function (resolve, reject) {
-        Pokedex.getPokemonByName(params.pokemon) // with Promise
+        Pokedex.getPokemonByName(params.pokemon.toLowerCase()) // with Promise
             .then(function (response, err) {
                 if (err)
                     reject(false);
