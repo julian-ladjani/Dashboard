@@ -12,13 +12,7 @@ exports.getWidgetInfo = function(param) {
             .then(function (response, err) {
                 if (err)
                     reject(false);
-                reject(response.damage_relations);
+                resolve(response.damage_relations);
             })
     })
-};
-
-exports.setWidgetParams = function (req) {
-    let params = {};
-    widgetSetter.setParamIfExist(params, 'current', req, 'body.type');
-    return params;
 };

@@ -5,8 +5,8 @@
         <p class="text-center db-accent">{{settings.infos.skytext}}</p>
     </div>
     <div>
-        <p>{{settings.infos.date}}</p>
-        <p class="db-big-info">{{settings.infos.observationtime.slice(0, -3)}}</p>
+        <p>{{settings.infos.shortday}} {{settings.infos.date}}</p>
+        <p class="db-big-info">{{settings.infos.observationtime?.slice(0, -3)}}</p>
     </div>
     <div class="db-row-weather">
         <div class="db-big-info db-warn">{{settings.infos.temperature}}°C</div>

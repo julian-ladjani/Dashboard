@@ -1,4 +1,11 @@
 export class SettingsContainer {
+    get deletable(): boolean {
+        return this._deletable;
+    }
+
+    set deletable(value: boolean) {
+        this._deletable = value;
+    }
 
     set id(value: string) {
         this._id = value;
@@ -6,6 +13,14 @@ export class SettingsContainer {
 
     get id(): string {
         return this._id;
+    }
+
+    set state(value: string) {
+        this._state = value;
+    }
+
+    get state(): string {
+        return this._state;
     }
 
     get connected(): boolean {
@@ -24,15 +39,19 @@ export class SettingsContainer {
         return this._infos;
     }
 
+    private _deletable = false;
     private _connected = false;
+
     private _id = '';
+    private _state = 'connection';
     private _params: any;
     private _infos: any;
 
     constructor(params: any = null, infos: any = null) {
-        const commonParams = {timer: 5, grid: {cols: 0, rows: 0, y: 1, x: 1}};
+        const commonParams = {timer: 0, grid: {cols: 0, rows: 0, y: 1, x: 1}};
         this._params = {...commonParams, ...params};
         this._infos = infos;
+        console.log("Robert : ", this);
     }
 
     set params(value: any) {

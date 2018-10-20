@@ -23,6 +23,7 @@ export class WidgetBarComponent implements OnInit {
 
     @Output() addNewWidgetEvent = new EventEmitter<any>();
     @Output() logoutEvent = new EventEmitter();
+    @Output() deleteWidgetsEvent = new EventEmitter();
     @Output() expandEvent = new EventEmitter<boolean>();
 
     constructor() {

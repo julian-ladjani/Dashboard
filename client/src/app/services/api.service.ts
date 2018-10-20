@@ -3,7 +3,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {SettingsContainer} from '../objects/settings-container';
-import {forEach} from '@angular/router/src/utils/collection';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +19,6 @@ export class ApiService {
     static getHeaders() {
        if (window.localStorage.getItem('token')) {
           const token = window.localStorage.getItem('token');
-//          const token = JSON.parse(window.localStorage.getItem('session')).signatureToken;
            return new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8', 'Authorization': token });
        }
        return new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
@@ -38,10 +36,10 @@ export class ApiService {
         return this.http.post(`${this.apiUrl}${path}`, data, {headers: headers}).toPromise();
     }
 
-    apiDelete(path, body) {
+    apiDelete(path) {
         const headers = ApiService.getHeaders();
 
-        return this.http.delete(`${this.apiUrl}${path}`, {headers: headers, withCredentials: true}).toPromise();
+        return this.http.delete(`${this.apiUrl}${path}`, {headers: headers}).toPromise();
     }
 
     postWidget(settings: SettingsContainer, serviceLabel: string = null, widgetLabel: string = null) {
@@ -50,7 +48,6 @@ export class ApiService {
         }
         const prefix = '/' + serviceLabel + '/' + widgetLabel + '/';
         const path = prefix + ((settings.id.length === 0) ? '' : (settings.id + '/params'));
-        console.log('LOL MDR : ', settings.params);
         this.apiPost(path, settings.params).then(responsePost => {
             if (responsePost['success'] === true) {
                 settings.connected = true;
@@ -59,15 +56,25 @@ export class ApiService {
             }
         });
     }
+
     getWidget(settings: SettingsContainer, path: string) {
         this.apiGet(path).then( response => {
             if (response) {
-                settings.infos = response['infos'];
+                if (response['infos'] === false) {
+                    settings.state = 'ko';
+                } else {
+                    settings.infos = response['infos'];
+                    settings.state = 'ok';
+                }
             }
         });
     }
 
     getAllWidgets() {
         return this.apiGet('localhost:8080/');
+    }
+
+    deleteWidget(path, settings: SettingsContainer) {
+        return this.apiDelete(path);
     }
 }

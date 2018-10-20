@@ -22,12 +22,14 @@ export class WigdetSettingsComponent implements OnInit {
           return true;
       return typeof elem === type;
   }
+
   ngOnInit() {
   }
 
   onNoClick(): void {
       this.dialogRef.close({data: null});
   }
+
   closeWindow() {
       this.dialogRef.close({data: this.data});
   }

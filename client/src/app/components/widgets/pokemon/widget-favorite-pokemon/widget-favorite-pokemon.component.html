@@ -1,16 +1,4 @@
-<!--link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<div class="db-widget">
-  <button (click)="openSettings()" class="btn-setting float-right" mat-icon-button=""><i class="material-icons">build</i></button>
-  <img src="{{imgUrl}}">
-  {{getValue("Pokemon Name")}}
-</div>
-
-<p>
-  Im a pokemon favorite widget !
-</p>
-<p>Message : {{params.getSettings()[0].value}}</p-->
-
-<img src="{{settings.infos['sprite']}}" alt="Sprite of the Pokemon" class="center-image"><br>
+<img src="{{settings.infos['sprite']}}" alt="Sprite of the Pokemon" class="center-image">
 <p class="text-center text-capitalize">
-    {{settings.params['name']}}
+    {{settings.infos['name']}}
 </p>

@@ -1,4 +1,4 @@
-import {Component, ComponentFactoryResolver, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ComponentFactoryResolver, EventEmitter, Input, OnInit, Output, SimpleChange, ViewChild} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {WigdetSettingsComponent} from './widget-settings/wigdet-settings.component';
 import {WidgetComponent} from './widget/widget.component';
@@ -7,6 +7,7 @@ import {ApiService} from '../../services/api.service';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {SettingsContainer} from '../../objects/settings-container';
+import {timer, Subscription} from 'rxjs';
 
 @Component({
     selector: 'app-widget-container',
@@ -21,6 +22,10 @@ export class WidgetContainerComponent implements OnInit {
     @Input() subtitle: String;
     @Input() color: String;
     @Input() settings: SettingsContainer;
+    @Input() delete: boolean;
+
+    @Output() deleteMe = new EventEmitter<string>();
+
     @ViewChild(WidgetDirective) widgetHost: WidgetDirective;
 
     private component: any;
@@ -32,9 +37,32 @@ export class WidgetContainerComponent implements OnInit {
 
     ngOnInit() {
         this.loadComponent();
-        console.log(this.settings);
         if (this.settings != null) {
             this.component.settings = this.settings;
+        }
+    }
+
+    ngOnChange(change: SimpleChange) {
+        if (this.delete === true) {
+            this.deleteWidget();
+        }
+    }
+
+    getWidgetUrl() {
+        return '/' + this.widget.getServiceLabel() + '/' + this.widget.getWidgetLabel() + '/' + this.component.settings.id;
+    }
+
+    updateTimer() {
+        const time = this.component.settings.params['timer'] * 1000;
+        if (time > 0) {
+            timer(time).subscribe(val => this.updateTimer());
+        }
+        this.updateComponent();
+    }
+
+    updateComponent() {
+        if (this.component.settings.id.length !== 0) {
+            this.api.getWidget(this.component.settings, this.getWidgetUrl());
         }
     }
 
@@ -57,6 +85,15 @@ export class WidgetContainerComponent implements OnInit {
                 this.component.settings.params = result.data;
                 this.api.postWidget(this.component.settings, this.widget.getServiceLabel(),
                     this.widget.getWidgetLabel());
+                this.updateTimer();
+            }
+        });
+    }
+
+    deleteWidget() {
+        this.api.deleteWidget(this.getWidgetUrl(), this.component.settings).then(response => {
+            if (response['success'] === true) {
+                this.deleteMe.emit(this.component.settings.id);
             }
         });
     }
