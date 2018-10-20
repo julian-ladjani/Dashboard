@@ -23,6 +23,10 @@
       flex: 1 1 auto;
     }
 
+    ::ng-deep &.hide-infos .db-info-big-card {
+      display: none;
+    }
+
     ::ng-deep mat-icon {
       width: 40px;
       text-align: center;
@@ -34,6 +38,7 @@
 
     .mat-card-avatar {
       margin-top: 3px;
+      margin-bottom: 17px;
     }
 
     .mat-card-content, .mat-card-header .mat-card-title, .mat-card-subtitle {

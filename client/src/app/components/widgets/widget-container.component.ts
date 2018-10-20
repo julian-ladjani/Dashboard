@@ -1,6 +1,6 @@
 import {
     Component,
-    ComponentFactoryResolver,
+    ComponentFactoryResolver, ElementRef,
     EventEmitter,
     Input,
     OnChanges,
@@ -18,6 +18,7 @@ import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {SettingsContainer} from '../../objects/settings-container';
 import {timer, Subscription} from 'rxjs';
+import $ from 'jquery';
 
 @Component({
     selector: 'app-widget-container',
@@ -48,7 +49,7 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
 
     private api: ApiService;
 
-    constructor(public matDialog: MatDialog, private resolver: ComponentFactoryResolver, private http: HttpClient, private router: Router) {
+    constructor(public matDialog: MatDialog, private resolver: ComponentFactoryResolver, private http: HttpClient, private router: Router, private el: ElementRef) {
         this.connectInfos['ok'] = {color: 'primary', icon: 'check_circle'};
         this.connectInfos['connection'] = {color: 'accent', icon: 'lens'};
         this.connectInfos['ko'] = {color: 'warn', icon: 'error'};
@@ -75,6 +76,13 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
         if (this.delete === true) {
             this.deleteWidget();
         }
+    }
+
+    cardSize() {
+        if ($(this.el.nativeElement).find('.db-heading').width() < 300) {
+            return true;
+        }
+        return false;
     }
 
     getWidgetUrl() {
