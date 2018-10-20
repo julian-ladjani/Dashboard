@@ -12,7 +12,6 @@
                     <app-widget-container
                             (deleteMe)="deleteWidget($event)"
                             [widget]="factory.getWidget(widget.service, widget.widget)"
-                            [icon]="widget.icon" [title]="widget.title" [subtitle]="widget.subtitle"
                             [settings]="widget.settings" [delete]="widget.delete">
                     </app-widget-container>
                 </gridster-item>

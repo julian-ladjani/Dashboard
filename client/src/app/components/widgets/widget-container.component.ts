@@ -28,9 +28,6 @@ import {timer, Subscription} from 'rxjs';
 export class WidgetContainerComponent implements OnInit, OnChanges{
 
     @Input() widget: any;
-    @Input() icon: String;
-    @Input() title: String;
-    @Input() subtitle: String;
     @Input() color: String;
     @Input() settings: SettingsContainer;
     @Input() delete: boolean;
@@ -40,6 +37,9 @@ export class WidgetContainerComponent implements OnInit, OnChanges{
     @ViewChild(WidgetDirective) widgetHost: WidgetDirective;
 
     private component: any;
+    private icon: string;
+    private title: string;
+    private subtitle: string;
 
     private api: ApiService;
     constructor(public matDialog: MatDialog, private resolver: ComponentFactoryResolver, private http: HttpClient, private router: Router) {
@@ -56,6 +56,9 @@ export class WidgetContainerComponent implements OnInit, OnChanges{
             this.component.settings.params.timer = this.settings.params.timer;
             this.updateTimer();
         }
+        this.icon = this.widget.getIcon();
+        this.title = this.widget.getServiceLabel();
+        this.subtitle = this.widget.getTitle();
     }
 
     ngOnChanges(change: SimpleChanges) {
