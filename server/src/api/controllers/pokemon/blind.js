@@ -19,14 +19,14 @@ function getRandomInt(min, max) {
 
 function checkParams(params) {
     if (!_.hasIn(params, 'min_generation') || !_.hasIn(params, 'max_generation') || !_.hasIn(params, 'language')
-        || !_.hasIn(params, 'shiney') || !_.hasIn(params, 'time'))
+        || !_.hasIn(params, 'shiny') || !_.hasIn(params, 'time'))
         return false;
     const max_gen = params.max_generation <= 0 || params.max_generation > 7 ? 7 : params.max_generation;
     const min_gen = params.min_generation <= 0 || params.min_generation > 7 ? 1 : params.min_generation;
-    rand = max_gen > min_gen ? getRandomInt(min_generation[min_gen], max_generation[max_gen])
+    rand = max_gen >= min_gen ? getRandomInt(min_generation[min_gen], max_generation[max_gen])
         : getRandomInt(min_generation[max_gen] + max_generation[min_gen]);
     lang = pokemon.languages.has(params.language) ? params.language : 'en';
-    shiney = params.shiney <= 0 || params.shiney > 1 ? 0 : params.shiney;
+    shiney = params.shiny <= 0 || params.shiny > 1 ? 0 : params.shiny;
     timer = params.time < 0 ? 5 : params.time;
     return true;
 }
