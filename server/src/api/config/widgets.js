@@ -51,8 +51,7 @@ let widgets = function () {
                 modelName: 'pokemonFavorite',
                 params: {
                     pokemon: {type: String, default: 'pikachu'},
-                    language: {type: String, default: 'en'},
-                    shiney: {type: Number, default: 0}
+                    shiny: {type: Number, default: 0}
                 },
             },
             blind: {
@@ -64,7 +63,7 @@ let widgets = function () {
                     max_generation: {type: Number, default: 7},
                     min_generation: {type: Number, default: 1},
                     language: {type: String, default: 'en'},
-                    shiney: {type: Number, default: 0},
+                    shiny: {type: Number, default: 0},
                     time: {type: Number, default: 5},
                 },
             },
@@ -74,7 +73,7 @@ let widgets = function () {
                 controller: require('../controllers/pokemon/type'),
                 modelName: 'pokemonType',
                 params: {
-                    current: {type: String, default: '1'}
+                    type: {type: String, default: '1'}
                 },
             }
         }
