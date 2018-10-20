@@ -43,13 +43,10 @@ export class WidgetBarComponent implements OnInit {
             this.newTab(`Twitch`, 'assets/icons/twitch.svg', 'twitch'),
             this.newTab(`Twitter`, 'assets/icons/twitter.svg', 'twitter'),
             this.addService(WeatherComponent),
- //           this.addWidget(WidgetCurrentWeatherComponent),
-//            this.addWidget(WidgetWeatherForecastComponent),
-//            this.newTab(`Weather`, WidgetCurrentWeatherComponent.getIcon(), WeatherComponent.getServiceLabel()),
+            this.addWidget(WidgetCurrentWeatherComponent),
+            this.addWidget(WidgetWeatherForecastComponent),
             this.newSubTab(WidgetCurrentWeatherComponent.getTitle(),
                 WidgetCurrentWeatherComponent.getWidgetLabel(), WidgetCurrentWeatherComponent.getServiceLabel()),
-/*            this.newSubTab(`Weather Forecast`,
-                WidgetWeatherForecastComponent.getWidgetLabel(), WidgetWeatherForecastComponent.getServiceLabel()),*/
             this.newTab(`Youtube`, 'assets/icons/youtube.svg', 'youtube')
         ];
     }
