@@ -18,7 +18,8 @@ exports.addWidget = function (req, model) {
 exports.setParamIfExist = function (paramsObj, paramKey, valueObj, valueKey, params, update) {
     if (paramKey !== undefined && paramKey !== '') {
         if (valueKey !== undefined && valueKey !== '') {
-            if (_.hasIn(valueObj, valueKey) && _.get(valueObj, valueKey) !== "" && _.get(valueObj, valueKey) !== '')
+            if (_.hasIn(valueObj, valueKey) && _.get(valueObj, valueKey) !== "" && _.get(valueObj, valueKey) !== '' &&
+                _.get(valueObj, valueKey) !== null)
                 _.merge(paramsObj, {[paramKey]: _.get(valueObj, valueKey)});
             else if (update === true && params !== undefined) {
                 _.assignWith(paramsObj, {[paramKey]: params[paramKey]});
