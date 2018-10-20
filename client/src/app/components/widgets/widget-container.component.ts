@@ -6,6 +6,7 @@ import {WidgetDirective} from './widget.directive';
 import {ApiService} from '../../services/api.service';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {SettingsContainer} from '../../objects/settings-container';
 
 @Component({
     selector: 'app-widget-container',
@@ -19,6 +20,7 @@ export class WidgetContainerComponent implements OnInit {
     @Input() title: String;
     @Input() subtitle: String;
     @Input() color: String;
+    @Input() settings: SettingsContainer;
     @ViewChild(WidgetDirective) widgetHost: WidgetDirective;
 
     private component: any;
@@ -30,6 +32,10 @@ export class WidgetContainerComponent implements OnInit {
 
     ngOnInit() {
         this.loadComponent();
+        console.log(this.settings);
+        if (this.settings != null) {
+            this.component.settings = this.settings;
+        }
     }
 
     loadComponent() {

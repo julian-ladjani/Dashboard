@@ -26,7 +26,7 @@ export class ApiService {
        return new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
     }
 
-    apiGet(path) {
+    apiGet(path = '') {
         const headers = ApiService.getHeaders();
 
         return this.http.get(`${this.apiUrl}${path}`, {headers: headers}).toPromise();
@@ -65,5 +65,9 @@ export class ApiService {
                 settings.infos = response['infos'];
             }
         });
+    }
+
+    getAllWidgets() {
+        return this.apiGet('localhost:8080/');
     }
 }

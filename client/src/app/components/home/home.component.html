@@ -3,10 +3,11 @@
     <section id="widgets" [style.width]="size + '%'">
         <div class="db-widgets-container" [style.width]="size+'%'">
             <gridster [options]="options">
-                <gridster-item [item]="widget.props" *ngFor="let widget of widgets">
+                <gridster-item [item]="widget.settings.params.grid" *ngFor="let widget of widgets">
                     <app-widget-container
                             [widget]="factory.getWidget(widget.service, widget.widget)"
-                            [icon]="widget.icon" [title]="widget.title" [subtitle]="widget.subtitle">
+                            [icon]="widget.icon" [title]="widget.title" [subtitle]="widget.subtitle"
+                            [settings]="widget.settings">
                     </app-widget-container>
                 </gridster-item>
             </gridster>
