@@ -23,6 +23,7 @@ export class WidgetContainerComponent implements OnInit {
     @ViewChild(WidgetDirective) widgetHost: WidgetDirective;
 
     private component: any;
+    private timerSubscription: Subscription = null;
 
     private api: ApiService;
     constructor(public matDialog: MatDialog, private resolver: ComponentFactoryResolver, private http: HttpClient, private router: Router) {
@@ -39,8 +40,11 @@ export class WidgetContainerComponent implements OnInit {
 
     updateTimer() {
         const time = this.component.settings.params['timer'] * 1000;
+        if (this.timerSubscription) {
+            this.timerSubscription.unsubscribe();
+        }
         if (time > 0) {
-            timer(time).subscribe(val => this.updateTimer());
+            this.timerSubscription = timer(time).subscribe(val => this.updateTimer());
         }
         this.updateComponent();
     }

@@ -59,14 +59,14 @@ export class ApiService {
 
     getWidget(settings: SettingsContainer, path: string) {
         this.apiGet(path).then( response => {
-            if (response) {
-                if (response['infos'] === false) {
-                    settings.state = 'ko';
-                } else {
-                    settings.infos = response['infos'];
-                    settings.state = 'ok';
-                }
+            if (response && response['infos'] && response['infos'] !== false) {
+                settings.infos = response['infos'];
+                settings.state = 'ok';
+            } else {
+                settings.state = 'ko';
             }
+        }).catch( reason => {
+            settings.state = 'ko';
         });
     }
 }

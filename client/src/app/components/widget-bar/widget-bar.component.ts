@@ -8,6 +8,7 @@ import {WidgetWeatherForecastComponent} from '../widgets/weather/widget-weather-
 import {NasaComponent} from '../widgets/nasa/nasa-component';
 import {WeatherComponent} from '../widgets/weather/weather-component';
 import {WidgetNasaImageOfTheDayComponent} from '../widgets/nasa/widget-nasa-image-of-the-day/widget-nasa-image-of-the-day.component';
+import {WidgetPokemonBlindtestComponent} from '../widgets/pokemon/widget-pokemon-blindtest/widget-pokemon-blindtest.component';
 
 
 @Component({
@@ -35,6 +36,8 @@ export class WidgetBarComponent implements OnInit {
             this.newTab(`Pokemon`, 'assets/icons/pokemon.svg', PokemonComponent.getServiceLabel()),
             this.newSubTab(`Favorite Pokemon`,
                 WidgetFavoritePokemonComponent.getWidgetLabel(), WidgetFavoritePokemonComponent.getServiceLabel()),
+            this.newSubTab(`Blind Test`,
+                WidgetPokemonBlindtestComponent.getWidgetLabel(), WidgetPokemonBlindtestComponent.getServiceLabel()),
             this.newTab(`Soundcloud`, 'assets/icons/soundcloud.svg', 'soundcloud'),
             this.newTab(`Spotify`, 'assets/icons/spotify.svg', 'spotify'),
             this.newTab(`Steam`, 'assets/icons/steam.svg', 'steam'),
