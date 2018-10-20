@@ -84,3 +84,42 @@ exports.getWidgets = async function (req) {
     }
     return widgets;
 };
+
+exports.getWidgetsIdByModel = async function (req, model) {
+    const widgetsParams = await exports.getWidgetParamsByModel(req, model);
+    let widgetObjArray = Array();
+    for (let i = 0; i < widgetsParams.length; i++) {
+        let widgetParams = widgetsParams[i];
+        widgetObjArray.push(widgetParams._id);
+    }
+    if (typeof widgetObjArray === "undefined" || widgetObjArray === null ||
+        widgetObjArray.length === null || widgetObjArray.length <= 0)
+        return false;
+    return widgetObjArray
+};
+
+exports.getServiceWidgetId = async function (req, serviceObj) {
+    let services = Object.keys(serviceObj);
+    let widgets = {};
+
+    for (let service of services) {
+        if (service === 'name' || service === 'controller')
+            continue;
+        let widgetObj = serviceObj[service];
+        let serviceWidgets = await exports.getWidgetsIdByModel(req, widgetObj.model);
+        _.merge(widgets, {[widgetObj.name]: serviceWidgets});
+    }
+    return widgets;
+};
+
+exports.getWidgetsId = async function (req) {
+    let services = Object.keys(widgetConfig);
+    let widgets = {};
+    for (let service of services) {
+        let serviceObj = widgetConfig[service];
+        let serviceWidgets = await exports.getServiceWidgetId(req, serviceObj);
+        _.merge(widgets, {[serviceObj.name]: serviceWidgets});
+    }
+    return widgets;
+};
+

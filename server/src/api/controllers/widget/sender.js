@@ -52,6 +52,20 @@ exports.sendWidgets = async function (req, res) {
     return true;
 };
 
+exports.sendWidgetsId = async function (req, res) {
+    try {
+        const widgetsObj = await widgetGetter.getWidgetsId(req);
+        if (widgetsObj === false)
+            res.json({success: false});
+        else
+            res.json(widgetsObj);
+    }
+    catch (e) {
+        res.json({success: false});
+    }
+    return true;
+};
+
 exports.sendWidgetsByService = async function (req, res, serviceObj) {
     try {
         const widgetsObj = await widgetGetter.getServiceWidget(req, serviceObj);
