@@ -25,6 +25,9 @@ function widgetRouter(router, serviceName, widget) {
         .post(rootPath + '/:uniqueId/params', jwt.requireAuth, function (req, res) {
             widgetSender.sendWidgetSetterResult(req, res, model);
         })
+        .post(rootPath + '/:uniqueId/params/grid', jwt.requireAuth, function (req, res) {
+            widgetSender.sendWidgetGridSetterResult(req, res, model);
+        })
         .post(rootPath + '/:uniqueId', jwt.requireAuth, function (req, res) {
             widgetSender.sendWidgetSetterResult(req, res, model);
         });

@@ -96,6 +96,22 @@ exports.sendWidgetSetterResult = async function (req, res, model) {
     return true;
 };
 
+exports.sendWidgetGridSetterResult = async function (req, res, model) {
+    let widgetSetterFunc;
+    if (_.hasIn(req, 'params.uniqueId'))
+        widgetSetterFunc = widgetSetter.updateWidgetGridParams;
+    else
+        return false;
+    try {
+        const result = await widgetSetterFunc(req, model);
+        res.json(result);
+    }
+    catch (e) {
+        res.json({id: false, success: false});
+    }
+    return true;
+};
+
 exports.sendWidgetDeleterResult = async function (req, res, model) {
     if (!_.hasIn(req, 'params.uniqueId')) {
         res.json({success: false});

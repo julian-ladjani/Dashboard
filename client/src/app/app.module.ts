@@ -58,12 +58,11 @@ const appRoutes: Routes = [
     WidgetFavoritePokemonComponent,
     WidgetComponent,
     WidgetDirective,
-    PokemonComponent,
     WidgetCurrentWeatherComponent,
     WidgetWeatherForecastComponent,
     WidgetNasaImageOfTheDayComponent,
     WidgetPokemonBlindtestComponent,
-      WidgetPokemonTypeComponent
+    WidgetPokemonTypeComponent
   ],
   entryComponents: [
       WigdetSettingsComponent,

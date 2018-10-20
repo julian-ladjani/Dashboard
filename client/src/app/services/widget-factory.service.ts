@@ -14,7 +14,7 @@ import {WidgetPokemonTypeComponent} from '../components/widgets/pokemon/widget-p
 export class WidgetFactoryService {
     getWidget(service, widget) {
         if (service === 'nasa') {
-            if (widget === 'image') {
+            if (widget === 'apod') {
                 return WidgetNasaImageOfTheDayComponent;
             }
         }

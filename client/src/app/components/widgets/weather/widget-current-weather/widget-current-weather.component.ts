@@ -13,6 +13,10 @@ export class WidgetCurrentWeatherComponent extends WeatherComponent implements O
         super();
     }
 
+    static getTitle() {
+        return 'Current Weather';
+    }
+
     static getServiceLabel() {
         return 'weather';
     }

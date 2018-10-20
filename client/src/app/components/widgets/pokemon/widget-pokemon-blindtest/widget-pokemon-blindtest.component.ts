@@ -13,6 +13,10 @@ export class WidgetPokemonBlindtestComponent extends PokemonComponent implements
         super();
     }
 
+    static getTitle() {
+        return 'Blind Test';
+    }
+
     static getWidgetLabel() {
         return 'blind';
     }
