@@ -22,8 +22,8 @@ export class WidgetPokemonTypeComponent extends PokemonComponent implements OnIn
     }
 
     @Input() settings: SettingsContainer = new SettingsContainer(
-        {type: '???'},
-        {name: '???'}
+        {type: 'normal'},
+        {double_damage_from: [], double_damage_to: [], half_damage_from: [], half_damage_to: [], no_damage_from: [], no_damage_to: []}
     );
 
     ngOnInit() {
