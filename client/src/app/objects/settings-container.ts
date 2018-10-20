@@ -1,4 +1,13 @@
+import {environment} from '../../environments/environment';
+
 export class SettingsContainer {
+    get deletable(): boolean {
+        return this._deletable;
+    }
+
+    set deletable(value: boolean) {
+        this._deletable = value;
+    }
 
     set id(value: string) {
         this._id = value;
@@ -32,14 +41,18 @@ export class SettingsContainer {
         return this._infos;
     }
 
+    private _deletable = false;
     private _connected = false;
+
     private _id = '';
     private _state = 'connection';
     private _params: any;
     private _infos: any;
 
     constructor(params: any = null, infos: any = null) {
-        const commonParams = {timer: 0, grid: {cols: 0, rows: 0, y: 1, x: 1}};
+        const commonParams = {timer: 0, grid: {
+            cols: environment.gridOptions.minItemCols, rows: environment.gridOptions.minItemRows,
+            y: 0, x: 0}};
         this._params = {...commonParams, ...params};
         this._infos = infos;
     }

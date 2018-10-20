@@ -24,35 +24,39 @@ export class WidgetBarComponent implements OnInit {
 
     @Output() addNewWidgetEvent = new EventEmitter<any>();
     @Output() logoutEvent = new EventEmitter();
+    @Output() deleteWidgetsEvent = new EventEmitter();
     @Output() expandEvent = new EventEmitter<boolean>();
 
     constructor() {
         this.nav = [
             this.newTab(`Converter`, 'assets/icons/converter.svg', 'converter'),
             this.newTab(`EPITECH`, 'assets/icons/epitech.svg', 'epitech'),
-            this.newTab(`NASA`, 'assets/icons/nasa.svg', NasaComponent.getServiceLabel()),
-            this.newSubTab(`Image of the Day`,
-                WidgetNasaImageOfTheDayComponent.getWidgetLabel(), WidgetNasaImageOfTheDayComponent.getServiceLabel()),
-            this.newTab(`Pokemon`, 'assets/icons/pokemon.svg', PokemonComponent.getServiceLabel()),
-            this.newSubTab(`Favorite Pokemon`,
-                WidgetFavoritePokemonComponent.getWidgetLabel(), WidgetFavoritePokemonComponent.getServiceLabel()),
-            this.newSubTab(`Blind Test`,
-                WidgetPokemonBlindtestComponent.getWidgetLabel(), WidgetPokemonBlindtestComponent.getServiceLabel()),
+            this.addService(NasaComponent),
+            this.addWidget(WidgetNasaImageOfTheDayComponent),
+            this.addService(PokemonComponent),
+            this.addWidget(WidgetPokemonBlindtestComponent),
+            this.addWidget(WidgetFavoritePokemonComponent),
             this.newTab(`Soundcloud`, 'assets/icons/soundcloud.svg', 'soundcloud'),
             this.newTab(`Spotify`, 'assets/icons/spotify.svg', 'spotify'),
             this.newTab(`Steam`, 'assets/icons/steam.svg', 'steam'),
             this.newTab(`Twitch`, 'assets/icons/twitch.svg', 'twitch'),
             this.newTab(`Twitter`, 'assets/icons/twitter.svg', 'twitter'),
-            this.newTab(`Weather`, 'assets/icons/weather.svg', WeatherComponent.getServiceLabel()),
-            this.newSubTab(`Current Weather`,
-                WidgetCurrentWeatherComponent.getWidgetLabel(), WidgetCurrentWeatherComponent.getServiceLabel()),
-            this.newSubTab(`Weather Forecast`,
-                WidgetWeatherForecastComponent.getWidgetLabel(), WidgetWeatherForecastComponent.getServiceLabel()),
+            this.addService(WeatherComponent),
+            this.addWidget(WidgetCurrentWeatherComponent),
+            this.addWidget(WidgetWeatherForecastComponent),
             this.newTab(`Youtube`, 'assets/icons/youtube.svg', 'youtube')
         ];
     }
 
     ngOnInit() {
+    }
+
+    addService(serviceType) {
+        return this.newTab(serviceType.getTitle(), serviceType.getIcon(), serviceType.getServiceLabel());
+    }
+
+    addWidget(widgetType) {
+        return this.newSubTab(widgetType.getTitle(), widgetType.getWidgetLabel(), widgetType.getServiceLabel());
     }
 
     newTab(name, svg, label) {
@@ -73,7 +77,6 @@ export class WidgetBarComponent implements OnInit {
     }
 
     addNewWidget(elem) {
-
         this.nav.forEach(function (value, ) {
             if (value.label === elem.parent) {
                 const test = {
