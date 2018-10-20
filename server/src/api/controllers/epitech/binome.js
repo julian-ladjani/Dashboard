@@ -19,13 +19,13 @@ exports.getWidgetInfo = async function(params) {
         return false;
     if (params.binome <= 0)
         params.binome = 3;
-    let login = getLogin(params.autologin);
+    const login = await getLogin(params.autologin);
     return new Promise(function (resolve, reject) {
-        request('https://intra.epitech.eu/' + autologin + '/user?format=json',
+        request('https://intra.epitech.eu/' + params.autologin + '/user/'+login+'/binome?format=json',
             function (err, responce, body) {
                 if (err)
                     reject(err);
-                let json = JSON.parse(body);
+                let json = JSON.parse(body).binomes.slice(0, params.binome);
                 resolve(json);
             })
     })
