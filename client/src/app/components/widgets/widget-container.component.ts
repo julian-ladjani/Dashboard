@@ -25,7 +25,7 @@ import {timer, Subscription} from 'rxjs';
     templateUrl: './widget-container.component.html',
     styleUrls: ['./widget-container.component.scss']
 })
-export class WidgetContainerComponent implements OnInit, OnChanges{
+export class WidgetContainerComponent implements OnInit, OnChanges {
 
     @Input() widget: any;
     @Input() color: String;
@@ -42,20 +42,19 @@ export class WidgetContainerComponent implements OnInit, OnChanges{
     private subtitle: string;
 
     private api: ApiService;
+
     constructor(public matDialog: MatDialog, private resolver: ComponentFactoryResolver, private http: HttpClient, private router: Router) {
         this.api = new ApiService(http, router);
     }
 
     ngOnInit() {
         this.loadComponent();
-        if (this.settings != null) {
-            console.log(this.settings);
-            this.component.settings.infos = this.settings.infos;
-            this.component.settings.id = this.settings.id;
-            this.component.settings.params.grid = this.settings.params.grid;
-            this.component.settings.params.timer = this.settings.params.timer;
-            this.updateTimer();
-        }
+        console.log(this.settings);
+        this.component.settings.infos = this.settings.infos;
+        this.component.settings.id = this.settings.id;
+        this.component.settings.params.grid = this.settings.params.grid;
+        this.component.settings.params.timer = this.settings.params.timer;
+        this.updateTimer();
         this.icon = this.widget.getIcon();
         this.title = this.widget.getServiceLabel();
         this.subtitle = this.widget.getTitle();
@@ -110,8 +109,15 @@ export class WidgetContainerComponent implements OnInit, OnChanges{
     }
 
     deleteWidget() {
+        if (this.component.settings.id.length === 0) {
+            this.settings.id = 'deleteMe';
+            this.delete = true;
+            this.deleteMe.emit(this.settings.id);
+            return;
+        }
         this.api.deleteWidget(this.getWidgetUrl(), this.component.settings).then(response => {
             if (response['success'] === true) {
+                this.settings.id = this.component.settings.id;
                 this.deleteMe.emit(this.component.settings.id);
             }
         });

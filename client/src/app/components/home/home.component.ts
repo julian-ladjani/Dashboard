@@ -51,7 +51,6 @@ export class HomeComponent implements OnInit {
         test.settings = settings;
         test.delete = false;
         this.widgets.push(test);
-        console.log(this.widgets.length);
     }
 
     deleteWidgets() {
@@ -69,6 +68,7 @@ export class HomeComponent implements OnInit {
 
     deleteWidget($event) {
         const index = this.widgets.findIndex(x => x.settings.id === $event);
+        console.log(this.widgets);
         if (index > -1) {
             this.widgets.splice(index, 1);
         }
