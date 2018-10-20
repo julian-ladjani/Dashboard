@@ -21,7 +21,7 @@ export const environment = {
         minCols: 100,
         maxCols: 1000,
         minRows: 100,
-        maxRows: 1000,
+        maxRows: 100,
         maxItemCols: 2500,
         minItemCols: 10,
         maxItemRows: 2500,

@@ -63,6 +63,10 @@ export class ApiService {
         this.apiPost(widgetPath + '/params/grid', settings.params);
     }
 
+    getNewWidget(service, widget, id) {
+        return this.apiGet('/' + service + '/' + widget + '/' + id);
+    }
+
     getWidget(settings: SettingsContainer, path: string) {
         this.apiGet(path).then( response => {
             if (response && response['infos'] && response['infos'] !== false) {

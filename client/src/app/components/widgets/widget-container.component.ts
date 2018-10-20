@@ -49,7 +49,8 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
 
     private api: ApiService;
 
-    constructor(public matDialog: MatDialog, private resolver: ComponentFactoryResolver, private http: HttpClient, private router: Router, private el: ElementRef) {
+    constructor(public matDialog: MatDialog, private resolver: ComponentFactoryResolver,
+            private http: HttpClient, private router: Router, private el: ElementRef) {
         this.connectInfos['ok'] = {color: 'primary', icon: 'check_circle'};
         this.connectInfos['connection'] = {color: 'accent', icon: 'lens'};
         this.connectInfos['ko'] = {color: 'warn', icon: 'error'};
@@ -79,7 +80,7 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
     }
 
     cardSize() {
-        if ($(this.el.nativeElement).find('.db-heading').width() < 300) {
+        if ($(this.el.nativeElement).find('.db-heading').width() < 250) {
             return true;
         }
         return false;
