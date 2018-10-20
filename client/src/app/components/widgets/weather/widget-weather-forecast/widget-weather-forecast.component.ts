@@ -13,6 +13,10 @@ export class WidgetWeatherForecastComponent extends WeatherComponent implements 
         super();
     }
 
+    static getTitle() {
+        return 'Weather Forecast';
+    }
+
     static getServiceLabel() {
         return 'weather';
     }

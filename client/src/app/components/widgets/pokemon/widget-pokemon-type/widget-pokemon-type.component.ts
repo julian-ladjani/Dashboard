@@ -13,6 +13,10 @@ export class WidgetPokemonTypeComponent extends PokemonComponent implements OnIn
         super();
     }
 
+    static getTitle() {
+        return 'Type';
+    }
+
     static getWidgetLabel() {
         return 'type';
     }

@@ -13,12 +13,16 @@ export class WidgetFavoritePokemonComponent extends PokemonComponent implements 
         super();
     }
 
+    static getTitle() {
+        return 'Favorite Pokemon';
+    }
+
     static getWidgetLabel() {
         return 'favorite';
     }
 
     @Input() settings: SettingsContainer = new SettingsContainer(
-        {name: 'pikachu', shiny: false},
+        {pokemon: 'pikachu', shiny: false},
         {name: 'Pikachu', sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png'}
     );
 

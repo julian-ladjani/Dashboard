@@ -7,6 +7,10 @@ export class WeatherComponent extends WidgetComponent implements OnInit {
         super();
     }
 
+    static getTitle() {
+        return 'Weather';
+    }
+
     static getServiceLabel() {
         return 'weather';
     }
