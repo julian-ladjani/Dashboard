@@ -98,6 +98,20 @@ exports.getWidgetsIdByModel = async function (req, model) {
     return widgetObjArray
 };
 
+
+async function generateParamInfoContent(widgetObj) {
+    if (widgetObj === undefined)
+        return false;
+    let paramsInfos = Object.keys(widgetObj);
+    for (let paramsInfo of paramsInfos) {
+        let paramsInfoObj = widgetObj[paramsInfo];
+        if (paramsInfoObj.content !== undefined && typeof paramsInfoObj.content === 'function')
+            paramsInfoObj.content = await paramsInfoObj.content();
+    }
+    return true;
+}
+
+
 exports.getServiceWidgetId = async function (req, serviceObj) {
     let services = Object.keys(serviceObj);
     let widgets = {};
@@ -107,8 +121,10 @@ exports.getServiceWidgetId = async function (req, serviceObj) {
             continue;
         let widgetObj = serviceObj[service];
         let serviceWidgets = await exports.getWidgetsIdByModel(req, widgetObj.model);
-        if (widgetObj.paramsInfo !== undefined)
+        if (widgetObj.paramsInfo !== undefined) {
+            await generateParamInfoContent(widgetObj.paramsInfo);
             _.merge(widgets, {[widgetObj.name]: {paramsInfo: widgetObj.paramsInfo}});
+        }
         if (serviceWidgets === false)
             _.merge(widgets, {[widgetObj.name]: {ids: []}});
         else

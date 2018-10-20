@@ -19,7 +19,6 @@ passport.use(
                 }
 
                 if (user) {
-                    console.log("#1"+user);
                     if (!user.spotify.token) {
                         user.spotify.token = accessToken;
 
@@ -36,7 +35,6 @@ passport.use(
                     newUser.spotify.id = profile.id;
                     newUser.spotify.token = accessToken;
                     newUser.spotify.email = profile.email;
-                    console.log("#2"+newUser);
 
                     newUser.save(function (err) {
                         if (err)
