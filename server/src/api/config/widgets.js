@@ -114,11 +114,11 @@ let widgets = function () {
             binome: {
                 name: 'binome',
                 description: 'My best binome',
-                controller: require('../controllers/epitech/message'),
+                controller: require('../controllers/epitech/binome'),
                 modelName: 'epitechBinome',
                 params: {
                     autologin: {type: String, default: null},
-                    message: {type: Number, default: 3}
+                    binome: {type: Number, default: 3}
                 },
             },
         }
