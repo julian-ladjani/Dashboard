@@ -6,7 +6,6 @@ import {
     OnChanges,
     OnInit,
     Output,
-    SimpleChange,
     SimpleChanges,
     ViewChild
 } from '@angular/core';
@@ -40,6 +39,7 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
     private icon: string;
     private title: string;
     private subtitle: string;
+    private timerSubscription: Subscription = null;
 
     private api: ApiService;
 
@@ -50,7 +50,8 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
     ngOnInit() {
         this.loadComponent();
         console.log(this.settings);
-        this.component.settings.infos = this.settings.infos;
+        if (this.settings.infos)
+            this.component.settings.infos = this.settings.infos;
         this.component.settings.id = this.settings.id;
         this.component.settings.params.grid = this.settings.params.grid;
         this.component.settings.params.timer = this.settings.params.timer;
@@ -72,8 +73,11 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
 
     updateTimer() {
         const time = this.component.settings.params['timer'] * 1000;
+        if (this.timerSubscription) {
+            this.timerSubscription.unsubscribe();
+        }
         if (time > 0) {
-            timer(time).subscribe(val => this.updateTimer());
+            this.timerSubscription = timer(time).subscribe(val => this.updateTimer());
         }
         this.updateComponent();
     }

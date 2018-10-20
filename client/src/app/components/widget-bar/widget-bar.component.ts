@@ -8,7 +8,7 @@ import {WidgetWeatherForecastComponent} from '../widgets/weather/widget-weather-
 import {NasaComponent} from '../widgets/nasa/nasa-component';
 import {WeatherComponent} from '../widgets/weather/weather-component';
 import {WidgetNasaImageOfTheDayComponent} from '../widgets/nasa/widget-nasa-image-of-the-day/widget-nasa-image-of-the-day.component';
-import {WidgetComponent} from '../widgets/widget/widget.component';
+import {WidgetPokemonBlindtestComponent} from '../widgets/pokemon/widget-pokemon-blindtest/widget-pokemon-blindtest.component';
 
 
 @Component({
@@ -31,12 +31,11 @@ export class WidgetBarComponent implements OnInit {
         this.nav = [
             this.newTab(`Converter`, 'assets/icons/converter.svg', 'converter'),
             this.newTab(`EPITECH`, 'assets/icons/epitech.svg', 'epitech'),
-            this.newTab(`NASA`, 'assets/icons/nasa.svg', NasaComponent.getServiceLabel()),
-            this.newSubTab(`Image of the Day`,
-                WidgetNasaImageOfTheDayComponent.getWidgetLabel(), WidgetNasaImageOfTheDayComponent.getServiceLabel()),
-            this.newTab(`Pokemon`, 'assets/icons/pokemon.svg', PokemonComponent.getServiceLabel()),
-            this.newSubTab(`Favorite Pokemon`,
-                WidgetFavoritePokemonComponent.getWidgetLabel(), WidgetFavoritePokemonComponent.getServiceLabel()),
+            this.addService(NasaComponent),
+            this.addWidget(WidgetNasaImageOfTheDayComponent),
+            this.addService(PokemonComponent),
+            this.addWidget(WidgetPokemonBlindtestComponent),
+            this.addWidget(WidgetFavoritePokemonComponent),
             this.newTab(`Soundcloud`, 'assets/icons/soundcloud.svg', 'soundcloud'),
             this.newTab(`Spotify`, 'assets/icons/spotify.svg', 'spotify'),
             this.newTab(`Steam`, 'assets/icons/steam.svg', 'steam'),
@@ -45,8 +44,6 @@ export class WidgetBarComponent implements OnInit {
             this.addService(WeatherComponent),
             this.addWidget(WidgetCurrentWeatherComponent),
             this.addWidget(WidgetWeatherForecastComponent),
-            this.newSubTab(WidgetCurrentWeatherComponent.getTitle(),
-                WidgetCurrentWeatherComponent.getWidgetLabel(), WidgetCurrentWeatherComponent.getServiceLabel()),
             this.newTab(`Youtube`, 'assets/icons/youtube.svg', 'youtube')
         ];
     }

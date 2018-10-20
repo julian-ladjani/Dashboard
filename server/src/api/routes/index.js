@@ -9,12 +9,12 @@ const widgetRouter = require('../routes/widget/widgetRouter');
 const widgetAbout = require('../controllers/widget/about');
 
 router
-    .get('/', jwt.requireAuth, widgetSender.sendWidgets);
-
-router
-    .get('/about.json', widgetAbout);
-
+    .get('/', jwt.requireAuth, widgetSender.sendWidgets)
+    .get('/about.json', widgetAbout)
+    .get('/widgets', jwt.requireAuth, widgetSender.sendWidgetsId);
 router.use('/auth', auth);
+
 widgetRouter(router);
+
 module.exports = router;
 

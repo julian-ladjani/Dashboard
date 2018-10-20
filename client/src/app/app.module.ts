@@ -28,6 +28,7 @@ import { WidgetWeatherForecastComponent } from './components/widgets/weather/wid
 import { WidgetNasaImageOfTheDayComponent } from './components/widgets/nasa/widget-nasa-image-of-the-day/widget-nasa-image-of-the-day.component';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatListModule} from '@angular/material/list';
+import { WidgetPokemonBlindtestComponent } from './components/widgets/pokemon/widget-pokemon-blindtest/widget-pokemon-blindtest.component';
 
 const appRoutes: Routes = [
     {
@@ -59,7 +60,8 @@ const appRoutes: Routes = [
     PokemonComponent,
     WidgetCurrentWeatherComponent,
     WidgetWeatherForecastComponent,
-    WidgetNasaImageOfTheDayComponent
+    WidgetNasaImageOfTheDayComponent,
+    WidgetPokemonBlindtestComponent
   ],
   entryComponents: [
       WigdetSettingsComponent,
@@ -67,7 +69,8 @@ const appRoutes: Routes = [
       WidgetFavoritePokemonComponent,
       WidgetCurrentWeatherComponent,
       WidgetWeatherForecastComponent,
-      WidgetNasaImageOfTheDayComponent
+      WidgetNasaImageOfTheDayComponent,
+      WidgetPokemonBlindtestComponent
   ],
   imports: [
     RouterModule.forRoot(
