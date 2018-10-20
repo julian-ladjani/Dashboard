@@ -43,9 +43,9 @@ exports.getWidgetInfo = async function (params) {
     return await nasa.MarsPhotos
         .fetch(params.rover.toLowerCase(), options)
         .then(function (value) {
-            return value;
+            return value.photos;
         })
-        .catch(function (err) {
+        .catch(function () {
             return false
         });
 };
