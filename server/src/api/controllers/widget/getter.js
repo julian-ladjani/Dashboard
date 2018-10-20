@@ -107,7 +107,12 @@ exports.getServiceWidgetId = async function (req, serviceObj) {
             continue;
         let widgetObj = serviceObj[service];
         let serviceWidgets = await exports.getWidgetsIdByModel(req, widgetObj.model);
-        _.merge(widgets, {[widgetObj.name]: serviceWidgets});
+        if (widgetObj.paramsInfo !== undefined)
+            _.merge(widgets, {[widgetObj.name]: {paramsInfo: widgetObj.paramsInfo}});
+        if (serviceWidgets === false)
+            _.merge(widgets, {[widgetObj.name]: {id: []}});
+        else
+            _.merge(widgets, {[widgetObj.name]: {id: serviceWidgets}});
     }
     return widgets;
 };
