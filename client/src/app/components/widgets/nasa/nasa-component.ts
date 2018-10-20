@@ -7,6 +7,10 @@ export class NasaComponent extends WidgetComponent implements OnInit {
         super();
     }
 
+    static getTitle() {
+        return 'NASA';
+    }
+
     static getServiceLabel() {
         return 'nasa';
     }

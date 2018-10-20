@@ -13,21 +13,23 @@ export class WidgetNasaImageOfTheDayComponent extends NasaComponent implements O
         super();
     }
 
+    static getTitle() {
+        return 'Image of the Day';
+    }
+
     static getWidgetLabel() {
-        return 'image';
+        return 'apod';
     }
 
     @Input() settings: SettingsContainer = new SettingsContainer(
-        {year: 2000, month: 1, day: 1, hd: false},
+        {date: '2018-10-16', hd: false},
         {title: 'Image from the NASA', explanation: 'Description.',
             url: 'https://apod.nasa.gov/apod/image/1810/JupiterUV_HubbleSchmidt_1280.jpg'}
     );
 
     ngOnInit() {
         const currentTime = new Date();
-        this.settings.params['year'] = currentTime.getDate();
-        this.settings.params['month'] = currentTime.getMonth() + 1;
-        this.settings.params['day'] = currentTime.getDate();
+        this.settings.params['date'] = '' + currentTime.getFullYear() + '-' + (currentTime.getMonth() + 1) + '-' + currentTime.getDate();
     }
 
 }
