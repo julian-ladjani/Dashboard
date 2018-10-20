@@ -16,11 +16,15 @@ exports.getModelSchemaParams = function (model) {
 exports.getModelSchemaParamsAbout = function (model) {
     let array = [];
     model.schema.eachPath(function (path) {
-        if (path.startsWith('params.'))
+        if (path.startsWith('params.')) {
+            let type = model.schema.paths[path].instance;
+            if (type === 'Number')
+                type = 'Integer';
             array.push({
                 name: path.replace('params.', ''),
-                type: model.schema.paths[path].instance,
+                type: type,
             })
+        }
     });
     return array;
 };
