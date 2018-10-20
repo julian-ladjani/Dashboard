@@ -5,6 +5,7 @@ import {WidgetCurrentWeatherComponent} from '../components/widgets/weather/widge
 import {WidgetWeatherForecastComponent} from '../components/widgets/weather/widget-weather-forecast/widget-weather-forecast.component';
 import {WidgetNasaImageOfTheDayComponent} from '../components/widgets/nasa/widget-nasa-image-of-the-day/widget-nasa-image-of-the-day.component';
 import {WidgetPokemonBlindtestComponent} from '../components/widgets/pokemon/widget-pokemon-blindtest/widget-pokemon-blindtest.component';
+import {WidgetPokemonTypeComponent} from '../components/widgets/pokemon/widget-pokemon-type/widget-pokemon-type.component';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,9 @@ export class WidgetFactoryService {
             }
             if (widget === 'blind') {
                 return WidgetPokemonBlindtestComponent;
+            }
+            if (widget === 'type') {
+                return WidgetPokemonTypeComponent;
             }
         }
         if (service === 'weather') {

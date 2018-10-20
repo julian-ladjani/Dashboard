@@ -18,7 +18,7 @@ export class WidgetPokemonBlindtestComponent extends PokemonComponent implements
     }
 
     @Input() settings: SettingsContainer = new SettingsContainer(
-        {generationMin: 1, generationMax: 7, language: 'en', shiny: false},
+        {min_generation: 1, max_generation: 7, language: 'en', shiny: false},
         {name: 'Pikachu', answer: '', sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png'}
     );
 
