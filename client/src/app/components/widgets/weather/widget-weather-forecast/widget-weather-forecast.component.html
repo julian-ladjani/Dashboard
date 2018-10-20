@@ -1,3 +1,17 @@
-<p>
-  widget-weather-forecast works!
-</p>
+<div class="db-row-weather text-center">
+  <div *ngFor="let day of settings.infos">
+    <p class=" mat-h1 text-capitalize">{{settings.params['city']}}, {{settings.params['country']}}</p>
+      <div>
+        <img src="{{'http://blob.weather.microsoft.com/static/weather4/en-us/law/' + day.skycodeday + '.gif'}}"/>
+        <p class="db-accent">{{day.skytextday}}</p>
+      </div>
+      <div>
+        <p>{{day.date}}</p>
+        <p class="db-big-info">{{day.day}}</p><br>
+      </div>
+        <div class="db-big-info db-warn">{{day.low}} - {{day.high}}°C</div>
+        <div [hidden]="day.precip === ''">
+          <p>Probability of precipitation : {{day.precip}}%</p>
+        </div>
+    </div>
+</div>

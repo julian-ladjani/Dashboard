@@ -22,7 +22,8 @@ export class WidgetWeatherForecastComponent extends WeatherComponent implements 
     }
 
     @Input() settings: SettingsContainer = new SettingsContainer(
-        {country: 'France', city: 'Nancy'}, {}
+        {country: 'France', city: 'Nancy'},
+        [{date: '00-00-0000', day: 'Day', high: 0, low: 0, precip: '0', skycodeday: 32, skytextday: 'weather'}]
     );
 
 }
