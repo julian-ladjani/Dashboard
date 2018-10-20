@@ -53,6 +53,8 @@ export class ApiService {
                 settings.connected = true;
                 settings.id = responsePost['id'];
                 this.getWidget(settings, prefix + settings.id);
+            } else {
+                settings.state = 'ko';
             }
         });
     }

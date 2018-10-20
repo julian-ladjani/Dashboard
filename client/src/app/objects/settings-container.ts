@@ -51,7 +51,7 @@ export class SettingsContainer {
 
     constructor(params: any = null, infos: any = null) {
         const commonParams = {timer: 0, grid: {
-            cols: environment.gridOptions.minItemCols, rows: environment.gridOptions.minItemRows,
+            cols: environment.gridOptions.defaultItemCols, rows: environment.gridOptions.defaultItemRows,
             y: 0, x: 0}};
         this._params = {...commonParams, ...params};
         this._infos = infos;
