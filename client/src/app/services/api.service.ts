@@ -59,8 +59,8 @@ export class ApiService {
         });
     }
 
-    postWidgetGrid(settings: SettingsContainer, widgetPath) {
-        this.apiPost(widgetPath + '/params/grid', settings.params);
+    postWidgetGrid(grid, widgetPath) {
+        this.apiPost(widgetPath + '/params/grid', grid);
     }
 
     getNewWidget(service, widget, id) {
