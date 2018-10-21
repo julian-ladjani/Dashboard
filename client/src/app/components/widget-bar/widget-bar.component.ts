@@ -10,6 +10,10 @@ import {WeatherComponent} from '../widgets/weather/weather-component';
 import {WidgetNasaImageOfTheDayComponent} from '../widgets/nasa/widget-nasa-image-of-the-day/widget-nasa-image-of-the-day.component';
 import {WidgetPokemonBlindtestComponent} from '../widgets/pokemon/widget-pokemon-blindtest/widget-pokemon-blindtest.component';
 import {WidgetPokemonTypeComponent} from '../widgets/pokemon/widget-pokemon-type/widget-pokemon-type.component';
+import {WidgetEpitechMessageComponent} from '../widgets/epitech/widget-epitech-message/widget-epitech-message.component';
+import {EpitechComponent} from '../widgets/epitech/epitech-component';
+import {WidgetEpitechPartnerComponent} from '../widgets/epitech/widget-epitech-partner/widget-epitech-partner.component';
+import {WidgetNasaMarsPhotoComponent} from '../widgets/nasa/widget-nasa-mars-photo/widget-nasa-mars-photo.component';
 
 
 @Component({
@@ -26,14 +30,19 @@ export class WidgetBarComponent implements OnInit {
     @Output() addNewWidgetEvent = new EventEmitter<any>();
     @Output() logoutEvent = new EventEmitter();
     @Output() deleteWidgetsEvent = new EventEmitter();
+    @Output() saveWidgetsEvent = new EventEmitter();
+    @Output() refreshWidgetsEvent = new EventEmitter();
     @Output() expandEvent = new EventEmitter<boolean>();
 
     constructor() {
         this.nav = [
             this.newTab(`Converter`, 'assets/icons/converter.svg', 'converter'),
-            this.newTab(`EPITECH`, 'assets/icons/epitech.svg', 'epitech'),
+            this.addService(EpitechComponent),
+            this.addWidget(WidgetEpitechMessageComponent),
+            this.addWidget(WidgetEpitechPartnerComponent),
             this.addService(NasaComponent),
             this.addWidget(WidgetNasaImageOfTheDayComponent),
+            this.addWidget(WidgetNasaMarsPhotoComponent),
             this.addService(PokemonComponent),
             this.addWidget(WidgetPokemonBlindtestComponent),
             this.addWidget(WidgetFavoritePokemonComponent),

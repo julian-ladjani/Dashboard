@@ -1,0 +1,12 @@
+<div *ngFor="let message of this.settings.infos">
+  <div>
+    <img *ngIf="message.user && !message.user.picture" src="https://intra.epitech.eu/staticb2ed16c919fc90d7223199a285f3ceb2da9fa630/img/nopicture-commentview.png">
+    <img *ngIf="message.user && message.user.picture" src="{{message?.user?.picture}}">
+    <p>{{message?.user?.title}}</p>
+  </div>
+  <div>
+    <p>{{message?.class}}</p>
+    <p>{{htmlToPlaintext(message?.title)}}</p>
+    <p>{{message?.date}}</p>
+  </div>
+</div>

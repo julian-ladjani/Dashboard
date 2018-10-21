@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -22,7 +21,6 @@ import { WidgetComponent } from './components/widgets/widget/widget.component';
 import { WidgetDirective } from './components/widgets/widget.directive';
 import {MatCardModule} from '@angular/material/card';
 import {GridsterModule} from 'angular-gridster2';
-import { PokemonComponent } from './components/widgets/pokemon/pokemon.component';
 import {WidgetCurrentWeatherComponent} from './components/widgets/weather/widget-current-weather/widget-current-weather.component';
 import { WidgetWeatherForecastComponent } from './components/widgets/weather/widget-weather-forecast/widget-weather-forecast.component';
 import { WidgetNasaImageOfTheDayComponent } from './components/widgets/nasa/widget-nasa-image-of-the-day/widget-nasa-image-of-the-day.component';
@@ -30,6 +28,9 @@ import {MatTreeModule} from '@angular/material/tree';
 import {MatListModule} from '@angular/material/list';
 import { WidgetPokemonBlindtestComponent } from './components/widgets/pokemon/widget-pokemon-blindtest/widget-pokemon-blindtest.component';
 import { WidgetPokemonTypeComponent } from './components/widgets/pokemon/widget-pokemon-type/widget-pokemon-type.component';
+import { WidgetEpitechMessageComponent } from './components/widgets/epitech/widget-epitech-message/widget-epitech-message.component';
+import { WidgetEpitechPartnerComponent } from './components/widgets/epitech/widget-epitech-partner/widget-epitech-partner.component';
+import { WidgetNasaMarsPhotoComponent } from './components/widgets/nasa/widget-nasa-mars-photo/widget-nasa-mars-photo.component';
 
 const appRoutes: Routes = [
     {
@@ -62,7 +63,10 @@ const appRoutes: Routes = [
     WidgetWeatherForecastComponent,
     WidgetNasaImageOfTheDayComponent,
     WidgetPokemonBlindtestComponent,
-    WidgetPokemonTypeComponent
+    WidgetPokemonTypeComponent,
+    WidgetEpitechMessageComponent,
+    WidgetEpitechPartnerComponent,
+    WidgetNasaMarsPhotoComponent
   ],
   entryComponents: [
       WigdetSettingsComponent,
@@ -72,7 +76,10 @@ const appRoutes: Routes = [
       WidgetWeatherForecastComponent,
       WidgetNasaImageOfTheDayComponent,
       WidgetPokemonBlindtestComponent,
-      WidgetPokemonTypeComponent
+      WidgetPokemonTypeComponent,
+      WidgetEpitechMessageComponent,
+      WidgetEpitechPartnerComponent,
+      WidgetNasaMarsPhotoComponent
   ],
   imports: [
     RouterModule.forRoot(

@@ -31,6 +31,8 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
     @Input() color: String;
     @Input() settings: SettingsContainer;
     @Input() delete: boolean;
+    @Input() save: boolean;
+    @Input() refresh: boolean;
 
     @Output() deleteMe = new EventEmitter<string>();
 
@@ -78,11 +80,17 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
     ngOnChanges(change: SimpleChanges) {
         if (this.delete === true) {
             this.deleteWidget();
+        } else if (this.refresh === true) {
+            this.updateComponent();
+            this.refresh = false;
+        } else if (this.save === true) {
+            this.saveWidgetPos();
+            this.save = false;
         }
     }
 
     cardSize() {
-        if ($(this.el.nativeElement).find('.db-heading').width() < 250) {
+        if ($(this.el.nativeElement).find('.db-heading').width() < 300) {
             return true;
         }
         return false;
