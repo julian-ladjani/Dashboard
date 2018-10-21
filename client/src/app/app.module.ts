@@ -40,6 +40,7 @@ import {WidgetWeatherForecastComponent} from './components/widgets/weather/widge
 import {WidgetYoutubeChannelComponent} from './components/widgets/youtube/widget-youtube-channel/widget-youtube-channel.component';
 import {WidgetYoutubeVideoComponent} from './components/widgets/youtube/widget-youtube-video/widget-youtube-video.component';
 import {WigdetSettingsComponent} from './components/widgets/widget-settings/wigdet-settings.component';
+import { WidgetPokemonTeamComponent } from './components/widgets/pokemon/widget-pokemon-team/widget-pokemon-team.component';
 
 const appRoutes: Routes = [
     {
@@ -77,7 +78,8 @@ const appRoutes: Routes = [
     WidgetEpitechPartnerComponent,
     WidgetNasaMarsPhotoComponent,
     WidgetYoutubeChannelComponent,
-    WidgetYoutubeVideoComponent
+    WidgetYoutubeVideoComponent,
+    WidgetPokemonTeamComponent
   ],
   entryComponents: [
       WigdetSettingsComponent,
