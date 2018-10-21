@@ -31,6 +31,8 @@ import { WidgetPokemonTypeComponent } from './components/widgets/pokemon/widget-
 import { WidgetEpitechMessageComponent } from './components/widgets/epitech/widget-epitech-message/widget-epitech-message.component';
 import { WidgetEpitechPartnerComponent } from './components/widgets/epitech/widget-epitech-partner/widget-epitech-partner.component';
 import { WidgetNasaMarsPhotoComponent } from './components/widgets/nasa/widget-nasa-mars-photo/widget-nasa-mars-photo.component';
+import { WidgetYoutubeChannelComponent } from './components/widgets/youtube/widget-youtube-channel/widget-youtube-channel.component';
+import { WidgetYoutubeVideoComponent } from './components/widgets/youtube/widget-youtube-video/widget-youtube-video.component';
 
 const appRoutes: Routes = [
     {
@@ -66,7 +68,9 @@ const appRoutes: Routes = [
     WidgetPokemonTypeComponent,
     WidgetEpitechMessageComponent,
     WidgetEpitechPartnerComponent,
-    WidgetNasaMarsPhotoComponent
+    WidgetNasaMarsPhotoComponent,
+    WidgetYoutubeChannelComponent,
+    WidgetYoutubeVideoComponent
   ],
   entryComponents: [
       WigdetSettingsComponent,
@@ -79,7 +83,9 @@ const appRoutes: Routes = [
       WidgetPokemonTypeComponent,
       WidgetEpitechMessageComponent,
       WidgetEpitechPartnerComponent,
-      WidgetNasaMarsPhotoComponent
+      WidgetNasaMarsPhotoComponent,
+      WidgetYoutubeChannelComponent,
+      WidgetYoutubeVideoComponent
   ],
   imports: [
     RouterModule.forRoot(

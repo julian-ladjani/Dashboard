@@ -14,6 +14,9 @@ import {WidgetEpitechMessageComponent} from '../widgets/epitech/widget-epitech-m
 import {EpitechComponent} from '../widgets/epitech/epitech-component';
 import {WidgetEpitechPartnerComponent} from '../widgets/epitech/widget-epitech-partner/widget-epitech-partner.component';
 import {WidgetNasaMarsPhotoComponent} from '../widgets/nasa/widget-nasa-mars-photo/widget-nasa-mars-photo.component';
+import {YoutubeComponent} from '../widgets/youtube/youtube-component';
+import {WidgetYoutubeChannelComponent} from '../widgets/youtube/widget-youtube-channel/widget-youtube-channel.component';
+import {WidgetYoutubeVideoComponent} from '../widgets/youtube/widget-youtube-video/widget-youtube-video.component';
 
 
 @Component({
@@ -55,7 +58,9 @@ export class WidgetBarComponent implements OnInit {
             this.addService(WeatherComponent),
             this.addWidget(WidgetCurrentWeatherComponent),
             this.addWidget(WidgetWeatherForecastComponent),
-            this.newTab(`Youtube`, 'assets/icons/youtube.svg', 'youtube')
+            this.addService(YoutubeComponent),
+            this.addWidget(WidgetYoutubeChannelComponent),
+            this.addWidget(WidgetYoutubeVideoComponent),
         ];
     }
 

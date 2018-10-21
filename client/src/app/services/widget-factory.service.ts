@@ -9,6 +9,8 @@ import {WidgetPokemonTypeComponent} from '../components/widgets/pokemon/widget-p
 import {WidgetEpitechMessageComponent} from '../components/widgets/epitech/widget-epitech-message/widget-epitech-message.component';
 import {WidgetEpitechPartnerComponent} from '../components/widgets/epitech/widget-epitech-partner/widget-epitech-partner.component';
 import {WidgetNasaMarsPhotoComponent} from '../components/widgets/nasa/widget-nasa-mars-photo/widget-nasa-mars-photo.component';
+import {WidgetYoutubeChannelComponent} from '../components/widgets/youtube/widget-youtube-channel/widget-youtube-channel.component';
+import {WidgetYoutubeVideoComponent} from '../components/widgets/youtube/widget-youtube-video/widget-youtube-video.component';
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +51,14 @@ export class WidgetFactoryService {
             }
             if (widget === 'forecast') {
                 return WidgetWeatherForecastComponent;
+            }
+        }
+        if (service === 'youtube') {
+            if (widget === 'channelInfo') {
+                return WidgetYoutubeChannelComponent;
+            }
+            if (widget === 'videoInfo') {
+                return WidgetYoutubeVideoComponent;
             }
         }
         return WidgetComponent;
