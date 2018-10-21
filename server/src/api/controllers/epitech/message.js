@@ -28,6 +28,6 @@ exports.getWidgetInfo = async function(params) {
     let json = await getMessage(params.autologin, params.message);
     return new Promise(function (resolve, reject) {
         if (json === false) reject(false);
-            resolve(JSON.parse(json));
-        })
+        resolve(JSON.parse(json));
+    })
 };
