@@ -3,3 +3,30 @@
   height: 200px;
   background-color: var(--dark-color);
 }
+
+.db-row-youtube {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 5px 5px;
+}
+
+.like-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.material-icons {
+  display: inline-flex;
+  vertical-align: bottom;
+}
+
+.center-image {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}

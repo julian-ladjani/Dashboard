@@ -2,6 +2,7 @@ import {AngularSvgIconModule} from 'angular-svg-icon';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
+import { CarouselModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {GridsterModule} from 'angular-gridster2';
 import {HomeComponent} from './components/home/home.component';
@@ -9,11 +10,12 @@ import {HttpClientModule} from '@angular/common/http';
 import {LoginPageComponent} from './components/login/login-page.component';
 
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatButtonModule, MatCheckboxModule, MatDialogModule, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatChipsModule, MatDialogModule, MatIconModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTreeModule} from '@angular/material/tree';
 
@@ -38,6 +40,7 @@ import {WidgetWeatherForecastComponent} from './components/widgets/weather/widge
 import {WidgetYoutubeChannelComponent} from './components/widgets/youtube/widget-youtube-channel/widget-youtube-channel.component';
 import {WidgetYoutubeVideoComponent} from './components/widgets/youtube/widget-youtube-video/widget-youtube-video.component';
 import {WigdetSettingsComponent} from './components/widgets/widget-settings/wigdet-settings.component';
+import { WidgetEpitechPlanningComponent } from './components/widgets/epitech/widget-epitech-planning/widget-epitech-planning.component';
 
 const appRoutes: Routes = [
     {
@@ -73,9 +76,11 @@ const appRoutes: Routes = [
     WidgetPokemonTypeComponent,
     WidgetEpitechMessageComponent,
     WidgetEpitechPartnerComponent,
+    WidgetEpitechPlanningComponent,
     WidgetNasaMarsPhotoComponent,
     WidgetYoutubeChannelComponent,
-    WidgetYoutubeVideoComponent
+    WidgetYoutubeVideoComponent,
+    WidgetEpitechPlanningComponent
   ],
   entryComponents: [
       WigdetSettingsComponent,
@@ -88,6 +93,7 @@ const appRoutes: Routes = [
       WidgetPokemonTypeComponent,
       WidgetEpitechMessageComponent,
       WidgetEpitechPartnerComponent,
+      WidgetEpitechPlanningComponent,
       WidgetNasaMarsPhotoComponent,
       WidgetYoutubeChannelComponent,
       WidgetYoutubeVideoComponent
@@ -116,7 +122,12 @@ const appRoutes: Routes = [
       MatTabsModule,
       MatListModule,
       MatAutocompleteModule,
-      GridsterModule
+      MatChipsModule,
+      MatProgressBarModule,
+      GridsterModule,
+      CarouselModule,
+      WavesModule,
+      ButtonsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

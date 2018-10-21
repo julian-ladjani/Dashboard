@@ -1,7 +1,13 @@
-<img src="{{this.settings.infos?.snippet?.thumbnails?.default?.url}}">
-<p>{{this.settings.infos?.snippet?.title}}</p>
-<p>Created on {{this.settings.infos?.snippet?.publishedAt}}</p>
-<p>Subsribe: {{this.settings.infos?.statistics?.subscriberCount}}</p>
-<p>Video: {{this.settings.infos?.statistics?.videoCount}}</p>
-<p>View: {{this.settings.infos?.statistics?.viewCount}}</p>
-<p>Comment: {{this.settings.infos?.statistics?.commentCount}}</p>
+<div class="db-row-youtube">
+    <img class="center-image" src="{{this.settings.infos?.snippet?.thumbnails?.default?.url}}">
+    <div>
+        <p>{{this.settings.infos?.snippet?.title}}</p>
+        <p>Joined {{this.settings.infos?.snippet?.publishedAt |  date:'dd/MM/yyyy'}}</p>
+    </div>
+</div>
+<p class="important-info text-center"><i class="material-icons important-info">person</i> {{this.settings.infos?.statistics?.subscriberCount}}</p>
+<mat-divider></mat-divider><br>
+<div class="like-row">
+    <p><i class="material-icons">visibility</i> {{this.settings.infos?.statistics?.viewCount}}</p>
+    <p><i class="material-icons">video_library</i> {{this.settings.infos?.statistics?.videoCount}}</p>
+</div>

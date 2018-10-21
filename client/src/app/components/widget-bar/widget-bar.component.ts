@@ -17,6 +17,8 @@ import {WidgetNasaMarsPhotoComponent} from '../widgets/nasa/widget-nasa-mars-pho
 import {YoutubeComponent} from '../widgets/youtube/youtube-component';
 import {WidgetYoutubeChannelComponent} from '../widgets/youtube/widget-youtube-channel/widget-youtube-channel.component';
 import {WidgetYoutubeVideoComponent} from '../widgets/youtube/widget-youtube-video/widget-youtube-video.component';
+import {WidgetEpitechPlanningComponent} from '../widgets/epitech/widget-epitech-planning/widget-epitech-planning.component';
+import {WidgetFactoryService} from '../../services/widget-factory.service';
 
 
 @Component({
@@ -38,41 +40,25 @@ export class WidgetBarComponent implements OnInit {
     @Output() expandEvent = new EventEmitter<boolean>();
 
     constructor() {
-        this.nav = [
-            this.newTab(`Converter`, 'assets/icons/converter.svg', 'converter'),
-            this.addService(EpitechComponent),
-            this.addWidget(WidgetEpitechMessageComponent),
-            this.addWidget(WidgetEpitechPartnerComponent),
-            this.addService(NasaComponent),
-            this.addWidget(WidgetNasaImageOfTheDayComponent),
-            this.addWidget(WidgetNasaMarsPhotoComponent),
-            this.addService(PokemonComponent),
-            this.addWidget(WidgetPokemonBlindtestComponent),
-            this.addWidget(WidgetFavoritePokemonComponent),
-            this.addWidget(WidgetPokemonTypeComponent),
-            this.newTab(`Soundcloud`, 'assets/icons/soundcloud.svg', 'soundcloud'),
-            this.newTab(`Spotify`, 'assets/icons/spotify.svg', 'spotify'),
-            this.newTab(`Steam`, 'assets/icons/steam.svg', 'steam'),
-            this.newTab(`Twitch`, 'assets/icons/twitch.svg', 'twitch'),
-            this.newTab(`Twitter`, 'assets/icons/twitter.svg', 'twitter'),
-            this.addService(WeatherComponent),
-            this.addWidget(WidgetCurrentWeatherComponent),
-            this.addWidget(WidgetWeatherForecastComponent),
-            this.addService(YoutubeComponent),
-            this.addWidget(WidgetYoutubeChannelComponent),
-            this.addWidget(WidgetYoutubeVideoComponent),
-        ];
+        const factory = new WidgetFactoryService();
+        for (const ser of factory.services) {
+            this.addService(ser);
+            for (const wid of factory.widgets) {
+                if (ser.getServiceLabel() === wid.getServiceLabel())
+                    this.addWidget(wid);
+            }
+        }
     }
 
     ngOnInit() {
     }
 
     addService(serviceType) {
-        return this.newTab(serviceType.getTitle(), serviceType.getIcon(), serviceType.getServiceLabel());
+        this.nav.push(this.newTab(serviceType.getTitle(), serviceType.getIcon(), serviceType.getServiceLabel()));
     }
 
     addWidget(widgetType) {
-        return this.newSubTab(widgetType.getTitle(), widgetType.getWidgetLabel(), widgetType.getServiceLabel());
+        this.nav.push(this.newSubTab(widgetType.getTitle(), widgetType.getWidgetLabel(), widgetType.getServiceLabel()));
     }
 
     newTab(name, svg, label) {
