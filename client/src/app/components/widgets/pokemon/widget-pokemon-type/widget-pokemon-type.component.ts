@@ -11,11 +11,11 @@ export class WidgetPokemonTypeComponent extends PokemonComponent implements OnIn
 
     objectKeys = Object.keys;
     typeInfos = {
-        no_damage_from: 'Weak from',
-        no_damage_to: 'Weak to',
-        double_damage_from: 'Double damage from',
+        no_damage_from: 'Immune from',
+        no_damage_to: 'No damage to',
+        double_damage_from: 'Weak from',
         double_damage_to: 'Double damage to',
-        half_damage_from: 'Half damage from',
+        half_damage_from: 'Resistant from',
         half_damage_to: 'Half damage to'
     };
 

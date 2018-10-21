@@ -1,3 +1,7 @@
-<p>
-  widget-youtube-channel works!
-</p>
+<img src="{{this.settings.infos?.snippet?.thumbnails?.default?.url}}">
+<p>{{this.settings.infos?.snippet?.title}}</p>
+<p>Created on {{this.settings.infos?.snippet?.publishedAt}}</p>
+<p>Subsribe: {{this.settings.infos?.statistics?.subscriberCount}}</p>
+<p>Video: {{this.settings.infos?.statistics?.videoCount}}</p>
+<p>View: {{this.settings.infos?.statistics?.viewCount}}</p>
+<p>Comment: {{this.settings.infos?.statistics?.commentCount}}</p>

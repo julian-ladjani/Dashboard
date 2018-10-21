@@ -57,7 +57,7 @@ let widgets = function () {
                 paramsInfo: {
                     pokemon: {
                         type: 'List',
-                        content: require('../controllers/pokemon/pokemon').getWidgetInfo,
+                        content: require('../controllers/pokemon/PokemonList').getWidgetInfo,
                     },
                     shiny: {
                         type: 'Boolean',
@@ -75,6 +75,12 @@ let widgets = function () {
                     language: {type: String, default: 'en'},
                     shiny: {type: Number, default: 0},
                 },
+                paramsInfo: {
+                    language: {
+                        type: 'List',
+                        content: ['de', 'en', 'fr', 'ja', 'ko', 'ru', 'zh-Hans', 'zh-Hant']
+                    },
+                },
             },
             type: {
                 name: 'type',
@@ -83,6 +89,12 @@ let widgets = function () {
                 modelName: 'pokemonType',
                 params: {
                     type: {type: String, default: '1'}
+                },
+                paramsInfo: {
+                    type: {
+                        type: 'List',
+                        content: require('../controllers/pokemon/typeList').getWidgetInfo,
+                    },
                 },
             }
         },
@@ -132,6 +144,12 @@ let widgets = function () {
                     autologin: {type: String, default: null},
                     message: {type: String, default: 'message'}
                 },
+                paramsInfo: {
+                    message: {
+                        type: 'List',
+                        content: ['coming', 'message', 'alert', 'missed']
+                    },
+                },
             },
             partner: {
                 name: 'partner',
@@ -151,7 +169,7 @@ let widgets = function () {
                 params: {
                     autologin: {type: String, default: null},
                     begin: {type: String, default: moment().format('YYYY-MM-DD')},
-                    end: {type: String, default: moment().format('YYYY-MM-DD')},
+                    days: {type: Number, default: 0},
                     semester: {type: Array, default: [0]}
                 },
             }
