@@ -236,7 +236,53 @@ let widgets = function () {
                         type: 'Secret'
                     },
                     semester: {
-                        type: 'Checklist'
+                        type: 'Checklist',
+                        content: [
+                            {
+                              name:'semester 0',
+                              value: '0'
+                            },
+                            {
+                                name:'semester 1',
+                                value: '1'
+                            },
+                            {
+                                name:'semester 2',
+                                value: '2'
+                            },
+                            {
+                                name:'semester 3',
+                                value: '3'
+                            },
+                            {
+                                name:'semester 4',
+                                value: '4'
+                            },
+                            {
+                                name:'semester 5',
+                                value: '5'
+                            },
+                            {
+                                name:'semester 6',
+                                value: '6'
+                            },
+                            {
+                                name:'semester 7',
+                                value: '7'
+                            },
+                            {
+                                name:'semester 8',
+                                value: '8'
+                            },
+                            {
+                                name:'semester 9',
+                                value: '9'
+                            },
+                            {
+                                name:'semester 10',
+                                value: '10'
+                            },
+                        ]
                     }
                 },
             }
