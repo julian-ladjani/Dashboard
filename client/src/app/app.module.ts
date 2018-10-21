@@ -14,6 +14,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTreeModule} from '@angular/material/tree';
 
@@ -116,6 +117,7 @@ const appRoutes: Routes = [
       MatTabsModule,
       MatListModule,
       MatAutocompleteModule,
+      MatProgressBarModule,
       GridsterModule
   ],
   providers: [],
