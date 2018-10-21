@@ -14,6 +14,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
+import {MatTabsModule} from '@angular/material/tabs';
 import {MatTreeModule} from '@angular/material/tree';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -112,6 +113,7 @@ const appRoutes: Routes = [
       MatCardModule,
       MatIconModule,
       MatTreeModule,
+      MatTabsModule,
       MatListModule,
       MatAutocompleteModule,
       GridsterModule
