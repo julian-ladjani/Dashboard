@@ -4,7 +4,7 @@ const _ = require('lodash');
 
 const PokeApi = require('pokedex-promise-v2');
 const Pokedex = new PokeApi();
-const pokemon = require('server/src/api/controllers/pokemon/listPokemon');
+const pokemon = require('pokemon');
 
 const max_generation = [0, 150, 250, 385, 492, 648, 720, 802];
 const min_generation = [0, 1, 152, 252, 387, 494, 650, 722];
