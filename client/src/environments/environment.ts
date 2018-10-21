@@ -58,6 +58,6 @@ export const environment = {
         displayGrid: DisplayGrid.None,
         disableWindowResize: false,
         disableWarnings: false,
-        scrollToNewItems: false
+        scrollToNewItems: true
     }
 };

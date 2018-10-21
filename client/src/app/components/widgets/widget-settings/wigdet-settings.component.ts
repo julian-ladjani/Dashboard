@@ -16,6 +16,7 @@ export class WigdetSettingsComponent implements OnInit {
     infos: any;
     objectKeys = Object.keys;
     myControl = new FormControl();
+    knownTypes = ['Boolean', 'List', 'string', 'number'];
 
     constructor(
         public dialogRef: MatDialogRef<WigdetSettingsComponent>,
@@ -29,7 +30,7 @@ export class WigdetSettingsComponent implements OnInit {
     checkType(elem, type) {
         if (this.params[elem] === null && type === 'number')
             return true;
-        if (this.infos[elem] === undefined)
+        if (this.infos[elem] === undefined || this.knownTypes.indexOf(this.infos[elem]['type']) < 0)
             return (typeof this.params[elem] === type);
         return (this.infos[elem].type === type);
     }
