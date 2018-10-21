@@ -21,11 +21,11 @@ exports.getWidgetInfo = async function(params) {
         params.partner = 3;
     const login = await getLogin(params.autologin);
     return new Promise(function (resolve, reject) {
-        request('https://intra.epitech.eu/' + params.autologin + '/user/'+login+'/partner?format=json',
+        request('https://intra.epitech.eu/' + params.autologin + '/user/'+login+'/binome?format=json',
             function (err, responce, body) {
                 if (err)
                     reject(err);
-                let json = JSON.parse(body).partners.slice(0, params.partner);
+                let json = JSON.parse(body).binomes.slice(0, params.partner);
                 resolve(json);
             })
     })

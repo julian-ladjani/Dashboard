@@ -6,12 +6,16 @@ const request = require('request');
 
 async function getMessage(autologin, message) {
     return new Promise(function (resolve, reject) {
-        request('https://intra.epitech.eu/' + autologin + '/user/notification/'+message+'?format=json',
-            function (err, responce, body) {
-                if (err)
-                    reject(err);
-                resolve(body);
-            })
+        try {
+            request('https://intra.epitech.eu/' + autologin + '/user/notification/' + message + '?format=json',
+                function (err, responce, body) {
+                    if (err)
+                        reject(err);
+                    resolve(body);
+                })
+        }catch (e) {
+            return false;
+        }
     })
 }
 
@@ -23,6 +27,7 @@ exports.getWidgetInfo = async function(params) {
         params.message = 'message';
     let json = await getMessage(params.autologin, params.message);
     return new Promise(function (resolve, reject) {
+        if (json === false) reject(false);
             resolve(JSON.parse(json));
         })
 };
