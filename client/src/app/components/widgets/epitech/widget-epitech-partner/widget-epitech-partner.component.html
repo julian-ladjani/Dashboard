@@ -1,0 +1,10 @@
+<mat-tab-group>
+    <mat-tab *ngFor="let key of objectKeys(settings?.infos); index as i" label="#{{i + 1}}: {{ settings.infos[key].login}}">
+        <div class="db-partner-cotainer">
+            <div class="db-image"><img src="{{settings.infos[key].picture.replace('comment', 'profil')}}"></div>
+            <mat-chip-list>
+                <mat-chip *ngFor="let key of settings.infos[key]['activities'].split(',')">{{key}}</mat-chip>
+            </mat-chip-list>
+        </div>
+    </mat-tab>
+</mat-tab-group>

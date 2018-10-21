@@ -1,9 +1,18 @@
-<img src="{{this.settings.infos?.snippet?.thumbnails?.default?.url}}">
-<p>{{this.settings.infos?.snippet?.title}}</p>
-<p>By {{this.settings.infos?.snippet?.channelTitle}}</p>
-<p>On {{this.settings.infos?.snippet?.publishedAt}}</p>
-<p>View: {{this.settings.infos?.statistics?.viewCount}}</p>
-<p>Like: {{this.settings.infos?.statistics?.likeCount}}</p>
-<p>Dislike: {{this.settings.infos?.statistics?.dislikeCount}}</p>
-<p>Comment: {{this.settings.infos?.statistics?.commentCount}}</p>
-<p>Favorite: {{this.settings.infos?.statistics?.favoriteCount}}</p>
+<div class="db-row-youtube">
+   <img class="center-image" src="{{this.settings.infos?.snippet?.thumbnails?.default?.url}}">
+   <div>
+        <p>{{this.settings.infos?.snippet?.title}}</p>
+        <p>By {{this.settings.infos?.snippet?.channelTitle}}</p>
+        <p>Published on {{this.settings.infos?.snippet?.publishedAt |  date:'dd/MM/yyyy'}}</p>
+   </div>
+</div>
+<mat-progress-bar mode="determinate" value="{{getLikeRatio()}}"></mat-progress-bar>
+<div class="like-row">
+    <p><i class="material-icons">thumb_up</i> {{this.settings.infos?.statistics?.likeCount}}</p>
+    <p><i class="material-icons">thumb_down</i> {{this.settings.infos?.statistics?.dislikeCount}}</p>
+</div>
+<mat-divider></mat-divider><br>
+<div class="like-row">
+    <p><i class="material-icons">visibility</i> {{this.settings.infos?.statistics?.viewCount}}</p>
+    <p><i class="material-icons">comment</i> {{this.settings.infos?.statistics?.commentCount}}</p>
+</div>

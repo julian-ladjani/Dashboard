@@ -10,11 +10,12 @@ import {HttpClientModule} from '@angular/common/http';
 import {LoginPageComponent} from './components/login/login-page.component';
 
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatButtonModule, MatCheckboxModule, MatDialogModule, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatChipsModule, MatDialogModule, MatIconModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTreeModule} from '@angular/material/tree';
 
@@ -117,6 +118,8 @@ const appRoutes: Routes = [
       MatTabsModule,
       MatListModule,
       MatAutocompleteModule,
+      MatChipsModule,
+      MatProgressBarModule,
       GridsterModule,
       CarouselModule,
       WavesModule,

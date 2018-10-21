@@ -43,6 +43,7 @@ export class WidgetBarComponent implements OnInit {
             this.addService(EpitechComponent),
             this.addWidget(WidgetEpitechMessageComponent),
             this.addWidget(WidgetEpitechPartnerComponent),
+            this.newTab(`GitHub`, 'assets/icons/github.svg', 'github'),
             this.addService(NasaComponent),
             this.addWidget(WidgetNasaImageOfTheDayComponent),
             this.addWidget(WidgetNasaMarsPhotoComponent),
