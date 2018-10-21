@@ -30,6 +30,8 @@ export class WidgetBarComponent implements OnInit {
     @Output() addNewWidgetEvent = new EventEmitter<any>();
     @Output() logoutEvent = new EventEmitter();
     @Output() deleteWidgetsEvent = new EventEmitter();
+    @Output() saveWidgetsEvent = new EventEmitter();
+    @Output() refreshWidgetsEvent = new EventEmitter();
     @Output() expandEvent = new EventEmitter<boolean>();
 
     constructor() {
