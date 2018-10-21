@@ -1,3 +1,17 @@
-<p>
-  widget-epitech-planning works!
-</p>
+<div *ngIf="settings.infos != undefined">
+    <mat-card *ngFor="let activityKey of objectKeys(settings.infos)">
+        <h1>{{settings.infos[activityKey]['type_title']}} - {{settings.infos[activityKey]['titlemodule']}}</h1>
+        <div class="mat-icon-text">
+            <mat-icon>calendar_today</mat-icon>Date : {{settings.infos[activityKey]['start'].split(' ')[0]}}
+        </div>
+        <div class="mat-icon-text">
+            <mat-icon>alarm</mat-icon>Interval : {{settings.infos[activityKey]['start'].split(' ')[1]}} - {{settings.infos[activityKey]['end'].split(' ')[1]}}
+        </div>
+        <div class="mat-icon-text">
+            <mat-icon>timer</mat-icon>Duration : {{settings.infos[activityKey]['nb_hours']}}
+        </div>
+        <div class="mat-icon-text">
+            <mat-icon>people</mat-icon>Nb Registered : {{settings.infos[activityKey]['total_students_registered']}}
+        </div>
+    </mat-card>
+</div>

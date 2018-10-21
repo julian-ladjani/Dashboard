@@ -18,6 +18,8 @@ import {YoutubeComponent} from '../components/widgets/youtube/youtube-component'
 import {EpitechComponent} from '../components/widgets/epitech/epitech-component';
 import {NasaComponent} from '../components/widgets/nasa/nasa-component';
 import {WeatherComponent} from '../components/widgets/weather/weather-component';
+import {GithubComponent} from '../components/widgets/github/github-component';
+import {WidgetGithubReposComponent} from '../components/widgets/github/widget-github-repos/widget-github-repos.component';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +28,7 @@ import {WeatherComponent} from '../components/widgets/weather/weather-component'
 export class WidgetFactoryService {
     services = [
         EpitechComponent,
+        GithubComponent,
         NasaComponent,
         PokemonComponent,
         WeatherComponent,
@@ -44,7 +47,8 @@ export class WidgetFactoryService {
         WidgetCurrentWeatherComponent,
         WidgetWeatherForecastComponent,
         WidgetYoutubeChannelComponent,
-        WidgetYoutubeVideoComponent
+        WidgetYoutubeVideoComponent,
+        WidgetGithubReposComponent
     ];
 
     getWidget(srcService, srcWidget) {

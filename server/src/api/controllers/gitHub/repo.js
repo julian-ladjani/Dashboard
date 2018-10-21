@@ -24,7 +24,9 @@ exports.getWidgetInfo = async function(params) {
                             'creator': reposJson[i].owner.login,
                             'description': reposJson[i].description,
                             'language': reposJson[i].language,
-                            'url': reposJson[i].html_url
+                            'url': reposJson[i].html_url,
+                            'created_at': reposJson[i].created_at,
+                            'updated_at': reposJson[i].updated_at
                         });
                 }
                 catch (e) {
