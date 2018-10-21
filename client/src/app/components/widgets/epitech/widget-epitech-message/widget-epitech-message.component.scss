@@ -3,3 +3,29 @@
   height: 200px;
   background-color: var(--dark-color);
 }
+
+.db-row-message {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.center-image-message {
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+
+.epitech-photo {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width: 15%;
+}
+
+.epitech-message {
+  background: #555555;
+  width: 75%;
+  margin: 5% 5px;
+  padding: 5px;
+}

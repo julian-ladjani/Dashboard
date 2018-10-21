@@ -17,10 +17,6 @@ export class WidgetWeatherForecastComponent extends WeatherComponent implements 
         return 'Weather Forecast';
     }
 
-    static getServiceLabel() {
-        return 'weather';
-    }
-
     static getWidgetLabel() {
         return 'forecast';
     }

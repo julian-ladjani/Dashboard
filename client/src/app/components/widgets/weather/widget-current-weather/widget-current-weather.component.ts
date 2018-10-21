@@ -17,10 +17,6 @@ export class WidgetCurrentWeatherComponent extends WeatherComponent implements O
         return 'Current Weather';
     }
 
-    static getServiceLabel() {
-        return 'weather';
-    }
-
     static getWidgetLabel() {
         return 'current';
     }
