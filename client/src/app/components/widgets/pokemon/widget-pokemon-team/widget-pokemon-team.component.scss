@@ -1,0 +1,19 @@
+.db-widget {
+  width: 200px;
+  height: 200px;
+  background-color: var(--dark-color);
+}
+
+.center-image {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.db-row-pokemon {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
