@@ -225,7 +225,7 @@ let widgets = function () {
                     autologin: {type: String, default: null},
                     begin: {type: String, default: moment().format('YYYY-MM-DD')},
                     days: {type: Number, default: 0},
-                    semester: {type: String, default: '[0]'}
+                    semester: {type: String, default: '0'}
                 },
                 paramsInfo: {
                     begin: {
@@ -234,7 +234,10 @@ let widgets = function () {
                     },
                     autologin: {
                         type: 'Secret'
-                        }
+                    },
+                    semester: {
+                        type: 'Checklist'
+                    }
                 },
             }
         },
