@@ -80,6 +80,9 @@ let widgets = function () {
                         type: 'List',
                         content: ['de', 'en', 'fr', 'ja', 'ko', 'ru', 'zh-Hans', 'zh-Hant']
                     },
+                    shiny: {
+                        type: 'Boolean',
+                    }
                 },
             },
             type: {
@@ -136,6 +139,9 @@ let widgets = function () {
                         type: 'List',
                         content: require('../controllers/pokemon/PokemonList').getWidgetInfo
                     },
+                    shiny: {
+                        type: 'Boolean',
+                    }
                 }
             },
         },
@@ -225,7 +231,7 @@ let widgets = function () {
                     autologin: {type: String, default: null},
                     begin: {type: String, default: moment().format('YYYY-MM-DD')},
                     days: {type: Number, default: 0},
-                    semester: {type: String, default: '[0]'}
+                    semester: {type: String, default: '0'}
                 },
                 paramsInfo: {
                     begin: {
@@ -234,7 +240,56 @@ let widgets = function () {
                     },
                     autologin: {
                         type: 'Secret'
-                        }
+                    },
+                    semester: {
+                        type: 'Checklist',
+                        content: [
+                            {
+                              name:'semester 0',
+                              value: '0'
+                            },
+                            {
+                                name:'semester 1',
+                                value: '1'
+                            },
+                            {
+                                name:'semester 2',
+                                value: '2'
+                            },
+                            {
+                                name:'semester 3',
+                                value: '3'
+                            },
+                            {
+                                name:'semester 4',
+                                value: '4'
+                            },
+                            {
+                                name:'semester 5',
+                                value: '5'
+                            },
+                            {
+                                name:'semester 6',
+                                value: '6'
+                            },
+                            {
+                                name:'semester 7',
+                                value: '7'
+                            },
+                            {
+                                name:'semester 8',
+                                value: '8'
+                            },
+                            {
+                                name:'semester 9',
+                                value: '9'
+                            },
+                            {
+                                name:'semester 10',
+                                value: '10'
+                            },
+                        ]
+                    }
                 },
             }
         },

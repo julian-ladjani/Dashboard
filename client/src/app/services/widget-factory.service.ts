@@ -5,6 +5,7 @@ import {WidgetCurrentWeatherComponent} from '../components/widgets/weather/widge
 import {WidgetWeatherForecastComponent} from '../components/widgets/weather/widget-weather-forecast/widget-weather-forecast.component';
 import {WidgetNasaImageOfTheDayComponent} from '../components/widgets/nasa/widget-nasa-image-of-the-day/widget-nasa-image-of-the-day.component';
 import {WidgetPokemonBlindtestComponent} from '../components/widgets/pokemon/widget-pokemon-blindtest/widget-pokemon-blindtest.component';
+import {WidgetPokemonTeamComponent} from '../components/widgets/pokemon/widget-pokemon-team/widget-pokemon-team.component';
 import {WidgetPokemonTypeComponent} from '../components/widgets/pokemon/widget-pokemon-type/widget-pokemon-type.component';
 import {WidgetEpitechMessageComponent} from '../components/widgets/epitech/widget-epitech-message/widget-epitech-message.component';
 import {WidgetEpitechPartnerComponent} from '../components/widgets/epitech/widget-epitech-partner/widget-epitech-partner.component';
@@ -24,25 +25,26 @@ import {WeatherComponent} from '../components/widgets/weather/weather-component'
 
 export class WidgetFactoryService {
     services = [
-        PokemonComponent,
-        YoutubeComponent,
         EpitechComponent,
+        NasaComponent,
+        PokemonComponent,
         WeatherComponent,
-        NasaComponent
+        YoutubeComponent
     ];
     widgets = [
-        WidgetFavoritePokemonComponent,
-        WidgetCurrentWeatherComponent,
-        WidgetWeatherForecastComponent,
         WidgetNasaImageOfTheDayComponent,
+        WidgetNasaMarsPhotoComponent,
+        WidgetFavoritePokemonComponent,
+        WidgetPokemonTeamComponent,
         WidgetPokemonBlindtestComponent,
         WidgetPokemonTypeComponent,
         WidgetEpitechMessageComponent,
         WidgetEpitechPartnerComponent,
-        WidgetNasaMarsPhotoComponent,
+        WidgetEpitechPlanningComponent,
+        WidgetCurrentWeatherComponent,
+        WidgetWeatherForecastComponent,
         WidgetYoutubeChannelComponent,
-        WidgetYoutubeVideoComponent,
-        WidgetEpitechPlanningComponent
+        WidgetYoutubeVideoComponent
     ];
 
     getWidget(srcService, srcWidget) {

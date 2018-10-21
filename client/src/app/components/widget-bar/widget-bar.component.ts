@@ -1,23 +1,6 @@
 import {Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {ResizeEvent} from 'angular-resizable-element';
 import {$} from 'jquery';
-import {WidgetFavoritePokemonComponent} from '../widgets/pokemon/widget-favorite-pokemon/widget-favorite-pokemon.component';
-import {PokemonComponent} from '../widgets/pokemon/pokemon.component';
-import {WidgetCurrentWeatherComponent} from '../widgets/weather/widget-current-weather/widget-current-weather.component';
-import {WidgetWeatherForecastComponent} from '../widgets/weather/widget-weather-forecast/widget-weather-forecast.component';
-import {NasaComponent} from '../widgets/nasa/nasa-component';
-import {WeatherComponent} from '../widgets/weather/weather-component';
-import {WidgetNasaImageOfTheDayComponent} from '../widgets/nasa/widget-nasa-image-of-the-day/widget-nasa-image-of-the-day.component';
-import {WidgetPokemonBlindtestComponent} from '../widgets/pokemon/widget-pokemon-blindtest/widget-pokemon-blindtest.component';
-import {WidgetPokemonTypeComponent} from '../widgets/pokemon/widget-pokemon-type/widget-pokemon-type.component';
-import {WidgetEpitechMessageComponent} from '../widgets/epitech/widget-epitech-message/widget-epitech-message.component';
-import {EpitechComponent} from '../widgets/epitech/epitech-component';
-import {WidgetEpitechPartnerComponent} from '../widgets/epitech/widget-epitech-partner/widget-epitech-partner.component';
-import {WidgetNasaMarsPhotoComponent} from '../widgets/nasa/widget-nasa-mars-photo/widget-nasa-mars-photo.component';
-import {YoutubeComponent} from '../widgets/youtube/youtube-component';
-import {WidgetYoutubeChannelComponent} from '../widgets/youtube/widget-youtube-channel/widget-youtube-channel.component';
-import {WidgetYoutubeVideoComponent} from '../widgets/youtube/widget-youtube-video/widget-youtube-video.component';
-import {WidgetEpitechPlanningComponent} from '../widgets/epitech/widget-epitech-planning/widget-epitech-planning.component';
 import {WidgetFactoryService} from '../../services/widget-factory.service';
 
 
@@ -44,8 +27,9 @@ export class WidgetBarComponent implements OnInit {
         for (const ser of factory.services) {
             this.addService(ser);
             for (const wid of factory.widgets) {
-                if (ser.getServiceLabel() === wid.getServiceLabel())
+                if (ser.getServiceLabel() === wid.getServiceLabel()) {
                     this.addWidget(wid);
+                }
             }
         }
     }
