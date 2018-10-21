@@ -80,6 +80,9 @@ let widgets = function () {
                         type: 'List',
                         content: ['de', 'en', 'fr', 'ja', 'ko', 'ru', 'zh-Hans', 'zh-Hant']
                     },
+                    shiny: {
+                        type: 'Boolean',
+                    }
                 },
             },
             type: {
@@ -136,6 +139,9 @@ let widgets = function () {
                         type: 'List',
                         content: require('../controllers/pokemon/PokemonList').getWidgetInfo
                     },
+                    shiny: {
+                        type: 'Boolean',
+                    }
                 }
             },
         },
