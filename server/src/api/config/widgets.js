@@ -143,6 +143,18 @@ let widgets = function () {
                     partner: {type: Number, default: 3}
                 },
             },
+            planning: {
+                name: 'planning',
+                description: 'My planning',
+                controller: require('../controllers/epitech/planning'),
+                modelName: 'epitechplanning',
+                params: {
+                    autologin: {type: String, default: null},
+                    begin: {type: String, default: moment().format('YYYY-MM-DD')},
+                    end: {type: String, default: moment().format('YYYY-MM-DD')},
+                    semester:{type: Array, default: [0]}
+                },
+            },
         }
     };
     generateWidgetsModel(widgetsConfig);
