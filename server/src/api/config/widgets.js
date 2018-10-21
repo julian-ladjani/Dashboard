@@ -57,7 +57,7 @@ let widgets = function () {
                 paramsInfo: {
                     pokemon: {
                         type: 'List',
-                        content: require('../controllers/pokemon/pokemon').getWidgetInfo,
+                        content: require('../controllers/pokemon/listPokemon').getWidgetInfo,
                     },
                     shiny: {
                         type: 'Boolean',
@@ -75,6 +75,12 @@ let widgets = function () {
                     language: {type: String, default: 'en'},
                     shiny: {type: Number, default: 0},
                 },
+                paramsInfo: {
+                    language: {
+                        type: 'List',
+                        content: ['de', 'en', 'fr', 'ja', 'ko', 'ru', 'zh-Hans', 'zh-Hant']
+                    },
+                },
             },
             type: {
                 name: 'type',
@@ -83,6 +89,12 @@ let widgets = function () {
                 modelName: 'pokemonType',
                 params: {
                     type: {type: String, default: '1'}
+                },
+                paramsInfo: {
+                    type: {
+                        type: 'List',
+                        content: require('../controllers/pokemon/listType').getWidgetInfo,
+                    },
                 },
             }
         },
@@ -107,7 +119,7 @@ let widgets = function () {
                     martianDay: {type: Number, default: 1000},
                     camera: {type: String, default: 'NAVCAM'},
                     page: {type: Number, default: 1},
-                    rover: {type: String, default: 'Curiosity'}
+                    rover: {type: String, default: 'Curiosity'}pokemon
                 },
                 paramsInfo: {
                     camera: {
@@ -131,6 +143,12 @@ let widgets = function () {
                 params: {
                     autologin: {type: String, default: null},
                     message: {type: String, default: 'message'}
+                },
+                paramsInfo: {
+                    message: {
+                        type: 'List',
+                        content: ['coming', 'message', 'alert', 'missed']
+                    },
                 },
             },
             partner: {
