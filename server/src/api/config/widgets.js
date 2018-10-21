@@ -319,11 +319,21 @@ let widgets = function () {
         },
         github: {
             name: 'github',
-            Repos: {
+            repos: {
                 name:'repos',
                 description: 'repository of user selected',
                 controller: require('../controllers/gitHub/repo'),
                 modelName: 'githubRepo',
+                params: {
+                    token: {type: String, default: ''},
+                    user: {type: String, default:''}
+                },
+            },
+            profile: {
+                name:'profile',
+                description: 'profile of user selected',
+                controller: require('../controllers/gitHub/profile'),
+                modelName: 'githubProfile',
                 params: {
                     token: {type: String, default: ''},
                     user: {type: String, default:''}
