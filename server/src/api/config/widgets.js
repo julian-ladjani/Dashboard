@@ -161,6 +161,9 @@ let widgets = function () {
                         type: 'Date',
                         format: 'YYYY-MM-DD'
                     },
+                    hd: {
+                        type: 'Boolean',
+                    }
                 },
             },
             marsPhotos: {

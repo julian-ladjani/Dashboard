@@ -3,7 +3,7 @@
     <mat-form-field class="center-input">
         <input matInput="" type="text" [(ngModel)]="settings.infos.answer" name="answer" placeholder="Pokemon Name">
         <div matSuffix="" *ngIf="settings.infos.answer !== ''">
-            <mat-icon *ngIf="settings.infos.answer === settings.infos.name.toLowerCase()" color="primary">check_circle</mat-icon>
+            <mat-icon *ngIf="settings.infos.answer === settings.infos.name.toLowerCase()">check_circle</mat-icon>
             <mat-icon *ngIf="settings.infos.answer !== settings.infos.name.toLowerCase()" color="warn">cancel</mat-icon>
         </div>
     </mat-form-field>
