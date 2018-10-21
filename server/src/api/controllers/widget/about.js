@@ -28,10 +28,14 @@ function getServiceAbout(service) {
     }
 }
 
-async function getAbout(req) {
+module.exports.getAbout = async function (req) {
     let services = Object.keys(widgetConfig);
     let serviceArray = [];
 
+    if (req === undefined || req.ip === undefined)
+        req = {
+            ip: "client host"
+        };
     services.forEach(function (service) {
         serviceArray.push(getServiceAbout(widgetConfig[service]));
     });
@@ -44,11 +48,11 @@ async function getAbout(req) {
             services: serviceArray,
         }
     }
-}
+};
 
-module.exports = async function (req, res) {
+module.exports.sendAbout = async function (req, res) {
     try {
-        res.json(await getAbout(req));
+        res.json(await exports.getAbout(req));
     } catch (e) {
         res.json({success: false})
     }

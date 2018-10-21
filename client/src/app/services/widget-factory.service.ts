@@ -11,55 +11,44 @@ import {WidgetEpitechPartnerComponent} from '../components/widgets/epitech/widge
 import {WidgetNasaMarsPhotoComponent} from '../components/widgets/nasa/widget-nasa-mars-photo/widget-nasa-mars-photo.component';
 import {WidgetYoutubeChannelComponent} from '../components/widgets/youtube/widget-youtube-channel/widget-youtube-channel.component';
 import {WidgetYoutubeVideoComponent} from '../components/widgets/youtube/widget-youtube-video/widget-youtube-video.component';
+import {WidgetEpitechPlanningComponent} from '../components/widgets/epitech/widget-epitech-planning/widget-epitech-planning.component';
+import {PokemonComponent} from '../components/widgets/pokemon/pokemon.component';
+import {YoutubeComponent} from '../components/widgets/youtube/youtube-component';
+import {EpitechComponent} from '../components/widgets/epitech/epitech-component';
+import {NasaComponent} from '../components/widgets/nasa/nasa-component';
+import {WeatherComponent} from '../components/widgets/weather/weather-component';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class WidgetFactoryService {
-    getWidget(service, widget) {
-        if (service === 'epitech') {
-            if (widget === 'messages') {
-                return WidgetEpitechMessageComponent;
-            }
-            if (widget === 'partner') {
-                return WidgetEpitechPartnerComponent;
-            }
-        }
-        if (service === 'nasa') {
-            if (widget === 'apod') {
-                return WidgetNasaImageOfTheDayComponent;
-            }
-            if (widget === 'marsPhotos') {
-                return WidgetNasaMarsPhotoComponent;
-            }
-        }
-        if (service === 'pokemon') {
-            if (widget === 'favorite') {
-                return WidgetFavoritePokemonComponent;
-            }
-            if (widget === 'blind') {
-                return WidgetPokemonBlindtestComponent;
-            }
-            if (widget === 'type') {
-                return WidgetPokemonTypeComponent;
-            }
-        }
-        if (service === 'weather') {
-            if (widget === 'current') {
-                return WidgetCurrentWeatherComponent;
-            }
-            if (widget === 'forecast') {
-                return WidgetWeatherForecastComponent;
-            }
-        }
-        if (service === 'youtube') {
-            if (widget === 'channelInfo') {
-                return WidgetYoutubeChannelComponent;
-            }
-            if (widget === 'videoInfo') {
-                return WidgetYoutubeVideoComponent;
-            }
+    services = [
+        PokemonComponent,
+        YoutubeComponent,
+        EpitechComponent,
+        WeatherComponent,
+        NasaComponent
+    ];
+    widgets = [
+        WidgetFavoritePokemonComponent,
+        WidgetCurrentWeatherComponent,
+        WidgetWeatherForecastComponent,
+        WidgetNasaImageOfTheDayComponent,
+        WidgetPokemonBlindtestComponent,
+        WidgetPokemonTypeComponent,
+        WidgetEpitechMessageComponent,
+        WidgetEpitechPartnerComponent,
+        WidgetNasaMarsPhotoComponent,
+        WidgetYoutubeChannelComponent,
+        WidgetYoutubeVideoComponent,
+        WidgetEpitechPlanningComponent
+    ];
+
+    getWidget(srcService, srcWidget) {
+        for (const widget of this.widgets) {
+            if (widget.getServiceLabel() === srcService && widget.getWidgetLabel() === srcWidget)
+                return widget;
         }
         return WidgetComponent;
     }
