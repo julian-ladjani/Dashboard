@@ -17,7 +17,8 @@ import {environment} from '../../../environments/environment';
 
 export class HomeComponent implements OnInit {
     widgets: Array<{ service: String, widget: String, title: String, icon: String,
-        props: GridsterItem, settings: SettingsContainer, delete: boolean }> = [];
+        props: GridsterItem, settings: SettingsContainer, delete: boolean,
+        save: boolean, refresh: boolean}> = [];
     loginService: LoginService;
     resolver: ComponentFactoryResolver;
     options: GridsterConfig;
@@ -58,6 +59,8 @@ export class HomeComponent implements OnInit {
         const test = $event;
         test.settings = settings;
         test.delete = false;
+        test.save = false;
+        test.refresh = false;
         test.settings.paramsInfo = this.paramsInfos[test.service + test.widget];
         this.widgets.push(test);
     }
@@ -65,6 +68,19 @@ export class HomeComponent implements OnInit {
     deleteWidgets() {
         this.widgets.forEach(function (value) {
             value.delete = true;
+        });
+    }
+
+    saveWidgets() {
+        this.widgets.forEach(function (value) {
+            value.save = true;
+            console.log('SAVE');
+        });
+    }
+
+    refreshWidgets() {
+        this.widgets.forEach(function (value) {
+            value.refresh = true;
         });
     }
 

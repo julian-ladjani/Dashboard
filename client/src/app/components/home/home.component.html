@@ -3,7 +3,9 @@
             (addNewWidgetEvent)="addWidget($event)"
             (expandEvent)="resize($event)"
             (logoutEvent)="logout()"
-            (deleteWidgetsEvent)="deleteWidgets()">
+            (deleteWidgetsEvent)="deleteWidgets()"
+            (saveWidgetsEvent)="saveWidgets()"
+            (refreshWidgetsEvent)="refreshWidgets()">
     </app-widget-bar>
     <section id="widgets" [style.width]="size + '%'">
         <div class="db-widgets-container" [style.width]="size+'%'">
@@ -12,7 +14,8 @@
                     <app-widget-container
                             (deleteMe)="deleteWidget($event)"
                             [widget]="factory.getWidget(widget.service, widget.widget)"
-                            [settings]="widget.settings" [delete]="widget.delete">
+                            [settings]="widget.settings" [delete]="widget.delete"
+                            [save]="widget.save" [refresh]="widget.refresh">
                     </app-widget-container>
                 </gridster-item>
             </gridster>

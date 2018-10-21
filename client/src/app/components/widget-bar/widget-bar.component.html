@@ -7,11 +7,17 @@
          (resizeEnd)="onResizeEnd($event)">
         <svg-icon src="assets/trashboard-stacked-logo.svg"></svg-icon>
         <div class="db-tools">
+            <button mat-icon-button (click)="saveWidgetsEvent.emit()">
+                <mat-icon>save</mat-icon>
+            </button>
+            <button mat-icon-button (click)="refreshWidgetsEvent.emit()">
+                <mat-icon>refresh</mat-icon>
+            </button>
             <button mat-icon-button color="accent" (click)="deleteWidgetsEvent.emit()">
-                <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+                <mat-icon>delete</mat-icon>
             </button>
             <button mat-icon-button color="warn" (click)="logoutEvent.emit()">
-                <mat-icon aria-label="Example icon-button with a heart icon">logout</mat-icon>
+                <mat-icon>logout</mat-icon>
             </button>
         </div>
         <ul class="db-nav">
