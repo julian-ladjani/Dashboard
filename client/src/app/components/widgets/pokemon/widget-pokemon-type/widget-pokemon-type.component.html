@@ -1,11 +1,12 @@
-<p class="text-center text-capitalize db-big-info">
+<h1 class="text-center text-capitalize db-big-info">
     {{settings.params['type']}}
-</p>
-<mat-tab-group>
-    <mat-tab *ngFor="let key of objectKeys(settings.infos)" label="{{typeInfos[key]}}">
-        <div class="db-row-type">
-            <p class="db-little-info" *ngFor="let type of settings.infos[key]">{{type.name}}</p>
-            <p *ngIf="settings.infos[key].length === 0">None</p>
-        </div>
-    </mat-tab>
-</mat-tab-group>
+</h1>
+<div *ngFor="let key of objectKeys(settings.infos)">
+    <h1>{{typeInfos[key]}}</h1>
+    <mat-chip-list>
+        <mat-chip class="db-little-info" *ngFor="let type of settings.infos[key]">{{type.name}}</mat-chip>
+        <mat-chip *ngIf="settings.infos[key].length === 0">None</mat-chip>
+    </mat-chip-list>
+    <br>
+    <mat-divider [inset]="true"></mat-divider>
+</div>
