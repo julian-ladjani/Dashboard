@@ -47,7 +47,7 @@ export class ApiService {
             return;
         }
         const prefix = '/' + serviceLabel + '/' + widgetLabel + '/';
-        const path = prefix + ((settings.id.length === 0) ? '' : (settings.id + 'params'));
+        const path = prefix + ((settings.id.length === 0) ? '' : (settings.id + '/params'));
         this.apiPost(path, settings.params).then(responsePost => {
             if (responsePost['success'] === true) {
                 settings.connected = true;
