@@ -143,6 +143,18 @@ let widgets = function () {
                     partner: {type: Number, default: 3}
                 },
             },
+        },
+        youtube: {
+            name: 'Youtube',
+            videoInfo: {
+                name: 'videoInfo',
+                description: 'Information of Youtube video',
+                controller: require('../controllers/youtube/videoInfo'),
+                modelName: 'youtubeVideoInfo',
+                params: {
+                    videoUrl: {type: String, default: 'https://www.youtube.com/watch?v=MQP9MWCP0hk'}
+                },
+            },
         }
     };
     generateWidgetsModel(widgetsConfig);
