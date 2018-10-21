@@ -1,4 +1,9 @@
-<div *ngFor="let photo of this.settings.infos">
-  <img src="{{photo.img_src}}">
-  <p>{{photo.earth_date}}</p>
-</div>
+<mdb-carousel [isControls]="true" [animation]="'slide'" [type]="'carousel-thumbnails'">
+    <mdb-slide *ngFor="let photo of settings.infos">
+        <img class="d-block w-100" src="{{photo.img_src}}" alt="Third slide">
+        <div class="carousel-caption">
+            <h3 class="h3-responsive">Rover {{settings.params.rover}} | Camera {{settings.params.camera}}</h3>
+            <p>{{photo.earth_date}}</p>
+        </div>
+    </mdb-slide>
+</mdb-carousel>
