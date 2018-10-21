@@ -109,6 +109,12 @@ let widgets = function () {
                     date: {type: String, default: moment().format('YYYY-MM-DD')},
                     hd: {type: Number, default: 0}
                 },
+                paramsInfo: {
+                    date: {
+                        type: 'Date',
+                        format: 'YYYY-MM-DD'
+                    },
+                },
             },
             marsPhotos: {
                 name: 'marsPhotos',
