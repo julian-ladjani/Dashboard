@@ -82,7 +82,7 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
     }
 
     cardSize() {
-        if ($(this.el.nativeElement).find('.db-heading').width() < 250) {
+        if ($(this.el.nativeElement).find('.db-heading').width() < 300) {
             return true;
         }
         return false;

@@ -6,6 +6,9 @@ import {WidgetWeatherForecastComponent} from '../components/widgets/weather/widg
 import {WidgetNasaImageOfTheDayComponent} from '../components/widgets/nasa/widget-nasa-image-of-the-day/widget-nasa-image-of-the-day.component';
 import {WidgetPokemonBlindtestComponent} from '../components/widgets/pokemon/widget-pokemon-blindtest/widget-pokemon-blindtest.component';
 import {WidgetPokemonTypeComponent} from '../components/widgets/pokemon/widget-pokemon-type/widget-pokemon-type.component';
+import {WidgetEpitechMessageComponent} from '../components/widgets/epitech/widget-epitech-message/widget-epitech-message.component';
+import {WidgetEpitechPartnerComponent} from '../components/widgets/epitech/widget-epitech-partner/widget-epitech-partner.component';
+import {WidgetNasaMarsPhotoComponent} from '../components/widgets/nasa/widget-nasa-mars-photo/widget-nasa-mars-photo.component';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +16,20 @@ import {WidgetPokemonTypeComponent} from '../components/widgets/pokemon/widget-p
 
 export class WidgetFactoryService {
     getWidget(service, widget) {
+        if (service === 'epitech') {
+            if (widget === 'messages') {
+                return WidgetEpitechMessageComponent;
+            }
+            if (widget === 'partner') {
+                return WidgetEpitechPartnerComponent;
+            }
+        }
         if (service === 'nasa') {
             if (widget === 'apod') {
                 return WidgetNasaImageOfTheDayComponent;
+            }
+            if (widget === 'marsPhotos') {
+                return WidgetNasaMarsPhotoComponent;
             }
         }
         if (service === 'pokemon') {

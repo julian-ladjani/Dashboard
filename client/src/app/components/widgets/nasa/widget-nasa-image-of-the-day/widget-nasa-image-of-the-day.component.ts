@@ -33,4 +33,3 @@ export class WidgetNasaImageOfTheDayComponent extends NasaComponent implements O
     }
 
 }
-
