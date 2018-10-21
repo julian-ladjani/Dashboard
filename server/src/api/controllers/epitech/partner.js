@@ -15,17 +15,17 @@ async function getLogin(autologin) {
 }
 
 exports.getWidgetInfo = async function(params) {
-    if (!_.hasIn(params, 'autologin') || params.autologin == null || !_.hasIn(params, 'binome'))
+    if (!_.hasIn(params, 'autologin') || params.autologin == null || !_.hasIn(params, 'partner'))
         return false;
-    if (params.binome <= 0)
-        params.binome = 3;
+    if (params.partner <= 0)
+        params.partner = 3;
     const login = await getLogin(params.autologin);
     return new Promise(function (resolve, reject) {
-        request('https://intra.epitech.eu/' + params.autologin + '/user/'+login+'/binome?format=json',
+        request('https://intra.epitech.eu/' + params.autologin + '/user/'+login+'/partner?format=json',
             function (err, responce, body) {
                 if (err)
                     reject(err);
-                let json = JSON.parse(body).binomes.slice(0, params.binome);
+                let json = JSON.parse(body).partners.slice(0, params.partner);
                 resolve(json);
             })
     })
