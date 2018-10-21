@@ -10,7 +10,7 @@ const widgetAbout = require('../controllers/widget/about');
 
 router
     .get('/', jwt.requireAuth, widgetSender.sendWidgets)
-    .get('/about.json', widgetAbout)
+    .get('/about.json', widgetAbout.sendAbout)
     .get('/widgets', jwt.requireAuth, widgetSender.sendWidgetsId);
 router.use('/auth', auth);
 

@@ -33,8 +33,8 @@ async function getYoutubeChannelId(url) {
             body = JSON.parse(body);
             if (body && body.items && body.items.length) {
                 id = body.items[0].id;
+            } else
                 error = true;
-            }
         }
         else
             error = true;

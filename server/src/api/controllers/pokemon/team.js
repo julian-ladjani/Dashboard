@@ -6,7 +6,6 @@ const _ = require('lodash');
 
 
 exports.getWidgetInfo = async function(params) {
-    console.log(params);
     if (!_.hasIn(params, 'pokemon1') || !_.hasIn(params, 'pokemon2') || !_.hasIn(params, 'pokemon3')
         || !_.hasIn(params, 'pokemon4') || !_.hasIn(params, 'pokemon5') || !_.hasIn(params, 'pokemon6')
         || !_.hasIn(params, 'shiny'))
