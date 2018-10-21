@@ -214,7 +214,7 @@ let widgets = function () {
                 name: 'partner',
                 description: 'My best partner',
                 controller: require('../controllers/epitech/partner'),
-                modelName: 'epitechpartner',
+                modelName: 'epitechPartner',
                 params: {
                     autologin: {type: String, default: null},
                     partner: {type: Number, default: 3}
@@ -229,7 +229,7 @@ let widgets = function () {
                 name: 'planning',
                 description: 'My planning',
                 controller: require('../controllers/epitech/planning'),
-                modelName: 'epitechplanning',
+                modelName: 'epitechPlanning',
                 params: {
                     autologin: {type: String, default: null},
                     begin: {type: String, default: moment().format('YYYY-MM-DD')},
@@ -292,6 +292,20 @@ let widgets = function () {
                                 value: '10'
                             },
                         ]
+                    }
+                },
+            },
+            user: {
+                name: 'user',
+                description: 'My profile epitech',
+                controller: require('../controllers/epitech/user'),
+                modelName: 'epitechUser',
+                params: {
+                    autologin: {type: String, default: null},
+                },
+                paramsInfo: {
+                    autologin: {
+                        type: 'Secret'
                     }
                 },
             }
