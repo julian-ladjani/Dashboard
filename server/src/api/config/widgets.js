@@ -175,7 +175,7 @@ let widgets = function () {
             }
         },
         youtube: {
-            name: 'Youtube',
+            name: 'youtube',
             videoInfo: {
                 name: 'videoInfo',
                 description: 'Information of Youtube video',
