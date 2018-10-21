@@ -2,6 +2,7 @@ import {AngularSvgIconModule} from 'angular-svg-icon';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
+import { CarouselModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {GridsterModule} from 'angular-gridster2';
 import {HomeComponent} from './components/home/home.component';
@@ -116,7 +117,10 @@ const appRoutes: Routes = [
       MatTabsModule,
       MatListModule,
       MatAutocompleteModule,
-      GridsterModule
+      GridsterModule,
+      CarouselModule,
+      WavesModule,
+      ButtonsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

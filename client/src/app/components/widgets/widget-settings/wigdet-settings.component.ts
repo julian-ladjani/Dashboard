@@ -15,7 +15,7 @@ export class WigdetSettingsComponent implements OnInit {
     params: any;
     infos: any;
     objectKeys = Object.keys;
-    myControl = new FormControl();
+    controllers = new Map<String, FormControl>();
     knownTypes = ['Boolean', 'List', 'string', 'number'];
 
     constructor(
@@ -28,6 +28,7 @@ export class WigdetSettingsComponent implements OnInit {
     }
 
     checkType(elem, type) {
+        console.log(elem, type);
         if (this.params[elem] === null && type === 'number')
             return true;
         if (this.infos[elem] === undefined || this.knownTypes.indexOf(this.infos[elem]['type']) < 0)
@@ -38,11 +39,13 @@ export class WigdetSettingsComponent implements OnInit {
     ngOnInit() {
         for (const infoKey in this.infos) {
             if (this.infos[infoKey]['type'] === 'List') {
-                this.infos[infoKey].filter = this.myControl.valueChanges
+                const controller = new FormControl();
+                this.infos[infoKey]['filter'] = controller.valueChanges
                     .pipe(
                         startWith(''),
                         map(value => this._filter(value, this.infos[infoKey]['content']))
                     );
+                this.controllers[infoKey] = controller;
             }
         }
     }
