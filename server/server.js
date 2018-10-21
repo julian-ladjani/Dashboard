@@ -16,7 +16,7 @@ const serverRouter = require('./src/server/routes/index');
 function connectWithRetry() {
     mongoose.connect(databaseConfig.databaseConfig.address, {useNewUrlParser: true}, function (err) {
             if (err) {
-                console.error('Failed to connect to mongo on startup - retrying in 5 sec', err);
+                console.error('Failed to connect to mongo on startup - retrying in 5 sec');
                 setTimeout(connectWithRetry, 5000);
             }
         }

@@ -151,7 +151,7 @@ let widgets = function () {
                 params: {
                     autologin: {type: String, default: null},
                     begin: {type: String, default: moment().format('YYYY-MM-DD')},
-                    end: {type: String, default: moment().format('YYYY-MM-DD')},
+                    days: {type: Number, default: 0},
                     semester: {type: Array, default: [0]}
                 },
             }
