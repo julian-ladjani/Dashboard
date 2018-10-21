@@ -1,0 +1,17 @@
+h1 {
+  font-weight: 100;
+}
+
+div mat-card {
+  margin-bottom: 20px;
+  background-color: #555555;
+}
+
+.mat-icon-text {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  mat-icon {
+    margin-right: 10px;
+  }
+}
