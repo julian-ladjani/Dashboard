@@ -42,6 +42,7 @@ import {WidgetYoutubeVideoComponent} from './components/widgets/youtube/widget-y
 import {WigdetSettingsComponent} from './components/widgets/widget-settings/wigdet-settings.component';
 import { WidgetPokemonTeamComponent } from './components/widgets/pokemon/widget-pokemon-team/widget-pokemon-team.component';
 import { WidgetEpitechPlanningComponent } from './components/widgets/epitech/widget-epitech-planning/widget-epitech-planning.component';
+import { WidgetGithubReposComponent } from './components/widgets/github/widget-github-repos/widget-github-repos.component';
 
 const appRoutes: Routes = [
     {
@@ -82,7 +83,8 @@ const appRoutes: Routes = [
     WidgetYoutubeChannelComponent,
     WidgetYoutubeVideoComponent,
     WidgetPokemonTeamComponent,
-    WidgetEpitechPlanningComponent
+    WidgetEpitechPlanningComponent,
+    WidgetGithubReposComponent
   ],
   entryComponents: [
       WigdetSettingsComponent,
@@ -99,7 +101,8 @@ const appRoutes: Routes = [
       WidgetEpitechPlanningComponent,
       WidgetNasaMarsPhotoComponent,
       WidgetYoutubeChannelComponent,
-      WidgetYoutubeVideoComponent
+      WidgetYoutubeVideoComponent,
+      WidgetGithubReposComponent
   ],
   imports: [
     RouterModule.forRoot(
