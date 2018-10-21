@@ -155,6 +155,15 @@ let widgets = function () {
                     videoUrl: {type: String, default: 'https://www.youtube.com/watch?v=MQP9MWCP0hk'}
                 },
             },
+            channelInfo: {
+                name: 'channelInfo',
+                description: 'Information of Youtube channel',
+                controller: require('../controllers/youtube/channelInfo'),
+                modelName: 'youtubeChannelInfo',
+                params: {
+                    channelUrl: {type: String, default: 'https://www.youtube.com/channel/UCHBuuCq9m1zUkIUqzWlhbIQ'}
+                },
+            },
         }
     };
     generateWidgetsModel(widgetsConfig);
