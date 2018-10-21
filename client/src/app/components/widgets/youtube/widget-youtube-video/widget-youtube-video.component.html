@@ -1,3 +1,9 @@
-<p>
-  widget-youtube-video works!
-</p>
+<img src="{{this.settings.infos?.snippet?.thumbnails?.default?.url}}">
+<p>{{this.settings.infos?.snippet?.title}}</p>
+<p>By {{this.settings.infos?.snippet?.channelTitle}}</p>
+<p>On {{this.settings.infos?.snippet?.publishedAt}}</p>
+<p>View: {{this.settings.infos?.statistics?.viewCount}}</p>
+<p>Like: {{this.settings.infos?.statistics?.likeCount}}</p>
+<p>Dislike: {{this.settings.infos?.statistics?.dislikeCount}}</p>
+<p>Comment: {{this.settings.infos?.statistics?.commentCount}}</p>
+<p>Favorite: {{this.settings.infos?.statistics?.favoriteCount}}</p>
