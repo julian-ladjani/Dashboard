@@ -103,65 +103,41 @@ let widgets = function () {
                 controller: require('../controllers/pokemon/team'),
                 modelName: 'pokemonTeam',
                 params: {
-                    p1   : {
-                        name: {type:String, default:'pikachu'}
-                    },
-                    p2   : {
-                        name: {type:String, default:'venusaur'}
-                    },
-                    p3   : {
-                        name: {type:String, default:'lapras'}
-                    },
-                    p4   : {
-                        name: {type:String, default:'charizard'}
-                    },
-                    p5   : {
-                        name: {type:String, default:'snorlax'}
-                    },
-                    p6   : {
-                        name: {type:String, default:'blastoise'}
-                    },
-                    shiny   : { type: Number, default: 0}
+                    pokemon1: {type: String, default: 'pikachu'},
+                    pokemon2: {type: String, default: 'venusaur'},
+                    pokemon3: {type: String, default: 'lapras'},
+                    pokemon4: {type: String, default: 'charizard'},
+                    pokemon5: {type: String, default: 'snorlax'},
+                    pokemon6: {type: String, default: 'blastoise'},
+                    shiny: {type: Number, default: 0}
                 },
                 paramsInfo: {
-                    p1   : {
-                        name: {
-                            type: 'List',
-                            content: require('../controllers/pokemon/PokemonList').getWidgetInfo,
-                        }
+                    pokemon1: {
+                        type: 'List',
+                        content: require('../controllers/pokemon/PokemonList').getWidgetInfo
                     },
-                    p2   : {
-                        name: {
-                            type: 'List',
-                            content: require('../controllers/pokemon/PokemonList').getWidgetInfo,
-                        }
+                    pokemon2: {
+                        type: 'List',
+                        content: require('../controllers/pokemon/PokemonList').getWidgetInfo
                     },
-                    p3   : {
-                        name: {
-                            type: 'List',
-                            content: require('../controllers/pokemon/PokemonList').getWidgetInfo,
-                        }
+                    pokemon3: {
+                        type: 'List',
+                        content: require('../controllers/pokemon/PokemonList').getWidgetInfo
                     },
-                    p4   : {
-                        name: {
-                            type: 'List',
-                            content: require('../controllers/pokemon/PokemonList').getWidgetInfo,
-                        }
+                    pokemon4: {
+                        type: 'List',
+                        content: require('../controllers/pokemon/PokemonList').getWidgetInfo
                     },
-                    p5   : {
-                        name: {
-                            type: 'List',
-                            content: require('../controllers/pokemon/PokemonList').getWidgetInfo,
-                        }
+                    pokemon5: {
+                        type: 'List',
+                        content: require('../controllers/pokemon/PokemonList').getWidgetInfo
                     },
-                    p6   : {
-                        name: {
-                            type: 'List',
-                            content: require('../controllers/pokemon/PokemonList').getWidgetInfo,
-                        }
-                    }
-                },
-            }
+                    pokemon6: {
+                        type: 'List',
+                        content: require('../controllers/pokemon/PokemonList').getWidgetInfo
+                    },
+                }
+            },
         },
         nasa: {
             name: 'nasa',
@@ -220,6 +196,9 @@ let widgets = function () {
                         type: 'List',
                         content: ['coming', 'message', 'alert', 'missed']
                     },
+                    autologin: {
+                        type: 'Secret'
+                    }
                 },
             },
             partner: {
@@ -230,6 +209,11 @@ let widgets = function () {
                 params: {
                     autologin: {type: String, default: null},
                     partner: {type: Number, default: 3}
+                },
+                paramsInfo: {
+                    autologin: {
+                        type: 'Secret'
+                    }
                 },
             },
             planning: {
@@ -248,6 +232,9 @@ let widgets = function () {
                         type: 'Date',
                         format: 'YYYY-MM-DD'
                     },
+                    autologin: {
+                        type: 'Secret'
+                        }
                 },
             }
         },
@@ -271,6 +258,19 @@ let widgets = function () {
                     channelUrl: {type: String, default: 'https://www.youtube.com/channel/UCHBuuCq9m1zUkIUqzWlhbIQ'}
                 },
             },
+        },
+        github: {
+            name: 'github',
+            Repos: {
+                name:'repos',
+                description: 'repository of user selected',
+                controller: require('../controllers/gitHub/repo'),
+                modelName: 'githubRepo',
+                params: {
+                    token: {type: String, default: ''},
+                    user: {type: String, default:''}
+                },
+            }
         }
     };
     generateWidgetsModel(widgetsConfig);
