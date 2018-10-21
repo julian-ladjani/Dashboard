@@ -28,6 +28,10 @@
       display: none;
     }
 
+    ::ng-deep &.hide-icon .mat-card-avatar {
+      display: none;
+    }
+
     ::ng-deep mat-icon {
       width: 40px;
       text-align: center;

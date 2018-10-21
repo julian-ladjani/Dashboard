@@ -23,10 +23,17 @@ exports.getWidgetInfo = async function(params) {
     return new Promise(function (resolve, reject) {
         request('https://intra.epitech.eu/' + params.autologin + '/user/'+login+'/binome?format=json',
             function (err, responce, body) {
-                if (err)
-                    reject(err);
-                let json = JSON.parse(body).binomes.slice(0, params.partner);
-                resolve(json);
+                if (err) {
+                    reject(false);
+                    return false;
+                }
+                let intraObj = JSON.parse(body);
+                if (!_.hasIn(intraObj, 'binomes')) {
+                    reject(false);
+                    return(false);
+                }
+                let slicedPartners = intraObj.binomes.slice(0, params.partner);
+                resolve(slicedPartners);
             })
     })
 };

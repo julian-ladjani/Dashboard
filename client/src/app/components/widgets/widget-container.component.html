@@ -1,6 +1,6 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <mat-card class="db-widget-card scrollable" id="scrollbar">
-    <div class="db-heading" [class.hide-infos]="cardSize()">
+    <div class="db-heading" [class.hide-infos]="cardSize(300)" [class.hide-icon]="cardSize(250)">
         <mat-card-header class="db-title">
             <svg-icon src="{{icon}}" mat-card-avatar="" class="example-header-image"></svg-icon>
             <mat-card-title class="db-info-big-card">{{title}}</mat-card-title>

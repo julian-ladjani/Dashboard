@@ -152,7 +152,28 @@ let widgets = function () {
                     autologin: {type: String, default: null},
                     begin: {type: String, default: moment().format('YYYY-MM-DD')},
                     end: {type: String, default: moment().format('YYYY-MM-DD')},
-                    semester:{type: Array, default: [0]}
+                    semester: {type: Array, default: [0]}
+                },
+            }
+        },
+        youtube: {
+            name: 'Youtube',
+            videoInfo: {
+                name: 'videoInfo',
+                description: 'Information of Youtube video',
+                controller: require('../controllers/youtube/videoInfo'),
+                modelName: 'youtubeVideoInfo',
+                params: {
+                    videoUrl: {type: String, default: 'https://www.youtube.com/watch?v=MQP9MWCP0hk'}
+                },
+            },
+            channelInfo: {
+                name: 'channelInfo',
+                description: 'Information of Youtube channel',
+                controller: require('../controllers/youtube/channelInfo'),
+                modelName: 'youtubeChannelInfo',
+                params: {
+                    channelUrl: {type: String, default: 'https://www.youtube.com/channel/UCHBuuCq9m1zUkIUqzWlhbIQ'}
                 },
             },
         }
