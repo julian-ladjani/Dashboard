@@ -1,10 +1,19 @@
-<div class="form-group" *ngFor="let key of objectKeys(data)">
-    <mat-form-field *ngIf="checkType(data[key], 'string')">
-        <input type="text" placeholder="{{key}}" matInput="" [(ngModel)]="data[key]">
+<div class="form-group" *ngFor="let key of objectKeys(params)">
+    <mat-form-field *ngIf="checkType(key, 'string')">
+        <input type="text" placeholder="{{key}}" matInput="" [(ngModel)]="params[key]">
     </mat-form-field>
-    <mat-form-field *ngIf="checkType(data[key], 'number')">
-        <input type="number" placeholder="{{key}}" matInput="" [(ngModel)]="data[key]">
+    <mat-form-field *ngIf="checkType(key, 'number')">
+        <input type="number" placeholder="{{key}}" matInput="" [(ngModel)]="params[key]">
     </mat-form-field>
-    <mat-checkbox [(ngModel)]="data[key]" *ngIf="checkType(data[key], 'boolean')">{{key}}</mat-checkbox>
+    <mat-checkbox [(ngModel)]="params[key]" *ngIf="checkType(key, 'Boolean')">{{key}}</mat-checkbox>
+    <mat-form-field *ngIf="checkType(key, 'List')">
+        <input type="text" placeholder="{{key}}" aria-label="Number" matInput [(ngModel)]="params[key]" [formControl]="myControl"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of infos[key].filter | async" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
 </div>
 <button (click)="closeWindow()" mat-icon-button="" class="float-right"><i class="material-icons">done</i></button>

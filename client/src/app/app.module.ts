@@ -31,6 +31,7 @@ import { WidgetPokemonTypeComponent } from './components/widgets/pokemon/widget-
 import { WidgetEpitechMessageComponent } from './components/widgets/epitech/widget-epitech-message/widget-epitech-message.component';
 import { WidgetEpitechPartnerComponent } from './components/widgets/epitech/widget-epitech-partner/widget-epitech-partner.component';
 import { WidgetNasaMarsPhotoComponent } from './components/widgets/nasa/widget-nasa-mars-photo/widget-nasa-mars-photo.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 const appRoutes: Routes = [
     {
@@ -103,6 +104,7 @@ const appRoutes: Routes = [
       MatIconModule,
       MatTreeModule,
       MatListModule,
+      MatAutocompleteModule,
       GridsterModule
   ],
   providers: [],

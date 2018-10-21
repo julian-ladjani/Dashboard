@@ -127,7 +127,7 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
 
     openSettings(): void {
         const dialogRef = this.matDialog.open(WigdetSettingsComponent, {
-            data: {...this.component.settings.params}
+            data: {params: {...this.component.settings.params}, infos: this.component.settings.paramsInfo}
         });
 
         dialogRef.afterClosed().subscribe(result => {
