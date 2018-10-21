@@ -10,7 +10,7 @@ async function getMessage(autologin, message) {
             request('https://intra.epitech.eu/' + autologin + '/user/notification/' + message + '?format=json',
                 function (err, responce, body) {
                     if (err)
-                        reject(err);
+                        reject(false);
                     resolve(body);
                 })
         }catch (e) {

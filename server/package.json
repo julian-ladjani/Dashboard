@@ -31,7 +31,8 @@
     "request": "^2.88.0",
     "better-youtube-api": "^0.1.1",
     "spotify-web-api-node": "^4.0.0",
-    "weather-js": "^2.0.0"
+    "weather-js": "^2.0.0",
+    "github-api": "^3.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
