@@ -3,3 +3,21 @@
   height: 200px;
   background-color: var(--dark-color);
 }
+
+.db-partner-cotainer {
+  display: flex;
+  img {
+    height: 200px;
+  }
+  > *:last-child {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-left: 10px;
+    ::ng-deep .mat-chip-list-wrapper {
+      max-height: 200px;
+    }
+  }
+  &:first-child {
+    padding-right: 10px;
+  }
+}

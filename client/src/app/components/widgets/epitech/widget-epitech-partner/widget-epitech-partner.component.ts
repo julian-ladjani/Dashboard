@@ -9,6 +9,7 @@ import {EpitechComponent} from '../epitech-component';
 })
 export class WidgetEpitechPartnerComponent extends EpitechComponent implements OnInit {
 
+    objectKeys = Object.keys;
     constructor() {
         super();
     }
