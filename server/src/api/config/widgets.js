@@ -96,6 +96,71 @@ let widgets = function () {
                         content: require('../controllers/pokemon/typeList').getWidgetInfo,
                     },
                 },
+            },
+            team: {
+                name: 'team',
+                description: 'My team of pokemon',
+                controller: require('../controllers/pokemon/team'),
+                modelName: 'pokemonTeam',
+                params: {
+                    p1   : {
+                        name: {type:String, default:'pikachu'}
+                    },
+                    p2   : {
+                        name: {type:String, default:'venusaur'}
+                    },
+                    p3   : {
+                        name: {type:String, default:'lapras'}
+                    },
+                    p4   : {
+                        name: {type:String, default:'charizard'}
+                    },
+                    p5   : {
+                        name: {type:String, default:'snorlax'}
+                    },
+                    p6   : {
+                        name: {type:String, default:'blastoise'}
+                    },
+                    shiny   : { type: Number, default: 0}
+                },
+                paramsInfo: {
+                    p1   : {
+                        name: {
+                            type: 'List',
+                            content: require('../controllers/pokemon/PokemonList').getWidgetInfo,
+                        }
+                    },
+                    p2   : {
+                        name: {
+                            type: 'List',
+                            content: require('../controllers/pokemon/PokemonList').getWidgetInfo,
+                        }
+                    },
+                    p3   : {
+                        name: {
+                            type: 'List',
+                            content: require('../controllers/pokemon/PokemonList').getWidgetInfo,
+                        }
+                    },
+                    p4   : {
+                        name: {
+                            type: 'List',
+                            content: require('../controllers/pokemon/PokemonList').getWidgetInfo,
+                        }
+                    },
+                    p5   : {
+                        name: {
+                            type: 'List',
+                            content: require('../controllers/pokemon/PokemonList').getWidgetInfo,
+                        }
+                    },
+                    p6   : {
+                        name: {
+                            type: 'List',
+                            content: require('../controllers/pokemon/PokemonList').getWidgetInfo,
+                        }
+                    }
+                },
             }
         },
         nasa: {
@@ -147,7 +212,7 @@ let widgets = function () {
                 controller: require('../controllers/epitech/message'),
                 modelName: 'epitechMessage',
                 params: {
-                    autologin: {type: String, default: null},
+                    autologin: {type: String, default: ''},
                     message: {type: String, default: 'message'}
                 },
                 paramsInfo: {
