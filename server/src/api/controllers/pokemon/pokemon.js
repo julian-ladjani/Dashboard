@@ -11,7 +11,7 @@ exports.getWidgetInfo = async function() {
                     reject(false);
                 try {
                     let tmp = [];
-                    for(let i = 1; i < 802; i++)
+                    for(let i = 0; i < 802; i++)
                         tmp.push(response.results[i].name);
                     resolve(tmp);
                 }
@@ -19,6 +19,7 @@ exports.getWidgetInfo = async function() {
                     resolve(false);
                 }
 
-            })
+            }).catch(function () {
+            reject(false);})
     })
 };

@@ -47,7 +47,7 @@ export class ApiService {
             return;
         }
         const prefix = '/' + serviceLabel + '/' + widgetLabel + '/';
-        const path = prefix + ((settings.id.length === 0) ? '' : (settings.id + '/params'));
+        const path = prefix + ((settings.id.length === 0) ? '' : (settings.id + 'params'));
         this.apiPost(path, settings.params).then(responsePost => {
             if (responsePost['success'] === true) {
                 settings.connected = true;
@@ -71,6 +71,7 @@ export class ApiService {
         this.apiGet(path).then( response => {
             if (response && response['infos'] && response['infos'] !== false) {
                 settings.infos = response['infos'];
+                settings.params.grid = response['params'].grid;
                 settings.state = 'ok';
             } else {
                 settings.state = 'ko';
