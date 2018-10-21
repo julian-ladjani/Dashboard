@@ -24,7 +24,9 @@ export class WidgetPokemonTeamComponent extends PokemonComponent implements OnIn
     @Input() settings: SettingsContainer = new SettingsContainer(
         {pokemon1: 'pikachu', pokemon2: 'lapras', pokemon3: 'snorlax',
             pokemon4: 'venusaur', pokemon5: 'charizard', pokemon6: 'blastoise', shiny: false},
-        {}
+        [{name: 'Pikachu', sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png'},
+            {name: 'Pikachu', sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png'},
+            {name: 'Pikachu', sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png'}]
     );
 
     ngOnInit() {
