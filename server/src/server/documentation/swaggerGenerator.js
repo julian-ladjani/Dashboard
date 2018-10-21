@@ -3,7 +3,8 @@
 const _ = require('lodash');
 const widgetConfig = require('../../api/config/widgets');
 const swaggerInfoPathGenerator = require('./swaggerInfoPathGenerator');
-const swaggerResponseExempleGenerator = require('./swaggerResponseExempleGenerator');
+const swaggerGettersGenerator = require('./swaggerGettersGenerator');
+const swaggerDeletersGenerator = require('./swaggerDeletersGenerator');
 const swaggerRootPathGenerator = require('./swaggerRootPathGenerator');
 const swaggerTagGenerator = require('./swaggerTagGenerator');
 const swaggerAboutGenerator = require('./swaggerGenerateAbout');
@@ -168,6 +169,8 @@ async function generateSwaggerDoc() {
     _.mergeWith(swaggerDocObj, await swaggerAboutGenerator());
     _.mergeWith(swaggerDocObj, await swaggerRootPathGenerator());
     _.mergeWith(swaggerDocObj, await swaggerInfoPathGenerator());
+    await swaggerGettersGenerator(swaggerDocObj);
+    await swaggerDeletersGenerator(swaggerDocObj);
     return swaggerDocObj;
 }
 
