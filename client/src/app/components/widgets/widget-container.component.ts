@@ -61,8 +61,6 @@ export class WidgetContainerComponent implements OnInit, OnChanges {
 
     ngOnInit() {
         this.loadComponent();
-        if (this.widget.getWidgetLabel() === 'favorite')
-            console.log('SETTINGS : ', this.settings);
         this.component.settings.id = this.settings.id;
         if (this.settings.infos)
             this.component.settings.infos = this.settings.infos;
