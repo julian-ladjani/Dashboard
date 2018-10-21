@@ -9,6 +9,7 @@ import {SettingsContainer} from '../../../../objects/settings-container';
 })
 export class WidgetEpitechPlanningComponent extends EpitechComponent implements OnInit {
 
+    objectKeys = Object.keys;
     constructor() {
         super();
     }
@@ -22,9 +23,7 @@ export class WidgetEpitechPlanningComponent extends EpitechComponent implements 
     }
 
     @Input() settings: SettingsContainer = new SettingsContainer(
-        {autologin: '', partner: 3},
-        {}
-    );
+        {autologin: '', begin: '2018-10-21', days: 10, semester: '0,1,2,3'});
 
     ngOnInit() {
     }
