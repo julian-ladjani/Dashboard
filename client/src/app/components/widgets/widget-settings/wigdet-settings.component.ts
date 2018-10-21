@@ -24,11 +24,9 @@ export class WigdetSettingsComponent implements OnInit {
         this.settings = SettingEnum;
         this.params = data['params'];
         this.infos = data['infos'] ? data['infos'] : {};
-        console.log(data);
     }
 
     checkType(elem, type) {
-        console.log(elem, type);
         if (this.params[elem] === null && type === 'number')
             return true;
         if (this.infos[elem] === undefined || this.knownTypes.indexOf(this.infos[elem]['type']) < 0)

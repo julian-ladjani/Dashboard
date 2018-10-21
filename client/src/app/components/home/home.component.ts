@@ -74,7 +74,6 @@ export class HomeComponent implements OnInit {
     saveWidgets() {
         this.widgets.forEach(function (value) {
             value.save = true;
-            console.log('SAVE');
         });
     }
 
@@ -93,7 +92,6 @@ export class HomeComponent implements OnInit {
 
     deleteWidget($event) {
         const index = this.widgets.findIndex(x => x.settings.id === $event);
-        console.log(this.widgets);
         if (index > -1) {
             this.widgets.splice(index, 1);
         }
