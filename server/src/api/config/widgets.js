@@ -214,7 +214,7 @@ let widgets = function () {
                 name: 'partner',
                 description: 'My best partner',
                 controller: require('../controllers/epitech/partner'),
-                modelName: 'epitechpartner',
+                modelName: 'epitechPartner',
                 params: {
                     autologin: {type: String, default: null},
                     partner: {type: Number, default: 3}
@@ -229,7 +229,7 @@ let widgets = function () {
                 name: 'planning',
                 description: 'My planning',
                 controller: require('../controllers/epitech/planning'),
-                modelName: 'epitechplanning',
+                modelName: 'epitechPlanning',
                 params: {
                     autologin: {type: String, default: null},
                     begin: {type: String, default: moment().format('YYYY-MM-DD')},
@@ -294,6 +294,20 @@ let widgets = function () {
                         ]
                     }
                 },
+            },
+            user: {
+                name: 'user',
+                description: 'My profile epitech',
+                controller: require('../controllers/epitech/user'),
+                modelName: 'epitechUser',
+                params: {
+                    autologin: {type: String, default: null},
+                },
+                paramsInfo: {
+                    autologin: {
+                        type: 'Secret'
+                    }
+                },
             }
         },
         youtube: {
@@ -319,11 +333,21 @@ let widgets = function () {
         },
         github: {
             name: 'github',
-            Repos: {
+            repos: {
                 name:'repos',
                 description: 'repository of user selected',
                 controller: require('../controllers/gitHub/repo'),
                 modelName: 'githubRepo',
+                params: {
+                    token: {type: String, default: ''},
+                    user: {type: String, default:''}
+                },
+            },
+            profile: {
+                name:'profile',
+                description: 'profile of user selected',
+                controller: require('../controllers/gitHub/profile'),
+                modelName: 'githubProfile',
                 params: {
                     token: {type: String, default: ''},
                     user: {type: String, default:''}
