@@ -1,12 +1,13 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SettingsContainer} from '../../../../objects/settings-container';
+import {PokemonComponent} from '../pokemon.component';
 
 @Component({
   selector: 'app-widget-pokemon-team',
   templateUrl: './widget-pokemon-team.component.html',
   styleUrls: ['./widget-pokemon-team.component.scss']
 })
-export class WidgetPokemonTeamComponent implements OnInit {
+export class WidgetPokemonTeamComponent extends PokemonComponent implements OnInit {
 
     constructor() {
         super();
