@@ -18,7 +18,7 @@ function getRandomInt(min, max) {
 
 function checkParams(params) {
     if (!_.hasIn(params, 'min_generation') || !_.hasIn(params, 'max_generation') || !_.hasIn(params, 'language')
-        || !_.hasIn(params, 'shiny') || !_.hasIn(params, 'time'))
+        || !_.hasIn(params, 'shiny'))
         return false;
     const max_gen = params.max_generation <= 0 || params.max_generation > 7 ? 7 : params.max_generation;
     const min_gen = params.min_generation <= 0 || params.min_generation > 7 ? 1 : params.min_generation;
@@ -35,8 +35,9 @@ exports.getWidgetInfo = async function (params) {
     return new Promise(function (resolve, reject) {
         Pokedex.getPokemonByName(rand) // with Promise
             .then(function (response, err) {
-                if (err)
+                if (err) {
                     reject(false);
+                }
                 let sprites = [response.sprites.front_default, response.sprites.front_shiny];
                 try {
                     const tmp = {

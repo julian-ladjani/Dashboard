@@ -7,7 +7,7 @@
     </mat-form-field>
     <mat-checkbox [(ngModel)]="params[key]" *ngIf="checkType(key, 'Boolean')">{{key}}</mat-checkbox>
     <mat-form-field *ngIf="checkType(key, 'List')">
-        <input type="text" placeholder="{{key}}" aria-label="Number" matInput [(ngModel)]="params[key]" [formControl]="myControl"
+        <input type="text" placeholder="{{key}}" aria-label="Number" matInput [(ngModel)]="params[key]" [formControl]="controllers[key]"
                [matAutocomplete]="auto">
         <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of infos[key].filter | async" [value]="option">

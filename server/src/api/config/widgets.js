@@ -109,6 +109,12 @@ let widgets = function () {
                     date: {type: String, default: moment().format('YYYY-MM-DD')},
                     hd: {type: Number, default: 0}
                 },
+                paramsInfo: {
+                    date: {
+                        type: 'Date',
+                        format: 'YYYY-MM-DD'
+                    },
+                },
             },
             marsPhotos: {
                 name: 'marsPhotos',
@@ -170,7 +176,13 @@ let widgets = function () {
                     autologin: {type: String, default: null},
                     begin: {type: String, default: moment().format('YYYY-MM-DD')},
                     days: {type: Number, default: 0},
-                    semester: {type: Array, default: [0]}
+                    semester: {type: String, default: '[0]'}
+                },
+                paramsInfo: {
+                    begin: {
+                        type: 'Date',
+                        format: 'YYYY-MM-DD'
+                    },
                 },
             }
         },
