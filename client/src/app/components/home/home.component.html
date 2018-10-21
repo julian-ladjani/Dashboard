@@ -9,7 +9,7 @@
     </app-widget-bar>
     <section id="widgets" [style.width]="size + '%'">
         <div class="db-widgets-container" [style.width]="size+'%'">
-            <gridster [options]="options">
+            <gridster [options]="options" id="scrollbar">
                 <gridster-item [item]="widget.settings.params.grid" *ngFor="let widget of widgets">
                     <app-widget-container
                             (deleteMe)="deleteWidget($event)"
