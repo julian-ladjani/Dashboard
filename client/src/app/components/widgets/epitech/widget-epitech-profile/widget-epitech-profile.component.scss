@@ -1,0 +1,29 @@
+.db-widget {
+  width: 200px;
+  height: 200px;
+  background-color: var(--dark-color);
+}
+
+.db-row-epitech {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.center-image {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.mat-icon-text {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  mat-icon {
+    margin-right: 10px;
+  }
+}

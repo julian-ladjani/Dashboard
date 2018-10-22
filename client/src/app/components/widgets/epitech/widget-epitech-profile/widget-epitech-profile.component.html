@@ -1,0 +1,21 @@
+<div class="db-row-epitech">
+  <div>
+    <img class="center-image" *ngIf="!this.settings.infos.picture" src="https://intra.epitech.eu/staticb2ed16c919fc90d7223199a285f3ceb2da9fa630/img/nopicture-commentview.png">
+    <img class="center-image" *ngIf="this.settings.infos.picture" src="{{this.settings.infos.picture}}">
+    <p class="text-center">{{this.settings.infos?.title}}</p>
+    <p class="text-center">{{this.settings.infos?.login}}</p>
+  </div>
+  <div style="margin: 5px 5px">
+    <p class="text-center">G.P.A.</p>
+    <mat-progress-spinner mode="determinate" value="{{this.settings.infos?.gpa[0]?.gpa * 25}}"></mat-progress-spinner>
+    <div style="position:relative; top: -60px; left: 35px;">{{this.settings.infos?.gpa[0]?.gpa}}</div>
+  </div>
+  <div>
+    <div class="mat-icon-text">
+      <mat-icon>stars</mat-icon>{{this.settings.infos?.credits}} Credits
+    </div>
+    <div class="mat-icon-text">
+      <mat-icon>schedule</mat-icon>{{this.settings.infos?.log?.active}}h of log time
+    </div>
+  </div>
+</div>

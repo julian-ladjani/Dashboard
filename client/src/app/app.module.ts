@@ -16,6 +16,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTreeModule} from '@angular/material/tree';
 
@@ -43,6 +44,7 @@ import {WigdetSettingsComponent} from './components/widgets/widget-settings/wigd
 import { WidgetPokemonTeamComponent } from './components/widgets/pokemon/widget-pokemon-team/widget-pokemon-team.component';
 import { WidgetEpitechPlanningComponent } from './components/widgets/epitech/widget-epitech-planning/widget-epitech-planning.component';
 import { WidgetGithubReposComponent } from './components/widgets/github/widget-github-repos/widget-github-repos.component';
+import { WidgetEpitechProfileComponent } from './components/widgets/epitech/widget-epitech-profile/widget-epitech-profile.component';
 
 const appRoutes: Routes = [
     {
@@ -84,7 +86,8 @@ const appRoutes: Routes = [
     WidgetYoutubeVideoComponent,
     WidgetPokemonTeamComponent,
     WidgetEpitechPlanningComponent,
-    WidgetGithubReposComponent
+    WidgetGithubReposComponent,
+    WidgetEpitechProfileComponent
   ],
   entryComponents: [
       WigdetSettingsComponent,
@@ -98,6 +101,7 @@ const appRoutes: Routes = [
       WidgetPokemonTypeComponent,
       WidgetEpitechMessageComponent,
       WidgetEpitechPartnerComponent,
+      WidgetEpitechProfileComponent,
       WidgetEpitechPlanningComponent,
       WidgetNasaMarsPhotoComponent,
       WidgetYoutubeChannelComponent,
@@ -130,6 +134,7 @@ const appRoutes: Routes = [
       MatAutocompleteModule,
       MatChipsModule,
       MatProgressBarModule,
+      MatProgressSpinnerModule,
       GridsterModule,
       CarouselModule,
       WavesModule,
