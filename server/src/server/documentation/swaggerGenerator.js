@@ -5,6 +5,7 @@ const widgetConfig = require('../../api/config/widgets');
 const swaggerInfoPathGenerator = require('./swaggerInfoPathGenerator');
 const swaggerGettersGenerator = require('./swaggerGettersGenerator');
 const swaggerDeletersGenerator = require('./swaggerDeletersGenerator');
+const swaggerSettersGenerator = require('./swaggerSettersGenerator');
 const swaggerRootPathGenerator = require('./swaggerRootPathGenerator');
 const swaggerTagGenerator = require('./swaggerTagGenerator');
 const swaggerAboutGenerator = require('./swaggerGenerateAbout');
@@ -171,6 +172,7 @@ async function generateSwaggerDoc() {
     _.mergeWith(swaggerDocObj, await swaggerInfoPathGenerator());
     await swaggerGettersGenerator(swaggerDocObj);
     await swaggerDeletersGenerator(swaggerDocObj);
+    await swaggerSettersGenerator(swaggerDocObj);
     return swaggerDocObj;
 }
 

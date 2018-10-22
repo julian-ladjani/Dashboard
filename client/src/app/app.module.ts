@@ -8,9 +8,18 @@ import {GridsterModule} from 'angular-gridster2';
 import {HomeComponent} from './components/home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import {LoginPageComponent} from './components/login/login-page.component';
+import { DatePipe } from '@angular/common';
 
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatButtonModule, MatCheckboxModule, MatChipsModule, MatDialogModule, MatIconModule} from '@angular/material';
+import {
+    MatButtonModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatIconModule,
+    MatNativeDateModule
+} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -45,6 +54,7 @@ import { WidgetPokemonTeamComponent } from './components/widgets/pokemon/widget-
 import { WidgetEpitechPlanningComponent } from './components/widgets/epitech/widget-epitech-planning/widget-epitech-planning.component';
 import { WidgetGithubReposComponent } from './components/widgets/github/widget-github-repos/widget-github-repos.component';
 import { WidgetEpitechProfileComponent } from './components/widgets/epitech/widget-epitech-profile/widget-epitech-profile.component';
+import { WidgetGithubProfileComponent } from './components/widgets/github/widget-github-profile/widget-github-profile.component';
 
 const appRoutes: Routes = [
     {
@@ -87,7 +97,8 @@ const appRoutes: Routes = [
     WidgetPokemonTeamComponent,
     WidgetEpitechPlanningComponent,
     WidgetGithubReposComponent,
-    WidgetEpitechProfileComponent
+    WidgetEpitechProfileComponent,
+    WidgetGithubProfileComponent
   ],
   entryComponents: [
       WigdetSettingsComponent,
@@ -106,7 +117,8 @@ const appRoutes: Routes = [
       WidgetNasaMarsPhotoComponent,
       WidgetYoutubeChannelComponent,
       WidgetYoutubeVideoComponent,
-      WidgetGithubReposComponent
+      WidgetGithubReposComponent,
+      WidgetGithubProfileComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -134,13 +146,18 @@ const appRoutes: Routes = [
       MatAutocompleteModule,
       MatChipsModule,
       MatProgressBarModule,
+<<<<<<< HEAD
       MatProgressSpinnerModule,
+=======
+      MatDatepickerModule,
+      MatNativeDateModule,
+>>>>>>> 71e1743e83834fb17790a58a3a92bb2f14746aa3
       GridsterModule,
       CarouselModule,
       WavesModule,
       ButtonsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 

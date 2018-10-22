@@ -55,7 +55,6 @@ async function generateWidgetDeleters(widgetObj, swaggerDoc, serviceName) {
 async function generateServiceDeleters(serviceObj, swaggerDoc) {
     let widgets = Object.keys(serviceObj);
     for (let widget of widgets) {
-        console.log(widget);
         if (widget !== 'name' && widget !== 'controller') {
             let widgetObj = serviceObj[widget];
             await generateWidgetDeleters(widgetObj, swaggerDoc, serviceObj.name);
@@ -66,7 +65,6 @@ async function generateServiceDeleters(serviceObj, swaggerDoc) {
 module.exports = async function (swaggerDocObj) {
     let services = Object.keys(widgetConfig);
     for (let service of services) {
-        console.log(service);
         let serviceObj = widgetConfig[service];
         await generateServiceDeleters(serviceObj, swaggerDocObj);
     }

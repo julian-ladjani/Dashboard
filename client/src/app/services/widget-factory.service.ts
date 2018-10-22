@@ -21,6 +21,7 @@ import {WeatherComponent} from '../components/widgets/weather/weather-component'
 import {GithubComponent} from '../components/widgets/github/github-component';
 import {WidgetGithubReposComponent} from '../components/widgets/github/widget-github-repos/widget-github-repos.component';
 import {WidgetEpitechProfileComponent} from '../components/widgets/epitech/widget-epitech-profile/widget-epitech-profile.component';
+import {WidgetGithubProfileComponent} from '../components/widgets/github/widget-github-profile/widget-github-profile.component';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,7 @@ export class WidgetFactoryService {
         WidgetWeatherForecastComponent,
         WidgetYoutubeChannelComponent,
         WidgetYoutubeVideoComponent,
+        WidgetGithubProfileComponent,
         WidgetGithubReposComponent
     ];
 
