@@ -1,16 +1,16 @@
-<h1>List of {{settings.params.user}}'s repositories</h1>
-<mat-card *ngFor="let repo of settings.infos">
+<h1>List of {{settings?.params?.user}}'s repositories</h1>
+<mat-card *ngFor="let repo of settings?.infos">
   <h1>{{repo.name}}</h1>
   <div class="mat-icon-text">
-    <mat-icon>note_add</mat-icon>Created on {{repo.created_at}} by {{repo.creator}}
+    <mat-icon>note_add</mat-icon>Created on {{repo.created_at |  date:'dd/MM/yyyy'}} by {{repo.creator}}
   </div>
   <div class="mat-icon-text">
-    <mat-icon>update</mat-icon>Updated on {{repo.updated_at}}
+    <mat-icon>update</mat-icon>Updated on {{repo.updated_at |  date:'dd/MM/yyyy'}}
   </div>
   <div class="mat-icon-text">
     <mat-icon>code</mat-icon>Coded in {{repo.language}}
   </div>
   <div class="mat-icon-text">
-    <mat-icon>link</mat-icon><a href="{{repo.url}}" target="_blank" class="db-accent">Open this directory</a>
+    <mat-icon>link</mat-icon><a href="{{repo.url}}" target="_blank" class="db-accent">Open this repository</a>
   </div>
 </mat-card>

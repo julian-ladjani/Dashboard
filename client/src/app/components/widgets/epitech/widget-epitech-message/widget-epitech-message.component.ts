@@ -27,7 +27,7 @@ export class WidgetEpitechMessageComponent extends EpitechComponent implements O
 
     @Input() settings: SettingsContainer = new SettingsContainer(
         {autologin: '', message: 'message'},
-        {}
+        [{user: {title: 'User', picture: null}, class: 'Type', title: 'Notification', date: '00/00/00'}]
     );
 
     ngOnInit() {

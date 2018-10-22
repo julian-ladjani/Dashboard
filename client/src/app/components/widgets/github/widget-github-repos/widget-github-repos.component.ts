@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {EpitechComponent} from '../../epitech/epitech-component';
 import {SettingsContainer} from '../../../../objects/settings-container';
 import {GithubComponent} from '../github-component';
 
@@ -24,8 +23,12 @@ export class WidgetGithubReposComponent extends GithubComponent implements OnIni
 
     @Input() settings: SettingsContainer = new SettingsContainer(
         {token: '', user: 'yannicksuc'},
-        {}
+        [{
+            name: 'Repository', created_at: '0000-00-00T00:00:00Z', updated_at: '0000-00-00T00:00:00Z',
+            creator: 'somebody', language: 'Proccessing', url: 'https://github.com/'
+        }]
     );
 
     ngOnInit() {
     }
+}
