@@ -1,10 +1,20 @@
-<img mat-card-image src="{{settings.infos.avatar}}">
+<img mat-card-image src="{{settings.infos?.avatar}}">
 <mat-card-content>
-    <p>
-        {{settings.infos.bio}}
-    </p>
+    {{settings.infos?.bio}}
+    <div class="mat-icon-text">
+        <mat-icon>person</mat-icon>{{settings.infos?.login}}
+    </div>
+    <div class="mat-icon-text">
+        <mat-icon>home</mat-icon>{{settings.infos?.location}}
+    </div>
+    <div class="mat-icon-text">
+        <mat-icon>schedule</mat-icon>{{settings.infos?.created_at?.split('T')[0]}}
+    </div>
+  <p>
+    {{settings.infos?.bio}}
+  </p>
 </mat-card-content>
 
 <mat-card-actions>
-    <a mat-button href="{{settings.infos.url}}">GITHUB</a>
+  <a mat-button href="{{settings.infos?.url}}" target="_blank" color="accent">GITHUB</a>
 </mat-card-actions>
