@@ -6,8 +6,7 @@ const moment = require('moment');
 
 function checkNumber(input) {
     try {
-        const array = JSON.parse(input);
-        return array.every(x => typeof x === 'number');
+        return input.every(x => !isNaN(x));
     } catch(e) {
         return false;
     }
@@ -41,7 +40,7 @@ exports.getWidgetInfo = async function(params) {
                 }
                 let planning = Object.values(intraObj).filter(function(el) {
                     try {
-                        if (semester.find((x) => (el.semester === x || el.semester === 0)) !== undefined)
+                        if (semester.find((x) => el.semester === parseInt(x)) !== undefined)
                             return el;
                     }
                     catch (e) {
