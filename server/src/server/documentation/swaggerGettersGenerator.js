@@ -122,7 +122,6 @@ async function generateServiceGetters(serviceObj, swaggerDoc) {
     _.mergeWith(swaggerDoc, swaggerDocObj);
     let widgets = Object.keys(serviceObj);
     for (let widget of widgets) {
-        console.log(widget);
         if (widget !== 'name' && widget !== 'controller') {
             let widgetObj = serviceObj[widget];
             await generateWidgetGetters(widgetObj, swaggerDoc, serviceObj.name);
@@ -130,7 +129,6 @@ async function generateServiceGetters(serviceObj, swaggerDoc) {
     }
     widgets = Object.keys(serviceObj);
     for (let widget of widgets) {
-        console.log(widget);
         if (widget !== 'name' && widget !== 'controller') {
             let widgetObj = serviceObj[widget];
             await generateWidgetGettersUniqueId(widgetObj, swaggerDoc, serviceObj.name);
@@ -141,7 +139,6 @@ async function generateServiceGetters(serviceObj, swaggerDoc) {
 module.exports = async function (swaggerDocObj) {
     let services = Object.keys(widgetConfig);
     for (let service of services) {
-        console.log(service);
         let serviceObj = widgetConfig[service];
         await generateServiceGetters(serviceObj, swaggerDocObj);
     }
