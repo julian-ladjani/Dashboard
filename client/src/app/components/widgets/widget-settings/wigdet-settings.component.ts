@@ -2,8 +2,8 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {SettingEnum, SettingVariable} from '../../../objects/setting-variable';
 import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {DatePipe} from '@angular/common';
 
 @Component({
     selector: 'app-wigdet-settings',
@@ -16,11 +16,11 @@ export class WigdetSettingsComponent implements OnInit {
     infos: any;
     objectKeys = Object.keys;
     controllers = new Map<String, FormControl>();
-    knownTypes = ['Boolean', 'List', 'string', 'number'];
+    knownTypes = ['Boolean', 'List', 'string', 'number', 'Date'];
 
     constructor(
         public dialogRef: MatDialogRef<WigdetSettingsComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: SettingVariable[]) {
+        @Inject(MAT_DIALOG_DATA) public data: SettingVariable[], public datepipe: DatePipe) {
         this.settings = SettingEnum;
         this.params = data['params'];
         this.infos = data['infos'] ? data['infos'] : {};
@@ -45,6 +45,10 @@ export class WigdetSettingsComponent implements OnInit {
                     );
                 this.controllers[infoKey] = controller;
             }
+            if (this.infos[infoKey]['type'] === 'Date') {
+                const controller = new FormControl(new Date().toISOString());
+                this.controllers[infoKey] = controller;
+            }
         }
     }
 
@@ -53,6 +57,11 @@ export class WigdetSettingsComponent implements OnInit {
     }
 
     closeWindow() {
+        for (const key in this.params) {
+            if (this.checkType(key, 'Date')) {
+                this.params[key] = this.datepipe.transform(new Date(this.params[key]), 'yyyy-MM-dd');
+            }
+        }
         this.dialogRef.close({data: this.params});
     }
 
