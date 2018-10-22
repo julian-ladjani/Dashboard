@@ -146,12 +146,9 @@ const appRoutes: Routes = [
       MatAutocompleteModule,
       MatChipsModule,
       MatProgressBarModule,
-<<<<<<< HEAD
       MatProgressSpinnerModule,
-=======
       MatDatepickerModule,
       MatNativeDateModule,
->>>>>>> 71e1743e83834fb17790a58a3a92bb2f14746aa3
       GridsterModule,
       CarouselModule,
       WavesModule,
